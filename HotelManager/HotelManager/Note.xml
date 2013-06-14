@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ThemPhong>
+DataGridViewComboBoxColumn cmbTenLoaiPhong = new DataGridViewComboBoxColumn();
+cmbTenLoaiPhong.HeaderText = "Tên Loại Phòng";
+cmbTenLoaiPhong.Name = "colTenLoaiPhong";
+cmbTenLoaiPhong.MaxDropDownItems = 2;
+cmbTenLoaiPhong.Items.Add("10001");
+cmbTenLoaiPhong.Items.Add("10002");
+cmbTenLoaiPhong.Items.Add("10003");
+cmbTenLoaiPhong.Items.Add("10004");
+cmbTenLoaiPhong.Items.Add("10005");
+dgvKetQua.Columns.Add(cmbTenLoaiPhong);
+</ThemPhong>
+
+
+<TraCuuPhong>
+              #region dgvHienThi
+            //Mã Phòng
+            DataGridViewTextBoxColumn tbMaPhong = new DataGridViewTextBoxColumn();
+            tbMaPhong.HeaderText = "Mã Phòng";
+            tbMaPhong.Name = "colMaPhong";
+            tbMaPhong.ReadOnly = true;
+            tbMaPhong.ValueType = typeof(int);
+            dgvHienThi.Columns.Add(tbMaPhong);
+
+            //Tên Phòng
+            DataGridViewTextBoxColumn tbTenPhong = new DataGridViewTextBoxColumn();
+            tbTenPhong.HeaderText = "Tên Phòng";
+            tbTenPhong.Name = "colTenPhong";
+            tbTenPhong.ValueType = typeof(string);
+            dgvHienThi.Columns.Add(tbTenPhong);
+
+            //Loại Phòng
+            DataGridViewComboBoxColumn cmbMaLoaiPhong = new DataGridViewComboBoxColumn();
+            cmbMaLoaiPhong.HeaderText = "Mã Loại Phòng";
+            cmbMaLoaiPhong.Name = "colMaLoaiPhong";
+            cmbMaLoaiPhong.ValueType = typeof(int);
+            ArrayList listLoaiPhong = DataLoaiPhong.GetList();
+            foreach (LoaiPhong currentLoaiPhong in listLoaiPhong)
+            {
+                cmbMaLoaiPhong.Items.Add(currentLoaiPhong.MaLoaiPhong);
+                cbbMaLoaiPhong.Items.Add(currentLoaiPhong.MaLoaiPhong);
+                cbbTenLoaiPhong.Items.Add(currentLoaiPhong.TenLoaiPhong);
+            }
+
+            this.dgvHienThi.Columns.Add(cmbMaLoaiPhong);
+
+            //Tình trạng phòng
+            DataGridViewComboBoxColumn cmbTinhTrangPhong = new DataGridViewComboBoxColumn();
+            cmbTinhTrangPhong.HeaderText = "Đã đặt phòng?";
+            cmbTinhTrangPhong.Name = "colTinhTrangPhong";
+            cmbTinhTrangPhong.Items.Add(true);
+            cmbTinhTrangPhong.Items.Add(false);
+            cmbTinhTrangPhong.ValueType = typeof(bool);
+            dgvHienThi.Columns.Add(cmbTinhTrangPhong);
+
+            //Ghi chú
+            DataGridViewTextBoxColumn tbGhiChu = new DataGridViewTextBoxColumn();
+            tbGhiChu.HeaderText = "Ghi chú";
+            tbGhiChu.Name = "colGhiChu";
+            tbGhiChu.ValueType = typeof(string);
+            dgvHienThi.Columns.Add(tbGhiChu);
+
+            #endregion dgvHienThi
+</TraCuuPhong>

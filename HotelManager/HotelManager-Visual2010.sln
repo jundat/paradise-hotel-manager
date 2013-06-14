@@ -1,0 +1,47 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManager", "HotelManager\HotelManager.csproj", "{5F4EE079-8E71-4174-8E06-17C2817CF09A}"
+# Visual Studio 2010
+EndProject
+# Visual Studio 2010
+Global
+# Visual Studio 2010
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+# Visual Studio 2010
+		Debug|Any CPU = Debug|Any CPU
+# Visual Studio 2010
+		Debug|x86 = Debug|x86
+# Visual Studio 2010
+		Release|Any CPU = Release|Any CPU
+# Visual Studio 2010
+		Release|x86 = Release|x86
+# Visual Studio 2010
+	EndGlobalSection
+# Visual Studio 2010
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+# Visual Studio 2010
+		{5F4EE079-8E71-4174-8E06-17C2817CF09A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+# Visual Studio 2010
+		{5F4EE079-8E71-4174-8E06-17C2817CF09A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+# Visual Studio 2010
+		{5F4EE079-8E71-4174-8E06-17C2817CF09A}.Debug|x86.ActiveCfg = Debug|x86
+# Visual Studio 2010
+		{5F4EE079-8E71-4174-8E06-17C2817CF09A}.Debug|x86.Build.0 = Debug|x86
+# Visual Studio 2010
+		{5F4EE079-8E71-4174-8E06-17C2817CF09A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+# Visual Studio 2010
+		{5F4EE079-8E71-4174-8E06-17C2817CF09A}.Release|Any CPU.Build.0 = Release|Any CPU
+# Visual Studio 2010
+		{5F4EE079-8E71-4174-8E06-17C2817CF09A}.Release|x86.ActiveCfg = Release|x86
+# Visual Studio 2010
+		{5F4EE079-8E71-4174-8E06-17C2817CF09A}.Release|x86.Build.0 = Release|x86
+# Visual Studio 2010
+	EndGlobalSection
+# Visual Studio 2010
+	GlobalSection(SolutionProperties) = preSolution
+# Visual Studio 2010
+		HideSolutionNode = FALSE
+# Visual Studio 2010
+	EndGlobalSection
+# Visual Studio 2010
+EndGlobal
