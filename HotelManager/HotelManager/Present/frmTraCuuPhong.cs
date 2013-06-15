@@ -29,7 +29,7 @@ namespace HotelManager.Present
         {
             //cbbMaLoaiPhong & cbbTenLoaiPhong
             ArrayList listLoaiPhong = BusLoaiPhong.GetList();
-            foreach (LoaiPhong loaiPhong in listLoaiPhong)
+            foreach (DataLoaiPhong loaiPhong in listLoaiPhong)
             {
                 cbbMaLoaiPhong.Items.Add(loaiPhong.MaLoaiPhong);
                 cbbTenLoaiPhong.Items.Add(loaiPhong.TenLoaiPhong);

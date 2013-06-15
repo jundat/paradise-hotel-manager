@@ -38,7 +38,7 @@ namespace HotelManager.Present
             cmbMaLoaiPhong.Name = "colMaLoaiPhong";
             cmbMaLoaiPhong.ValueType = typeof(int);
             ArrayList listLoaiPhong = BusLoaiPhong.GetList();
-            foreach (LoaiPhong loaiPhong in listLoaiPhong)
+            foreach (DataLoaiPhong loaiPhong in listLoaiPhong)
             {
                 cmbMaLoaiPhong.Items.Add(loaiPhong.MaLoaiPhong);
             }

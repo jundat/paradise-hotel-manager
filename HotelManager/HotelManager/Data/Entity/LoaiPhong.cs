@@ -11,6 +11,13 @@ namespace HotelManager.Data.Entity
         public String TenLoaiPhong;
         public float DonGia;
 
+        public LoaiPhong()
+        {
+            MaLoaiPhong = 0;
+            TenLoaiPhong = "";
+            DonGia = 0;
+        }
+
         public LoaiPhong(int _maLoaiPhong, String _tenLoaiPhong, float _donGia)
         {
             MaLoaiPhong = _maLoaiPhong;

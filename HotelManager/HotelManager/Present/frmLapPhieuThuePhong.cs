@@ -15,7 +15,7 @@ namespace HotelManager.Present
     public partial class frmLapPhieuThuePhong : Form
     {
         Phong phongDuocChon;
-        LoaiPhong loaiphongDuocChon;
+        DataLoaiPhong loaiphongDuocChon;
 
         public frmLapPhieuThuePhong()
         {
@@ -248,7 +248,7 @@ namespace HotelManager.Present
                             txtMaLoaiPhong.Text = phong.MaLoaiPhong + "";
                             txtTinhTrang.Text = phong.TinhTrang ? "Đã thuê" : "Còn trống";
 
-                            LoaiPhong lp = DataLoaiPhong.Find(phong.MaLoaiPhong);
+                            DataLoaiPhong lp = DataLoaiPhong.Find(phong.MaLoaiPhong);
                             txtTenLoaiPhong.Text = lp.TenLoaiPhong;
                             txtDonGia.Text = lp.DonGia + "";
 
@@ -275,7 +275,7 @@ namespace HotelManager.Present
                             txtMaLoaiPhong.Text = phong.MaLoaiPhong + "";
                             txtTinhTrang.Text = phong.TinhTrang ? "Đã thuê" : "Còn trống";
 
-                            LoaiPhong lp = DataLoaiPhong.Find(phong.MaLoaiPhong);
+                            DataLoaiPhong lp = DataLoaiPhong.Find(phong.MaLoaiPhong);
                             txtTenLoaiPhong.Text = lp.TenLoaiPhong;
                             txtDonGia.Text = lp.DonGia + "";
 
