@@ -110,16 +110,14 @@
     <Compile Include="Data\DataPhuThu.cs" />
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="Data\DataThamSo.cs" />
-    <Compile Include="Data\Entity\BCMD.cs" />
-    <Compile Include="Data\Entity\ChiTietBCMD.cs" />
-    <Compile Include="Data\Entity\ChiTietPhieuThue.cs" />
-    <Compile Include="Data\Entity\EntityAbstract.cs" />
-    <Compile Include="Data\Entity\HoaDon.cs" />
-    <Compile Include="Data\Entity\LoaiKhach.cs" />
+    <Compile Include="Data\Entity\BangKe.cs" />
+    <Compile Include="Data\Entity\ChiTietBangKe.cs" />
+    <Compile Include="Data\Entity\BaoCaoDoanhThu.cs" />
+    <Compile Include="Data\Entity\ChiTietPhieuDatCho.cs" />
     <Compile Include="Data\Entity\LoaiPhong.cs" />
-    <Compile Include="Data\Entity\PhieuThuePhong.cs" />
+    <Compile Include="Data\Entity\PhieuDatCho.cs" />
     <Compile Include="Data\Entity\Phong.cs" />
-    <Compile Include="Data\Entity\PhuThu.cs" />
+    <Compile Include="Data\Entity\QuyDinh.cs" />
     <Compile Include="Present\frmBaoCaoMDSD.cs">
       <SubType>Form</SubType>
     </Compile>
