@@ -11,6 +11,13 @@ namespace HotelManager.Data.Entity
         public string TenLoaiPhi;
         public string GhiChu;
 
+        public LoaiPhi()
+        {
+            MaLoaiPhi = 0;
+            TenLoaiPhi = "";
+            GhiChu = "";
+        }
+
         public LoaiPhi(int maloaiphi, string tenloaiphi, string ghichu)
         {
             MaLoaiPhi = maloaiphi;

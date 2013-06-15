@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace QLNHKS
+namespace HotelManager.Data
 {
     /// <summary>
     /// The Singleton class
@@ -86,6 +86,12 @@ namespace QLNHKS
         public MySqlCommand getCommand()
         {
             return _command;
+        }
+
+
+        public MySqlConnection getConnection()
+        {
+            return _connection;
         }
     }
 }

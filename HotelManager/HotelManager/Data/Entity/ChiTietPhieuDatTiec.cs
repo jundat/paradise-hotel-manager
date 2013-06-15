@@ -14,6 +14,16 @@ namespace HotelManager.Data.Entity
         public int SoLuong;
         public string YeuCau;
 
+        public ChiTietPhieuDatTiec()
+        {
+            MaChiTietPhieuDatTiec = 0;
+            MaPhieuDatTiec = 0;
+            TenMon = "";
+            DonGia = 0;
+            SoLuong = 0;
+            YeuCau = "";
+        }
+
         public ChiTietPhieuDatTiec(int machitiet, int maphieu, string tenmon, float dongia, int soluong, string yeucau)
         {
             MaChiTietPhieuDatTiec = machitiet;

@@ -12,6 +12,14 @@ namespace HotelManager.Data.Entity
         public int MaLoaiPhi;
         public float SoTienThu;
 
+        public ChiTietPhieuThu()
+        {
+            MaChiTietPhieuThu = 0;
+            MaPhieuThu = 0;
+            MaLoaiPhi = 0;
+            SoTienThu = 0;
+        }
+
         public ChiTietPhieuThu(int machitiet, int maphieu, int maloaiphi, float sotien)
         {
             MaChiTietPhieuThu = machitiet;

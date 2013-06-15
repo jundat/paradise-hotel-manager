@@ -15,6 +15,16 @@ namespace HotelManager.Data.Entity
         public float TongChiPhi;
         public bool TinhTrangThanhToan;
 
+        public PhieuDen()
+        {
+            MaPhieuDen = 0;
+            TenKhachDaiDien = "";
+            ThoiDiemDen = new DateTime();
+            ThoiDiemDi = new DateTime();
+            TongChiPhi = 0;
+            TinhTrangThanhToan = false;
+        }
+
         public PhieuDen(int maphieu, string tenkhach, string cmnd, DateTime thoidiemden, DateTime thoidiemdi, float tongchiphi, bool tinhtrangthanhtoan)
         {
             MaPhieuDen = maphieu;

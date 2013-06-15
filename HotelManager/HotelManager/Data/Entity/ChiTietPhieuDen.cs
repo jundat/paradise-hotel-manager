@@ -13,6 +13,15 @@ namespace HotelManager.Data.Entity
         public string CMND;
         public float DonGia;
 
+        public ChiTietPhieuDen()
+        {
+            MaChiTietPhieuDen = 0;
+            MaPhieuDen = 0;
+            TenKhachHang = "";
+            CMND = "";
+            DonGia = 0;
+        }
+
         public ChiTietPhieuDen(int machitiet, int maphieuden, string tenkhach, string cmnd, float dongia)
         {
             MaChiTietPhieuDen = machitiet;

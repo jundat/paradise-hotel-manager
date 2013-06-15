@@ -98,6 +98,7 @@
     <Compile Include="Business\BusThamSo.cs" />
     <Compile Include="Business\Exporter.cs" />
     <Compile Include="Business\Supporter.cs" />
+    <Compile Include="Data\DataNhanVien.cs" />
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="Data\Entity\BangKe.cs" />
     <Compile Include="Data\Entity\BaoCaoDoanhThu.cs" />
