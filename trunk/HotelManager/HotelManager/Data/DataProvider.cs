@@ -2,42 +2,64 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.OleDb;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
-
-namespace HotelManager.Data
+namespace QLNHKS
 {
-    class DataProvider : DataAbstract
+    class DataProvider
     {
-        private static OleDbConnection ObjCn;
-        private static string file = "hotel.mdb";
-        private static string user = "admin";
-        private static string pass = "tanlong";
+        private static DataProvider _instance;
 
-        /// <summary>
-        /// Trả về 1 connection đã được mở
-        /// </summary>
-        /// <returns></returns>
-        public static OleDbConnection ConnectionData()
+        private MySqlConnection _connection;
+        private String _connectString;
+        private MySqlCommand _command;
+
+        private DataProvider()
         {
-            if (ObjCn == null)
-            {
-                string ChuoiConnect =
-                    "Provider = Microsoft.Jet.OLEDB.4.0 " +
-                    ";Data Source =" + System.Windows.Forms.Application.StartupPath + @"\" + file +
-                    ";Jet OLEDB:Database Password = " + pass +
-                    ";User ID = " + user;
-
-                ObjCn = new OleDbConnection(ChuoiConnect);
-            }
-
-            if (ObjCn.State != System.Data.ConnectionState.Open)
-            {
-                ObjCn.Open();
-            }
-
-            return ObjCn;
+            _connectString = @"server=localhost;userid=root;password=cvbnmcvbnm;database=qlnhks";
+            _connection = new MySqlConnection(_connectString);
+            _command = new MySqlCommand();
+            _command.Connection = _connection;
         }
-        
+
+        public static DataProvider getInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new DataProvider();
+            }
+
+            return DataProvider._instance;
+        }
+
+        public void CloseConnection()
+        {
+            if (_connection != null)
+            {
+                _connection.Close();
+                MessageBox.Show("We have Closeed QLNHKS database connection !", "Close Connect Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void OpenConnection()
+        {
+            try
+            {
+                _connection.Open();
+
+                MessageBox.Show("We have connected with QLNHKS database", "Connect Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.ToString(), "Error Connect to QLNHKS database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public MySqlCommand getCommand()
+        {
+            return _command;
+        }
     }
 }
