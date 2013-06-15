@@ -14,6 +14,16 @@ namespace HotelManager.Data.Entity
         public DateTime ThoiDiemThu;
         public float TongTienThu;
 
+        public PhieuThu()
+        {
+            MaPhieuThu = 0;
+            TenKhach = "";
+            CMND = "";
+            MaNhanVien = 0;
+            ThoiDiemThu = new DateTime();
+            TongTienThu = 0;
+        }
+
         public PhieuThu(int maphieu, string tenkhach, string cmnd, int manhanvien, DateTime thoidiemthu, float tongtien)
         {
             MaPhieuThu = maphieu;
