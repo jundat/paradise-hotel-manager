@@ -98,7 +98,14 @@
     <Compile Include="Business\BusThamSo.cs" />
     <Compile Include="Business\Exporter.cs" />
     <Compile Include="Business\Supporter.cs" />
+    <Compile Include="Data\DataChiTietPhieuDatTiec.cs" />
+    <Compile Include="Data\DataChiTietPhieuDen.cs" />
+    <Compile Include="Data\DataChiTietPhieuThu.cs" />
+    <Compile Include="Data\DataLoaiPhi.cs" />
     <Compile Include="Data\DataNhanVien.cs" />
+    <Compile Include="Data\DataPhieuDatTiec.cs" />
+    <Compile Include="Data\DataPhieuDen.cs" />
+    <Compile Include="Data\DataPhieuThu.cs" />
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="Data\Entity\BangKe.cs" />
     <Compile Include="Data\Entity\BaoCaoDoanhThu.cs" />
@@ -116,7 +123,6 @@
     <Compile Include="Data\Entity\PhieuThu.cs" />
     <Compile Include="Data\Entity\Phong.cs" />
     <Compile Include="Data\Entity\QuyDinh.cs" />
-    <Compile Include="Data\DataLoaiPhong.cs" />
     <Compile Include="Present\frmBaoCaoMDSD.cs">
       <SubType>Form</SubType>
     </Compile>

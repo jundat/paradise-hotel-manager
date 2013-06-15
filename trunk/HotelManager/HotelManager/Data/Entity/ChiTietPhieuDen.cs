@@ -9,6 +9,7 @@ namespace HotelManager.Data.Entity
     {
         public int MaChiTietPhieuDen;
         public int MaPhieuDen;
+        public int MaPhong;
         public string TenKhachHang;
         public string CMND;
         public float DonGia;
@@ -17,15 +18,17 @@ namespace HotelManager.Data.Entity
         {
             MaChiTietPhieuDen = 0;
             MaPhieuDen = 0;
+            MaPhong = 0;
             TenKhachHang = "";
             CMND = "";
             DonGia = 0;
         }
 
-        public ChiTietPhieuDen(int machitiet, int maphieuden, string tenkhach, string cmnd, float dongia)
+        public ChiTietPhieuDen(int machitiet, int maphieuden, int maphong, string tenkhach, string cmnd, float dongia)
         {
             MaChiTietPhieuDen = machitiet;
             MaPhieuDen = maphieuden;
+            MaPhong = maphong;
             TenKhachHang = tenkhach;
             CMND = cmnd;
             DonGia = dongia;

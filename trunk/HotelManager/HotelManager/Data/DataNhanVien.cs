@@ -84,7 +84,7 @@ namespace HotelManager.Data
             {
                 MySqlConnection ObjCn = DataProvider.getInstance().getConnection();
 
-                string StrSQL = "INSERT INTO nhan_vien(MaNhanVien, TenNhanVien, DiaChi, SDT, ChucVu, UserName, Password) VALUES(?, ?, ?, ?, ?, ?, ?);";
+                string StrSQL = "INSERT INTO nhan_vien(TenNhanVien, DiaChi, SDT, ChucVu, UserName, Password) VALUES(?, ?, ?, ?, ?, ?);";
                 MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
 
                 ObjCmd.Parameters.Add("@TenNhanVien", MySqlDbType.String).Value = nhanvien.TenNhanVien;
