@@ -116,7 +116,7 @@
     <Compile Include="Data\Entity\PhieuThu.cs" />
     <Compile Include="Data\Entity\Phong.cs" />
     <Compile Include="Data\Entity\QuyDinh.cs" />
-    <Compile Include="Data\LoaiPhong.cs" />
+    <Compile Include="Data\DataLoaiPhong.cs" />
     <Compile Include="Present\frmBaoCaoMDSD.cs">
       <SubType>Form</SubType>
     </Compile>
