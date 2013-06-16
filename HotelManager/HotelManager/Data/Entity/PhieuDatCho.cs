@@ -16,6 +16,18 @@ namespace HotelManager.Data.Entity
         public DateTime ThoiDiemDen;
         public DateTime ThoiDiemDi;
 
+        public PhieuDatCho()
+        {
+            MaPhieuDatCho = 0;
+            TenNguoiDatCho = "";
+            SDT = "";
+            DiaChi = "";
+            TongCoc = 0;
+            ThoiDiemDat = new DateTime();
+            ThoiDiemDen = new DateTime();
+            ThoiDiemDi = new DateTime();
+        }
+
         public PhieuDatCho(int _maPhieDatCho, String _tenNguoiDatCho, String _sdt, String _diaChi, float _tongCoc, DateTime _thoiDiemDat, DateTime _thoiDiemDen, DateTime _thoiDiemDi)
         {
             MaPhieuDatCho = _maPhieDatCho;

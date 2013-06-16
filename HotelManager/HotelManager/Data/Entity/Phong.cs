@@ -12,6 +12,14 @@ namespace HotelManager.Data.Entity
         public Boolean TinhTrangHienTai;
         public String MoTa;
 
+        public Phong()
+        {
+            MaPhong = 0;
+            MaLoaiPhong = 0;
+            TinhTrangHienTai = true;
+            MoTa = "";
+        }
+
         public Phong(int _maPhong, int _maLoaiPhong, Boolean _tinhTrangPhong, String _moTa)
         {
             MaPhong = _maPhong;
