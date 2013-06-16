@@ -1,0 +1,157 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using System.Collections;
+using MySql.Data.MySqlClient;
+using HotelManager.Data.Entity;
+using System.Data;
+using System.Windows.Forms;
+
+namespace HotelManager.Data
+{
+    /// <summary>
+    /// Thao tác với bảng CHI_TIẾT_PHIẾU_ĐẶT_CHỖ
+    /// </summary>
+    class DataChiTietPhieuDatCho
+    {
+        /// <summary>
+        /// Lấy bảng CHI_TIET_PHIEU_DAT_CHO
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetTable()
+        {
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "SELECT * FROM chi_tiet_phieu_dat_cho";
+            DataTable dataTable = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+
+            return dataTable;
+        }
+
+        /// <summary>
+        /// update dữ liệu mới
+        /// </summary>
+        /// <param name="dt"></param>
+        public static void UpdateTable(DataTable dataTable)
+        {
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "SELECT * FROM chi_tiet_phieu_dat_cho";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+
+            MySqlCommandBuilder commandBuider = new MySqlCommandBuilder(adapter);
+
+            adapter.Update(dataTable);
+        }
+
+        /// <summary>
+        /// Lấy list các CHI_TIET_PHIEU_DAT_CHO
+        /// </summary>
+        /// <returns></returns>
+        public static ArrayList GetList()
+        {
+            ArrayList _arrayList = new ArrayList();
+
+            // Lấy và chuẩn bị command cho truy vấn
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "SELECT * FROM chi_tiet_phieu_dat_cho";
+
+            MySqlDataReader dataReader = null;
+
+            try
+            {
+                // Thực thi truy vấn
+                dataReader = cmd.ExecuteReader();
+
+                // Lấy dữ liệu trả ra từ truy vấn rồi gán cho baoCaoDoanhThu
+                while (dataReader.Read())
+                {
+                    ChiTietPhieuDatCho _chiTietPhieuDatCho = new ChiTietPhieuDatCho();
+
+                    _chiTietPhieuDatCho.MaChiTietPhieuDatCho = (int)dataReader["MaChiTietPhieuDatCho"];
+                    _chiTietPhieuDatCho.MaPhieuDatCho = (int)dataReader["MaPhieuDatCho"];
+                    _chiTietPhieuDatCho.MaPhong = (int)dataReader["MaPhong"];
+                    _chiTietPhieuDatCho.DonGia = (float)dataReader["DonGia"];
+                    _chiTietPhieuDatCho.Coc = (float)dataReader["Coc"];
+
+                    _arrayList.Add(_chiTietPhieuDatCho);
+                }
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString(), "Error Execute query: GetList CHI_TIET_PHIEU_DAT_CHO table !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null)
+                {
+                    dataReader.Close();
+                }
+            }
+
+            return _arrayList;
+        }
+
+
+
+        /// <summary>
+        /// Thêm chi tiết phiếu đặt tiệc vào bảng CHI_TIET_PHIEU_DAT_CHO
+        /// </summary>
+        /// <param name="_chiTietPhieuDatCho"></param>
+        public static void Add(ChiTietPhieuDatCho _chiTietPhieuDatCho)
+        {
+            // Chuẩn bị kết nối
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "INSERT INTO chi_tiet_phieu_dat_cho(MaPhieuDatCho, MaPhong, DonGia, Coc) values(?, ?, ?, ?)";
+            
+            // Tryền tham số cho truy vấn
+            cmd.Parameters.Add("@MaPhieuDatCho", MySqlDbType.Int32).Value = _chiTietPhieuDatCho.MaPhieuDatCho;
+            cmd.Parameters.Add("@MaPhong", MySqlDbType.Int32).Value = _chiTietPhieuDatCho.MaPhong;
+            cmd.Parameters.Add("@DonGia", MySqlDbType.Float).Value = _chiTietPhieuDatCho.DonGia;
+            cmd.Parameters.Add("@Coc", MySqlDbType.Float).Value = _chiTietPhieuDatCho.Coc;
+
+            // Thực hiện truy vấn
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "Select @@IDENTITY";
+            _chiTietPhieuDatCho.MaChiTietPhieuDatCho = (int)cmd.ExecuteScalar();
+            
+        }
+
+        /// <summary>
+        /// Xoá chi tiết phiếu thuê đặt tiệc
+        /// </summary>
+        /// <param name="_maChiTietPhieuDatTiec"></param>
+        public static void Delete(int _maChiTietPhieuDatTiec)
+        {
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "DELETE FROM chi_tiet_phieu_dat_cho WHERE MaChiTietPhieuDatTiec = " + _maChiTietPhieuDatTiec;
+            cmd.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Sửa 1 chi tiết phiếu thuê
+        /// </summary>
+        /// <param name="_chiTietPhieuDatCho"></param>
+        public static void UpdateChiTietPhieuDatCho(ChiTietPhieuDatCho _chiTietPhieuDatCho)
+        {
+            // Chuẩn bị kết nối
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "UPDATE chi_tiet_phieu_dat_cho SET MaPhieuDatCho = ?, MaPhong = ?, DonGia = ?, Coc = ? WHERE MaChiTietPhieuDatCho = ?";
+            
+            // Truyền tham số cho truy vấn
+            cmd.Parameters.Add("@MaChiTietPhieuDatCho", MySqlDbType.Int32).Value = _chiTietPhieuDatCho.MaChiTietPhieuDatCho;
+            cmd.Parameters.Add("@MaPhieuDatCho", MySqlDbType.Int32).Value = _chiTietPhieuDatCho.MaPhieuDatCho;
+            cmd.Parameters.Add("@MaPhong", MySqlDbType.Int32).Value = _chiTietPhieuDatCho.MaPhong;
+            cmd.Parameters.Add("@DonGia", MySqlDbType.Float).Value = _chiTietPhieuDatCho.DonGia;
+            cmd.Parameters.Add("@Coc", MySqlDbType.Float).Value = _chiTietPhieuDatCho.Coc;
+
+            // Thực thi truy vấn
+            cmd.ExecuteNonQuery();
+        }
+
+    }
+}
