@@ -20,7 +20,7 @@ namespace HotelManager.Data
         /// Lấy danh sách loại phòng, dưới dạng List
         /// </summary>
         /// <returns></returns>
-        public static IList GetList()
+        public static ArrayList GetList()
         {
             // Lấy command
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
@@ -90,8 +90,6 @@ namespace HotelManager.Data
             adapter.Update(dataTable);
         }
 
-
-
         /// <summary>
         /// Thêm Loại Phòng
         /// </summary>
@@ -130,7 +128,7 @@ namespace HotelManager.Data
         /// <summary>
         /// Sửa 1 Loại Phòng
         /// </summary>
-        /// <param name="_phieu"></param>
+        /// <param name="_loaiPhong"></param>
         public static void UpdateLoaiPhong(LoaiPhong _loaiPhong)
         {
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
@@ -143,7 +141,11 @@ namespace HotelManager.Data
             cmd.ExecuteNonQuery();
         }
 
-
+        /// <summary>
+        /// Tìm kiếm Loai Phòng theo mã của nó
+        /// </summary>
+        /// <param name="_maLoaiPhong"></param>
+        /// <returns></returns>
         public static LoaiPhong Find(int _maLoaiPhong)
         {
             LoaiPhong loaiPhong = new LoaiPhong();

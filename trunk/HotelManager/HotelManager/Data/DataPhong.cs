@@ -100,11 +100,11 @@ namespace HotelManager.Data
         /// <returns></returns>
         public static bool AddPhong(Phong phong)
         {
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "INSERT INTO phong(MaPhong, MaLoaiPhong, TinhTrangHienTai, MoTa) VALUES(?, ?, ?, ?);";
+            
             try
             {
-                MySqlCommand cmd = DataProvider.getInstance().getCommand();
-                cmd.CommandText = "INSERT INTO phong(MaPhong, MaLoaiPhong, TinhTrangHienTai, MoTa) VALUES(?, ?, ?, ?);";
-
                 cmd.Parameters.Add("@MaLoaiPhong", MySqlDbType.Int32).Value = phong.MaLoaiPhong;
                 cmd.Parameters.Add("@TinhTrangHienTai", MySqlDbType.Byte).Value = phong.TinhTrangHienTai;
                 cmd.Parameters.Add("@MoTa", MySqlDbType.String).Value = phong.MoTa;
@@ -184,23 +184,6 @@ namespace HotelManager.Data
             }
 
             return phong;
-        }
-
-        /// <summary>
-        /// Tìm kiếm 1 phòng thông qua MaPhong
-        /// </summary>
-        /// <param name="_maPhong"></param>
-        /// <returns>DataTable</returns>
-        public static DataTable FindMaPhong(int _maPhong)
-        {
-            DataTable dataTable = new DataTable();
-            MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "SELECT * FROM phong WHERE MaPhong = ?";
-            cmd.Parameters.Add("@MaPhong", MySqlDbType.Int32).Value = _maPhong;
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            adapter.Fill(dataTable);
-
-            return dataTable;
         }
 
         /// <summary>

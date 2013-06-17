@@ -164,9 +164,9 @@ namespace HotelManager.Data
         /// <summary>
         /// Tìm kiếm phiếu đặt chỗ theo Mã phiếu đặt chỗ
         /// </summary>
-        /// <param name="MaPhieuDatCho"></param>
+        /// <param name="_maPhieuDatCho"></param>
         /// <returns></returns>
-        public static PhieuDatCho Find(int MaPhieuDatCho)
+        public static PhieuDatCho Find(int _maPhieuDatCho)
         {
             PhieuDatCho phieuDatCho = new PhieuDatCho();
 
@@ -174,7 +174,7 @@ namespace HotelManager.Data
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "SELECT * FROM PhieuDatChoPHONG WHERE MaPhieuDatCho = ?";
 
-            cmd.Parameters.Add("@MaPhieuDatCho", MySqlDbType.Int32).Value = MaPhieuDatCho;
+            cmd.Parameters.Add("@MaPhieuDatCho", MySqlDbType.Int32).Value = _maPhieuDatCho;
 
             MySqlDataReader dataReader = null;
 

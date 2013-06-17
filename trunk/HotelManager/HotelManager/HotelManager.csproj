@@ -86,16 +86,14 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\BusAbstract.cs" />
-    <Compile Include="Business\BusBCMD.cs" />
-    <Compile Include="Business\BusChiTietBCMD.cs" />
-    <Compile Include="Business\BusChiTietPhieuThue.cs" />
-    <Compile Include="Business\BusLoaiKhach.cs" />
+    <Compile Include="Business\BusBangKe.cs" />
+    <Compile Include="Business\BusChiTietBangKe.cs" />
+    <Compile Include="Business\BusChiTietPhieuDatCho.cs" />
     <Compile Include="Business\BusLoaiPhong.cs" />
-    <Compile Include="Business\BusPhieuThuePhong.cs" />
+    <Compile Include="Business\BusPhieuDatCho.cs" />
     <Compile Include="Business\BusPhong.cs" />
-    <Compile Include="Business\BusPhuThu.cs" />
-    <Compile Include="Business\BusThamSo.cs" />
+    <Compile Include="Business\BusBaoCaoDoanhThu.cs" />
+    <Compile Include="Business\BusQuyDinh.cs" />
     <Compile Include="Business\Exporter.cs" />
     <Compile Include="Business\Supporter.cs" />
     <Compile Include="Data\DataBangKe.cs" />

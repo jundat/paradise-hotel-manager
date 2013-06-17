@@ -17,7 +17,7 @@ namespace HotelManager.Data
         /// Lấy danh sách các Chi Tiết Bảng Kê dưới dạng List
         /// </summary>
         /// <returns></returns>
-        public static IList GetList()
+        public static ArrayList GetList()
         {
             // Lấy command
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
@@ -160,35 +160,6 @@ namespace HotelManager.Data
             cmd.CommandText = "SELECT * FROM chi_tiet_bang_ke WHERE MaChiTietBangKe = ?";
 
             cmd.Parameters.Add("@MaChiTietBangKe", MySqlDbType.Int32).Value = _maChiTietBangKe;
-
-            MySqlDataReader dataReader;
-            dataReader = cmd.ExecuteReader();
-
-            if (dataReader.Read())
-            {
-                ChiTietBangKe.MaChiTietBangKe = (int)dataReader["MaChiTietBangKe"];
-                ChiTietBangKe.MaBangKe = (int)dataReader["MaBangKe"];
-                ChiTietBangKe.TenDichVu = (String)dataReader["TenDichVu"];
-                ChiTietBangKe.ThoiDiemGoi = (DateTime)dataReader["ThoiDiemGoi"];
-                ChiTietBangKe.DonGia = (float)dataReader["DonGia"];
-                ChiTietBangKe.SoLuong = (int)dataReader["SoLuong"];
-                ChiTietBangKe.GhiChu = (String)dataReader["GhiChu"];
-            }
-
-            return ChiTietBangKe;
-        }
-
-        /// Tìm kiêm một Bảng kê thông qua Mã Chi Tiết bảng kê
-        /// </summary>
-        /// <param name="_maLoaiPhong"></param>
-        /// <returns></returns>
-        public static ChiTietBangKe Find(int _maBangKe)
-        {
-            ChiTietBangKe ChiTietBangKe = new ChiTietBangKe();
-            MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "SELECT * FROM chi_tiet_bang_ke WHERE MaBangKe = ?";
-
-            cmd.Parameters.Add("@MaBangKe", MySqlDbType.Int32).Value = _maBangKe;
 
             MySqlDataReader dataReader;
             dataReader = cmd.ExecuteReader();
