@@ -20,7 +20,7 @@ namespace HotelManager.Data
         /// Lấy danh sách các bảng kê dưới dạng List
         /// </summary>
         /// <returns></returns>
-        public static IList GetList()
+        public static ArrayList GetList()
         {
             // Lấy command
             MySqlCommand cmd = DataProvider.getInstance().getCommand();

@@ -95,8 +95,6 @@ namespace HotelManager.Data
             return _arrayList;
         }
 
-
-
         /// <summary>
         /// Thêm chi tiết phiếu đặt tiệc vào bảng CHI_TIET_PHIEU_DAT_CHO
         /// </summary>
@@ -122,13 +120,13 @@ namespace HotelManager.Data
         }
 
         /// <summary>
-        /// Xoá chi tiết phiếu thuê đặt tiệc
+        /// Xoá chi tiết phiếu thuê đặt chỗ
         /// </summary>
-        /// <param name="_maChiTietPhieuDatTiec"></param>
-        public static void Delete(int _maChiTietPhieuDatTiec)
+        /// <param name="_maChiTietPhieuDatCho"></param>
+        public static void Delete(int _maChiTietPhieuDatCho)
         {
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "DELETE FROM chi_tiet_phieu_dat_cho WHERE MaChiTietPhieuDatTiec = " + _maChiTietPhieuDatTiec;
+            cmd.CommandText = "DELETE FROM chi_tiet_phieu_dat_cho WHERE MaChiTietPhieuDatCho = " + _maChiTietPhieuDatCho;
             cmd.ExecuteNonQuery();
         }
 
