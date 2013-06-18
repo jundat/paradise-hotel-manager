@@ -30,27 +30,27 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtthoidiemthu = new System.Windows.Forms.DateTimePicker();
+            this.textbox1 = new System.Windows.Forms.TextBox();
             this.txtcmnd = new System.Windows.Forms.TextBox();
             this.txtkhachhang = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtnhanvien = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textbox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dtthoidiemthu = new System.Windows.Forms.DateTimePicker();
             this.coltenloaiphi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaPhieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coldongia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colghichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtphithiethai = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txttongchiphi = new System.Windows.Forms.TextBox();
-            this.btinphieuthu = new System.Windows.Forms.Button();
             this.txtthanhtoan = new System.Windows.Forms.Button();
+            this.btinphieuthu = new System.Windows.Forms.Button();
+            this.txttongchiphi = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtphithiethai = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -91,6 +91,20 @@
             this.panel1.Size = new System.Drawing.Size(630, 93);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // dtthoidiemthu
+            // 
+            this.dtthoidiemthu.Location = new System.Drawing.Point(116, 52);
+            this.dtthoidiemthu.Name = "dtthoidiemthu";
+            this.dtthoidiemthu.Size = new System.Drawing.Size(202, 20);
+            this.dtthoidiemthu.TabIndex = 8;
+            // 
+            // textbox1
+            // 
+            this.textbox1.Location = new System.Drawing.Point(416, 48);
+            this.textbox1.Name = "textbox1";
+            this.textbox1.Size = new System.Drawing.Size(202, 20);
+            this.textbox1.TabIndex = 7;
             // 
             // txtcmnd
             // 
@@ -151,13 +165,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Khách hàng";
             // 
-            // textbox1
-            // 
-            this.textbox1.Location = new System.Drawing.Point(416, 48);
-            this.textbox1.Name = "textbox1";
-            this.textbox1.Size = new System.Drawing.Size(202, 20);
-            this.textbox1.TabIndex = 7;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
@@ -183,13 +190,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(624, 163);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // dtthoidiemthu
-            // 
-            this.dtthoidiemthu.Location = new System.Drawing.Point(116, 52);
-            this.dtthoidiemthu.Name = "dtthoidiemthu";
-            this.dtthoidiemthu.Size = new System.Drawing.Size(202, 20);
-            this.dtthoidiemthu.TabIndex = 8;
             // 
             // coltenloaiphi
             // 
@@ -229,23 +229,32 @@
             this.panel2.Size = new System.Drawing.Size(630, 138);
             this.panel2.TabIndex = 2;
             // 
-            // label3
+            // txtthanhtoan
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(284, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Phí thiệt hại";
+            this.txtthanhtoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtthanhtoan.Location = new System.Drawing.Point(484, 96);
+            this.txtthanhtoan.Name = "txtthanhtoan";
+            this.txtthanhtoan.Size = new System.Drawing.Size(96, 23);
+            this.txtthanhtoan.TabIndex = 9;
+            this.txtthanhtoan.Text = "Thanh toán";
+            this.txtthanhtoan.UseVisualStyleBackColor = true;
             // 
-            // txtphithiethai
+            // btinphieuthu
             // 
-            this.txtphithiethai.Location = new System.Drawing.Point(378, 12);
-            this.txtphithiethai.Name = "txtphithiethai";
-            this.txtphithiethai.Size = new System.Drawing.Size(202, 20);
-            this.txtphithiethai.TabIndex = 5;
+            this.btinphieuthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btinphieuthu.Location = new System.Drawing.Point(364, 96);
+            this.btinphieuthu.Name = "btinphieuthu";
+            this.btinphieuthu.Size = new System.Drawing.Size(104, 23);
+            this.btinphieuthu.TabIndex = 8;
+            this.btinphieuthu.Text = "In phiếu thu";
+            this.btinphieuthu.UseVisualStyleBackColor = true;
+            // 
+            // txttongchiphi
+            // 
+            this.txttongchiphi.Location = new System.Drawing.Point(378, 44);
+            this.txttongchiphi.Name = "txttongchiphi";
+            this.txttongchiphi.Size = new System.Drawing.Size(202, 20);
+            this.txttongchiphi.TabIndex = 7;
             // 
             // label5
             // 
@@ -258,32 +267,23 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Tổng chi phí";
             // 
-            // txttongchiphi
+            // txtphithiethai
             // 
-            this.txttongchiphi.Location = new System.Drawing.Point(378, 44);
-            this.txttongchiphi.Name = "txttongchiphi";
-            this.txttongchiphi.Size = new System.Drawing.Size(202, 20);
-            this.txttongchiphi.TabIndex = 7;
+            this.txtphithiethai.Location = new System.Drawing.Point(378, 12);
+            this.txtphithiethai.Name = "txtphithiethai";
+            this.txtphithiethai.Size = new System.Drawing.Size(202, 20);
+            this.txtphithiethai.TabIndex = 5;
             // 
-            // btinphieuthu
+            // label3
             // 
-            this.btinphieuthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btinphieuthu.Location = new System.Drawing.Point(364, 96);
-            this.btinphieuthu.Name = "btinphieuthu";
-            this.btinphieuthu.Size = new System.Drawing.Size(104, 23);
-            this.btinphieuthu.TabIndex = 8;
-            this.btinphieuthu.Text = "In phiếu thu";
-            this.btinphieuthu.UseVisualStyleBackColor = true;
-            // 
-            // txtthanhtoan
-            // 
-            this.txtthanhtoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtthanhtoan.Location = new System.Drawing.Point(484, 96);
-            this.txtthanhtoan.Name = "txtthanhtoan";
-            this.txtthanhtoan.Size = new System.Drawing.Size(96, 23);
-            this.txtthanhtoan.TabIndex = 9;
-            this.txtthanhtoan.Text = "Thanh toán";
-            this.txtthanhtoan.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Blue;
+            this.label3.Location = new System.Drawing.Point(284, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Phí thiệt hại";
             // 
             // Lap_Phieu_Thu
             // 
@@ -292,7 +292,7 @@
             this.ClientSize = new System.Drawing.Size(636, 433);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Lap_Phieu_Thu";
-            this.Text = "Lap_Phieu_Thu";
+            this.Text = "Lập Phiếu Thu";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

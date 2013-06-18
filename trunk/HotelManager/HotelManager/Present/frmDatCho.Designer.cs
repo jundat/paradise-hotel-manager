@@ -603,7 +603,7 @@
             this.ClientSize = new System.Drawing.Size(1140, 554);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmDatCho";
-            this.Text = "frmDatCho";
+            this.Text = "Đặt Chỗ";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

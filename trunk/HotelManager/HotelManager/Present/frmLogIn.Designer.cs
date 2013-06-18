@@ -90,7 +90,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogIn";
-            this.Text = "LogIn";
+            this.Text = "Đăng Nhập";
             this.ResumeLayout(false);
             this.PerformLayout();
 

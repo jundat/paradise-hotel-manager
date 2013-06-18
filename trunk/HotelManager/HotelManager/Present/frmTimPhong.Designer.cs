@@ -30,29 +30,29 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bttimphong = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clLoaiPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.clLoaiPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.bttimphong = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -79,23 +79,27 @@
             this.panel1.Size = new System.Drawing.Size(695, 429);
             this.panel1.TabIndex = 0;
             // 
-            // groupBox1
+            // bttimphong
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 9);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(679, 126);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin tra cứu";
+            this.bttimphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttimphong.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bttimphong.Location = new System.Drawing.Point(534, 152);
+            this.bttimphong.Name = "bttimphong";
+            this.bttimphong.Size = new System.Drawing.Size(75, 23);
+            this.bttimphong.TabIndex = 13;
+            this.bttimphong.Text = "Tìm Kiếm";
+            this.bttimphong.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.panel2);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(5, 181);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(679, 234);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Danh sách phòng theo yêu cầu";
             // 
             // panel2
             // 
@@ -120,16 +124,11 @@
             this.dataGridView1.Size = new System.Drawing.Size(673, 213);
             this.dataGridView1.TabIndex = 0;
             // 
-            // clGhiChu
+            // clPhong
             // 
-            this.clGhiChu.HeaderText = "Ghi Chú";
-            this.clGhiChu.Name = "clGhiChu";
-            this.clGhiChu.Width = 230;
-            // 
-            // clDonGia
-            // 
-            this.clDonGia.HeaderText = "Đơn Giá";
-            this.clDonGia.Name = "clDonGia";
+            this.clPhong.HeaderText = "Phòng";
+            this.clPhong.MinimumWidth = 10;
+            this.clPhong.Name = "clPhong";
             // 
             // clLoaiPhong
             // 
@@ -137,33 +136,41 @@
             this.clLoaiPhong.Name = "clLoaiPhong";
             this.clLoaiPhong.Width = 200;
             // 
-            // clPhong
+            // clDonGia
             // 
-            this.clPhong.HeaderText = "Phòng";
-            this.clPhong.MinimumWidth = 10;
-            this.clPhong.Name = "clPhong";
+            this.clDonGia.HeaderText = "Đơn Giá";
+            this.clDonGia.Name = "clDonGia";
             // 
-            // groupBox2
+            // clGhiChu
             // 
-            this.groupBox2.Controls.Add(this.panel2);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(5, 181);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(679, 234);
-            this.groupBox2.TabIndex = 12;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Danh sách phòng theo yêu cầu";
+            this.clGhiChu.HeaderText = "Ghi Chú";
+            this.clGhiChu.Name = "clGhiChu";
+            this.clGhiChu.Width = 230;
             // 
-            // label2
+            // groupBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(348, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Đến thời điểm";
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(6, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(679, 126);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin tra cứu";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(466, 80);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 22);
+            this.textBox1.TabIndex = 9;
             // 
             // label4
             // 
@@ -176,45 +183,16 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Giá";
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.Location = new System.Drawing.Point(466, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 22);
-            this.textBox1.TabIndex = 9;
-            // 
-            // bttimphong
-            // 
-            this.bttimphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttimphong.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bttimphong.Location = new System.Drawing.Point(534, 152);
-            this.bttimphong.Name = "bttimphong";
-            this.bttimphong.Size = new System.Drawing.Size(75, 23);
-            this.bttimphong.TabIndex = 13;
-            this.bttimphong.Text = "Tìm Kiếm";
-            this.bttimphong.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(466, 34);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 5;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(115, 34);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 4;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(115, 82);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 7;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(16, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Từ thời điểm";
             // 
             // label3
             // 
@@ -227,16 +205,38 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Tình trạng";
             // 
-            // label1
+            // comboBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(16, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Từ thời điểm";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(115, 82);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 7;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(115, 34);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(348, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Đến thời điểm";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(466, 34);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker2.TabIndex = 5;
             // 
             // frmTimPhong
             // 
@@ -245,14 +245,14 @@
             this.ClientSize = new System.Drawing.Size(701, 435);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmTimPhong";
-            this.Text = "TimPhong";
+            this.Text = "Tìm Phòng";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
