@@ -29,16 +29,7 @@ namespace HotelManager.Business
         {
             return DataPhong.GetTable();
         }
-
-        /// <summary>
-        /// Lấy hết bảng PHONG từ database
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable GetTable()
-        {
-            return DataPhong.GetTable();
-        }
-
+        
         /// <summary>
         /// Update giá trị mới cho bảng PHONG
         /// </summary>

@@ -62,25 +62,25 @@ namespace HotelManager.Data
             ObjCn.Close();
         }
 
-        public static void UpdatePhieuDen(PhieuDen PhieuDen)
+        public static void UpdatePhieuDen(PhieuDen phieuDen)
         {
             string StrSQL = "UPDATE phieu_den SET TenKhachDaiDien = ?, CMND = ?, ThoiDiemDen = ?, ThoiDiemDi = ?, TongChiPhi = ?, TinhTrangThanhToan = ? WHERE MaPhieuDen = ?";
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@TenKhachDaiDien", MySqlDbType.String).Value = PhieuDen.TenKhachDaiDien;
-            ObjCmd.Parameters.Add("@CMND", MySqlDbType.String).Value = PhieuDen.CMND;
-            ObjCmd.Parameters.Add("@ThoiDiemDen", MySqlDbType.Datetime).Value = PhieuDen.ThoiDiemDen;
-            ObjCmd.Parameters.Add("@ThoiDiemDi", MySqlDbType.Datetime).Value = PhieuDen.ThoiDiemDi;
-            ObjCmd.Parameters.Add("@TongChiPhi", MySqlDbType.Float).Value = PhieuDen.TongChiPhi;
-            ObjCmd.Parameters.Add("@TinhTrangThanhToan", MySqlDbType.Byte).Value = PhieuDen.TinhTrangThanhToan;
+            ObjCmd.Parameters.Add("@TenKhachDaiDien", MySqlDbType.String).Value = phieuDen.TenKhachDaiDien;
+            ObjCmd.Parameters.Add("@CMND", MySqlDbType.String).Value = phieuDen.CMND;
+            ObjCmd.Parameters.Add("@ThoiDiemDen", MySqlDbType.Datetime).Value = phieuDen.ThoiDiemDen;
+            ObjCmd.Parameters.Add("@ThoiDiemDi", MySqlDbType.Datetime).Value = phieuDen.ThoiDiemDi;
+            ObjCmd.Parameters.Add("@TongChiPhi", MySqlDbType.Float).Value = phieuDen.TongChiPhi;
+            ObjCmd.Parameters.Add("@TinhTrangThanhToan", MySqlDbType.Byte).Value = phieuDen.TinhTrangThanhToan;
 
-            ObjCmd.Parameters.Add("@MaPhieuDen", MySqlDbType.Int32).Value = PhieuDen.MaPhieuDen;
+            ObjCmd.Parameters.Add("@MaPhieuDen", MySqlDbType.Int32).Value = phieuDen.MaPhieuDen;
 
             ObjCmd.ExecuteNonQuery();
         }
 
-        public static bool Add(PhieuDen PhieuDen)
+        public static bool Add(PhieuDen phieuDen)
         {
             try
             {
@@ -89,12 +89,12 @@ namespace HotelManager.Data
                 string StrSQL = "INSERT INTO phieu_den(TenKhachDaiDien, CMND, ThoiDiemDen, ThoiDiemDi, TongChiPhi, TinhTrangThanhToan) VALUES( ?, ?, ?, ?, ?, ?);";
                 MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
 
-                ObjCmd.Parameters.Add("@TenKhachDaiDien", MySqlDbType.String).Value = PhieuDen.TenKhachDaiDien;
-                ObjCmd.Parameters.Add("@CMND", MySqlDbType.String).Value = PhieuDen.CMND;
-                ObjCmd.Parameters.Add("@ThoiDiemDen", MySqlDbType.Datetime).Value = PhieuDen.ThoiDiemDen;
-                ObjCmd.Parameters.Add("@ThoiDiemDi", MySqlDbType.Datetime).Value = PhieuDen.ThoiDiemDi;
-                ObjCmd.Parameters.Add("@TongChiPhi", MySqlDbType.Float).Value = PhieuDen.TongChiPhi;
-                ObjCmd.Parameters.Add("@TinhTrangThanhToan", MySqlDbType.Byte).Value = PhieuDen.TinhTrangThanhToan;
+                ObjCmd.Parameters.Add("@TenKhachDaiDien", MySqlDbType.String).Value = phieuDen.TenKhachDaiDien;
+                ObjCmd.Parameters.Add("@CMND", MySqlDbType.String).Value = phieuDen.CMND;
+                ObjCmd.Parameters.Add("@ThoiDiemDen", MySqlDbType.Datetime).Value = phieuDen.ThoiDiemDen;
+                ObjCmd.Parameters.Add("@ThoiDiemDi", MySqlDbType.Datetime).Value = phieuDen.ThoiDiemDi;
+                ObjCmd.Parameters.Add("@TongChiPhi", MySqlDbType.Float).Value = phieuDen.TongChiPhi;
+                ObjCmd.Parameters.Add("@TinhTrangThanhToan", MySqlDbType.Byte).Value = phieuDen.TinhTrangThanhToan;
 
                 ObjCmd.ExecuteNonQuery();
 
@@ -102,7 +102,7 @@ namespace HotelManager.Data
                 StrSQL = "Select @@IDENTITY";
 
                 ObjCmd = new MySqlCommand(StrSQL, ObjCn);
-                PhieuDen.MaPhieuDen = (int)ObjCmd.ExecuteScalar();
+                phieuDen.MaPhieuDen = (int)ObjCmd.ExecuteScalar();
 
                 return true;
             }
