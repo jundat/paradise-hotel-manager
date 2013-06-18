@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\BusBangKe.cs" />
+    <Compile Include="Business\BusBaoCaoDoanhThu.cs" />
     <Compile Include="Business\BusChiTietBangKe.cs" />
     <Compile Include="Business\BusChiTietPhieuDatCho.cs" />
     <Compile Include="Business\BusChiTietPhieuDatTiec.cs" />
@@ -100,7 +101,6 @@
     <Compile Include="Business\BusPhieuDen.cs" />
     <Compile Include="Business\BusPhieuThu.cs" />
     <Compile Include="Business\BusPhong.cs" />
-    <Compile Include="Business\BusBaoCaoDoanhThu.cs" />
     <Compile Include="Business\BusQuyDinh.cs" />
     <Compile Include="Business\Exporter.cs" />
     <Compile Include="Business\Supporter.cs" />
@@ -137,8 +137,107 @@
     <Compile Include="Data\Entity\PhieuThu.cs" />
     <Compile Include="Data\Entity\Phong.cs" />
     <Compile Include="Data\Entity\QuyDinh.cs" />
+    <Compile Include="Present\frmDatCho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmDatCho.Designer.cs">
+      <DependentUpon>frmDatCho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\frmLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmLogIn.Designer.cs">
+      <DependentUpon>frmLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\frmTimPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmTimPhong.Designer.cs">
+      <DependentUpon>frmTimPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\frmLapphieuden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmLapphieuden.Designer.cs">
+      <DependentUpon>frmLapphieuden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\frmPhieu Yeu Cau Dich Vu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmPhieu Yeu Cau Dich Vu.Designer.cs">
+      <DependentUpon>frmPhieu Yeu Cau Dich Vu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\frmLap danh muc phong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmLap danh muc phong.Designer.cs">
+      <DependentUpon>frmLap danh muc phong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\frmLap Phieu Thu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmLap Phieu Thu.Designer.cs">
+      <DependentUpon>frmLap Phieu Thu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\frmLapbaocaodoanhthu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmLapbaocaodoanhthu.Designer.cs">
+      <DependentUpon>frmLapbaocaodoanhthu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\Thaydoiquydinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\Thaydoiquydinh.Designer.cs">
+      <DependentUpon>Thaydoiquydinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\Đặt tiệc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\Đặt tiệc.Designer.cs">
+      <DependentUpon>Đặt tiệc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Present\frmDatCho.resx">
+      <DependentUpon>frmDatCho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmLap danh muc phong.resx">
+      <DependentUpon>frmLap danh muc phong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmLogIn.resx">
+      <DependentUpon>frmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmPhieu Yeu Cau Dich Vu.resx">
+      <DependentUpon>frmPhieu Yeu Cau Dich Vu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmTimPhong.resx">
+      <DependentUpon>frmTimPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmLapphieuden.resx">
+      <DependentUpon>frmLapphieuden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmLap Phieu Thu.resx">
+      <DependentUpon>frmLap Phieu Thu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmLapbaocaodoanhthu.resx">
+      <DependentUpon>frmLapbaocaodoanhthu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\Thaydoiquydinh.resx">
+      <DependentUpon>Thaydoiquydinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\Đặt tiệc.resx">
+      <DependentUpon>Đặt tiệc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -196,9 +295,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Present\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
