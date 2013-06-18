@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +12,16 @@ using HotelManager.Data.Entity;
 
 namespace HotelManager.Present
 {
-    public partial class Lap_Phieu_Thu : Form
+    public partial class frmLogIn : Form
     {
-        public Lap_Phieu_Thu()
+        public frmLogIn()
         {
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
