@@ -110,7 +110,7 @@ namespace HotelManager.Data
             {
                 if (ee.Message.Contains("duplicate"))
                 {
-                    MessageBox.Show("Dữ liệu trùng lặp: PhieuDen " + PhieuDen.TenKhachDaiDien);
+                    MessageBox.Show("Dữ liệu trùng lặp: PhieuDen " + phieuDen.TenKhachDaiDien);
                 }
                 return false;
             }

@@ -137,90 +137,8 @@
     <Compile Include="Data\Entity\PhieuThu.cs" />
     <Compile Include="Data\Entity\Phong.cs" />
     <Compile Include="Data\Entity\QuyDinh.cs" />
-    <Compile Include="Present\frmBaoCaoMDSD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Present\frmBaoCaoMDSD.Designer.cs">
-      <DependentUpon>frmBaoCaoMDSD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Present\frmThemPhong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Present\frmThemPhong.Designer.cs">
-      <DependentUpon>frmThemPhong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Present\frmLapPhieuThuePhong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Present\frmLapPhieuThuePhong.Designer.cs">
-      <DependentUpon>frmLapPhieuThuePhong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Present\frmThayDoiQuyDinh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Present\frmThayDoiQuyDinh.Designer.cs">
-      <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Present\frmLapHoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Present\frmLapHoaDon.Designer.cs">
-      <DependentUpon>frmLapHoaDon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Present\frmTraCuuPhieuThuePhong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Present\frmTraCuuPhieuThuePhong.Designer.cs">
-      <DependentUpon>frmTraCuuPhieuThuePhong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Present\frmTraCuuPhong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Present\frmTraCuuPhong.Designer.cs">
-      <DependentUpon>frmTraCuuPhong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Present\frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Present\frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Present\frmLogIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Present\frmLogIn.Designer.cs">
-      <DependentUpon>frmLogIn.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Present\frmBaoCaoMDSD.resx">
-      <DependentUpon>frmBaoCaoMDSD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Present\frmThemPhong.resx">
-      <DependentUpon>frmThemPhong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Present\frmLapPhieuThuePhong.resx">
-      <DependentUpon>frmLapPhieuThuePhong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Present\frmThayDoiQuyDinh.resx">
-      <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Present\frmLapHoaDon.resx">
-      <DependentUpon>frmLapHoaDon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Present\frmTraCuuPhieuThuePhong.resx">
-      <DependentUpon>frmTraCuuPhieuThuePhong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Present\frmTraCuuPhong.resx">
-      <DependentUpon>frmTraCuuPhong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Present\frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Present\frmLogIn.resx">
-      <DependentUpon>frmLogIn.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -278,7 +196,9 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Present\" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
