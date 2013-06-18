@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using HotelManager.Business;
+using HotelManager.Data.Entity;
+
 namespace HotelManager.Present
 {
-    public partial class Đặt_tiệc : Form
+    public partial class �?t_ti?c : Form
     {
-        public Đặt_tiệc()
+        public �?t_ti?c()
         {
             InitializeComponent();
         }
 
-        private void Đặt_tiệc_Load(object sender, EventArgs e)
+        private void �?t_ti?c_Load(object sender, EventArgs e)
         {
 
         }
