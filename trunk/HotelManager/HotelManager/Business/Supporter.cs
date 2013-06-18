@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace HotelManager.Business
 {
-    class Supporter : BusAbstract
+    class Supporter
     {
         public static DataTable GetDataTable(DataGridView dgvtemp)
         {

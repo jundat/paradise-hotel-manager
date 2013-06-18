@@ -89,8 +89,16 @@
     <Compile Include="Business\BusBangKe.cs" />
     <Compile Include="Business\BusChiTietBangKe.cs" />
     <Compile Include="Business\BusChiTietPhieuDatCho.cs" />
+    <Compile Include="Business\BusChiTietPhieuDatTiec.cs" />
+    <Compile Include="Business\BusChiTietPhieuDen.cs" />
+    <Compile Include="Business\BusChiTietPhieuThu.cs" />
+    <Compile Include="Business\BusLoaiPhi.cs" />
     <Compile Include="Business\BusLoaiPhong.cs" />
+    <Compile Include="Business\BusNhanVien.cs" />
     <Compile Include="Business\BusPhieuDatCho.cs" />
+    <Compile Include="Business\BusPhieuDatTiec.cs" />
+    <Compile Include="Business\BusPhieuDen.cs" />
+    <Compile Include="Business\BusPhieuThu.cs" />
     <Compile Include="Business\BusPhong.cs" />
     <Compile Include="Business\BusBaoCaoDoanhThu.cs" />
     <Compile Include="Business\BusQuyDinh.cs" />

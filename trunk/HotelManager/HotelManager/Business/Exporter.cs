@@ -7,7 +7,7 @@ using RKLib.ExportData;
 
 namespace HotelManager.Business
 {
-    class Exporter : BusAbstract
+    class Exporter
     {
         public static bool ExportToExcel(string filepath, DataTable data)
         {
