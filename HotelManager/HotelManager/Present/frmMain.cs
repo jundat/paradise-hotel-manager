@@ -65,7 +65,8 @@ namespace HotelManager.Present
         /// </summary>
         private void linkThayDoiQuyDinh_LinkClicked(object sender, EventArgs e)
         {
-            
+            frmThayDoiQuyDinh form = new frmThayDoiQuyDinh();
+            form.ShowDialog(this);
         }
 
         /// <summary>

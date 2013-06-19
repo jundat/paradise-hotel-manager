@@ -69,14 +69,17 @@ namespace HotelManager.Data
 
         public static void Update(LoaiPhi loaiphi)
         {
-            string StrSQL = "UPDATE loai_phi SET TenLoaiPhi = ?, GhiChu = ?  WHERE MaLoaiPhi = ?";
+            string StrSQL = "UPDATE loai_phi SET TenLoaiPhi = " + loaiphi.TenLoaiPhi  
+                + ", GhiChu = " + loaiphi.GhiChu
+                + "  WHERE MaLoaiPhi = " + loaiphi.MaLoaiPhi;
+
+
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@TenLoaiPhi", MySqlDbType.String).Value = loaiphi.TenLoaiPhi;
-            ObjCmd.Parameters.Add("@GhiChu", MySqlDbType.String).Value = loaiphi.GhiChu;
 
-            ObjCmd.Parameters.Add("@MaLoaiPhi", MySqlDbType.Int32).Value = loaiphi.MaLoaiPhi;
+
+
 
             ObjCmd.ExecuteNonQuery();
 
@@ -91,11 +94,9 @@ namespace HotelManager.Data
             {
                 MySqlConnection ObjCn = DataProvider.getInstance().getConnection();
 
-                string StrSQL = "INSERT INTO loai_phi(TenLoaiPhi, GhiChu) VALUES(?, ?);";
+                string StrSQL = "INSERT INTO loai_phi(TenLoaiPhi, GhiChu) VALUES(" + loaiphi.TenLoaiPhi + "," + loaiphi.GhiChu + ");";
                 MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
 
-                ObjCmd.Parameters.Add("@TenLoaiPhi", MySqlDbType.String).Value = loaiphi.TenLoaiPhi;
-                ObjCmd.Parameters.Add("@GhiChu", MySqlDbType.String).Value = loaiphi.GhiChu;
 
                 ObjCmd.ExecuteNonQuery();
 
@@ -126,12 +127,12 @@ namespace HotelManager.Data
 
         public static void Delete(int maLoaiPhi)
         {
-            string StrSQL = "DELETE FROM loai_phi WHERE MaLoaiPhi = ?";
+            string StrSQL = "DELETE FROM loai_phi WHERE MaLoaiPhi = " + maLoaiPhi;
 
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@MaLoaiPhi", MySqlDbType.Int32).Value = maLoaiPhi;
+
 
             ObjCmd.ExecuteNonQuery();
 
@@ -144,11 +145,11 @@ namespace HotelManager.Data
         {
             DataTable dt = new DataTable();
 
-            string StrSQL = "SELECT * FROM loai_phi WHERE MaLoaiPhi = ?";
+            string StrSQL = "SELECT * FROM loai_phi WHERE MaLoaiPhi = " + maLoaiPhi;
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@MaLoaiPhi", MySqlDbType.Int32).Value = maLoaiPhi;
+
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
@@ -163,12 +164,12 @@ namespace HotelManager.Data
         {
             DataTable dt = new DataTable();
 
-            string StrSQL = "SELECT * FROM loai_phi WHERE TenLoaiPhi = ?";
+            string StrSQL = "SELECT * FROM loai_phi WHERE TenLoaiPhi = " + tenLoaiPhi;
 
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@TenLoaiPhi", MySqlDbType.String).Value = tenLoaiPhi;
+
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);

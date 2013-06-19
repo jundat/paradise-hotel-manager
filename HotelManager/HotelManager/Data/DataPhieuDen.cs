@@ -76,18 +76,20 @@ namespace HotelManager.Data
 
         public static void UpdatePhieuDen(PhieuDen phieuDen)
         {
-            string StrSQL = "UPDATE phieu_den SET TenKhachDaiDien = ?, CMND = ?, ThoiDiemDen = ?, ThoiDiemDi = ?, TongChiPhi = ?, TinhTrangThanhToan = ? WHERE MaPhieuDen = ?";
+            string StrSQL = "UPDATE phieu_den SET TenKhachDaiDien = " + phieuDen.TenKhachDaiDien
+                + ", CMND = " + phieuDen.CMND
+                + ", ThoiDiemDen = " + phieuDen.ThoiDiemDen
+                + ", ThoiDiemDi = " + phieuDen.ThoiDiemDi
+                + ", TongChiPhi = " + phieuDen.TongChiPhi
+                + ", TinhTrangThanhToan = " + phieuDen.TinhTrangThanhToan
+                + " WHERE MaPhieuDen = " + phieuDen.MaPhieuDen;
+
+
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@TenKhachDaiDien", MySqlDbType.String).Value = phieuDen.TenKhachDaiDien;
-            ObjCmd.Parameters.Add("@CMND", MySqlDbType.String).Value = phieuDen.CMND;
-            ObjCmd.Parameters.Add("@ThoiDiemDen", MySqlDbType.Datetime).Value = phieuDen.ThoiDiemDen;
-            ObjCmd.Parameters.Add("@ThoiDiemDi", MySqlDbType.Datetime).Value = phieuDen.ThoiDiemDi;
-            ObjCmd.Parameters.Add("@TongChiPhi", MySqlDbType.Float).Value = phieuDen.TongChiPhi;
-            ObjCmd.Parameters.Add("@TinhTrangThanhToan", MySqlDbType.Byte).Value = phieuDen.TinhTrangThanhToan;
 
-            ObjCmd.Parameters.Add("@MaPhieuDen", MySqlDbType.Int32).Value = phieuDen.MaPhieuDen;
+
 
             ObjCmd.ExecuteNonQuery();
 
@@ -102,15 +104,20 @@ namespace HotelManager.Data
             {
                 MySqlConnection ObjCn = DataProvider.getInstance().getConnection();
 
-                string StrSQL = "INSERT INTO phieu_den(TenKhachDaiDien, CMND, ThoiDiemDen, ThoiDiemDi, TongChiPhi, TinhTrangThanhToan) VALUES( ?, ?, ?, ?, ?, ?);";
+                string StrSQL = "INSERT INTO phieu_den(TenKhachDaiDien, CMND, ThoiDiemDen, ThoiDiemDi, TongChiPhi, TinhTrangThanhToan)"
+                    + " VALUES( " + phieuDen.TenKhachDaiDien
+                    + ", " + phieuDen.CMND
+                    + ", " + phieuDen.ThoiDiemDen
+                    + ", " + phieuDen.ThoiDiemDi
+                    + ", " + phieuDen.TongChiPhi
+                    + ", " + phieuDen.TinhTrangThanhToan 
+                    + ");";
+
+
                 MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
 
-                ObjCmd.Parameters.Add("@TenKhachDaiDien", MySqlDbType.String).Value = phieuDen.TenKhachDaiDien;
-                ObjCmd.Parameters.Add("@CMND", MySqlDbType.String).Value = phieuDen.CMND;
-                ObjCmd.Parameters.Add("@ThoiDiemDen", MySqlDbType.Datetime).Value = phieuDen.ThoiDiemDen;
-                ObjCmd.Parameters.Add("@ThoiDiemDi", MySqlDbType.Datetime).Value = phieuDen.ThoiDiemDi;
-                ObjCmd.Parameters.Add("@TongChiPhi", MySqlDbType.Float).Value = phieuDen.TongChiPhi;
-                ObjCmd.Parameters.Add("@TinhTrangThanhToan", MySqlDbType.Byte).Value = phieuDen.TinhTrangThanhToan;
+
+
 
                 ObjCmd.ExecuteNonQuery();
 
@@ -141,12 +148,12 @@ namespace HotelManager.Data
 
         public static void Delete(int maPhieuDen)
         {
-            string StrSQL = "DELETE FROM phieu_den WHERE MaPhieuDen = ?";
+            string StrSQL = "DELETE FROM phieu_den WHERE MaPhieuDen = " + maPhieuDen;
 
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@MaPhieuDen", MySqlDbType.Int32).Value = maPhieuDen;
+
 
             ObjCmd.ExecuteNonQuery();
 
@@ -159,11 +166,10 @@ namespace HotelManager.Data
         {
             DataTable dt = new DataTable();
 
-            string StrSQL = "SELECT * FROM phieu_den WHERE MaPhieuDen = ?";
+            string StrSQL = "SELECT * FROM phieu_den WHERE MaPhieuDen = " + maPhieuDen;
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@MaPhieuDen", MySqlDbType.Int32).Value = maPhieuDen;
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
@@ -178,12 +184,11 @@ namespace HotelManager.Data
         {
             DataTable dt = new DataTable();
 
-            string StrSQL = "SELECT * FROM phieu_den WHERE TenKhachDaiDien = ?";
+            string StrSQL = "SELECT * FROM phieu_den WHERE TenKhachDaiDien = " + tenKhachDaiDien;
 
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@TenKhachDaiDien", MySqlDbType.String).Value = tenKhachDaiDien;
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);

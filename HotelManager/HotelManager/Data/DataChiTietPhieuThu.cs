@@ -70,15 +70,19 @@ namespace HotelManager.Data
 
         public static void UpdateChiTietPhieuThu(ChiTietPhieuThu ct_phieuthu)
         {
-            string StrSQL = "UPDATE chi_tiet_phieu_thu SET MaPhieuThu = ?, MaLoaiPhi = ?, SoTienThu = ? WHERE MaChiTietPhieuThu = ?";
+            string StrSQL = "UPDATE chi_tiet_phieu_thu SET MaPhieuThu = " + ct_phieuthu.MaPhieuThu
+                + ", MaLoaiPhi = " + ct_phieuthu.MaLoaiPhi
+                + ", SoTienThu = " + ct_phieuthu.SoTienThu 
+                + " WHERE MaChiTietPhieuThu = " + ct_phieuthu.MaChiTietPhieuThu;
+
+
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@MaPhieuThu", MySqlDbType.Int32).Value = ct_phieuthu.MaPhieuThu;
-            ObjCmd.Parameters.Add("@MaLoaiPhi", MySqlDbType.Int32).Value = ct_phieuthu.MaLoaiPhi;
-            ObjCmd.Parameters.Add("@SoTienThu", MySqlDbType.Float).Value = ct_phieuthu.SoTienThu;
 
-            ObjCmd.Parameters.Add("@MaChiTietPhieuThu", MySqlDbType.Int32).Value = ct_phieuthu.MaChiTietPhieuThu;
+
+
+
 
             ObjCmd.ExecuteNonQuery();
 
@@ -93,12 +97,14 @@ namespace HotelManager.Data
             {
                 MySqlConnection ObjCn = DataProvider.getInstance().getConnection();
 
-                string StrSQL = "INSERT INTO chi_tiet_phieu_thu(MaPhieuThu, MaLoaiPhi, SoTienThu) VALUES( ?, ?, ?);";
-                MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
+                string StrSQL = "INSERT INTO chi_tiet_phieu_thu(MaPhieuThu, MaLoaiPhi, SoTienThu) " 
+                    + " VALUES("
+                    + ct_phieuthu.MaPhieuThu + ","
+                    + ct_phieuthu.MaLoaiPhi + "," 
+                    + ct_phieuthu.SoTienThu + ");";
 
-                ObjCmd.Parameters.Add("@MaPhieuThu", MySqlDbType.Int32).Value = ct_phieuthu.MaPhieuThu;
-                ObjCmd.Parameters.Add("@MaLoaiPhi", MySqlDbType.Int32).Value = ct_phieuthu.MaLoaiPhi;
-                ObjCmd.Parameters.Add("@SoTienThu", MySqlDbType.Float).Value = ct_phieuthu.SoTienThu;
+
+                MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
 
                 ObjCmd.ExecuteNonQuery();
 
@@ -129,12 +135,12 @@ namespace HotelManager.Data
 
         public static void Delete(int maCTPhieuThu)
         {
-            string StrSQL = "DELETE FROM chi_tiet_phieu_thu WHERE MaChiTietPhieuThu = ?";
+            string StrSQL = "DELETE FROM chi_tiet_phieu_thu WHERE MaChiTietPhieuThu = " + maCTPhieuThu;
 
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@MaChiTietPhieuThu", MySqlDbType.Int32).Value = maCTPhieuThu;
+
 
             ObjCmd.ExecuteNonQuery();
 
@@ -147,11 +153,11 @@ namespace HotelManager.Data
         {
             DataTable dt = new DataTable();
 
-            string StrSQL = "SELECT * FROM chi_tiet_phieu_thu WHERE MaChiTietPhieuThu = ?";
+            string StrSQL = "SELECT * FROM chi_tiet_phieu_thu WHERE MaChiTietPhieuThu = " + maCTPhieuThu;
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@MaChiTietPhieuThu", MySqlDbType.Int32).Value = maCTPhieuThu;
+
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
@@ -166,12 +172,12 @@ namespace HotelManager.Data
         {
             DataTable dt = new DataTable();
 
-            string StrSQL = "SELECT * FROM chi_tiet_phieu_thu WHERE MaPhieuThu = ?";
+            string StrSQL = "SELECT * FROM chi_tiet_phieu_thu WHERE MaPhieuThu = " + maPhieuThu;
 
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@MaPhieuThu", MySqlDbType.Int32).Value = maPhieuThu;
+
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);

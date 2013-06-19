@@ -185,11 +185,11 @@
     <Compile Include="Present\frmLap danh muc phong.Designer.cs">
       <DependentUpon>frmLap danh muc phong.cs</DependentUpon>
     </Compile>
-    <Compile Include="Present\frmLap Phieu Thu.cs">
+    <Compile Include="Present\frmLapPhieuThu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Present\frmLap Phieu Thu.Designer.cs">
-      <DependentUpon>frmLap Phieu Thu.cs</DependentUpon>
+    <Compile Include="Present\frmLapPhieuThu.Designer.cs">
+      <DependentUpon>frmLapPhieuThu.cs</DependentUpon>
     </Compile>
     <Compile Include="Present\frmLapbaocaodoanhthu.cs">
       <SubType>Form</SubType>
@@ -197,11 +197,11 @@
     <Compile Include="Present\frmLapbaocaodoanhthu.Designer.cs">
       <DependentUpon>frmLapbaocaodoanhthu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Present\Thaydoiquydinh.cs">
+    <Compile Include="Present\frmThayDoiQuyDinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Present\Thaydoiquydinh.Designer.cs">
-      <DependentUpon>Thaydoiquydinh.cs</DependentUpon>
+    <Compile Include="Present\frmThayDoiQuyDinh.Designer.cs">
+      <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,14 +229,14 @@
     <EmbeddedResource Include="Present\frmLapphieuden.resx">
       <DependentUpon>frmLapphieuden.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Present\frmLap Phieu Thu.resx">
-      <DependentUpon>frmLap Phieu Thu.cs</DependentUpon>
+    <EmbeddedResource Include="Present\frmLapPhieuThu.resx">
+      <DependentUpon>frmLapPhieuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Present\frmLapbaocaodoanhthu.resx">
       <DependentUpon>frmLapbaocaodoanhthu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Present\Thaydoiquydinh.resx">
-      <DependentUpon>Thaydoiquydinh.cs</DependentUpon>
+    <EmbeddedResource Include="Present\frmThayDoiQuyDinh.resx">
+      <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
