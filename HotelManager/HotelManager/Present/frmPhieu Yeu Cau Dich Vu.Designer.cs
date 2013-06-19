@@ -30,6 +30,12 @@
         {
             this.label8 = new System.Windows.Forms.Label();
             this.dgvDanhSachDichVuDaYeuCau = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colthoidiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnThemDanhSachDichVuMoi = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,6 +49,11 @@
             this.lblTinhTrangPhong = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.dgvDanhSachDichVuMoiYeuCau = new System.Windows.Forms.DataGridView();
+            this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTendichvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDonGiaNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoLuongNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGhiChuNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbDonGia = new System.Windows.Forms.TextBox();
@@ -53,21 +64,10 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTendichvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDonGiaNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoLuongNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGhiChuNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.tbGhiChu = new System.Windows.Forms.TextBox();
-            this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colthoidiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachDichVuDaYeuCau)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -107,6 +107,42 @@
             this.dgvDanhSachDichVuDaYeuCau.ReadOnly = true;
             this.dgvDanhSachDichVuDaYeuCau.Size = new System.Drawing.Size(652, 284);
             this.dgvDanhSachDichVuDaYeuCau.TabIndex = 0;
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            // 
+            // colPhong
+            // 
+            this.colPhong.HeaderText = "Tên dịch vụ";
+            this.colPhong.Name = "colPhong";
+            this.colPhong.ReadOnly = true;
+            // 
+            // colthoidiem
+            // 
+            this.colthoidiem.HeaderText = "Thời điểm đặt";
+            this.colthoidiem.Name = "colthoidiem";
+            this.colthoidiem.ReadOnly = true;
+            // 
+            // colSoLuong
+            // 
+            this.colSoLuong.HeaderText = "Số lượng";
+            this.colSoLuong.Name = "colSoLuong";
+            this.colSoLuong.ReadOnly = true;
+            // 
+            // colDonGia
+            // 
+            this.colDonGia.HeaderText = "Đơn giá";
+            this.colDonGia.Name = "colDonGia";
+            this.colDonGia.ReadOnly = true;
+            // 
+            // colGhiChu
+            // 
+            this.colGhiChu.HeaderText = "Ghi chú";
+            this.colGhiChu.Name = "colGhiChu";
+            this.colGhiChu.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -151,7 +187,7 @@
             this.tbTongChiPhiDenHienTai.Location = new System.Drawing.Point(417, 58);
             this.tbTongChiPhiDenHienTai.Name = "tbTongChiPhiDenHienTai";
             this.tbTongChiPhiDenHienTai.Size = new System.Drawing.Size(177, 20);
-            this.tbTongChiPhiDenHienTai.TabIndex = 42;
+            this.tbTongChiPhiDenHienTai.TabIndex = 43;
             // 
             // dtpThoiDiemDat
             // 
@@ -159,7 +195,7 @@
             this.dtpThoiDiemDat.Location = new System.Drawing.Point(417, 23);
             this.dtpThoiDiemDat.Name = "dtpThoiDiemDat";
             this.dtpThoiDiemDat.Size = new System.Drawing.Size(217, 20);
-            this.dtpThoiDiemDat.TabIndex = 43;
+            this.dtpThoiDiemDat.TabIndex = 42;
             // 
             // label1
             // 
@@ -261,6 +297,36 @@
             this.dgvDanhSachDichVuMoiYeuCau.TabIndex = 0;
             this.dgvDanhSachDichVuMoiYeuCau.SelectionChanged += new System.EventHandler(this.dgvDanhSachDichVuMoiYeuCau_SelectionChanged);
             // 
+            // colSTT
+            // 
+            this.colSTT.HeaderText = "STT";
+            this.colSTT.Name = "colSTT";
+            this.colSTT.ReadOnly = true;
+            // 
+            // colTendichvu
+            // 
+            this.colTendichvu.HeaderText = "Tên dịch vụ";
+            this.colTendichvu.Name = "colTendichvu";
+            this.colTendichvu.ReadOnly = true;
+            // 
+            // colDonGiaNew
+            // 
+            this.colDonGiaNew.HeaderText = "Đơn giá";
+            this.colDonGiaNew.Name = "colDonGiaNew";
+            this.colDonGiaNew.ReadOnly = true;
+            // 
+            // colSoLuongNew
+            // 
+            this.colSoLuongNew.HeaderText = "Số lượng";
+            this.colSoLuongNew.Name = "colSoLuongNew";
+            this.colSoLuongNew.ReadOnly = true;
+            // 
+            // colGhiChuNew
+            // 
+            this.colGhiChuNew.HeaderText = "Ghi Chú";
+            this.colGhiChuNew.Name = "colGhiChuNew";
+            this.colGhiChuNew.ReadOnly = true;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dgvDanhSachDichVuMoiYeuCau);
@@ -289,7 +355,7 @@
             this.tbDonGia.Location = new System.Drawing.Point(128, 58);
             this.tbDonGia.Name = "tbDonGia";
             this.tbDonGia.Size = new System.Drawing.Size(177, 21);
-            this.tbDonGia.TabIndex = 51;
+            this.tbDonGia.TabIndex = 48;
             // 
             // label6
             // 
@@ -374,6 +440,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.tbTenDichVu);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Enabled = false;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 3);
             this.groupBox1.Name = "groupBox1";
@@ -381,6 +448,24 @@
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dịch vụ khách cần";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Blue;
+            this.label9.Location = new System.Drawing.Point(15, 120);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 16);
+            this.label9.TabIndex = 56;
+            this.label9.Text = "Ghi chú";
+            // 
+            // tbGhiChu
+            // 
+            this.tbGhiChu.Location = new System.Drawing.Point(128, 116);
+            this.tbGhiChu.Name = "tbGhiChu";
+            this.tbGhiChu.Size = new System.Drawing.Size(177, 21);
+            this.tbGhiChu.TabIndex = 50;
             // 
             // btnSua
             // 
@@ -401,90 +486,6 @@
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // colSTT
-            // 
-            this.colSTT.HeaderText = "STT";
-            this.colSTT.Name = "colSTT";
-            this.colSTT.ReadOnly = true;
-            // 
-            // colTendichvu
-            // 
-            this.colTendichvu.HeaderText = "Tên dịch vụ";
-            this.colTendichvu.Name = "colTendichvu";
-            this.colTendichvu.ReadOnly = true;
-            // 
-            // colDonGiaNew
-            // 
-            this.colDonGiaNew.HeaderText = "Đơn giá";
-            this.colDonGiaNew.Name = "colDonGiaNew";
-            this.colDonGiaNew.ReadOnly = true;
-            // 
-            // colSoLuongNew
-            // 
-            this.colSoLuongNew.HeaderText = "Số lượng";
-            this.colSoLuongNew.Name = "colSoLuongNew";
-            this.colSoLuongNew.ReadOnly = true;
-            // 
-            // colGhiChuNew
-            // 
-            this.colGhiChuNew.HeaderText = "Ghi Chú";
-            this.colGhiChuNew.Name = "colGhiChuNew";
-            this.colGhiChuNew.ReadOnly = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(15, 120);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 16);
-            this.label9.TabIndex = 56;
-            this.label9.Text = "Ghi chú";
-            // 
-            // tbGhiChu
-            // 
-            this.tbGhiChu.Location = new System.Drawing.Point(128, 116);
-            this.tbGhiChu.Name = "tbGhiChu";
-            this.tbGhiChu.Size = new System.Drawing.Size(177, 21);
-            this.tbGhiChu.TabIndex = 57;
-            // 
-            // colGhiChu
-            // 
-            this.colGhiChu.HeaderText = "Ghi chú";
-            this.colGhiChu.Name = "colGhiChu";
-            this.colGhiChu.ReadOnly = true;
-            // 
-            // colDonGia
-            // 
-            this.colDonGia.HeaderText = "Đơn giá";
-            this.colDonGia.Name = "colDonGia";
-            this.colDonGia.ReadOnly = true;
-            // 
-            // colSoLuong
-            // 
-            this.colSoLuong.HeaderText = "Số lượng";
-            this.colSoLuong.Name = "colSoLuong";
-            this.colSoLuong.ReadOnly = true;
-            // 
-            // colthoidiem
-            // 
-            this.colthoidiem.HeaderText = "Thời điểm đặt";
-            this.colthoidiem.Name = "colthoidiem";
-            this.colthoidiem.ReadOnly = true;
-            // 
-            // colPhong
-            // 
-            this.colPhong.HeaderText = "Tên dịch vụ";
-            this.colPhong.Name = "colPhong";
-            this.colPhong.ReadOnly = true;
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
             // 
             // Phieu_Yeu_Cau_Dich_Vu
             // 

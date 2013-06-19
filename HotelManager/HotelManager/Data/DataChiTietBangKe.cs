@@ -165,6 +165,19 @@ namespace HotelManager.Data
             cmd.CommandText = "SELECT @@IDENTITY";
             _chiTietBangKe.MaChiTietBangKe = Convert.ToInt32(cmd.ExecuteScalar());
 
+
+            // Lấy tổng chi phí hiện tại của bảng kê tương ứng
+            cmd.CommandText = "SELECT TongChiPhi FROM bang_ke WHERE MaBangKe = ?MaBangKe";
+            cmd.Parameters.Add("?MaBangKe", _chiTietBangKe.MaBangKe);
+            float sum = (float)Convert.ToDouble(cmd.ExecuteScalar());
+            sum += _chiTietBangKe.SoLuong * _chiTietBangKe.DonGia;
+
+            // Cập nhật Tổng chi phí cho bảng BANG_KE
+            cmd.CommandText = "UPDATE bang_ke SET TongChiPhi = ?TongChiPhi WHERE MaBangKe = ?MaBangKe";
+            cmd.Parameters.Add("?TongChiPhi", sum);
+            cmd.Parameters.Add("?MaBangKe", _chiTietBangKe.MaBangKe);
+            cmd.ExecuteNonQuery();
+
             DataProvider.getInstance().CloseConnection();
             return _chiTietBangKe.MaChiTietBangKe;
         }

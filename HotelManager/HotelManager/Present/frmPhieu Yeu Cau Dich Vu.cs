@@ -165,6 +165,7 @@ namespace HotelManager.Present
             {
                 lblTinhTrangPhong.ForeColor = Color.Red;
                 lblTinhTrangPhong.Text = "Không tìm thấy phòng bạn cần tìm !";
+                groupBox1.Enabled = false;
                 return;
             }
 
@@ -174,12 +175,14 @@ namespace HotelManager.Present
                 lblTinhTrangPhong.ForeColor = Color.Blue;
                 lblTinhTrangPhong.Text = "Tình trạng: Phòng đang được thuê.";
                 btnThemDanhSachDichVuMoi.Enabled = true;
+                groupBox1.Enabled = true;
             }// Nếu trống
             else
             {
                 lblTinhTrangPhong.ForeColor = Color.Red;
                 lblTinhTrangPhong.Text = "Tình trạng: Phòng đang trống không được phép yêu cầu dịch vụ !";
                 btnThemDanhSachDichVuMoi.Enabled = false;
+                groupBox1.Enabled = false;
                 return;
             }
 
@@ -202,6 +205,9 @@ namespace HotelManager.Present
 
         private void NapChiTietBangKe(BangKe bangKe)
         {
+            // Nạp lại thông số bảng kê
+            bangKe = BusBangKe.Find(bangKe.MaBangKe);
+
             // Đã có bảng kê rồi thì tìm tiếp tất cả các chi tiết bảng kê của nó bỏ vô DataGridView
             int i = 1;
             dgvDanhSachDichVuDaYeuCau.Rows.Clear();
@@ -209,6 +215,8 @@ namespace HotelManager.Present
             {
                 dgvDanhSachDichVuDaYeuCau.Rows.Add(i++, ct.TenDichVu, ct.ThoiDiemGoi, ct.DonGia, ct.SoLuong, ct.GhiChu);
             }
+
+            tbTongChiPhiDenHienTai.Text = bangKe.TongChiPhi.ToString();
         }
         private void btnThemDanhSachDichVuMoi_Click(object sender, EventArgs e)
         {
@@ -225,24 +233,19 @@ namespace HotelManager.Present
 
             // Thêm các Chi tiết cho Bảng kê
             int count = 0;
-            foreach (DataGridViewRow row in dgvDanhSachDichVuMoiYeuCau.Rows)
+            for (int i = 0; i < dgvDanhSachDichVuMoiYeuCau.Rows.Count - 1; i++ )
             {
-                try
-                {
-                    ChiTietBangKe chiTietBangKe = new ChiTietBangKe();
-                    chiTietBangKe.MaBangKe = bangKe.MaBangKe;
-                    chiTietBangKe.TenDichVu = row.Cells[1].Value.ToString();
-                    chiTietBangKe.ThoiDiemGoi = new DateTime();
-                    chiTietBangKe.SoLuong = int.Parse(row.Cells[2].Value.ToString());
-                    chiTietBangKe.DonGia = float.Parse(row.Cells[3].Value.ToString());
-                    chiTietBangKe.GhiChu = row.Cells[4].Value.ToString();
+                ChiTietBangKe chiTietBangKe = new ChiTietBangKe();
+                chiTietBangKe.MaBangKe = bangKe.MaBangKe;
+                chiTietBangKe.TenDichVu = dgvDanhSachDichVuMoiYeuCau.Rows[i].Cells[1].Value.ToString();
+                chiTietBangKe.ThoiDiemGoi = new DateTime();
+                chiTietBangKe.DonGia = float.Parse(dgvDanhSachDichVuMoiYeuCau.Rows[i].Cells[2].Value.ToString());
+                chiTietBangKe.SoLuong = int.Parse(dgvDanhSachDichVuMoiYeuCau.Rows[i].Cells[3].Value.ToString());
+                chiTietBangKe.GhiChu = dgvDanhSachDichVuMoiYeuCau.Rows[i].Cells[4].Value.ToString();
 
-                    BusChiTietBangKe.Add(chiTietBangKe);
-                    count++;
-                }
-                catch (Exception nullException)
-                {
-                }
+                BusChiTietBangKe.Add(chiTietBangKe);
+                count++;
+
             }
 
             // xóa danh sách các dịch vụ đã đc thêm
