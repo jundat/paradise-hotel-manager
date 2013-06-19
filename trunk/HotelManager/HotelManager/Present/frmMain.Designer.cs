@@ -459,6 +459,8 @@
             this.linkLabel1.TabIndex = 18;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Đặt tiệc";
+            this.linkLabel1.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.linkLabel1.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // linkTraCuuLoaiPhong
             // 
@@ -582,6 +584,8 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 25;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // groupBox4
             // 
@@ -610,6 +614,8 @@
             this.linkLabel9.TabIndex = 14;
             this.linkLabel9.TabStop = true;
             this.linkLabel9.Text = "Báo cáo doanh thu";
+            this.linkLabel9.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.linkLabel9.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -651,6 +657,8 @@
             this.linkLabel3.TabIndex = 17;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "Tra cứu báo cáo";
+            this.linkLabel3.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.linkLabel3.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // linkLabel4
             // 
@@ -665,6 +673,8 @@
             this.linkLabel4.TabIndex = 16;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "Tra cứu hóa đơn";
+            this.linkLabel4.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.linkLabel4.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // linkLabel2
             // 
@@ -679,6 +689,8 @@
             this.linkLabel2.TabIndex = 15;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Tra cứu phiếu đến";
+            this.linkLabel2.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.linkLabel2.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // linkLabel8
             // 
@@ -693,6 +705,8 @@
             this.linkLabel8.TabIndex = 14;
             this.linkLabel8.TabStop = true;
             this.linkLabel8.Text = "Tra cứu khách hàng";
+            this.linkLabel8.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.linkLabel8.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // pictureBox4
             // 
