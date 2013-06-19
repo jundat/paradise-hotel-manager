@@ -1,0 +1,14 @@
+LONG:
+ - Lập Phiêu thu
+ - Lập báo cáo
+ - Thay đổi quy định
+
+PHÚ:
+ - Đặt chỗ
+ - Tìm phòng thuê
+ - Lập phiếu đến
+
+N.ANH:
+ - Đặt tiệc
+ - Yêu càu dịch vụ
+ - Theo dõi sự lưu trú
