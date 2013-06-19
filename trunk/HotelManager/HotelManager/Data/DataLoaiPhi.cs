@@ -32,6 +32,9 @@ namespace HotelManager.Data
                 listLoaiPhi.Add(loaiphi);
             }
 
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
             return listLoaiPhi;
         }
 
@@ -41,6 +44,10 @@ namespace HotelManager.Data
             string StrSQL = "SELECT * FROM loai_phi";
             MySqlDataAdapter ObjAdapter = new MySqlDataAdapter(StrSQL, DataProvider.getInstance().getConnection());
             ObjAdapter.Fill(table);
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
             return table;
         }
 
@@ -55,7 +62,9 @@ namespace HotelManager.Data
 
             ObjAdapter.Update(dataTable);
 
-            ObjCn.Close();
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
         }
 
         public static void Update(LoaiPhi loaiphi)
@@ -70,6 +79,10 @@ namespace HotelManager.Data
             ObjCmd.Parameters.Add("@MaLoaiPhi", MySqlDbType.Int32).Value = loaiphi.MaLoaiPhi;
 
             ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
         }
 
         public static bool Add(LoaiPhi loaiphi)
@@ -92,6 +105,9 @@ namespace HotelManager.Data
                 ObjCmd = new MySqlCommand(StrSQL, ObjCn);
                 loaiphi.MaLoaiPhi = (int)ObjCmd.ExecuteScalar();
 
+                //close connection
+                DataProvider.getInstance().CloseConnection();
+
                 return true;
             }
             catch (Exception ee)
@@ -100,6 +116,10 @@ namespace HotelManager.Data
                 {
                     MessageBox.Show("Dữ liệu trùng lặp: LoaiPhi " + loaiphi.TenLoaiPhi);
                 }
+
+                //close connection
+                DataProvider.getInstance().CloseConnection();
+
                 return false;
             }
         }
@@ -114,6 +134,10 @@ namespace HotelManager.Data
             ObjCmd.Parameters.Add("@MaLoaiPhi", MySqlDbType.Int32).Value = maLoaiPhi;
 
             ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
         }
 
         public static DataTable Find(int maLoaiPhi)
@@ -128,6 +152,9 @@ namespace HotelManager.Data
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
 
             return dt;
         }
@@ -145,6 +172,9 @@ namespace HotelManager.Data
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
 
             return dt;
         }

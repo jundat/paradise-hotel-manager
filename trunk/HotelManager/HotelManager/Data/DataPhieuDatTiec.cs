@@ -35,6 +35,9 @@ namespace HotelManager.Data
                 listPhieuDatTiec.Add(phieudattiec);
             }
 
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
             return listPhieuDatTiec;
         }
 
@@ -44,6 +47,10 @@ namespace HotelManager.Data
             string StrSQL = "SELECT * FROM phieu_dat_tiec";
             MySqlDataAdapter ObjAdapter = new MySqlDataAdapter(StrSQL, DataProvider.getInstance().getConnection());
             ObjAdapter.Fill(table);
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
             return table;
         }
 
@@ -58,7 +65,9 @@ namespace HotelManager.Data
 
             ObjAdapter.Update(dataTable);
 
-            ObjCn.Close();
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
         }
 
         public static void UpdatePhieuDatTiec(PhieuDatTiec phieudattiec)
@@ -76,6 +85,10 @@ namespace HotelManager.Data
             ObjCmd.Parameters.Add("@MaPhieuDatTiec", MySqlDbType.Int32).Value = phieudattiec.MaPhieuDatTiec;
 
             ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
         }
 
         public static bool Add(PhieuDatTiec phieudattiec)
@@ -101,6 +114,9 @@ namespace HotelManager.Data
                 ObjCmd = new MySqlCommand(StrSQL, ObjCn);
                 phieudattiec.MaPhieuDatTiec = (int)ObjCmd.ExecuteScalar();
 
+                //close connection
+                DataProvider.getInstance().CloseConnection();
+
                 return true;
             }
             catch (Exception ee)
@@ -109,6 +125,10 @@ namespace HotelManager.Data
                 {
                     MessageBox.Show("Dữ liệu trùng lặp: PhieuDatTiec " + phieudattiec.TenKhach);
                 }
+
+                //close connection
+                DataProvider.getInstance().CloseConnection();
+
                 return false;
             }
         }
@@ -123,6 +143,10 @@ namespace HotelManager.Data
             ObjCmd.Parameters.Add("@MaPhieuDatTiec", MySqlDbType.Int32).Value = maphieu;
 
             ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
         }
 
         public static DataTable Find(int maphieu)
@@ -137,6 +161,9 @@ namespace HotelManager.Data
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
 
             return dt;
         }
@@ -154,6 +181,9 @@ namespace HotelManager.Data
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
 
             return dt;
         }
