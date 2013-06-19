@@ -63,7 +63,9 @@ namespace HotelManager.Data
                     dataReader.Close();
                 }
             }
-            
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return _arrayList;
         }
 
@@ -80,6 +82,8 @@ namespace HotelManager.Data
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dataTable);
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return dataTable;
         }
 
@@ -96,6 +100,8 @@ namespace HotelManager.Data
             MySqlCommandBuilder commandBuider = new MySqlCommandBuilder(adapter);
 
             adapter.Update(dataTable);
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -122,6 +128,8 @@ namespace HotelManager.Data
             cmd.CommandText = "SELECT @@IDENTITY";
             _phieuDatCho.MaPhieuDatCho = (int)cmd.ExecuteScalar();
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return _phieuDatCho.MaPhieuDatCho;
         }
 
@@ -136,6 +144,8 @@ namespace HotelManager.Data
             cmd.CommandText = "DELETE FROM PhieuDatChoPHONG WHERE MaPhieuDatCho = ?";
             cmd.Parameters.Add("@MaPhieuDatCho", MySqlDbType.Int32).Value = _maPhieuDatCho;
             cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -159,6 +169,8 @@ namespace HotelManager.Data
             cmd.Parameters.Add("@ThoiDiemDi", MySqlDbType.Date).Value = _phieuDatCho.ThoiDiemDi;
 
             cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -206,6 +218,8 @@ namespace HotelManager.Data
                 }
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return phieuDatCho;
         }
 

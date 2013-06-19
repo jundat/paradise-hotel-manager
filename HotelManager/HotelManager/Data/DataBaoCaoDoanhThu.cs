@@ -60,6 +60,9 @@ namespace HotelManager.Data
 
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
+
             return listBaoCaoDoanhThu;
         }
 
@@ -106,6 +109,8 @@ namespace HotelManager.Data
                 }
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return listBaoCaoDoanhThu;
         }
 
@@ -150,6 +155,8 @@ namespace HotelManager.Data
                 }
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return baoCaoDoanhThu;
         }
 
@@ -174,6 +181,8 @@ namespace HotelManager.Data
             cmd.CommandText = "SELECT @@IDENTITY";
             int maBaoCaoDoanhThu = (int)cmd.ExecuteScalar();
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return maBaoCaoDoanhThu;
         }
 
@@ -188,6 +197,8 @@ namespace HotelManager.Data
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "DELETE FROM bao_cao_doanh_thu WHERE MaBaoCaoDoanhThu = " + maBaoCaoDoanhThu;
             cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -200,6 +211,8 @@ namespace HotelManager.Data
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "DELETE FROM bao_cao_doanh_thu WHERE YEAR(ThoiDiemLapBaoCao) = " + thang.Year + " and MONTH(ThoiDiemLapBaoCao) = " + thang.Month;
             cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -221,6 +234,8 @@ namespace HotelManager.Data
 
             // Thực thi truy vấn
             cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
     }

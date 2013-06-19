@@ -56,6 +56,8 @@ namespace HotelManager.Data
                 }
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return _arrayList;
         }
 
@@ -72,6 +74,8 @@ namespace HotelManager.Data
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dataTable);
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return dataTable;
         }
 
@@ -87,6 +91,8 @@ namespace HotelManager.Data
 
             MySqlCommandBuilder commandBuider = new MySqlCommandBuilder(adapter);
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             adapter.Update(dataTable);
         }
 
@@ -109,6 +115,8 @@ namespace HotelManager.Data
             cmd.CommandText = "SELECT @@IDENTITY";
             _loaiPhong.MaLoaiPhong = (int)cmd.ExecuteScalar();
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return _loaiPhong.MaLoaiPhong;
         }
 
@@ -123,6 +131,8 @@ namespace HotelManager.Data
 
             cmd.Parameters.Add("@MaLoaiPhong", MySqlDbType.Int32).Value = _maLoaiPhong;
             cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -139,6 +149,8 @@ namespace HotelManager.Data
             cmd.Parameters.Add("@DonGia", MySqlDbType.Float).Value = _loaiPhong.DonGia;
 
             cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -178,6 +190,8 @@ namespace HotelManager.Data
                 }
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return loaiPhong;
         }
     }

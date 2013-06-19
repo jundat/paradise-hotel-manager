@@ -34,6 +34,8 @@ namespace HotelManager.Data
 
                 if (dataReader.Read())
                 {
+                    // Đóng kết nối
+                    DataProvider.getInstance().CloseConnection();
                     return (int)dataReader["SoKhachToiDaTrongMotPhong"];
                 }
             }
@@ -48,6 +50,8 @@ namespace HotelManager.Data
                     dataReader.Close();
                 }
             }
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return -1;
         }
 
@@ -61,8 +65,10 @@ namespace HotelManager.Data
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "UPDATE quy_dinh SET SoKhachToiDaTrongMotPhong = " + _soKhachToiDaTrongMotPhong + " WHERE ID = 1";
 
-
             cmd.ExecuteNonQuery();
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -83,6 +89,8 @@ namespace HotelManager.Data
 
                 if (dataReader.Read())
                 {
+                    // Đóng kết nối
+                    DataProvider.getInstance().CloseConnection();
                     return (float)dataReader["TyLeCoc"];
                 }
             }
@@ -97,6 +105,8 @@ namespace HotelManager.Data
                     dataReader.Close();
                 }
             }
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return 0;
         }
 
@@ -109,9 +119,13 @@ namespace HotelManager.Data
             // Tao chuoi strSQL thao tac CSDL
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "UPDATE quy_dinh SET TyLeCoc = " + _tyLeCoc + " WHERE ID = 1";
-            
+
 
             cmd.ExecuteNonQuery();
+
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -132,6 +146,8 @@ namespace HotelManager.Data
 
                 if (dataReader.Read())
                 {
+                    // Đóng kết nối
+                    DataProvider.getInstance().CloseConnection();
                     return (int)dataReader["SoGioThueVoiGiaGoc"];
                 }
             }
@@ -147,6 +163,8 @@ namespace HotelManager.Data
                 }
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return 0;
         }
 
@@ -159,9 +177,13 @@ namespace HotelManager.Data
             // Tao chuoi strSQL thao tac CSDL
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "UPDATE quy_dinh SET SoGioThueVoiGiaGoc = " + _soGioThueVoiGiaGoc + " WHERE ID = 1";
-            
+
 
             cmd.ExecuteNonQuery();
+
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -182,6 +204,8 @@ namespace HotelManager.Data
 
                 if (dataReader.Read())
                 {
+                    // Đóng kết nối
+                    DataProvider.getInstance().CloseConnection();
                     return (float)dataReader["TyLeGiaPhongNeuThueTheoNgay"];
                 }
             }
@@ -197,6 +221,8 @@ namespace HotelManager.Data
                 }
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return 0;
         }
 
@@ -212,6 +238,10 @@ namespace HotelManager.Data
             
 
             cmd.ExecuteNonQuery();
+
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -252,6 +282,8 @@ namespace HotelManager.Data
                 }
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return quyDinh;
         }
 
@@ -270,9 +302,11 @@ namespace HotelManager.Data
                 + " WHERE ID = 1";
 
             
-
-
             cmd.ExecuteNonQuery();
+
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
     }
