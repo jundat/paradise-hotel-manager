@@ -58,6 +58,8 @@ namespace HotelManager.Data
                 }
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return listPhong;
         }
 
@@ -74,6 +76,8 @@ namespace HotelManager.Data
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dataTable);
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return dataTable;
         }
 
@@ -90,6 +94,8 @@ namespace HotelManager.Data
             MySqlCommandBuilder commandBuider = new MySqlCommandBuilder(adapter);
 
             adapter.Update(dataTable);
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
 
@@ -116,6 +122,8 @@ namespace HotelManager.Data
                 cmd.CommandText = "Select @@IDENTITY";
                 phong.MaPhong = (int)cmd.ExecuteScalar();
 
+                // Đóng kết nối
+                DataProvider.getInstance().CloseConnection();
                 return true;
             }
             catch (Exception ee)
@@ -124,6 +132,8 @@ namespace HotelManager.Data
                 {
                     MessageBox.Show("Dữ liệu trùng lặp: Phong " + phong.MaPhong);
                 }
+                // Đóng kết nối
+                DataProvider.getInstance().CloseConnection();
                 return false;
             }
         }
@@ -146,6 +156,8 @@ namespace HotelManager.Data
 
             // Thực thi truy vấn
             cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
         
         /// <summary>
@@ -157,6 +169,8 @@ namespace HotelManager.Data
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "DELETE FROM phong WHERE MaPhong = " + maPhong;
             cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -183,6 +197,8 @@ namespace HotelManager.Data
                 phong.MoTa = (String)dataReader["MoTa"];
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return phong;
         }
 
@@ -212,6 +228,8 @@ namespace HotelManager.Data
                 phong.MoTa = (String)dataReader["MoTa"];
             }
 
+
+            // Đóng kết nối
             DataProvider.getInstance().CloseConnection();
             return phong;
         }
@@ -228,6 +246,8 @@ namespace HotelManager.Data
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dataTable);
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return dataTable;
         }
 
@@ -243,6 +263,8 @@ namespace HotelManager.Data
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dataTable);
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return dataTable;
         }
 
@@ -257,6 +279,8 @@ namespace HotelManager.Data
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dataTable);
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return dataTable;
         }
 

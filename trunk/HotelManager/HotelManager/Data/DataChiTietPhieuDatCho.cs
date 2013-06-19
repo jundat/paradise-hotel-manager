@@ -29,6 +29,8 @@ namespace HotelManager.Data
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dataTable);
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return dataTable;
         }
 
@@ -44,6 +46,8 @@ namespace HotelManager.Data
 
             MySqlCommandBuilder commandBuider = new MySqlCommandBuilder(adapter);
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             adapter.Update(dataTable);
         }
 
@@ -92,6 +96,8 @@ namespace HotelManager.Data
                 }
             }
 
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
             return _arrayList;
         }
 
@@ -116,7 +122,9 @@ namespace HotelManager.Data
 
             cmd.CommandText = "Select @@IDENTITY";
             _chiTietPhieuDatCho.MaChiTietPhieuDatCho = (int)cmd.ExecuteScalar();
-            
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -128,6 +136,8 @@ namespace HotelManager.Data
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "DELETE FROM chi_tiet_phieu_dat_cho WHERE MaChiTietPhieuDatCho = " + _maChiTietPhieuDatCho;
             cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -149,6 +159,8 @@ namespace HotelManager.Data
 
             // Thực thi truy vấn
             cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
         }
 
     }
