@@ -22,6 +22,16 @@ namespace HotelManager.Business
         }
 
         /// <summary>
+        /// Lấy tất cả các dòng chi_tiet_bang_ke có Mã Bảng kê nhập vô
+        /// </summary>
+        /// <param name="_maBangKe">Mã bảng kê cần tìm chi tiết của nó</param>
+        /// <returns></returns>
+        public static ArrayList GetList(int _maBangKe)
+        {
+            return DataChiTietChiTietBangKe.GetList(_maBangKe);
+        }
+
+        /// <summary>
         /// Lấy hết bảng chi_tiet_bang_ke
         /// </summary>
         /// <returns></returns>

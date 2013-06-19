@@ -77,6 +77,15 @@ namespace HotelManager.Business
             return DataBangKe.Find(_maBangKe);
         }
         
+        /// <summary>
+        /// Tìm kiêm một Bảng kê với Mã phòng và Tình trạng thanh toán
+        /// </summary>
+        /// <param name="_maLoaiPhong"></param>
+        /// <returns></returns>
+        public static BangKe Find(int _maPhong, bool _tinhTrangThanhToan)
+        {
+            return DataBangKe.Find(_maPhong, _tinhTrangThanhToan);
+        }
 
     }
 }

@@ -10,5 +10,5 @@ PHÚ:
 
 N.ANH:
  - Đặt tiệc
- - Yêu càu dịch vụ
+ - Yêu càu dịch vụ (Chỉ đc đặt dịch vụ cho phòng có tình trạng là đang đc thuê)
  - Theo dõi sự lưu trú

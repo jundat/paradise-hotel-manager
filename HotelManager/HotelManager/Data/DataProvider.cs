@@ -27,7 +27,7 @@ namespace HotelManager.Data
         /// </summary>
         private DataProvider()
         {
-            _connectString = @"server=localhost;userid=root;password=tanlong92;database=qlnhks";
+            _connectString = @"server=localhost;userid=root;password=cvbnmcvbnm;database=qlnhks";
             _connection = new MySqlConnection(_connectString);
             _command = new MySqlCommand();
             _command.Connection = _connection;
@@ -55,7 +55,7 @@ namespace HotelManager.Data
             if (_connection != null)
             {
                 _connection.Close();
-                MessageBox.Show("We have Closeed QLNHKS database connection !", "Close Connect Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("We have Closeed QLNHKS database connection !", "Close Connect Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -68,8 +68,7 @@ namespace HotelManager.Data
             try
             {
                 _connection.Open();
-
-                MessageBox.Show("We have connected with QLNHKS database", "Connect Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("We have connected with QLNHKS database", "Connect Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (MySqlException e)

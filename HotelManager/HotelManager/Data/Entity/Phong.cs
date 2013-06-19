@@ -9,6 +9,7 @@ namespace HotelManager.Data.Entity
     {
         public int MaPhong;
         public int MaLoaiPhong;
+        public String TenPhong;
         public Boolean TinhTrangHienTai;
         public String MoTa;
 
@@ -16,11 +17,12 @@ namespace HotelManager.Data.Entity
         {
             MaPhong = 0;
             MaLoaiPhong = 0;
+            TenPhong = "";
             TinhTrangHienTai = true;
             MoTa = "";
         }
 
-        public Phong(int _maPhong, int _maLoaiPhong, Boolean _tinhTrangPhong, String _moTa)
+        public Phong(int _maPhong, int _maLoaiPhong, String _tenPhong, Boolean _tinhTrangPhong, String _moTa)
         {
             MaPhong = _maPhong;
             MaLoaiPhong = _maLoaiPhong;

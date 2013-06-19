@@ -828,6 +828,7 @@
             this.ClientSize = new System.Drawing.Size(1140, 554);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmDatTiec";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Đặt Tiệc";
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

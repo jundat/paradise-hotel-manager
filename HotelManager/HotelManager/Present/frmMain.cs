@@ -141,5 +141,24 @@ namespace HotelManager.Present
 
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            (new frmDatTiec()).ShowDialog();
+        }
+        
+        private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            (new frmTheoDoiSuLuuTruCuaKhachHang()).ShowDialog();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void linkYeuCauDichVu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            (new Phieu_Yeu_Cau_Dich_Vu()).ShowDialog();
+        }
+
     }
 }

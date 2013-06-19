@@ -187,6 +187,36 @@ namespace HotelManager.Data
         }
 
         /// <summary>
+        /// Tìm kiếm 1 phòng thông qua TenPhong
+        /// </summary>
+        /// <param name="_tenPhong"></param>
+        /// <returns>Phong</returns>
+        public static Phong FindTheoTenPhong(String _tenPhong)
+        {
+            
+            Phong phong = new Phong();
+
+            DataProvider.getInstance().OpenConnection();
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "SELECT * FROM phong WHERE TenPhong = '" + _tenPhong + "'";
+            
+            MySqlDataReader dataReader;
+            dataReader = cmd.ExecuteReader();
+
+            if (dataReader.Read())
+            {
+                phong.MaPhong = (int)dataReader["MaPhong"];
+                phong.MaLoaiPhong = (int)dataReader["MaLoaiPhong"];
+                phong.TenPhong = (String)dataReader["TenPhong"];
+                phong.TinhTrangHienTai = Convert.ToBoolean(dataReader["TinhTrangHienTai"]);
+                phong.MoTa = (String)dataReader["MoTa"];
+            }
+
+            DataProvider.getInstance().CloseConnection();
+            return phong;
+        }
+
+        /// <summary>
         /// Tim kiem theo Mã Loại Phòng
         /// </summary>
         public static DataTable FindMaLoaiPhong(int _maLoaiPhong)

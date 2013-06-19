@@ -65,7 +65,7 @@
             this.picLienHe = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkTraCuuLoaiPhong = new System.Windows.Forms.LinkLabel();
+            this.linkYeuCauDichVu = new System.Windows.Forms.LinkLabel();
             this.linkThemLoaiPhong = new System.Windows.Forms.LinkLabel();
             this.linkTraCuuPhong = new System.Windows.Forms.LinkLabel();
             this.linkThemPhong = new System.Windows.Forms.LinkLabel();
@@ -432,7 +432,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightGray;
             this.groupBox1.Controls.Add(this.linkLabel1);
-            this.groupBox1.Controls.Add(this.linkTraCuuLoaiPhong);
+            this.groupBox1.Controls.Add(this.linkYeuCauDichVu);
             this.groupBox1.Controls.Add(this.linkThemLoaiPhong);
             this.groupBox1.Controls.Add(this.linkTraCuuPhong);
             this.groupBox1.Controls.Add(this.linkThemPhong);
@@ -459,25 +459,26 @@
             this.linkLabel1.TabIndex = 18;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Đặt tiệc";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             this.linkLabel1.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkLabel1.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
-            // linkTraCuuLoaiPhong
+            // linkYeuCauDichVu
             // 
-            this.linkTraCuuLoaiPhong.AutoSize = true;
-            this.linkTraCuuLoaiPhong.BackColor = System.Drawing.Color.Transparent;
-            this.linkTraCuuLoaiPhong.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkTraCuuLoaiPhong.ForeColor = System.Drawing.Color.Transparent;
-            this.linkTraCuuLoaiPhong.LinkColor = System.Drawing.Color.Blue;
-            this.linkTraCuuLoaiPhong.Location = new System.Drawing.Point(124, 114);
-            this.linkTraCuuLoaiPhong.Name = "linkTraCuuLoaiPhong";
-            this.linkTraCuuLoaiPhong.Size = new System.Drawing.Size(149, 23);
-            this.linkTraCuuLoaiPhong.TabIndex = 17;
-            this.linkTraCuuLoaiPhong.TabStop = true;
-            this.linkTraCuuLoaiPhong.Text = "Yêu cầu dịch vụ";
-            this.linkTraCuuLoaiPhong.Click += new System.EventHandler(this.linkThayDoiQuyDinh_LinkClicked);
-            this.linkTraCuuLoaiPhong.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
-            this.linkTraCuuLoaiPhong.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.linkYeuCauDichVu.AutoSize = true;
+            this.linkYeuCauDichVu.BackColor = System.Drawing.Color.Transparent;
+            this.linkYeuCauDichVu.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.linkYeuCauDichVu.ForeColor = System.Drawing.Color.Transparent;
+            this.linkYeuCauDichVu.LinkColor = System.Drawing.Color.Blue;
+            this.linkYeuCauDichVu.Location = new System.Drawing.Point(124, 114);
+            this.linkYeuCauDichVu.Name = "linkYeuCauDichVu";
+            this.linkYeuCauDichVu.Size = new System.Drawing.Size(149, 23);
+            this.linkYeuCauDichVu.TabIndex = 17;
+            this.linkYeuCauDichVu.TabStop = true;
+            this.linkYeuCauDichVu.Text = "Yêu cầu dịch vụ";
+            this.linkYeuCauDichVu.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkYeuCauDichVu_LinkClicked);
+            this.linkYeuCauDichVu.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.linkYeuCauDichVu.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // linkThemLoaiPhong
             // 
@@ -705,6 +706,7 @@
             this.linkLabel8.TabIndex = 14;
             this.linkLabel8.TabStop = true;
             this.linkLabel8.Text = "Tra cứu khách hàng";
+            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
             this.linkLabel8.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkLabel8.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
@@ -1128,6 +1130,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hotel Manager";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBangGia)).EndInit();
@@ -1206,7 +1209,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.LinkLabel linkTraCuuLoaiPhong;
+        private System.Windows.Forms.LinkLabel linkYeuCauDichVu;
         private System.Windows.Forms.LinkLabel linkThemLoaiPhong;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.LinkLabel linkThayDoiQuyDinh;
