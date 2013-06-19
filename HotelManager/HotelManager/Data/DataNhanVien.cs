@@ -16,7 +16,7 @@ namespace HotelManager.Data
         {
             ArrayList listNhanVien = new ArrayList();
             string StrSQL = "SELECT * FROM nhan_vien";
-            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand(); //open connection and get command
             ObjCmd.CommandText = StrSQL;
             MySqlDataReader ObjReader;
             ObjReader = ObjCmd.ExecuteReader();
@@ -34,6 +34,9 @@ namespace HotelManager.Data
                 listNhanVien.Add(nhanvien);
             }
 
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
             return listNhanVien;
         }
 
@@ -43,6 +46,10 @@ namespace HotelManager.Data
             string StrSQL = "SELECT * FROM nhan_vien";
             MySqlDataAdapter ObjAdapter = new MySqlDataAdapter(StrSQL, DataProvider.getInstance().getConnection());
             ObjAdapter.Fill(tableNhanvien);
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
             return tableNhanvien;
         }
 
@@ -57,7 +64,8 @@ namespace HotelManager.Data
 
             ObjAdapter.Update(dataTable);
 
-            ObjCn.Close();
+            //close connection
+            DataProvider.getInstance().CloseConnection();
         }
 
         public static void UpdateNhanVien(NhanVien nhanvien)
@@ -76,6 +84,10 @@ namespace HotelManager.Data
             ObjCmd.Parameters.Add("@MaNhanVien", MySqlDbType.Int32).Value = nhanvien.MaNhanVien;
 
             ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
         }
 
         public static bool Add(NhanVien nhanvien)
@@ -102,6 +114,9 @@ namespace HotelManager.Data
                 ObjCmd = new MySqlCommand(StrSQL, ObjCn);
                 nhanvien.MaNhanVien = (int)ObjCmd.ExecuteScalar();
 
+                //close connection
+                DataProvider.getInstance().CloseConnection();
+                
                 return true;
             }
             catch (Exception ee)
@@ -110,6 +125,10 @@ namespace HotelManager.Data
                 {
                     MessageBox.Show("Dữ liệu trùng lặp: NhanVien " + nhanvien.TenNhanVien);
                 }
+
+                //close connection
+                DataProvider.getInstance().CloseConnection();
+
                 return false;
             }
         }
@@ -124,6 +143,10 @@ namespace HotelManager.Data
             ObjCmd.Parameters.Add("@MaNhanVien", MySqlDbType.Int32).Value = maNhanVien;
 
             ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
         }
 
         public static DataTable Find(int maNhanVien)
@@ -138,6 +161,9 @@ namespace HotelManager.Data
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
 
             return dt;
         }
@@ -155,6 +181,9 @@ namespace HotelManager.Data
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
 
             return dt;
         }
