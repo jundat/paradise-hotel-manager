@@ -59,8 +59,8 @@ namespace HotelManager.Data
         {
             // Tao chuoi strSQL thao tac CSDL
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "UPDATE quy_dinh SET SoKhachToiDaTrongMotPhong = ? WHERE ID = 1";
-            cmd.Parameters.Add("@SoKhachToiDaTrongMotPhong", MySqlDbType.Int32).Value = _soKhachToiDaTrongMotPhong;
+            cmd.CommandText = "UPDATE quy_dinh SET SoKhachToiDaTrongMotPhong = " + _soKhachToiDaTrongMotPhong + " WHERE ID = 1";
+
 
             cmd.ExecuteNonQuery();
         }
@@ -108,8 +108,8 @@ namespace HotelManager.Data
         {
             // Tao chuoi strSQL thao tac CSDL
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "UPDATE quy_dinh SET TyLeCoc = ? WHERE ID = 1";
-            cmd.Parameters.Add("@TyLeCoc", MySqlDbType.Float).Value = _tyLeCoc;
+            cmd.CommandText = "UPDATE quy_dinh SET TyLeCoc = " + _tyLeCoc + " WHERE ID = 1";
+            
 
             cmd.ExecuteNonQuery();
         }
@@ -158,8 +158,8 @@ namespace HotelManager.Data
         {
             // Tao chuoi strSQL thao tac CSDL
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "UPDATE quy_dinh SET SoGioThueVoiGiaGoc = ? WHERE ID = 1";
-            cmd.Parameters.Add("@SoGioThueVoiGiaGoc", MySqlDbType.Int32).Value = _soGioThueVoiGiaGoc;
+            cmd.CommandText = "UPDATE quy_dinh SET SoGioThueVoiGiaGoc = " + _soGioThueVoiGiaGoc + " WHERE ID = 1";
+            
 
             cmd.ExecuteNonQuery();
         }
@@ -208,8 +208,8 @@ namespace HotelManager.Data
         {
             // Tao chuoi strSQL thao tac CSDL
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "UPDATE quy_dinh SET TyLeGiaPhongNeuThueTheoNgay = ? WHERE ID = 1";
-            cmd.Parameters.Add("@TyLeGiaPhongNeuThueTheoNgay", MySqlDbType.Float).Value = _tyLeGiaPhongNeuThueTheoNgay;
+            cmd.CommandText = "UPDATE quy_dinh SET TyLeGiaPhongNeuThueTheoNgay = " + _tyLeGiaPhongNeuThueTheoNgay + " WHERE ID = 1";
+            
 
             cmd.ExecuteNonQuery();
         }
@@ -263,12 +263,14 @@ namespace HotelManager.Data
         {
             // Tao chuoi strSQL thao tac CSDL
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "UPDATE quy_dinh SET SoKhachToiDaTrongMotPhong = ?, TyLeCoc = ?, SoGioThueVoiGiaGoc = ?, TyLeGiaPhongNeuThueTheoNgay = ? WHERE ID = 1";
+            cmd.CommandText = "UPDATE quy_dinh SET SoKhachToiDaTrongMotPhong = " + _quyDinh.SoKhachToiDaTrongMotPhong
+                + ", TyLeCoc = " + _quyDinh.SoKhachToiDaTrongMotPhong
+                + ", SoGioThueVoiGiaGoc = " + _quyDinh.SoGioThueVoiGiaGoc
+                + ", TyLeGiaPhongNeuThueTheoNgay = " + _quyDinh.TyLeGiaPhongNeuThueTheoNgay
+                + " WHERE ID = 1";
 
-            cmd.Parameters.Add("@SoKhachToiDaTrongMotPhong", MySqlDbType.Int32).Value = _quyDinh.SoKhachToiDaTrongMotPhong;
-            cmd.Parameters.Add("@TyLeCoc", MySqlDbType.Float).Value = _quyDinh.TyLeCoc;
-            cmd.Parameters.Add("@SoGioThueVoiGiaGoc", MySqlDbType.Int32).Value = _quyDinh.SoGioThueVoiGiaGoc;
-            cmd.Parameters.Add("@TyLeGiaPhongNeuThueTheoNgay", MySqlDbType.Float).Value = _quyDinh.TyLeGiaPhongNeuThueTheoNgay;
+            
+
 
             cmd.ExecuteNonQuery();
         }

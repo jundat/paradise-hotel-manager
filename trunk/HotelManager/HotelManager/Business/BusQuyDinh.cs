@@ -15,7 +15,6 @@ namespace HotelManager.Business
         /// <summary>
         /// Đặt Số khách tối đa trong một phòng
         /// </summary>
-        /// <returns></returns>
         public static int GetSoKhachToiDaTrongMotPhong()
         {
             return DataQuyDinh.GetSoKhachToiDaTrongMotPhong();
@@ -24,7 +23,6 @@ namespace HotelManager.Business
         /// <summary>
         /// Cập nhật Số khách tối đa trong một phòng
         /// </summary>
-        /// <param name="_soKhachToiDaTrongMotPhong"></param>
         public static void UpdateSoKhachToiDaTrongMotPhong(int _soKhachToiDaTrongMotPhong)
         {
             DataQuyDinh.UpdateSoKhachToiDaTrongMotPhong(_soKhachToiDaTrongMotPhong);
@@ -33,16 +31,22 @@ namespace HotelManager.Business
          /// <summary>
         /// Đặt Tỷ lệ cọc
         /// </summary>
-        /// <returns></returns>
         public static float GetTyLeCoc()
         {
             return DataQuyDinh.GetTyLeCoc();
         }
 
         /// <summary>
+        /// Update gia tri ty le coc moi
+        /// </summary>
+        public static void UpdateTyLeCoc(float tylecoc)
+        {
+            DataQuyDinh.UpdateTyLeCoc(tylecoc);
+        }
+
+        /// <summary>
         /// Đặt Số giờ thuê với giá gốc
         /// </summary>
-        /// <returns></returns>
         public static int GetSoGioThueVoiGiaGoc()
         {
             return DataQuyDinh.GetSoGioThueVoiGiaGoc();
@@ -51,7 +55,6 @@ namespace HotelManager.Business
         /// <summary>
         /// Cập nhật Số giờ thuê với giá gốc
         /// </summary>
-        /// <param name="_soGioThueVoiGiaGoc"></param>
         public static void UpdateSoGioThueVoiGiaGoc(int _soGioThueVoiGiaGoc)
         {
             DataQuyDinh.UpdateSoGioThueVoiGiaGoc(_soGioThueVoiGiaGoc);
@@ -60,7 +63,6 @@ namespace HotelManager.Business
         /// <summary>
         /// Đặt Tỷ lệ giá phòng nếu thuê theo ngày
         /// </summary>
-        /// <returns></returns>
         public static float GetTyLeGiaPhongNeuThueTheoNgay()
         {
             return DataQuyDinh.GetTyLeGiaPhongNeuThueTheoNgay();
@@ -69,7 +71,6 @@ namespace HotelManager.Business
         /// <summary>
         /// Cập nhật Tỷ lệ giá phòng nếu thuê theo ngày
         /// </summary>
-        /// <param name="_tyLeGiaPhongNeuThueTheoNgay"></param>
         public static void UpdateTyLeGiaPhongNeuThueTheoNgay(float _tyLeGiaPhongNeuThueTheoNgay)
         {
             DataQuyDinh.UpdateTyLeGiaPhongNeuThueTheoNgay(_tyLeGiaPhongNeuThueTheoNgay);
@@ -78,7 +79,6 @@ namespace HotelManager.Business
         /// <summary>
         /// Lấy thông số của quy định thông qua đối tượng quy định
         /// </summary>
-        /// <returns></returns>
         public static QuyDinh GetQuyDinh()
         {
             return DataQuyDinh.GetQuyDinh();
@@ -87,7 +87,6 @@ namespace HotelManager.Business
         /// <summary>
         /// Cập nhật thông số của quy định thông qua đối tượng quy định
         /// </summary>
-        /// <param name="_quyDinh"></param>
         public static void UpdateQuyDinh(QuyDinh _quyDinh)
         {
             DataQuyDinh.UpdateQuyDinh(_quyDinh);

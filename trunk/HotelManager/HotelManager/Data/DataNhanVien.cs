@@ -70,16 +70,20 @@ namespace HotelManager.Data
 
         public static void UpdateNhanVien(NhanVien nhanvien)
         {
-            string StrSQL = "UPDATE nhan_vien SET TenNhanVien = ?, DiaChi = ?, SDT = ?, ChucVu = ?, UserName = ?, Password = ?  WHERE MaNhanVien = ?";
+            string StrSQL = "UPDATE nhan_vien SET TenNhanVien = " + nhanvien.TenNhanVien
+                + ", DiaChi = " + nhanvien.DiaChi
+                + ", SDT = " + nhanvien.SDT
+                + ", ChucVu = " + nhanvien.ChucVu
+                + ", UserName = " + nhanvien.UserName
+                + ", Password = " + nhanvien.Password
+                + "  WHERE MaNhanVien = " + nhanvien.MaNhanVien;
+
+
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@TenNhanVien", MySqlDbType.String).Value = nhanvien.TenNhanVien;
-            ObjCmd.Parameters.Add("@DiaChi", MySqlDbType.String).Value = nhanvien.DiaChi;
-            ObjCmd.Parameters.Add("@SDT", MySqlDbType.String).Value = nhanvien.SDT;
-            ObjCmd.Parameters.Add("@ChucVu", MySqlDbType.String).Value = nhanvien.ChucVu;
-            ObjCmd.Parameters.Add("@UserName", MySqlDbType.String).Value = nhanvien.UserName;
-            ObjCmd.Parameters.Add("@Password", MySqlDbType.String).Value = nhanvien.Password;
+            
+
 
             ObjCmd.Parameters.Add("@MaNhanVien", MySqlDbType.Int32).Value = nhanvien.MaNhanVien;
 
@@ -96,15 +100,20 @@ namespace HotelManager.Data
             {
                 MySqlConnection ObjCn = DataProvider.getInstance().getConnection();
 
-                string StrSQL = "INSERT INTO nhan_vien(TenNhanVien, DiaChi, SDT, ChucVu, UserName, Password) VALUES(?, ?, ?, ?, ?, ?);";
+                string StrSQL = "INSERT INTO nhan_vien(TenNhanVien, DiaChi, SDT, ChucVu, UserName, Password)"
+                    + "VALUES(" 
+                    + nhanvien.TenNhanVien + "," 
+                    + nhanvien.DiaChi + ","
+                    + nhanvien.SDT + ","
+                    + nhanvien.ChucVu + ","
+                    + nhanvien.UserName + ","
+                    + nhanvien.Password + ");";
+
+
                 MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
 
-                ObjCmd.Parameters.Add("@TenNhanVien", MySqlDbType.String).Value = nhanvien.TenNhanVien;
-                ObjCmd.Parameters.Add("@DiaChi", MySqlDbType.String).Value = nhanvien.DiaChi;
-                ObjCmd.Parameters.Add("@SDT", MySqlDbType.String).Value = nhanvien.SDT;
-                ObjCmd.Parameters.Add("@ChucVu", MySqlDbType.String).Value = nhanvien.ChucVu;
-                ObjCmd.Parameters.Add("@UserName", MySqlDbType.String).Value = nhanvien.UserName;
-                ObjCmd.Parameters.Add("@Password", MySqlDbType.String).Value = nhanvien.Password;
+                
+
 
                 ObjCmd.ExecuteNonQuery();
 
@@ -135,12 +144,11 @@ namespace HotelManager.Data
 
         public static void Delete(int maNhanVien)
         {
-            string StrSQL = "DELETE FROM nhan_vien WHERE MaNhanVien = ?";
+            string StrSQL = "DELETE FROM nhan_vien WHERE MaNhanVien = " + maNhanVien;
 
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@MaNhanVien", MySqlDbType.Int32).Value = maNhanVien;
 
             ObjCmd.ExecuteNonQuery();
 
@@ -152,12 +160,12 @@ namespace HotelManager.Data
         public static DataTable Find(int maNhanVien)
         {
             DataTable dt = new DataTable();
-            
-            string StrSQL = "SELECT * FROM nhan_vien WHERE MaNhanVien = ?";
+
+            string StrSQL = "SELECT * FROM nhan_vien WHERE MaNhanVien = " + maNhanVien;
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@MaNhanVien", MySqlDbType.Int32).Value = maNhanVien;
+
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
@@ -171,13 +179,12 @@ namespace HotelManager.Data
         public static DataTable Find(string tenNhanVien)
         {
             DataTable dt = new DataTable();
-            
-            string StrSQL = "SELECT * FROM nhan_vien WHERE TenNhanVien = ?";
+
+            string StrSQL = "SELECT * FROM nhan_vien WHERE TenNhanVien = " + tenNhanVien;
 
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-            ObjCmd.Parameters.Add("@TenNhanVien", MySqlDbType.String).Value = tenNhanVien;
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
