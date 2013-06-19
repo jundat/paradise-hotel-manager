@@ -27,7 +27,7 @@ namespace HotelManager.Data
         /// </summary>
         private DataProvider()
         {
-            _connectString = @"server=localhost;userid=root;password=cvbnmcvbnm;database=qlnhks";
+            _connectString = @"server=localhost;userid=root;password=tanlong92;database=qlnhks";
             _connection = new MySqlConnection(_connectString);
             _command = new MySqlCommand();
             _command.Connection = _connection;
@@ -81,16 +81,28 @@ namespace HotelManager.Data
         /// <summary>
         /// Get the MySqlCommand of connetion was created by OpenConnection() function
         /// you must call it to create and execute SQL query
+        /// 
+        /// If connection have not open, we open it
         /// </summary>
         /// <returns></returns>
         public MySqlCommand getCommand()
         {
+            if (_connection.State != System.Data.ConnectionState.Open)
+            {
+                this.OpenConnection();
+            }
+
             return _command;
         }
 
 
         public MySqlConnection getConnection()
         {
+            if (_connection.State != System.Data.ConnectionState.Open)
+            {
+                this.OpenConnection();
+            }
+
             return _connection;
         }
     }
