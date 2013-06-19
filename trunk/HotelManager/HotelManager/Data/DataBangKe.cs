@@ -159,9 +159,9 @@ namespace HotelManager.Data
         {
             BangKe bangKe = new BangKe();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "SELECT * FROM bang_ke WHERE MaBangKe = ?";
+            cmd.CommandText = "SELECT * FROM bang_ke WHERE MaBangKe = ?MaBangKe";
 
-            cmd.Parameters.Add("@MaBangKe", MySqlDbType.Int32).Value = _maBangKe;
+            cmd.Parameters.Add("?MaBangKe", _maBangKe);
 
             MySqlDataReader dataReader;
             dataReader = cmd.ExecuteReader();
@@ -171,7 +171,7 @@ namespace HotelManager.Data
                 bangKe.MaBangKe = (int)dataReader["MaBangKe"];
                 bangKe.MaPhong = (int)dataReader["MaPhong"];
                 bangKe.TongChiPhi = (float)dataReader["TongChiPhi"];
-                bangKe.TinhTrangThanhToan = (Boolean)dataReader["TinhTrangThanhToan"];
+                bangKe.TinhTrangThanhToan = Convert.ToBoolean(dataReader["TinhTrangThanhToan"]);
             }
             DataProvider.getInstance().CloseConnection();
             return bangKe;
