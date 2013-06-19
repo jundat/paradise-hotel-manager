@@ -57,8 +57,59 @@ namespace HotelManager.Data
                 }
             }
 
+            DataProvider.getInstance().CloseConnection();
             return _arrayList;
         }
+
+        /// <summary>
+        /// Lấy tất cả các dòng chi_tiet_bang_ke có Mã Bảng kê nhập vô
+        /// </summary>
+        /// <param name="_maBangKe">Mã bảng kê cần tìm chi tiết của nó</param>
+        /// <returns></returns>
+        public static ArrayList GetList(int _maBangKe)
+        {
+            // Lấy command
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            MySqlDataReader dataReader = null;
+            ArrayList _arrayList = new ArrayList();
+
+            try
+            {
+                // set query
+                cmd.CommandText = "SELECT * FROM chi_tiet_bang_ke WHERE MaBangKe = '" + _maBangKe + "'";
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    ChiTietBangKe _chiTietBangKe = new ChiTietBangKe();
+
+                    _chiTietBangKe.MaChiTietBangKe = (int)dataReader["MaChiTietBangKe"];
+                    _chiTietBangKe.MaBangKe = (int)dataReader["MaBangKe"];
+                    _chiTietBangKe.TenDichVu = (String)dataReader["TenDichVu"];
+                    _chiTietBangKe.ThoiDiemGoi = (DateTime)dataReader["ThoiDiemGoi"];
+                    _chiTietBangKe.DonGia = (float)dataReader["DonGia"];
+                    _chiTietBangKe.SoLuong = (int)dataReader["SoLuong"];
+                    _chiTietBangKe.GhiChu = (String)dataReader["GhiChu"];
+
+                    _arrayList.Add(_chiTietBangKe);
+                }
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString(), "Error Execute query: GetList CHI_TIET_BANG_KE table !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null)
+                {
+                    dataReader.Close();
+                }
+            }
+
+            DataProvider.getInstance().CloseConnection();
+            return _arrayList;
+        }
+
 
         /// <summary>
         /// Lấy hết bảng chi_tiet_bang_ke
@@ -73,6 +124,7 @@ namespace HotelManager.Data
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dataTable);
 
+            DataProvider.getInstance().CloseConnection();
             return dataTable;
         }
 
@@ -87,6 +139,8 @@ namespace HotelManager.Data
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             MySqlCommandBuilder commandBuider = new MySqlCommandBuilder(adapter);
             adapter.Update(dataTable);
+
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -97,20 +151,21 @@ namespace HotelManager.Data
         public static int Add(ChiTietBangKe _chiTietBangKe)
         {
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "INSERT INTO chi_tiet_bang_ke(MaPhong, TongChiPhi, TinhTrangThanhToan) VALUES(?, ?, ?)";
+            cmd.CommandText = "INSERT INTO chi_tiet_bang_ke(MaBangKe, TenDichVu, ThoiDiemGoi, DonGia, SoLuong, GhiChu) VALUES(?MaBangKe, ?TenDichVu, ?ThoiDiemGoi, ?DonGia, ?SoLuong, ?GhiChu)";
 
-            cmd.Parameters.Add("@MaBangKe", MySqlDbType.Int32).Value = _chiTietBangKe.MaBangKe;
-            cmd.Parameters.Add("@TenDichVu", MySqlDbType.String).Value = _chiTietBangKe.TenDichVu;
-            cmd.Parameters.Add("@ThoiDiemGoi", MySqlDbType.Date).Value = _chiTietBangKe.ThoiDiemGoi;
-            cmd.Parameters.Add("@DonGia", MySqlDbType.Float).Value = _chiTietBangKe.DonGia;
-            cmd.Parameters.Add("@SoLuong", MySqlDbType.Int32).Value = _chiTietBangKe.SoLuong;
-            cmd.Parameters.Add("@GhiChu", MySqlDbType.String).Value = _chiTietBangKe.GhiChu;
+            cmd.Parameters.Add("?MaBangKe", _chiTietBangKe.MaBangKe);
+            cmd.Parameters.Add("?TenDichVu", _chiTietBangKe.TenDichVu);
+            cmd.Parameters.Add("?ThoiDiemGoi", _chiTietBangKe.ThoiDiemGoi);
+            cmd.Parameters.Add("?DonGia",  _chiTietBangKe.DonGia);
+            cmd.Parameters.Add("?SoLuong", _chiTietBangKe.SoLuong);
+            cmd.Parameters.Add("?GhiChu", _chiTietBangKe.GhiChu);
 
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = "SELECT @@IDENTITY";
-            _chiTietBangKe.MaChiTietBangKe = (int)cmd.ExecuteScalar();
+            _chiTietBangKe.MaChiTietBangKe = Convert.ToInt32(cmd.ExecuteScalar());
 
+            DataProvider.getInstance().CloseConnection();
             return _chiTietBangKe.MaChiTietBangKe;
         }
 
@@ -125,6 +180,8 @@ namespace HotelManager.Data
 
             cmd.Parameters.Add("@MaChiTietBangKe", MySqlDbType.Int32).Value = _maChiTietBangKe;
             cmd.ExecuteNonQuery();
+
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -145,6 +202,8 @@ namespace HotelManager.Data
             cmd.Parameters.Add("@GhiChu", MySqlDbType.String).Value = _chiTietBangKe.GhiChu;
 
             cmd.ExecuteNonQuery();
+
+            DataProvider.getInstance().CloseConnection();
         }
 
 
@@ -175,6 +234,7 @@ namespace HotelManager.Data
                 ChiTietBangKe.GhiChu = (String)dataReader["GhiChu"];
             }
 
+            DataProvider.getInstance().CloseConnection();
             return ChiTietBangKe;
         }
 

@@ -137,6 +137,12 @@
     <Compile Include="Data\Entity\PhieuThu.cs" />
     <Compile Include="Data\Entity\Phong.cs" />
     <Compile Include="Data\Entity\QuyDinh.cs" />
+    <Compile Include="Present\frmTheoDoiSuLuuTruCuaKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmTheoDoiSuLuuTruCuaKhachHang.Designer.cs">
+      <DependentUpon>frmTheoDoiSuLuuTruCuaKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Present\frmDatCho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Present\frmTheoDoiSuLuuTruCuaKhachHang.resx">
+      <DependentUpon>frmTheoDoiSuLuuTruCuaKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Present\frmDatCho.resx">
       <DependentUpon>frmDatCho.cs</DependentUpon>
     </EmbeddedResource>

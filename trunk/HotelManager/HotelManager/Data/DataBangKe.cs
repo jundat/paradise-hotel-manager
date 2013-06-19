@@ -56,6 +56,8 @@ namespace HotelManager.Data
                     dataReader.Close();
                 }
             }
+            
+            DataProvider.getInstance().CloseConnection();
 
             return _arrayList;
         }
@@ -73,6 +75,7 @@ namespace HotelManager.Data
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dataTable);
 
+            DataProvider.getInstance().CloseConnection();
             return dataTable;
         }
 
@@ -87,6 +90,7 @@ namespace HotelManager.Data
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             MySqlCommandBuilder commandBuider = new MySqlCommandBuilder(adapter);
             adapter.Update(dataTable);
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -97,17 +101,19 @@ namespace HotelManager.Data
         public static int Add(BangKe _bangKe)
         {
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "INSERT INTO bang_ke(MaPhong, TongChiPhi, TinhTrangThanhToan) VALUES(?, ?, ?)";
+            cmd.CommandText = "INSERT INTO bang_ke(MaPhong, TongChiPhi, TinhTrangThanhToan) VALUES(?MaPhong, ?TongChiPhi, ?TinhTrangThanhToan)";
+            cmd.Prepare();
 
-            cmd.Parameters.Add("@MaPhong", MySqlDbType.Int32).Value = _bangKe.MaPhong;
-            cmd.Parameters.Add("@TongChiPhi", MySqlDbType.Float).Value = _bangKe.TongChiPhi;
-            cmd.Parameters.Add("@TinhTrangThanhToan", MySqlDbType.Byte).Value = _bangKe.TinhTrangThanhToan;
+            cmd.Parameters.Add("?MaPhong", _bangKe.MaPhong);
+            cmd.Parameters.Add("?TongChiPhi", _bangKe.TongChiPhi);
+            cmd.Parameters.Add("?TinhTrangThanhToan", _bangKe.TinhTrangThanhToan);
 
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = "SELECT @@IDENTITY";
-            _bangKe.MaBangKe = (int)cmd.ExecuteScalar();
+            _bangKe.MaBangKe = Convert.ToInt32(cmd.ExecuteScalar());
 
+            DataProvider.getInstance().CloseConnection();
             return _bangKe.MaBangKe;
         }
 
@@ -122,6 +128,7 @@ namespace HotelManager.Data
 
             cmd.Parameters.Add("@MaBangKe", MySqlDbType.Int32).Value = _maBangKe;
             cmd.ExecuteNonQuery();
+            DataProvider.getInstance().CloseConnection();
         }
 
         /// <summary>
@@ -139,6 +146,7 @@ namespace HotelManager.Data
             cmd.Parameters.Add("@TinhTrangThanhToan", MySqlDbType.Byte).Value = _bangKe.TinhTrangThanhToan;
 
             cmd.ExecuteNonQuery();
+            DataProvider.getInstance().CloseConnection();
         }
 
 
@@ -165,9 +173,36 @@ namespace HotelManager.Data
                 bangKe.TongChiPhi = (float)dataReader["TongChiPhi"];
                 bangKe.TinhTrangThanhToan = (Boolean)dataReader["TinhTrangThanhToan"];
             }
-
+            DataProvider.getInstance().CloseConnection();
             return bangKe;
         }
+
+        /// <summary>
+        /// Tìm kiêm một Bảng kê với Mã phòng và Tình trạng thanh toán
+        /// </summary>
+        /// <param name="_maLoaiPhong"></param>
+        /// <returns></returns>
+        public static BangKe Find(int _maPhong, bool _tinhTrangThanhToan)
+        {
+            BangKe bangKe = new BangKe();
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = '" + _maPhong + "' AND TinhTrangThanhToan = " + Convert.ToByte(_tinhTrangThanhToan);
+
+            MySqlDataReader dataReader;
+            dataReader = cmd.ExecuteReader();
+
+            if (dataReader.Read())
+            {
+                bangKe.MaBangKe = (int)dataReader["MaBangKe"];
+                bangKe.MaPhong = (int)dataReader["MaPhong"];
+                bangKe.TongChiPhi = (float)dataReader["TongChiPhi"];
+                bangKe.TinhTrangThanhToan = Convert.ToBoolean(dataReader["TinhTrangThanhToan"]);
+            }
+
+            DataProvider.getInstance().CloseConnection();
+            return bangKe;
+        }
+
 
     }
 }

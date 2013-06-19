@@ -78,6 +78,16 @@ namespace HotelManager.Business
         }
 
         /// <summary>
+        /// Tìm kiếm 1 phòng thông qua TenPhong
+        /// </summary>
+        /// <param name="_tenPhong"></param>
+        /// <returns>Phong</returns>
+        public static Phong FindTheoTenPhong(String _tenPhong)
+        {
+            return DataPhong.FindTheoTenPhong(_tenPhong);
+        }
+
+        /// <summary>
         /// Tim kiem theo Mã Loại Phòng
         /// </summary>
         public static DataTable FindMaLoaiPhong(int _maLoaiPhong)
