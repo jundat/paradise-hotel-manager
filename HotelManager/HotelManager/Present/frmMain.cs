@@ -25,7 +25,7 @@ namespace HotelManager.Present
         private void Control_MouseEnter(object sender, EventArgs e)
         {
             Control control = (Control)sender;
-            control.BackColor = Color.FromArgb(80, 0, 0, 0);
+            control.BackColor = Color.FromArgb(100, 20, 20, 0);
         }
 
         private void Control_MouseLeave(object sender, EventArgs e)
