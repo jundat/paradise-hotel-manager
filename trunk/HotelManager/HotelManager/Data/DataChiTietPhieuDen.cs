@@ -250,5 +250,191 @@ namespace HotelManager.Data
             return dt;
         }
 
+        /// <summary>
+        /// Tìm danh sách Chi Tiết Phiếu Đến có mã phòng và tình Trạng thanh toán truyền vô
+        /// </summary>
+        /// <param name="maPhong"></param>
+        /// <param name="tinhTrangThanhToan"></param>
+        /// <returns></returns>
+        public static ArrayList FindDanhSachChiTiet(int maPhong, bool tinhTrangThanhToan)
+        {
+            ArrayList listCTPhieuDen = new ArrayList();
+            
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = "SELECT * FROM chi_tiet_phieu_den "
+                                +"WHERE MaPhong = ?MaPhong AND MaPhieuDen IN "
+                                    + "(SELECT MaPhieuDen FROM phieu_den "
+                                    + "WHERE TinhTrangThanhToan = ?TinhTrangThanhToan)";
+
+            ObjCmd.Parameters.Add("?MaPhong", maPhong);
+            ObjCmd.Parameters.Add("?TinhTrangThanhToan", tinhTrangThanhToan);
+
+            MySqlDataReader ObjReader = ObjCmd.ExecuteReader();
+
+            while (ObjReader.Read())
+            {
+                ChiTietPhieuDen ct_PhieuDen = new ChiTietPhieuDen();
+
+                ct_PhieuDen.MaChiTietPhieuDen = (int)ObjReader["MaChiTietPhieuDen"];
+                ct_PhieuDen.MaPhieuDen = (int)ObjReader["MaPhieuDen"];
+                ct_PhieuDen.MaPhong = (int)ObjReader["MaPhong"];
+                ct_PhieuDen.TenKhachHang = (string)ObjReader["TenKhachHang"];
+                ct_PhieuDen.CMND = (string)ObjReader["CMND"];
+                ct_PhieuDen.DonGia = (float)ObjReader["DonGia"];
+
+                listCTPhieuDen.Add(ct_PhieuDen);
+            }
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return listCTPhieuDen;
+        }
+
+        /// <summary>
+        /// Tìm danh sách chi tiết Phiếu đến theo tên khách và tình trạng lưu trú của khách
+        /// </summary>
+        /// <param name="tenKhach"></param>
+        /// <param name="tinhTrang"></param>
+        /// <returns></returns>
+        public static ArrayList FindDanhSachChiTietPhieuDenTheoTenKhach(String tenKhach, String tinhTrang)
+        {
+            ArrayList listCTPhieuDen = new ArrayList();
+            
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+
+            if (tinhTrang.Equals("Không quan tâm"))
+            {
+                ObjCmd.CommandText = "SELECT * FROM chi_tiet_phieu_den WHERE TenKhachHang LIKE '%" + tenKhach + "%'";
+            }
+            else
+                if (tinhTrang.Equals("Đã trả phòng"))
+                {
+                    ObjCmd.CommandText = "SELECT * FROM chi_tiet_phieu_den WHERE TenKhachHang LIKE '%" + tenKhach + "%' AND "
+                                        + " MaPhieuDen IN ( SELECT MaPhieuDen FROM phieu_den WHERE TinhTrangThanhToan = ?TinhTrangThanhToan)";
+                    ObjCmd.Parameters.Add("?TinhTrangThanhToan", true);
+                }
+                else // tinh trạng == Đang thuê phòng
+                {
+                    ObjCmd.CommandText = "SELECT * FROM chi_tiet_phieu_den WHERE TenKhachHang LIKE '%" + tenKhach + "%' AND "
+                                        + " MaPhieuDen IN ( SELECT MaPhieuDen FROM phieu_den WHERE TinhTrangThanhToan = ?TinhTrangThanhToan)";
+                    ObjCmd.Parameters.Add("?TinhTrangThanhToan", false);
+                }
+
+            MySqlDataReader ObjReader = ObjCmd.ExecuteReader();
+
+            while (ObjReader.Read())
+            {
+                ChiTietPhieuDen ct_PhieuDen = new ChiTietPhieuDen();
+
+                ct_PhieuDen.MaChiTietPhieuDen = (int)ObjReader["MaChiTietPhieuDen"];
+                ct_PhieuDen.MaPhieuDen = (int)ObjReader["MaPhieuDen"];
+                ct_PhieuDen.MaPhong = (int)ObjReader["MaPhong"];
+                ct_PhieuDen.TenKhachHang = (string)ObjReader["TenKhachHang"];
+                ct_PhieuDen.CMND = (string)ObjReader["CMND"];
+                ct_PhieuDen.DonGia = (float)ObjReader["DonGia"];
+
+                listCTPhieuDen.Add(ct_PhieuDen);
+            }
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return listCTPhieuDen;
+        }
+
+        /// <summary>
+        /// Tìm danh sách chi tiết Phiếu đến theo CMND và tình trạng lưu trú của khách
+        /// </summary>
+        /// <param name="tenKhach"></param>
+        /// <param name="tinhTrang"></param>
+        /// <returns></returns>
+        public static ArrayList FindDanhSachChiTietPhieuDenTheoCMND(String CMND, String tinhTrang)
+        {
+            ArrayList listCTPhieuDen = new ArrayList();
+
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+
+            if (tinhTrang.Equals("Không quan tâm"))
+            {
+                ObjCmd.CommandText = "SELECT * FROM chi_tiet_phieu_den WHERE CMND LIKE '%" + CMND + "%'";
+            }
+            else
+                if (tinhTrang.Equals("Đã trả phòng"))
+                {
+                    ObjCmd.CommandText =  "SELECT * FROM chi_tiet_phieu_den WHERE CMND LIKE '%" + CMND + "%' AND "
+                                        + " MaPhieuDen IN ( SELECT MaPhieuDen FROM phieu_den WHERE TinhTrangThanhToan = ?TinhTrangThanhToan)";
+                    ObjCmd.Parameters.Add("?TinhTrangThanhToan", true);
+                }
+                else // tinh trạng == Đang thuê phòng
+                {
+                    ObjCmd.CommandText = "SELECT * FROM chi_tiet_phieu_den WHERE CMND LIKE '%" + CMND + "%' AND "
+                                        + " MaPhieuDen IN ( SELECT MaPhieuDen FROM phieu_den WHERE TinhTrangThanhToan = ?TinhTrangThanhToan)";
+                    ObjCmd.Parameters.Add("?TinhTrangThanhToan", false);
+                }
+
+            MySqlDataReader ObjReader = ObjCmd.ExecuteReader();
+
+            while (ObjReader.Read())
+            {
+                ChiTietPhieuDen ct_PhieuDen = new ChiTietPhieuDen();
+
+                ct_PhieuDen.MaChiTietPhieuDen = (int)ObjReader["MaChiTietPhieuDen"];
+                ct_PhieuDen.MaPhieuDen = (int)ObjReader["MaPhieuDen"];
+                ct_PhieuDen.MaPhong = (int)ObjReader["MaPhong"];
+                ct_PhieuDen.TenKhachHang = (string)ObjReader["TenKhachHang"];
+                ct_PhieuDen.CMND = (string)ObjReader["CMND"];
+                ct_PhieuDen.DonGia = (float)ObjReader["DonGia"];
+
+                listCTPhieuDen.Add(ct_PhieuDen);
+            }
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return listCTPhieuDen;
+        }
+
+        /// <summary>
+        /// Tìm danh sách các Chi tiết phiếu đến của các Phiếu đến có thời gian lưu trú nằm giữa 2 khoảng thời gian Từ Đến
+        /// </summary>
+        /// <param name="tu"></param>
+        /// <param name="den"></param>
+        /// <returns></returns>
+        public static ArrayList FindDanhSachChiTietPhieuDenTrongKhoangThoiGian(DateTime tu, DateTime den)
+        {
+            ArrayList listCTPhieuDen = new ArrayList();
+
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+
+            ObjCmd.CommandText = "SELECT * FROM chi_tiet_phieu_den WHERE MaPhieuDen IN "
+                                +"(SELECT MaPhieuDen FROM phieu_den WHERE (ThoiDiemDen BETWEEN ?tu AND ?den) OR (ThoiDiemDi BETWEEN ?tu AND ?den))";
+            
+            ObjCmd.Parameters.Add("?tu", tu);
+            ObjCmd.Parameters.Add("?den", den);
+            
+            MySqlDataReader ObjReader = ObjCmd.ExecuteReader();
+
+            while (ObjReader.Read())
+            {
+                ChiTietPhieuDen ct_PhieuDen = new ChiTietPhieuDen();
+
+                ct_PhieuDen.MaChiTietPhieuDen = (int)ObjReader["MaChiTietPhieuDen"];
+                ct_PhieuDen.MaPhieuDen = (int)ObjReader["MaPhieuDen"];
+                ct_PhieuDen.MaPhong = (int)ObjReader["MaPhong"];
+                ct_PhieuDen.TenKhachHang = (string)ObjReader["TenKhachHang"];
+                ct_PhieuDen.CMND = (string)ObjReader["CMND"];
+                ct_PhieuDen.DonGia = (float)ObjReader["DonGia"];
+
+                listCTPhieuDen.Add(ct_PhieuDen);
+            }
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return listCTPhieuDen;
+        }
     }
+
+
 }

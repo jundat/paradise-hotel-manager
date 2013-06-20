@@ -201,22 +201,34 @@ namespace HotelManager.Data
 
         }
 
-        public static DataTable Find(int maPhieuDen)
+        public static PhieuDen Find(int maPhieuDen)
         {
-            DataTable dt = new DataTable();
+            PhieuDen phieuDen = new PhieuDen();
 
-            string StrSQL = "SELECT * FROM phieu_den WHERE MaPhieuDen = " + maPhieuDen;
+            
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
-            ObjCmd.CommandText = StrSQL;
+            ObjCmd.CommandText = "SELECT * FROM phieu_den WHERE MaPhieuDen = ?MaPhieuDen";
 
+            ObjCmd.Parameters.Add("?MaPhieuDen", maPhieuDen);
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
-            adapter.Fill(dt);
+            MySqlDataReader dataReader = ObjCmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                phieuDen.MaPhieuDen = (int)dataReader["MaPhieuDen"];
+                phieuDen.TenKhachDaiDien = (String)dataReader["TenKhachDaiDien"];
+                phieuDen.CMND = (String)dataReader["CMND"];
+                phieuDen.ThoiDiemDen = (DateTime)dataReader["ThoiDiemDen"];
+                phieuDen.ThoiDiemDi = (DateTime)dataReader["ThoiDiemDi"];
+                phieuDen.TongChiPhi = (float)dataReader["TongChiPhi"];
+                phieuDen.TinhTrangThanhToan = Convert.ToBoolean(dataReader["TongChiPhi"]);
+            }
 
             //close connection
+            dataReader.Close();
             DataProvider.getInstance().CloseConnection();
 
-            return dt;
+            return phieuDen;
         }
 
         public static DataTable FindCMND(string cmnd, bool tinhtrang)

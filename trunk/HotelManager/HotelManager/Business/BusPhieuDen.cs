@@ -52,7 +52,7 @@ namespace HotelManager.Business
             DataPhieuDen.Delete(maPhieuDen);
         }
 
-        public static DataTable Find(int maPhieuDen)
+        public static PhieuDen Find(int maPhieuDen)
         {
             return DataPhieuDen.Find(maPhieuDen);
         }

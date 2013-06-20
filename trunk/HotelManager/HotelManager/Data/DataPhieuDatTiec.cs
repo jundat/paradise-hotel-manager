@@ -15,12 +15,14 @@ namespace HotelManager.Data
         public static ArrayList GetList()
         {
             ArrayList listPhieuDatTiec = new ArrayList();
-            string StrSQL = "SELECT * FROM phieu_dat_tiec";
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
-            ObjCmd.CommandText = StrSQL;
-            MySqlDataReader ObjReader;
+            ObjCmd.CommandText = "SELECT * FROM phieu_dat_tiec";
+
+            // thực thi truy vấn
+            MySqlDataReader ObjReader = null;
             ObjReader = ObjCmd.ExecuteReader();
 
+            // Đọc dữ liệu trả ra từ truy vấn
             while (ObjReader.Read())
             {
                 PhieuDatTiec phieudattiec = new PhieuDatTiec();
@@ -31,6 +33,47 @@ namespace HotelManager.Data
                 phieudattiec.ThoiDiem = (DateTime)ObjReader["ThoiDiem"];
                 phieudattiec.TongTien = (float)ObjReader["TongTien"];
                 phieudattiec.TinhTrangThanhToan = (bool)ObjReader["TinhTrangThanhToan"];
+
+                listPhieuDatTiec.Add(phieudattiec);
+            }
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return listPhieuDatTiec;
+        }
+
+        /// <summary>
+        /// Tìm danh sách các phiếu đặt tiệc chưa đc thanh toán và Mã phòng của khách đặt nó
+        /// </summary>
+        /// <param name="maPhong"></param>
+        /// <param name="tinhTrangThanhToan"></param>
+        /// <returns></returns>
+        public static ArrayList FindTheoMaPhongVaTinhTrangThanhToan(int maPhong, bool tinhTrangThanhToan)
+        {
+            ArrayList listPhieuDatTiec = new ArrayList();
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = "SELECT * FROM phieu_dat_tiec WHERE MaPhong = ?MaPhong AND TinhTrangThanhToan = ?TinhTrangThanhToan";
+
+            // Truyền tham sô cho command
+            ObjCmd.Parameters.Add("?MaPhong", maPhong);
+            ObjCmd.Parameters.Add("?TinhTrangThanhToan", tinhTrangThanhToan);
+
+            // thực thi truy vấn
+            MySqlDataReader ObjReader = null;
+            ObjReader = ObjCmd.ExecuteReader();
+
+            // Đọc dữ liệu trả ra từ truy vấn
+            while (ObjReader.Read())
+            {
+                PhieuDatTiec phieudattiec = new PhieuDatTiec();
+
+                phieudattiec.MaPhieuDatTiec = (int)ObjReader["MaPhieuDatTiec"];
+                phieudattiec.TenKhach = (string)ObjReader["TenKhach"];
+                phieudattiec.MaPhong = (int)ObjReader["MaPhong"];
+                phieudattiec.ThoiDiem = (DateTime)ObjReader["ThoiDiem"];
+                phieudattiec.TongTien = (float)ObjReader["TongTien"];
+                phieudattiec.TinhTrangThanhToan = Convert.ToBoolean(ObjReader["TinhTrangThanhToan"]);
 
                 listPhieuDatTiec.Add(phieudattiec);
             }

@@ -218,6 +218,8 @@ namespace HotelManager.Present
 
             tbTongChiPhiDenHienTai.Text = bangKe.TongChiPhi.ToString();
         }
+
+
         private void btnThemDanhSachDichVuMoi_Click(object sender, EventArgs e)
         {
             // Kiểm tra xem có dịch vụ nào để thêm ko

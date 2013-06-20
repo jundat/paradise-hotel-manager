@@ -15,11 +15,9 @@ namespace HotelManager.Data
         public static ArrayList GetList()
         {
             ArrayList listCTPhieuDatTiec = new ArrayList();
-            string StrSQL = "SELECT * FROM chi_tiet_phieu_dat_tiec";
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
-            ObjCmd.CommandText = StrSQL;
-            MySqlDataReader ObjReader;
-            ObjReader = ObjCmd.ExecuteReader();
+            ObjCmd.CommandText = "SELECT * FROM chi_tiet_phieu_dat_tiec";
+            MySqlDataReader ObjReader = ObjCmd.ExecuteReader();
 
             while (ObjReader.Read())
             {

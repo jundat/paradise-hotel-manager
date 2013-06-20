@@ -182,9 +182,9 @@ namespace HotelManager.Data
         {
             Phong phong = new Phong();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "SELECT * FROM phong WHERE MaPhong = ?";
+            cmd.CommandText = "SELECT * FROM phong WHERE MaPhong = ?MaPhong";
 
-            cmd.Parameters.Add("@MaPhong", MySqlDbType.Int32).Value = _maPhong;
+            cmd.Parameters.Add("@MaPhong", _maPhong);
 
             MySqlDataReader dataReader;
             dataReader = cmd.ExecuteReader();
@@ -193,7 +193,8 @@ namespace HotelManager.Data
             {
                 phong.MaPhong = (int)dataReader["MaPhong"];
                 phong.MaLoaiPhong = (int)dataReader["MaLoaiPhong"];
-                phong.TinhTrangHienTai = (Boolean)dataReader["TinhTrangHienTai"];
+                phong.TenPhong = (String)dataReader["TenPhong"];
+                phong.TinhTrangHienTai = Convert.ToBoolean(dataReader["TinhTrangHienTai"]);
                 phong.MoTa = (String)dataReader["MoTa"];
             }
 
@@ -212,7 +213,6 @@ namespace HotelManager.Data
             
             Phong phong = new Phong();
 
-            DataProvider.getInstance().OpenConnection();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "SELECT * FROM phong WHERE TenPhong = '" + _tenPhong + "'";
             
@@ -283,7 +283,6 @@ namespace HotelManager.Data
             DataProvider.getInstance().CloseConnection();
             return dataTable;
         }
-
 
     }
 }
