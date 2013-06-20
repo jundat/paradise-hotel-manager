@@ -97,28 +97,21 @@ namespace HotelManager.Data
         {
             try
             {
-                MySqlConnection ObjCn = DataProvider.getInstance().getConnection();
+                MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+                ObjCmd.CommandText =  "INSERT INTO chi_tiet_phieu_dat_tiec(MaPhieuDatTiec, TenMon, DonGia, SoLuong, YeuCau) VALUES(?MaPhieuDatTiec, ?TenMon, ?DonGia, ?SoLuong, ?YeuCau)";
+                ObjCmd.Prepare();
 
-                string StrSQL = "INSERT INTO chi_tiet_phieu_dat_tiec(MaPhieuDatTiec, TenMon, DonGia, SoLuong, YeuCau) "
-                    + "VALUES(" + ct_phieudattiec.MaPhieuDatTiec + ","
-                    + ct_phieudattiec.TenMon + ","
-                    + ct_phieudattiec.DonGia + ","
-                    + ct_phieudattiec.SoLuong + ","
-                    + ct_phieudattiec.YeuCau + ");";
-
-
-                MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
-
-
-
+                ObjCmd.Parameters.Add("?MaPhieuDatTiec", ct_phieudattiec.MaPhieuDatTiec);
+                ObjCmd.Parameters.Add("?TenMon", ct_phieudattiec.TenMon);
+                ObjCmd.Parameters.Add("?DonGia", ct_phieudattiec.DonGia);
+                ObjCmd.Parameters.Add("?SoLuong", ct_phieudattiec.SoLuong);
+                ObjCmd.Parameters.Add("?YeuCau", ct_phieudattiec.YeuCau);
 
                 ObjCmd.ExecuteNonQuery();
 
                 //Theo bạn Hiệp nghĩ là để update MaPhong theo TenPhong, ~ tăng cái primary key
-                StrSQL = "Select @@IDENTITY";
-
-                ObjCmd = new MySqlCommand(StrSQL, ObjCn);
-                ct_phieudattiec.MaChiTietPhieuDatTiec = (int)ObjCmd.ExecuteScalar();
+                ObjCmd.CommandText = "Select @@IDENTITY";
+                ct_phieudattiec.MaChiTietPhieuDatTiec = Convert.ToInt32(ObjCmd.ExecuteScalar());
 
                 //close connection
                 DataProvider.getInstance().CloseConnection();
@@ -127,16 +120,13 @@ namespace HotelManager.Data
             }
             catch (Exception ee)
             {
-                if (ee.Message.Contains("duplicate"))
-                {
-                    MessageBox.Show("Dữ liệu trùng lặp: ChiTietPhieuDatTiec " + ct_phieudattiec.MaPhieuDatTiec);
-                }
-
-                //close connection
-                DataProvider.getInstance().CloseConnection();
-
-                return false;
+                MessageBox.Show(ee.Message);
             }
+            
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return false;
         }
 
         public static void Delete(int maphieu)
