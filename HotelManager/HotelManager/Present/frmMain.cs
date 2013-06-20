@@ -10,13 +10,14 @@ using System.Windows.Forms;
 
 using HotelManager.Business;
 using HotelManager.Data.Entity;
+using HotelManager.Present.Mini;
 
 namespace HotelManager.Present
 {
     public partial class frmMain : Form
     {
-        public static string TenNhanVien = "";
-        public static int MaNhanVien = -1;
+        public static string TenNhanVien = "Admin";
+        public static int MaNhanVien = 0;
 
 
         public frmMain()
@@ -109,11 +110,6 @@ namespace HotelManager.Present
             
         }
 
-        private void picHome_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void linkLapBCMD_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
@@ -170,12 +166,12 @@ namespace HotelManager.Present
 
         private void frmMain_Shown(object sender, EventArgs e)
         {
-            (new frmDangNhap()).ShowDialog(this);
-
-            if (TenNhanVien == "" || MaNhanVien == -1)
-            {
-                this.Close();
-            }
+//             (new frmDangNhap()).ShowDialog(this);
+// 
+//             if (TenNhanVien == "" || MaNhanVien == -1)
+//             {
+//                 this.Close();
+//             }
         }
 
         private void linkDangXuat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -189,6 +185,41 @@ namespace HotelManager.Present
             {
                 this.Close();
             }
+        }
+
+        private void itemLapPhieuThu_Click(object sender, EventArgs e)
+        {
+            linkLapPhieuThuePhong_LinkClicked(null, null);
+        }
+
+        private void itemBaoCaoMatDo_Click(object sender, EventArgs e)
+        {
+            lkBaoCaoMatDo_LinkClicked(null, null);
+        }
+
+        private void itemThayDoiQuyDinh_Click(object sender, EventArgs e)
+        {
+            linkThayDoiQuyDinh_LinkClicked(null, null);
+        }
+
+        private void picLienHe_Click(object sender, EventArgs e)
+        {
+            (new frmLienHe()).ShowDialog(this);
+        }
+
+        private void picBangGia_Click(object sender, EventArgs e)
+        {
+            (new frmBangGia()).ShowDialog(this);
+        }
+
+        private void picTinhTrangPhong_Click(object sender, EventArgs e)
+        {
+            (new frmTinhTrangPhong()).Show(this);
+        }
+
+        private void picThemPhong_Click(object sender, EventArgs e)
+        {
+            (new frmThemPhong()).ShowDialog(this);
         }
 
     }

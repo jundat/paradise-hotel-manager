@@ -215,6 +215,30 @@
     <Compile Include="Present\frmThayDoiQuyDinh.Designer.cs">
       <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Present\Mini\frmBangGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\Mini\frmBangGia.Designer.cs">
+      <DependentUpon>frmBangGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\Mini\frmThemPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\Mini\frmThemPhong.Designer.cs">
+      <DependentUpon>frmThemPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\Mini\frmLienHe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\Mini\frmLienHe.Designer.cs">
+      <DependentUpon>frmLienHe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\Mini\frmTinhTrangPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\Mini\frmTinhTrangPhong.Designer.cs">
+      <DependentUpon>frmTinhTrangPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Present\frmDangNhap.resx">
@@ -256,6 +280,18 @@
     <EmbeddedResource Include="Present\frmThayDoiQuyDinh.resx">
       <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Present\Mini\frmBangGia.resx">
+      <DependentUpon>frmBangGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\Mini\frmThemPhong.resx">
+      <DependentUpon>frmThemPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\Mini\frmLienHe.resx">
+      <DependentUpon>frmLienHe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\Mini\frmTinhTrangPhong.resx">
+      <DependentUpon>frmTinhTrangPhong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -280,6 +316,8 @@
   <ItemGroup>
     <Content Include="hotel.ico" />
     <Content Include="Note.xml" />
+    <None Include="Resources\view_text.png" />
+    <None Include="Resources\_bgDangNhap.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

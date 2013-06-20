@@ -59,5 +59,19 @@ namespace HotelManager.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static System.Drawing.Bitmap _bgDangNhap {
+            get {
+                object obj = ResourceManager.GetObject("_bgDangNhap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap view_text {
+            get {
+                object obj = ResourceManager.GetObject("view_text", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

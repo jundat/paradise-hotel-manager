@@ -103,20 +103,18 @@ namespace HotelManager.Data
         /// <summary>
         /// Thêm một phòng
         /// </summary>
-        /// <param name="phong"></param>
-        /// <returns></returns>
         public static bool AddPhong(Phong phong)
         {
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "INSERT INTO phong(MaLoaiPhong, TenPhong, TinhTrangHienTai, MoTa) VALUES(?, ?, ?, ?);";
+            cmd.CommandText = "INSERT INTO phong(MaLoaiPhong, TenPhong, TinhTrangHienTai, MoTa)"
+                + "VALUES(" + phong.MaLoaiPhong
+                + ", \'" + phong.TenPhong + "\'"
+                + ", " + Convert.ToByte(phong.TinhTrangHienTai)
+                + ", \'" + phong.MoTa + "\'"
+                + ");";
             
             try
             {
-                cmd.Parameters.Add("@MaLoaiPhong", MySqlDbType.Int32).Value = phong.MaLoaiPhong;
-                cmd.Parameters.Add("@TenPhong", MySqlDbType.String).Value = phong.TenPhong;
-                cmd.Parameters.Add("@TinhTrangHienTai", MySqlDbType.Byte).Value = phong.TinhTrangHienTai;
-                cmd.Parameters.Add("@MoTa", MySqlDbType.String).Value = phong.MoTa;
-
                 cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "Select @@IDENTITY";
@@ -124,6 +122,7 @@ namespace HotelManager.Data
 
                 // Đóng kết nối
                 DataProvider.getInstance().CloseConnection();
+
                 return true;
             }
             catch (Exception ee)
@@ -132,8 +131,10 @@ namespace HotelManager.Data
                 {
                     MessageBox.Show("Dữ liệu trùng lặp: Phong " + phong.MaPhong);
                 }
+
                 // Đóng kết nối
                 DataProvider.getInstance().CloseConnection();
+
                 return false;
             }
         }
@@ -141,7 +142,6 @@ namespace HotelManager.Data
         /// <summary>
         /// Cập nhật thông tin 1 phòng
         /// </summary>
-        /// <param name="phong"></param>
         public static void UpdatePhong(Phong phong)
         {
             // Lấy và chuẩn bị command cho truy vấn

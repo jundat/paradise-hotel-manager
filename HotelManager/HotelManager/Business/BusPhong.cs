@@ -2,20 +2,45 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using System.Data;
 using System.Collections;
 using HotelManager.Data;
 using HotelManager.Data.Entity;
+using MySql.Data.MySqlClient;
+using System.Data.OleDb;
+using System.Windows.Forms;
 
 namespace HotelManager.Business
 {
     class BusPhong
     {
         /// <summary>
-        /// Lấy danh sách Phòng, dưới dạng List
+        /// Xử lý tác vụ liên quan tới PHONG
         /// </summary>
-        /// <returns></returns>
+        public static DataTable LoadExcelFile(string path)
+        {
+            string connstr = null;
+            if (path.EndsWith(".xls"))
+            {
+                connstr = "Provider=Microsoft.Jet.Oledb.4.0;Data Source='" + path + "';Extended Properties=Excel 8.0";
+            }
+
+            if (connstr != null)
+            {
+                OleDbConnection conn = new OleDbConnection(connstr);
+                string strSQL = "SELECT * FROM [Sheet1$]";
+
+                OleDbCommand cmd = new OleDbCommand(strSQL, conn);
+                DataSet ds = new DataSet();
+                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+                da.Fill(ds);
+                return ds.Tables[0];
+            }
+
+            return null;
+        }
+
+
         public static ArrayList GetList()
         {
             return DataPhong.GetList();
@@ -29,14 +54,29 @@ namespace HotelManager.Business
         {
             return DataPhong.GetTable();
         }
-        
+
+
         /// <summary>
-        /// Update giá trị mới cho bảng PHONG
+        /// Thêm phòng từ dữ liệu của 1 DataGridViewRowCollection
         /// </summary>
-        /// <param name="dataTable"></param>
-        public static void UpdateTable(DataTable dataTable)
+        /// <returns>Trả về số Phòng được thêm</returns>
+        public static int ThemPhong(DataGridViewRowCollection rows)
         {
-            DataPhong.UpdateTable(dataTable);
+            int count = rows.Count - 1;
+            for (int i = 0; i < count; ++i)
+            {
+                DataGridViewRow row = rows[i];
+                Phong phong = new Phong();
+
+                phong.TenPhong = "" + row.Cells[0].Value;
+                phong.MaLoaiPhong = Int16.Parse(row.Cells[1].Value.ToString());
+                phong.TinhTrangHienTai = false;
+                phong.MoTa = "" + row.Cells[2].Value;
+
+                DataPhong.AddPhong(phong);
+            }
+
+            return count;
         }
 
          /// <summary>
