@@ -73,7 +73,7 @@ namespace HotelManager.Data
             DataProvider.getInstance().CloseConnection();
 
         }
-
+        
         public static void UpdatePhieuDen(PhieuDen phieuDen)
         {
             string StrSQL = "UPDATE phieu_den SET TenKhachDaiDien = " + phieuDen.TenKhachDaiDien
@@ -96,6 +96,20 @@ namespace HotelManager.Data
             //close connection
             DataProvider.getInstance().CloseConnection();
 
+        }
+
+        public static void UpdateTrangThai(int maphieu, bool tinhtrang)
+        {
+            string StrSQL = "UPDATE phieu_den SET TinhTrangThanhToan = " + Convert.ToByte(tinhtrang)
+                + " WHERE MaPhieuDen = " + maphieu;
+            
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = StrSQL;
+            
+            ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
         }
 
         public static bool Add(PhieuDen phieuDen)
@@ -180,16 +194,33 @@ namespace HotelManager.Data
             return dt;
         }
 
-        public static DataTable Find(string tenKhachDaiDien)
+        public static DataTable FindCMND(string cmnd, bool tinhtrang)
         {
             DataTable dt = new DataTable();
 
-            string StrSQL = "SELECT * FROM phieu_den WHERE TenKhachDaiDien = " + tenKhachDaiDien;
-
+            string StrSQL = "SELECT * FROM phieu_den WHERE CMND = " + cmnd + " AND TinhTrangThanhToan = " + Convert.ToByte(tinhtrang);
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
 
+            MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
+            adapter.Fill(dt);
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return dt;
+        }
+
+        public static DataTable Find(string tenKhachDaiDien)
+        {
+            DataTable dt = new DataTable();
+
+            string StrSQL = "SELECT * FROM phieu_den WHERE TenKhachDaiDien = \'" + tenKhachDaiDien + "\'";
+
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = StrSQL;
+            
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
 

@@ -149,7 +149,15 @@ namespace HotelManager.Data
             DataProvider.getInstance().CloseConnection();
         }
 
+        public static void UpdateTrangThai(int maBangKe, bool trangthai)
+        {
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "UPDATE bang_ke SET TinhTrangThanhToan = " + Convert.ToByte(trangthai) + " WHERE MaBangKe = " + maBangKe;
 
+            cmd.ExecuteNonQuery();
+            DataProvider.getInstance().CloseConnection();
+        }
+        
         /// <summary>
         /// Tìm kiêm một Bảng kê thông qua Mã bảng kê
         /// </summary>
@@ -191,16 +199,24 @@ namespace HotelManager.Data
             MySqlDataReader dataReader;
             dataReader = cmd.ExecuteReader();
 
-            if (dataReader.Read())
+            if(dataReader.HasRows)
             {
-                bangKe.MaBangKe = (int)dataReader["MaBangKe"];
-                bangKe.MaPhong = (int)dataReader["MaPhong"];
-                bangKe.TongChiPhi = (float)dataReader["TongChiPhi"];
-                bangKe.TinhTrangThanhToan = Convert.ToBoolean(dataReader["TinhTrangThanhToan"]);
-            }
+                if (dataReader.Read())
+                {
+                    bangKe.MaBangKe = (int)dataReader["MaBangKe"];
+                    bangKe.MaPhong = (int)dataReader["MaPhong"];
+                    bangKe.TongChiPhi = (float)dataReader["TongChiPhi"];
+                    bangKe.TinhTrangThanhToan = Convert.ToBoolean(dataReader["TinhTrangThanhToan"]);
+                }
 
-            DataProvider.getInstance().CloseConnection();
-            return bangKe;
+                DataProvider.getInstance().CloseConnection();
+                return bangKe;
+            }
+            else
+            {
+                DataProvider.getInstance().CloseConnection();
+                return null;
+            }
         }
 
 

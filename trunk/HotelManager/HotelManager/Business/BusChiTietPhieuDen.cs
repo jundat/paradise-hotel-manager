@@ -12,6 +12,11 @@ namespace HotelManager.Business
 {
     class BusChiTietPhieuDen
     {
+        public static ArrayList GetList(int maPhieuDen)
+        {
+            return DataChiTietPhieuDen.GetList(maPhieuDen);
+        }
+
         public static ArrayList GetList()
         {
             return DataChiTietPhieuDen.GetList();

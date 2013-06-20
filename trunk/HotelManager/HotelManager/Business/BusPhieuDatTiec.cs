@@ -32,6 +32,11 @@ namespace HotelManager.Business
             DataPhieuDatTiec.UpdatePhieuDatTiec(phieudattiec);
         }
 
+        public static void UpdateTrangThai(int maphieu, bool trangthai)
+        {
+            DataPhieuDatTiec.UpdateTrangThai(maphieu, trangthai);
+        }
+
         public static bool Add(PhieuDatTiec phieudattiec)
         {
             return DataPhieuDatTiec.Add(phieudattiec);
@@ -50,6 +55,11 @@ namespace HotelManager.Business
         public static DataTable Find(string tenkhach)
         {
             return DataPhieuDatTiec.Find(tenkhach);
+        }
+
+        public static ArrayList Find(int _maPhong, bool _tinhTrangThanhToan)
+        {
+            return DataPhieuDatTiec.Find(_maPhong, _tinhTrangThanhToan);
         }
     }
 }

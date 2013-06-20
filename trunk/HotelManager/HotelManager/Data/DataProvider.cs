@@ -27,7 +27,10 @@ namespace HotelManager.Data
         /// </summary>
         private DataProvider()
         {
-            _connectString = @"server=localhost;userid=root;password=cvbnmcvbnm;database=qlnhks";
+            _connectString = @"server=localhost;userid=root;password=cvbnm;database=qlnhks";
+            _connection = new MySqlConnection(_connectString);
+            _command = new MySqlCommand();
+            _command.Connection = _connection;
         }
 
         /// <summary>
@@ -64,8 +67,8 @@ namespace HotelManager.Data
         {
             try
             {
-                _connection = new MySqlConnection(_connectString);
                 _connection.Open();
+
                 //MessageBox.Show("We have connected with QLNHKS database", "Connect Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -84,9 +87,11 @@ namespace HotelManager.Data
         /// <returns></returns>
         public MySqlCommand getCommand()
         {
-            OpenConnection();
-            _command = new MySqlCommand();
-            _command.Connection = _connection;
+            if (_connection.State != System.Data.ConnectionState.Open)
+            {
+                this.OpenConnection();
+            }
+
             return _command;
         }
 
