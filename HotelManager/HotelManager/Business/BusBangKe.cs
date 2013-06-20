@@ -39,6 +39,13 @@ namespace HotelManager.Business
             DataBangKe.UpdateTable(dataTable);
         }
 
+
+        public static void UpdateTrangThai(int maBangKe, bool trangthai)
+        {
+            DataBangKe.UpdateTrangThai(maBangKe, trangthai);
+        }
+
+
         /// <summary>
         /// Thêm Bảng Kê mới
         /// </summary>

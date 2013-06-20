@@ -32,6 +32,11 @@ namespace HotelManager.Business
             DataPhieuDen.UpdatePhieuDen(phieuDen);
         }
 
+        public static void UpdateTrangThai(int maphieu, bool tinhtrang)
+        {
+            DataPhieuDen.UpdateTrangThai(maphieu, tinhtrang);
+        }
+
         public static bool Add(PhieuDen phieuDen)
         {
             return DataPhieuDen.Add(phieuDen);
@@ -45,6 +50,11 @@ namespace HotelManager.Business
         public static DataTable Find(int maPhieuDen)
         {
             return DataPhieuDen.Find(maPhieuDen);
+        }
+
+        public static DataTable FindCMND(string cmnd, bool tinhtrang)
+        {
+            return DataPhieuDen.FindCMND(cmnd, tinhtrang);
         }
 
         public static DataTable Find(string tenKhachDaiDien)

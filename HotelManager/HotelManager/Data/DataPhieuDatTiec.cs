@@ -91,6 +91,20 @@ namespace HotelManager.Data
 
         }
 
+        public static void UpdateTrangThai(int maphieu, bool trangthai)
+        {
+            string StrSQL = "UPDATE phieu_dat_tiec SET TinhTrangThanhToan = " + trangthai
+                + " WHERE MaPhieuDatTiec = " + maphieu;
+
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = StrSQL;
+           
+            ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+        }
+
         public static bool Add(PhieuDatTiec phieudattiec)
         {
             try
@@ -171,7 +185,6 @@ namespace HotelManager.Data
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);
 
@@ -181,5 +194,33 @@ namespace HotelManager.Data
             return dt;
         }
 
+        public static ArrayList Find(int _maPhong, bool _tinhTrangThanhToan)
+        {
+            ArrayList listPhieuDatTiec = new ArrayList();
+            string StrSQL = "SELECT * FROM phieu_dat_tiec WHERE MaPhong = '" + _maPhong + "' AND TinhTrangThanhToan = " + Convert.ToByte(_tinhTrangThanhToan);
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = StrSQL;
+            MySqlDataReader ObjReader;
+            ObjReader = ObjCmd.ExecuteReader();
+
+            while (ObjReader.Read())
+            {
+                PhieuDatTiec phieudattiec = new PhieuDatTiec();
+
+                phieudattiec.MaPhieuDatTiec = (int)ObjReader["MaPhieuDatTiec"];
+                phieudattiec.TenKhach = (string)ObjReader["TenKhach"];
+                phieudattiec.MaPhong = (int)ObjReader["MaPhong"];
+                phieudattiec.ThoiDiem = (DateTime)ObjReader["ThoiDiem"];
+                phieudattiec.TongTien = (float)ObjReader["TongTien"];
+                phieudattiec.TinhTrangThanhToan = Convert.ToBoolean(ObjReader["TinhTrangThanhToan"]);
+
+                listPhieuDatTiec.Add(phieudattiec);
+            }
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return listPhieuDatTiec;
+        }
     }
 }

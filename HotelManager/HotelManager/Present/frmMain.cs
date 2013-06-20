@@ -15,6 +15,10 @@ namespace HotelManager.Present
 {
     public partial class frmMain : Form
     {
+        public static string TenNhanVien = "PHAM TAN LONG";
+        public static string MaNhanVien = "NV001";
+
+
         public frmMain()
         {
             InitializeComponent();
@@ -128,7 +132,9 @@ namespace HotelManager.Present
 
         private void linkLapPhieuThuePhong_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Lap_Phieu_Thu form = new Lap_Phieu_Thu();
 
+            form.ShowDialog(this);
         }
 
         private void linkLapHoaDon_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
