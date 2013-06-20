@@ -52,5 +52,10 @@ namespace HotelManager.Business
         {
             return DataNhanVien.Find(tenNhanVien);
         }
+
+        public static NhanVien FindUserPass(string user, string pass)
+        {
+            return DataNhanVien.FindUserPass(user, pass);
+        }
     }
 }
