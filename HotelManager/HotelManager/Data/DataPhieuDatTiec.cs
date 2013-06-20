@@ -95,29 +95,23 @@ namespace HotelManager.Data
         {
             try
             {
-                MySqlConnection ObjCn = DataProvider.getInstance().getConnection();
+                MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+                ObjCmd.CommandText = "INSERT INTO phieu_dat_tiec(TenKhach, MaPhong, ThoiDiem, TongTien, TinhTrangThanhToan) VALUES(?TenKhach, ?MaPhong, ?ThoiDiem, ?TongTien, ?TinhTrangThanhToan)";
+                ObjCmd.Prepare();
 
-                string StrSQL = "INSERT INTO phieu_dat_tiec(TenKhach, MaPhong, ThoiDiem, TongTien, TinhTrangThanhToan)"
-                    + " VALUES( " + phieudattiec.TenKhach
-                    + ", " + phieudattiec.MaPhong
-                    + ", " + phieudattiec.ThoiDiem
-                    + ", " + phieudattiec.TongTien 
-                    + ", " + phieudattiec.TinhTrangThanhToan 
-                    + ");";
-
-
-                MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
-
-
+                // Tạo và truyền đối số cho command
+                ObjCmd.Parameters.Add("?TenKhach", phieudattiec.TenKhach);
+                ObjCmd.Parameters.Add("?MaPhong", phieudattiec.MaPhong);
+                ObjCmd.Parameters.Add("?ThoiDiem", phieudattiec.ThoiDiem);
+                ObjCmd.Parameters.Add("?TongTien", phieudattiec.TongTien);
+                ObjCmd.Parameters.Add("?TinhTrangThanhToan", phieudattiec.TinhTrangThanhToan);
 
 
                 ObjCmd.ExecuteNonQuery();
 
                 //Theo bạn Hiệp nghĩ là để update MaPhong theo TenPhong, ~ tăng cái primary key
-                StrSQL = "Select @@IDENTITY";
-
-                ObjCmd = new MySqlCommand(StrSQL, ObjCn);
-                phieudattiec.MaPhieuDatTiec = (int)ObjCmd.ExecuteScalar();
+                ObjCmd.CommandText = "Select @@IDENTITY";
+                phieudattiec.MaPhieuDatTiec = Convert.ToInt32(ObjCmd.ExecuteScalar());
 
                 //close connection
                 DataProvider.getInstance().CloseConnection();
@@ -126,16 +120,12 @@ namespace HotelManager.Data
             }
             catch (Exception ee)
             {
-                if (ee.Message.Contains("duplicate"))
-                {
-                    MessageBox.Show("Dữ liệu trùng lặp: PhieuDatTiec " + phieudattiec.TenKhach);
-                }
-
-                //close connection
-                DataProvider.getInstance().CloseConnection();
-
-                return false;
+                MessageBox.Show(ee.Message);
             }
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+            return false;
         }
 
         public static void Delete(int maphieu)
