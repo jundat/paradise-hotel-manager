@@ -193,6 +193,11 @@ namespace HotelManager.Present
             }
 
             phieuDatTiec.ThoiDiem = dtpThoiDiemDat.Value.Date;
+            //DateTime now = new DateTime();
+            //phieuDatTiec.ThoiDiem.AddHours(now.Hour);
+            //phieuDatTiec.ThoiDiem.AddMinutes(now.Minute);
+            //phieuDatTiec.ThoiDiem.AddSeconds(now.Second);
+            
             phieuDatTiec.TongTien = float.Parse(tbTongTien.Text);
             phieuDatTiec.TinhTrangThanhToan = false;
             BusPhieuDatTiec.Add(phieuDatTiec);

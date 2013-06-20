@@ -63,5 +63,48 @@ namespace HotelManager.Business
         }
 
 
+        /// <summary>
+        /// Tìm danh sách Chi Tiết Phiếu Đến có mã phòng và tình Trạng thanh toán truyền vô
+        /// </summary>
+        /// <param name="maPhong"></param>
+        /// <param name="tinhTrangThanhToan"></param>
+        /// <returns></returns>
+        public static ArrayList FindDanhSachChiTiet(int maPhong, bool tinhTrangThanhToan)
+        {
+            return DataChiTietPhieuDen.FindDanhSachChiTiet(maPhong, tinhTrangThanhToan);
+        }
+
+        /// <summary>
+        /// Tìm danh sách chi tiết Phiếu đến theo tên khách và tình trạng lưu trú của khách
+        /// </summary>
+        /// <param name="tenKhach"></param>
+        /// <param name="tinhTrang"></param>
+        /// <returns></returns>
+        public static ArrayList FindDanhSachChiTietPhieuDenTheoTenKhach(String tenKhach, String tinhTrang)
+        {
+            return DataChiTietPhieuDen.FindDanhSachChiTietPhieuDenTheoTenKhach(tenKhach, tinhTrang);
+        }
+
+        /// <summary>
+        /// Tìm danh sách chi tiết Phiếu đến theo CMND và tình trạng lưu trú của khách
+        /// </summary>
+        /// <param name="tenKhach"></param>
+        /// <param name="tinhTrang"></param>
+        /// <returns></returns>
+        public static ArrayList FindDanhSachChiTietPhieuDenTheoCMND(String CMND, String tinhTrang)
+        {
+            return DataChiTietPhieuDen.FindDanhSachChiTietPhieuDenTheoCMND(CMND, tinhTrang);
+        }
+
+        /// <summary>
+        /// Tìm danh sách các Chi tiết phiếu đến của các Phiếu đến có thời gian lưu trú nằm giữa 2 khoảng thời gian Từ Đến
+        /// </summary>
+        /// <param name="tu"></param>
+        /// <param name="den"></param>
+        /// <returns></returns>
+        public static ArrayList FindDanhSachChiTietPhieuDenTrongKhoangThoiGian(DateTime tu, DateTime den)
+        {
+            return DataChiTietPhieuDen.FindDanhSachChiTietPhieuDenTrongKhoangThoiGian(tu, den);
+        }
     }
 }

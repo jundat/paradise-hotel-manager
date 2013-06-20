@@ -110,7 +110,6 @@ namespace HotelManager.Business
         {
             return DataPhong.FindGhiChu(_moTa);
         }
-
-
+        
     }
 }
