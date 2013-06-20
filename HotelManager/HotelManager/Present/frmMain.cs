@@ -178,5 +178,18 @@ namespace HotelManager.Present
             }
         }
 
+        private void linkDangXuat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            TenNhanVien = "";
+            MaNhanVien = -1;
+
+            (new frmDangNhap()).ShowDialog(this);
+
+            if (TenNhanVien == "" || MaNhanVien == -1)
+            {
+                this.Close();
+            }
+        }
+
     }
 }

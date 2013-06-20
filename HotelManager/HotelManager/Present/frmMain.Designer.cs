@@ -1109,6 +1109,7 @@
             this.linkDangXuat.TabIndex = 0;
             this.linkDangXuat.TabStop = true;
             this.linkDangXuat.Text = "Đăng xuất";
+            this.linkDangXuat.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDangXuat_LinkClicked);
             this.linkDangXuat.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkDangXuat.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
