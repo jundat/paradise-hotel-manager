@@ -15,8 +15,8 @@ namespace HotelManager.Present
 {
     public partial class frmMain : Form
     {
-        public static string TenNhanVien = "PHAM TAN LONG";
-        public static string MaNhanVien = "NV001";
+        public static string TenNhanVien = "Nhan vien 1";
+        public static int MaNhanVien = 1;
 
 
         public frmMain()
@@ -69,8 +69,7 @@ namespace HotelManager.Present
         /// </summary>
         private void linkThayDoiQuyDinh_LinkClicked(object sender, EventArgs e)
         {
-            frmThayDoiQuyDinh form = new frmThayDoiQuyDinh();
-            form.ShowDialog(this);
+            (new frmThayDoiQuyDinh()).Show();
         }
 
         /// <summary>
@@ -132,9 +131,7 @@ namespace HotelManager.Present
 
         private void linkLapPhieuThuePhong_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Lap_Phieu_Thu form = new Lap_Phieu_Thu();
-
-            form.ShowDialog(this);
+            (new Lap_Phieu_Thu()).Show();
         }
 
         private void linkLapHoaDon_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -164,6 +161,11 @@ namespace HotelManager.Present
         private void linkYeuCauDichVu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             (new Phieu_Yeu_Cau_Dich_Vu()).ShowDialog();
+        }
+
+        private void lkBaoCaoMatDo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            (new frmLapBaoCaoMatDo()).Show();
         }
 
     }

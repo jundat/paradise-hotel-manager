@@ -63,7 +63,7 @@ namespace HotelManager.Business
                 stOutput += stLine + "\r\n";
             }
 
-            Encoding unicode = Encoding.GetEncoding(12000);// .GetEncoding(1254);
+            Encoding unicode = Encoding.GetEncoding("UNICODE");
             byte[] output = unicode.GetBytes(stOutput);
             FileStream fs = new FileStream(filename, FileMode.Create);
             BinaryWriter bw = new BinaryWriter(fs);

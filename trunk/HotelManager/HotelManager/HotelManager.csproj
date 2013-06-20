@@ -87,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\BusBangKe.cs" />
-    <Compile Include="Business\BusBaoCaoDoanhThu.cs" />
+    <Compile Include="Business\BusBaoCaoMatDo.cs" />
     <Compile Include="Business\BusChiTietBangKe.cs" />
     <Compile Include="Business\BusChiTietPhieuDatCho.cs" />
     <Compile Include="Business\BusChiTietPhieuDatTiec.cs" />
@@ -105,7 +105,7 @@
     <Compile Include="Business\Exporter.cs" />
     <Compile Include="Business\Supporter.cs" />
     <Compile Include="Data\DataBangKe.cs" />
-    <Compile Include="Data\DataBaoCaoDoanhThu.cs" />
+    <Compile Include="Data\DataBaoCaoMatDo.cs" />
     <Compile Include="Data\DataChiTietBangKe.cs" />
     <Compile Include="Data\DataChiTietPhieuDatCho.cs" />
     <Compile Include="Data\DataChiTietPhieuDatTiec.cs" />
@@ -122,7 +122,7 @@
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="Data\DataQuyDinh.cs" />
     <Compile Include="Data\Entity\BangKe.cs" />
-    <Compile Include="Data\Entity\BaoCaoDoanhThu.cs" />
+    <Compile Include="Data\Entity\BaoCaoMatDo.cs" />
     <Compile Include="Data\Entity\ChiTietBangKe.cs" />
     <Compile Include="Data\Entity\ChiTietPhieuDatCho.cs" />
     <Compile Include="Data\Entity\ChiTietPhieuDatTiec.cs" />
@@ -197,11 +197,11 @@
     <Compile Include="Present\frmLapPhieuThu.Designer.cs">
       <DependentUpon>frmLapPhieuThu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Present\frmLapbaocaodoanhthu.cs">
+    <Compile Include="Present\frmLapBaoCaoMatDo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Present\frmLapbaocaodoanhthu.Designer.cs">
-      <DependentUpon>frmLapbaocaodoanhthu.cs</DependentUpon>
+    <Compile Include="Present\frmLapBaoCaoMatDo.Designer.cs">
+      <DependentUpon>frmLapBaoCaoMatDo.cs</DependentUpon>
     </Compile>
     <Compile Include="Present\frmThayDoiQuyDinh.cs">
       <SubType>Form</SubType>
@@ -241,8 +241,8 @@
     <EmbeddedResource Include="Present\frmLapPhieuThu.resx">
       <DependentUpon>frmLapPhieuThu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Present\frmLapbaocaodoanhthu.resx">
-      <DependentUpon>frmLapbaocaodoanhthu.cs</DependentUpon>
+    <EmbeddedResource Include="Present\frmLapBaoCaoMatDo.resx">
+      <DependentUpon>frmLapBaoCaoMatDo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Present\frmThayDoiQuyDinh.resx">
       <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>

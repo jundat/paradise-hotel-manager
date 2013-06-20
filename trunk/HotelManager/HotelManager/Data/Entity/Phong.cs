@@ -26,6 +26,7 @@ namespace HotelManager.Data.Entity
         {
             MaPhong = _maPhong;
             MaLoaiPhong = _maLoaiPhong;
+            TenPhong = _tenPhong;
             TinhTrangHienTai = _tinhTrangPhong;
             MoTa = _moTa;
         }

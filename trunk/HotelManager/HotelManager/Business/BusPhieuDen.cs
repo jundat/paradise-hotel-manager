@@ -12,6 +12,11 @@ namespace HotelManager.Business
 {
     class BusPhieuDen
     {
+        public static PhieuDen Get(int maphieuden)
+        {
+            return DataPhieuDen.Get(maphieuden);
+        }
+
         public static ArrayList GetList()
         {
             return DataPhieuDen.GetList();

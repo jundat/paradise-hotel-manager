@@ -52,6 +52,11 @@ namespace HotelManager.Business
             return DataChiTietPhieuDen.Find(maCTPhieuDen);
         }
 
+        public static ArrayList FindMaPhong(int maphong)
+        {
+            return DataChiTietPhieuDen.FindMaPhong(maphong);
+        }
+
         public static DataTable FindMaPhieuDen(int maPhieuDen)
         {
             return DataChiTietPhieuDen.FindMaPhieuDen(maPhieuDen);

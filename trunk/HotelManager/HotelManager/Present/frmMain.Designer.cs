@@ -74,7 +74,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.linkLabel9 = new System.Windows.Forms.LinkLabel();
+            this.lkBaoCaoMatDo = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
@@ -591,7 +591,7 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox4.Controls.Add(this.linkLabel9);
+            this.groupBox4.Controls.Add(this.lkBaoCaoMatDo);
             this.groupBox4.Controls.Add(this.pictureBox1);
             this.groupBox4.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
@@ -602,21 +602,22 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "BÁO CÁO THỐNG KÊ";
             // 
-            // linkLabel9
+            // lkBaoCaoMatDo
             // 
-            this.linkLabel9.AutoSize = true;
-            this.linkLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel9.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkLabel9.ForeColor = System.Drawing.Color.Transparent;
-            this.linkLabel9.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel9.Location = new System.Drawing.Point(125, 53);
-            this.linkLabel9.Name = "linkLabel9";
-            this.linkLabel9.Size = new System.Drawing.Size(177, 23);
-            this.linkLabel9.TabIndex = 14;
-            this.linkLabel9.TabStop = true;
-            this.linkLabel9.Text = "Báo cáo doanh thu";
-            this.linkLabel9.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
-            this.linkLabel9.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.lkBaoCaoMatDo.AutoSize = true;
+            this.lkBaoCaoMatDo.BackColor = System.Drawing.Color.Transparent;
+            this.lkBaoCaoMatDo.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lkBaoCaoMatDo.ForeColor = System.Drawing.Color.Transparent;
+            this.lkBaoCaoMatDo.LinkColor = System.Drawing.Color.Blue;
+            this.lkBaoCaoMatDo.Location = new System.Drawing.Point(125, 53);
+            this.lkBaoCaoMatDo.Name = "lkBaoCaoMatDo";
+            this.lkBaoCaoMatDo.Size = new System.Drawing.Size(226, 23);
+            this.lkBaoCaoMatDo.TabIndex = 14;
+            this.lkBaoCaoMatDo.TabStop = true;
+            this.lkBaoCaoMatDo.Text = "Báo cáo mật độ sử dụng";
+            this.lkBaoCaoMatDo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lkBaoCaoMatDo_LinkClicked);
+            this.lkBaoCaoMatDo.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.lkBaoCaoMatDo.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -1234,7 +1235,7 @@
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.LinkLabel linkLabel9;
+        private System.Windows.Forms.LinkLabel lkBaoCaoMatDo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.LinkLabel linkLapPhieuThuePhong;
