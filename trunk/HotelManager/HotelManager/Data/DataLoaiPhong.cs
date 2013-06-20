@@ -68,7 +68,7 @@ namespace HotelManager.Data
         public static DataTable GetTable()
         {
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "SELECT * FROM PHIEUTHUEPHONG";
+            cmd.CommandText = "SELECT * FROM loai_phong";
             DataTable dataTable = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -86,14 +86,14 @@ namespace HotelManager.Data
         public static void UpdateTable(DataTable dataTable)
         {
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "SELECT * FROM PHIEUTHUEPHONG";
+            cmd.CommandText = "SELECT * FROM loai_phong";
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
 
             MySqlCommandBuilder commandBuider = new MySqlCommandBuilder(adapter);
+            adapter.Update(dataTable);
 
             // Đóng kết nối
             DataProvider.getInstance().CloseConnection();
-            adapter.Update(dataTable);
         }
 
         /// <summary>
@@ -117,6 +117,7 @@ namespace HotelManager.Data
 
             // Đóng kết nối
             DataProvider.getInstance().CloseConnection();
+
             return _loaiPhong.MaLoaiPhong;
         }
 
