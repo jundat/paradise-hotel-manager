@@ -28,8 +28,10 @@ namespace HotelManager.Data
                 nhanvien.MaNhanVien = (int)ObjReader["MaNhanVien"];
                 nhanvien.TenNhanVien = (string)ObjReader["TenNhanVien"];
                 nhanvien.DiaChi = (string)ObjReader["DiaChi"];
-                nhanvien.SDT = (string)ObjReader["SoDienThoai"];
+                nhanvien.SDT = (string)ObjReader["SDT"];
                 nhanvien.ChucVu = (string)ObjReader["ChucVu"];
+                nhanvien.UserName = (string)ObjReader["UserName"];
+                nhanvien.Password = (string)ObjReader["Password"];
 
                 listNhanVien.Add(nhanvien);
             }
@@ -193,6 +195,38 @@ namespace HotelManager.Data
             DataProvider.getInstance().CloseConnection();
 
             return dt;
+        }
+
+        public static NhanVien FindUserPass(string user, string pass)
+        {
+            string StrSQL = "SELECT * FROM nhan_vien WHERE UserName = \'" + user + "\' AND Password = \'" + pass + "\'";
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = StrSQL;
+            MySqlDataReader ObjReader;
+            ObjReader = ObjCmd.ExecuteReader();
+
+            if(ObjReader.Read())
+            {
+                NhanVien nhanvien = new NhanVien();
+
+                nhanvien.MaNhanVien = (int)ObjReader["MaNhanVien"];
+                nhanvien.TenNhanVien = (string)ObjReader["TenNhanVien"];
+                nhanvien.DiaChi = (string)ObjReader["DiaChi"];
+                nhanvien.SDT = (string)ObjReader["SDT"];
+                nhanvien.ChucVu = (string)ObjReader["ChucVu"];
+                nhanvien.UserName = (string)ObjReader["UserName"];
+                nhanvien.Password = (string)ObjReader["Password"];
+                
+                //close connection
+                DataProvider.getInstance().CloseConnection();
+                return nhanvien;
+            }
+            else
+            {
+                //close connection
+                DataProvider.getInstance().CloseConnection();
+                return null;
+            }
         }
 
     }

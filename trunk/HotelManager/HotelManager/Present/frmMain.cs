@@ -15,8 +15,8 @@ namespace HotelManager.Present
 {
     public partial class frmMain : Form
     {
-        public static string TenNhanVien = "Nhan vien 1";
-        public static int MaNhanVien = 1;
+        public static string TenNhanVien = "";
+        public static int MaNhanVien = -1;
 
 
         public frmMain()
@@ -166,6 +166,16 @@ namespace HotelManager.Present
         private void lkBaoCaoMatDo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             (new frmLapBaoCaoMatDo()).Show();
+        }
+
+        private void frmMain_Shown(object sender, EventArgs e)
+        {
+            (new frmDangNhap()).ShowDialog(this);
+
+            if (TenNhanVien == "" || MaNhanVien == -1)
+            {
+                this.Close();
+            }
         }
 
     }
