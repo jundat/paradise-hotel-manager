@@ -31,12 +31,13 @@ namespace HotelManager.Data
             try
             {
                 dataReader = cmd.ExecuteReader();
-
+                
                 if (dataReader.Read())
                 {
+                    int sokhach = (int)dataReader["SoKhachToiDaTrongMotPhong"];
                     // Đóng kết nối
                     DataProvider.getInstance().CloseConnection();
-                    return (int)dataReader["SoKhachToiDaTrongMotPhong"];
+                    return sokhach;
                 }
             }
             catch (MySqlException exception)
@@ -89,9 +90,10 @@ namespace HotelManager.Data
 
                 if (dataReader.Read())
                 {
+                    float tyle = (float)dataReader["TyLeCoc"];
                     // Đóng kết nối
                     DataProvider.getInstance().CloseConnection();
-                    return (float)dataReader["TyLeCoc"];
+                    return tyle;
                 }
             }
             catch (MySqlException exception)
@@ -146,9 +148,10 @@ namespace HotelManager.Data
 
                 if (dataReader.Read())
                 {
+                    int sogio = (int)dataReader["SoGioThueVoiGiaGoc"];
                     // Đóng kết nối
                     DataProvider.getInstance().CloseConnection();
-                    return (int)dataReader["SoGioThueVoiGiaGoc"];
+                    return sogio;
                 }
             }
             catch (MySqlException exception)
@@ -204,9 +207,10 @@ namespace HotelManager.Data
 
                 if (dataReader.Read())
                 {
+                    float tylegia = (float)dataReader["TyLeGiaPhongNeuThueTheoNgay"];
                     // Đóng kết nối
                     DataProvider.getInstance().CloseConnection();
-                    return (float)dataReader["TyLeGiaPhongNeuThueTheoNgay"];
+                    return tylegia;
                 }
             }
             catch (MySqlException exception)

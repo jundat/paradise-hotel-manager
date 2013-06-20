@@ -93,6 +93,15 @@ namespace HotelManager.Present
 
             this.txtKhachHang.Text = tenkhach;
             this.txtTongChiPhi.Text = "" + (result + phiThietHai);
+
+            //save to table PHIEU_THU
+            PhieuThu pt = new PhieuThu();
+            pt.CMND = txtCMND.Text;
+            pt.TenKhach = txtKhachHang.Text;
+            pt.ThoiDiemThu = dtThoiDiemThu.Value;
+            pt.TongTienThu = (float)Convert.ToDouble(txtTongChiPhi.Text);
+            pt.MaNhanVien = frmMain.MaNhanVien;
+            BusPhieuThu.Add(pt);
         }
         
         private void btThanhToan_Click(object sender, EventArgs e)

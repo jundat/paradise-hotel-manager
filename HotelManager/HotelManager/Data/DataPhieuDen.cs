@@ -12,6 +12,31 @@ namespace HotelManager.Data
 {
     class DataPhieuDen
     {
+        public static PhieuDen Get(int maphieuden)
+        {
+            string StrSQL = "SELECT * FROM phieu_den WHERE MaPhieuDen = " + maphieuden;
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = StrSQL;
+            MySqlDataReader ObjReader;
+            ObjReader = ObjCmd.ExecuteReader();
+
+            ObjReader.Read();
+            PhieuDen phieuDen = new PhieuDen();
+
+            phieuDen.MaPhieuDen = (int)ObjReader["MaPhieuDen"];
+            phieuDen.TenKhachDaiDien = (string)ObjReader["TenKhachDaiDien"];
+            phieuDen.CMND = (string)ObjReader["CMND"];
+            phieuDen.ThoiDiemDen = (DateTime)ObjReader["ThoiDiemDen"];
+            phieuDen.ThoiDiemDi = (DateTime)ObjReader["ThoiDiemDi"];
+            phieuDen.TongChiPhi = (float)ObjReader["TongChiPhi"];
+            phieuDen.TinhTrangThanhToan = Convert.ToBoolean(ObjReader["TinhTrangThanhToan"]);
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return phieuDen;
+        }
+
         public static ArrayList GetList()
         {
             ArrayList listPhieuDen = new ArrayList();

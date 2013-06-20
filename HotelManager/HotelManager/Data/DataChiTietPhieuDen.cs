@@ -202,6 +202,35 @@ namespace HotelManager.Data
             return dt;
         }
 
+        public static ArrayList FindMaPhong(int maphong)
+        {
+            ArrayList listCTPhieuDen = new ArrayList();
+            string StrSQL = "SELECT * FROM chi_tiet_phieu_den WHERE MaPhong = " + maphong;
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = StrSQL;
+            MySqlDataReader ObjReader;
+            ObjReader = ObjCmd.ExecuteReader();
+
+            while (ObjReader.Read())
+            {
+                ChiTietPhieuDen ct_PhieuDen = new ChiTietPhieuDen();
+
+                ct_PhieuDen.MaChiTietPhieuDen = (int)ObjReader["MaChiTietPhieuDen"];
+                ct_PhieuDen.MaPhieuDen = (int)ObjReader["MaPhieuDen"];
+                ct_PhieuDen.MaPhong = maphong;// (int)ObjReader["MaPhong"];
+                ct_PhieuDen.TenKhachHang = (string)ObjReader["TenKhachHang"];
+                ct_PhieuDen.CMND = (string)ObjReader["CMND"];
+                ct_PhieuDen.DonGia = (float)ObjReader["DonGia"];
+
+                listCTPhieuDen.Add(ct_PhieuDen);
+            }
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return listCTPhieuDen;
+        }
+
         public static DataTable FindMaPhieuDen(int maPhieuDen)
         {
             DataTable dt = new DataTable();

@@ -40,7 +40,8 @@ namespace HotelManager.Data
 
                     phong.MaPhong = (int)dataReader["MaPhong"];
                     phong.MaLoaiPhong = (int)dataReader["MaLoaiPhong"];
-                    phong.TinhTrangHienTai = (Boolean)dataReader["TinhTrangHienTai"];
+                    phong.TenPhong = (string)dataReader["TenPhong"];
+                    phong.TinhTrangHienTai = Convert.ToBoolean(dataReader["TinhTrangHienTai"]);
                     phong.MoTa = (String)dataReader["MoTa"];
 
                     listPhong.Add(phong);
@@ -107,15 +108,14 @@ namespace HotelManager.Data
         public static bool AddPhong(Phong phong)
         {
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "INSERT INTO phong(MaPhong, MaLoaiPhong, TinhTrangHienTai, MoTa) VALUES(?, ?, ?, ?);";
+            cmd.CommandText = "INSERT INTO phong(MaLoaiPhong, TenPhong, TinhTrangHienTai, MoTa) VALUES(?, ?, ?, ?);";
             
             try
             {
                 cmd.Parameters.Add("@MaLoaiPhong", MySqlDbType.Int32).Value = phong.MaLoaiPhong;
+                cmd.Parameters.Add("@TenPhong", MySqlDbType.String).Value = phong.TenPhong;
                 cmd.Parameters.Add("@TinhTrangHienTai", MySqlDbType.Byte).Value = phong.TinhTrangHienTai;
                 cmd.Parameters.Add("@MoTa", MySqlDbType.String).Value = phong.MoTa;
-
-                cmd.Parameters.Add("@MaPhong", MySqlDbType.Int32).Value = phong.MaPhong;
 
                 cmd.ExecuteNonQuery();
 

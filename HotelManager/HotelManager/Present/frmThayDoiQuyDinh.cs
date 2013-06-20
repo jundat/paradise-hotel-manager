@@ -112,13 +112,14 @@ namespace HotelManager.Present
                 MessageBox.Show("Tỷ lệ giá phòng nếu thuê theo ngày nhập sai!\n Giá trị phải là số thực: 0.0 -> 1.0");
                 return;
             }
+
+            MessageBox.Show("Lưu thông tin thành công!");
+            this.Close();
         }
 
         private void btluu_Click(object sender, EventArgs e)
         {
             this.Update();
-            MessageBox.Show("Lưu thông tin thành công!");
-            this.Close();
         }
 
         private void btcancel_Click(object sender, EventArgs e)
