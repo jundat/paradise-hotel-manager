@@ -161,17 +161,17 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `QLNHKS`.`BAO_CAO_DOANH_THU`
+-- Table `QLNHKS`.`BAO_CAO_MAT_DO`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `QLNHKS`.`BAO_CAO_DOANH_THU` (
+CREATE  TABLE IF NOT EXISTS `QLNHKS`.`BAO_CAO_MAT_DO` (
   `MaBaoCao` INT NOT NULL AUTO_INCREMENT ,
-  `MaPhong` INT NOT NULL ,
-  `DoanhThu` FLOAT NOT NULL ,
-  `TyLeDoanhThu` FLOAT NOT NULL ,
   `ThoiDiemLapBaoCao` DATETIME NOT NULL ,
+  `MaPhong` INT NOT NULL ,
+  `SoGioThue` FLOAT NOT NULL ,
+  `TyLe` FLOAT NOT NULL ,
   PRIMARY KEY (`MaBaoCao`) ,
-  INDEX `fk_BAO_CAO_DOANH_THU_PHONG1_idx` (`MaPhong` ASC) ,
-  CONSTRAINT `fk_BAO_CAO_DOANH_THU_PHONG1`
+  INDEX `fk_BAO_CAO_MAT_DO_PHONG1_idx` (`MaPhong` ASC) ,
+  CONSTRAINT `fk_BAO_CAO_MAT_DO_PHONG1`
     FOREIGN KEY (`MaPhong` )
     REFERENCES `QLNHKS`.`PHONG` (`MaPhong` )
     ON DELETE NO ACTION
