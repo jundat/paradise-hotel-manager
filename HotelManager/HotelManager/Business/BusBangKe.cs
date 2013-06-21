@@ -22,6 +22,17 @@ namespace HotelManager.Business
         }
 
         /// <summary>
+        /// Tim danh sách Bảng kê
+        /// </summary>
+        /// <param name="tenPhong"></param>
+        /// <param name="tinhTrangThanhToan"></param>
+        /// <returns></returns>
+        public static ArrayList Find(int maPhong, String tinhTrangThanhToan)
+        {
+            return DataBangKe.Find(maPhong, tinhTrangThanhToan);
+        }
+
+        /// <summary>
         /// Lấy hết bảng BANG_KE
         /// </summary>
         /// <returns></returns>

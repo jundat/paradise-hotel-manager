@@ -38,6 +38,41 @@ namespace HotelManager.Data
             return listCTPhieuDatTiec;
         }
 
+        /// <summary>
+        /// Tìm danh sách Chi tiết của Mã phiếu đặt tiệc
+        /// </summary>
+        /// <param name="maPhieuDatTiec"></param>
+        /// <returns></returns>
+        public static ArrayList FindDanhSachChiTietPhieuDatTiec(int maPhieuDatTiec)
+        {
+            ArrayList listCTPhieuDatTiec = new ArrayList();
+
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            
+            ObjCmd.CommandText = "SELECT * FROM chi_tiet_phieu_dat_tiec WHERE MaPhieuDatTiec = ?MaPhieuDatTiec";
+            ObjCmd.Parameters.Add("?MaPhieuDatTiec", maPhieuDatTiec);
+
+            MySqlDataReader ObjReader = ObjCmd.ExecuteReader();
+
+            while (ObjReader.Read())
+            {
+                ChiTietPhieuDatTiec ct_phieudattiec = new ChiTietPhieuDatTiec();
+
+                ct_phieudattiec.MaPhieuDatTiec = (int)ObjReader["MaPhieuDatTiec"];
+                ct_phieudattiec.TenMon = (string)ObjReader["TenMon"];
+                ct_phieudattiec.DonGia = (float)ObjReader["DonGia"];
+                ct_phieudattiec.SoLuong = (int)ObjReader["SoLuong"];
+                ct_phieudattiec.YeuCau = (string)ObjReader["YeuCau"];
+
+                listCTPhieuDatTiec.Add(ct_phieudattiec);
+            }
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return listCTPhieuDatTiec;
+        }
+
         public static DataTable GetTable()
         {
             DataTable table = new DataTable();

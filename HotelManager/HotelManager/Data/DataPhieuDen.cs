@@ -67,6 +67,68 @@ namespace HotelManager.Data
             return listPhieuDen;
         }
 
+        /// <summary>
+        /// Tìm kiếm danh sách các Phiếu đến
+        /// </summary>
+        /// <param name="tenKhachDaiDien"></param>
+        /// <param name="CMND"></param>
+        /// <param name="tinhTrangThanhToan"></param>
+        /// <returns></returns>
+        public static ArrayList Find(String tenKhachDaiDien, String CMND, String tinhTrangThanhToan)
+        {
+            ArrayList listPhieuDen = new ArrayList();
+            
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+
+            if ("Không quan tâm".Equals(tinhTrangThanhToan))
+            {
+                ObjCmd.CommandText = "SELECT * FROM phieu_den WHERE TenKhachDaiDien = ?TenKhachDaiDien OR CMND = ?CMND";
+
+                ObjCmd.Parameters.Add("?TenKhachDaiDien", tenKhachDaiDien);
+                ObjCmd.Parameters.Add("?CMND", CMND);
+            }
+            else
+                if ("Đã thanh toán".Equals(tinhTrangThanhToan))
+                {
+                    ObjCmd.CommandText = "SELECT * FROM phieu_den WHERE (TenKhachDaiDien = ?TenKhachDaiDien OR CMND = ?CMND) AND TinhTrangThanhToan = ?TinhTrangThanhToan";
+
+                    ObjCmd.Parameters.Add("?TenKhachDaiDien", tenKhachDaiDien);
+                    ObjCmd.Parameters.Add("?CMND", CMND);
+                    ObjCmd.Parameters.Add("?TinhTrangThanhToan", true);
+                }
+                else // Chưa thanh toán
+                {
+                    ObjCmd.CommandText = "SELECT * FROM phieu_den WHERE (TenKhachDaiDien = ?TenKhachDaiDien OR CMND = ?CMND) AND TinhTrangThanhToan = ?TinhTrangThanhToan";
+
+                    ObjCmd.Parameters.Add("?TenKhachDaiDien", tenKhachDaiDien);
+                    ObjCmd.Parameters.Add("?CMND", CMND);
+                    ObjCmd.Parameters.Add("?TinhTrangThanhToan", false);
+                }
+
+            MySqlDataReader ObjReader;
+            ObjReader = ObjCmd.ExecuteReader();
+
+            while (ObjReader.Read())
+            {
+                PhieuDen PhieuDen = new PhieuDen();
+
+                PhieuDen.MaPhieuDen = (int)ObjReader["MaPhieuDen"];
+                PhieuDen.TenKhachDaiDien = (string)ObjReader["TenKhachDaiDien"];
+                PhieuDen.CMND = (string)ObjReader["CMND"];
+                PhieuDen.ThoiDiemDen = (DateTime)ObjReader["ThoiDiemDen"];
+                PhieuDen.ThoiDiemDi = (DateTime)ObjReader["ThoiDiemDi"];
+                PhieuDen.TongChiPhi = (float)ObjReader["TongChiPhi"];
+                PhieuDen.TinhTrangThanhToan = Convert.ToBoolean(ObjReader["TinhTrangThanhToan"]);
+
+                listPhieuDen.Add(PhieuDen);
+            }
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return listPhieuDen;
+        }
+
         public static DataTable GetTable()
         {
             DataTable table = new DataTable();

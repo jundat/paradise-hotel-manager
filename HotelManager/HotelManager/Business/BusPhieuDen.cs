@@ -22,6 +22,18 @@ namespace HotelManager.Business
             return DataPhieuDen.GetList();
         }
 
+        /// <summary>
+        /// Tìm kiếm danh sách các Phiếu đến
+        /// </summary>
+        /// <param name="tenKhachDaiDien"></param>
+        /// <param name="CMND"></param>
+        /// <param name="tinhTrangThanhToan"></param>
+        /// <returns></returns>
+        public static ArrayList Find(String tenKhachDaiDien, String CMND, String tinhTrangThanhToan)
+        {
+            return DataPhieuDen.Find(tenKhachDaiDien, CMND, tinhTrangThanhToan);
+        }
+
         public static DataTable GetTable()
         {
             return DataPhieuDen.GetTable();

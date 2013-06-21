@@ -215,11 +215,29 @@
     <Compile Include="Present\frmThayDoiQuyDinh.Designer.cs">
       <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Present\frmTraCuuBangKeDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmTraCuuBangKeDichVu.Designer.cs">
+      <DependentUpon>frmTraCuuBangKeDichVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Present\frmTraCuuPhieuDatCho.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Present\frmTraCuuPhieuDatCho.Designer.cs">
       <DependentUpon>frmTraCuuPhieuDatCho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\frmTraCuuPhieuDatTiec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmTraCuuPhieuDatTiec.Designer.cs">
+      <DependentUpon>frmTraCuuPhieuDatTiec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Present\frmTraCuuPhieuDen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmTraCuuPhieuDen.Designer.cs">
+      <DependentUpon>frmTraCuuPhieuDen.cs</DependentUpon>
     </Compile>
     <Compile Include="Present\Mini\frmBangGia.cs">
       <SubType>Form</SubType>
@@ -287,8 +305,17 @@
     <EmbeddedResource Include="Present\frmThayDoiQuyDinh.resx">
       <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmTraCuuBangKeDichVu.resx">
+      <DependentUpon>frmTraCuuBangKeDichVu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Present\frmTraCuuPhieuDatCho.resx">
       <DependentUpon>frmTraCuuPhieuDatCho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmTraCuuPhieuDatTiec.resx">
+      <DependentUpon>frmTraCuuPhieuDatTiec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmTraCuuPhieuDen.resx">
+      <DependentUpon>frmTraCuuPhieuDen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Present\Mini\frmBangGia.resx">
       <DependentUpon>frmBangGia.cs</DependentUpon>

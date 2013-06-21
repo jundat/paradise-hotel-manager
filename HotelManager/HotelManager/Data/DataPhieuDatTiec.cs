@@ -44,6 +44,68 @@ namespace HotelManager.Data
         }
 
         /// <summary>
+        /// Tìm kiếm danh sách Phiếu đặt tiệc thỏa mãn
+        /// </summary>
+        /// <param name="tenKhach"></param>
+        /// <param name="tenPhong"></param>
+        /// <param name="tinhTrangThanhToan"></param>
+        /// <returns></returns>
+        public static ArrayList Find(String tenKhach, int maPhong, String tinhTrangThanhToan)
+        {
+            ArrayList listPhieuDatTiec = new ArrayList();
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+
+
+            if ("Không quan tâm".Equals(tinhTrangThanhToan))
+            {
+                ObjCmd.CommandText = "SELECT * FROM phieu_dat_tiec WHERE TenKhach = ?TenKhach OR MaPhong = ?MaPhong";
+                ObjCmd.Parameters.Add("?TenKhach", tenKhach);
+                ObjCmd.Parameters.Add("?MaPhong", maPhong);
+            }
+            else
+                if ("Đã thanh toán".Equals(tinhTrangThanhToan))
+                {
+                    ObjCmd.CommandText = "SELECT * FROM phieu_dat_tiec WHERE (TenKhach = ?TenKhach OR MaPhong = ?MaPhong) AND TinhTrangThanhToan = ?TinhTrangThanhToan";
+
+                    ObjCmd.Parameters.Add("?TenKhach", tenKhach);
+                    ObjCmd.Parameters.Add("?MaPhong", maPhong);
+                    ObjCmd.Parameters.Add("?TinhTrangThanhToan", true);
+                }
+                else // Chưa thanh toán
+                {
+                    ObjCmd.CommandText = "SELECT * FROM phieu_dat_tiec WHERE (TenKhach = ?TenKhach OR MaPhong = ?MaPhong) AND TinhTrangThanhToan = ?TinhTrangThanhToan";
+
+                    ObjCmd.Parameters.Add("?TenKhach", tenKhach);
+                    ObjCmd.Parameters.Add("?MaPhong", maPhong);
+                    ObjCmd.Parameters.Add("?TinhTrangThanhToan", false);
+                }
+            
+            // thực thi truy vấn
+            MySqlDataReader ObjReader = null;
+            ObjReader = ObjCmd.ExecuteReader();
+
+            // Đọc dữ liệu trả ra từ truy vấn
+            while (ObjReader.Read())
+            {
+                PhieuDatTiec phieudattiec = new PhieuDatTiec();
+
+                phieudattiec.MaPhieuDatTiec = (int)ObjReader["MaPhieuDatTiec"];
+                phieudattiec.TenKhach = (string)ObjReader["TenKhach"];
+                phieudattiec.MaPhong = (int)ObjReader["MaPhong"];
+                phieudattiec.ThoiDiem = (DateTime)ObjReader["ThoiDiem"];
+                phieudattiec.TongTien = (float)ObjReader["TongTien"];
+                phieudattiec.TinhTrangThanhToan = Convert.ToBoolean(ObjReader["TinhTrangThanhToan"]);
+
+                listPhieuDatTiec.Add(phieudattiec);
+            }
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+
+            return listPhieuDatTiec;
+        }
+
+        /// <summary>
         /// Tìm danh sách các phiếu đặt tiệc chưa đc thanh toán và Mã phòng của khách đặt nó
         /// </summary>
         /// <param name="maPhong"></param>

@@ -62,6 +62,75 @@ namespace HotelManager.Data
             return _arrayList;
         }
 
+
+        /// <summary>
+        /// Tim danh sách Bảng kê
+        /// </summary>
+        /// <param name="tenPhong"></param>
+        /// <param name="tinhTrangThanhToan"></param>
+        /// <returns></returns>
+        public static ArrayList Find(int maPhong, String tinhTrangThanhToan)
+        {
+            // Lấy command
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            MySqlDataReader dataReader = null;
+            ArrayList _arrayList = new ArrayList();
+
+            try
+            {
+                // set query
+                if ("Không quan tâm".Equals(tinhTrangThanhToan))
+                {
+                    cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = ?MaPhong";
+
+                    cmd.Parameters.Add("?MaPhong", maPhong);
+                }
+                else
+                    if ("Đã thanh toán".Equals(tinhTrangThanhToan))
+                    {
+                        cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = ?MaPhong AND TinhTrangThanhToan = ?TinhTrangThanhToan";
+
+                        cmd.Parameters.Add("?MaPhong", maPhong);
+                        cmd.Parameters.Add("?TinhTrangThanhToan", true);
+                    }
+                    else // Chưa thanh toán
+                    {
+                        cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = ?MaPhong AND TinhTrangThanhToan = ?TinhTrangThanhToan";
+
+                        cmd.Parameters.Add("?MaPhong", maPhong);
+                        cmd.Parameters.Add("?TinhTrangThanhToan", false);
+                    }
+
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    BangKe _bangKe = new BangKe();
+
+                    _bangKe.MaBangKe = (int)dataReader["MaBangKe"];
+                    _bangKe.MaPhong = (int)dataReader["MaPhong"];
+                    _bangKe.TongChiPhi = (float)dataReader["TongChiPhi"];
+                    _bangKe.TinhTrangThanhToan = Convert.ToBoolean(dataReader["TinhTrangThanhToan"]);
+
+                    _arrayList.Add(_bangKe);
+                }
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString(), "Error Execute query: GetList BANG_KE table !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null)
+                {
+                    dataReader.Close();
+                }
+            }
+
+            DataProvider.getInstance().CloseConnection();
+
+            return _arrayList;
+        }
         /// <summary>
         /// Lấy hết bảng BANG_KE
         /// </summary>

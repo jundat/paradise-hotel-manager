@@ -22,6 +22,15 @@ namespace HotelManager.Business
         }
 
         /// <summary>
+        /// Lấy danh sách PHIEU_DAT_CHO
+        /// </summary>
+        /// <returns></returns>
+        public static ArrayList Find(String tenNguoiDatCho, String CMND, String SDT, String diaChi)
+        {
+            return DataPhieuDatCho.Find(tenNguoiDatCho, CMND, SDT, diaChi);
+        }
+
+        /// <summary>
         /// Lấy hết bảng PHIEU_DAT_CHO
         /// </summary>
         /// <returns></returns>

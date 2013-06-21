@@ -17,6 +17,18 @@ namespace HotelManager.Business
             return DataPhieuDatTiec.GetList();
         }
 
+        /// <summary>
+        /// Tìm kiếm danh sách Phiếu đặt tiệc thỏa mãn
+        /// </summary>
+        /// <param name="tenKhach"></param>
+        /// <param name="tenPhong"></param>
+        /// <param name="tinhTrangThanhToan"></param>
+        /// <returns></returns>
+        public static ArrayList Find(String tenKhach, int maPhong, String tinhTrangThanhToan)
+        {
+            return DataPhieuDatTiec.Find(tenKhach, maPhong, tinhTrangThanhToan);
+        }
+
         public static DataTable GetTable()
         {
             return DataPhieuDatTiec.GetTable();

@@ -189,7 +189,7 @@ namespace HotelManager.Present
 
         private void llTraCuuPhieuDen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            (new frmTraCuuPhieuDen()).ShowDialog();
         }
 
         private void llTraCuuPhieuDatCho_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -232,14 +232,49 @@ namespace HotelManager.Present
             (new frmThemPhong()).ShowDialog(this);
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void llTraCuuBangKeDichVu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            (new frmTraCuuBangKeDichVu()).ShowDialog();
+        }
+
+        private void llTraCuuPhieuDatTiec_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            (new frmTraCuuPhieuDatTiec()).ShowDialog();
+        }
+
+        private void linkCauHinhThietBi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Chức năng này chưa được hỗ trợ cho bản dùng thử ^_^", "Vui lòng thông cảm", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void linkThungRac_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Chức năng này chưa được hỗ trợ cho bản dùng thử ^_^", "Vui lòng thông cảm", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void linkPhucHoiDuLieu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Chức năng này chưa được hỗ trợ cho bản dùng thử ^_^", "Vui lòng thông cảm", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void linkSaoLuuDuLieu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Chức năng này chưa được hỗ trợ cho bản dùng thử ^_^", "Vui lòng thông cảm", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void linkCauHinhPhanMem_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Chức năng này chưa được hỗ trợ cho bản dùng thử ^_^", "Vui lòng thông cảm", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
         private void linkdatcho_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             (new frmDatCho()).ShowDialog();
-        }
-
-        private void linkThemLoaiPhong_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
         }
 
         private void linklapphieuden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

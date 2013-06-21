@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBangGia));
             this.label1 = new System.Windows.Forms.Label();
             this.dataMain = new System.Windows.Forms.DataGridView();
             this.btThoat = new System.Windows.Forms.Button();
@@ -86,6 +87,7 @@
             this.Controls.Add(this.dataMain);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBangGia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Bảng Giá";
