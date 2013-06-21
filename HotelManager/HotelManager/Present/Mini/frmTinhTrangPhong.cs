@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Drawing;
 using HotelManager.Business;
 using System.Collections;
 using HotelManager.Data.Entity;
@@ -38,34 +37,33 @@ namespace HotelManager.Present.Mini
                 btn.Name = "btn" + p.MaPhong;
                 btn.Size = new System.Drawing.Size(50, 50);
                 btn.FlatStyle = FlatStyle.Flat;
-                btn.Click += this.btnPhong_Click;
-                if (p.TinhTrangHienTai == true)
+                
+                if (p.TinhTrangHienTai == false)
                 {
                     btn.BackColor = colorPhongDay;
                     btn.ForeColor = forecolorPhongDay;
+
+                    string loaiPhong = (BusLoaiPhong.Find(p.MaLoaiPhong)).TenLoaiPhong;
+                    toolTipBtnPhong.SetToolTip(btn,
+                        "\nTình Trạng: Đầy"
+                        + "\nLoại Phòng: " + loaiPhong
+                        + "\nMã Loại Phòng: " + p.MaLoaiPhong
+                        + "\nGhi Chú: " + p.MoTa);
                 }
                 else
                 {
                     btn.BackColor = colorPhongTrong;
                     btn.ForeColor = forecolorPhongTrong;
+
+                    string loaiPhong = (BusLoaiPhong.Find(p.MaLoaiPhong)).TenLoaiPhong;
+                    toolTipBtnPhong.SetToolTip(btn,
+                        "\nTình Trạng: Trống"
+                        + "\nLoại Phòng: " + loaiPhong
+                        + "\nMã Loại Phòng: " + p.MaLoaiPhong
+                        + "\nGhi Chú: " + p.MoTa);
                 }
 
                 pnMain.Controls.Add(btn);
-            }
-        }
-
-        private void btnPhong_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            if (btn.BackColor == colorPhongTrong)
-            {
-                btn.BackColor = colorPhongDay;
-                btn.ForeColor = forecolorPhongDay;
-            }
-            else
-            {
-                btn.BackColor = colorPhongTrong;
-                btn.ForeColor = forecolorPhongTrong;
             }
         }
 
