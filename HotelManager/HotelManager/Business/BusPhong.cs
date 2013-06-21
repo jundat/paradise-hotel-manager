@@ -155,7 +155,7 @@ namespace HotelManager.Business
 
         public static DataTable Timphongtheotenloaiphong(String tenloaiphong, DateTime _thoidiemden, DateTime _thoidiemdi)
         {
-            return DataPhong.LayPhongTrongTheoTenloaiPhong(tenloaiphong, false, _thoidiemden, _thoidiemdi);
+            return DataPhong.LayPhongTrongTheoTenloaiPhong(tenloaiphong, true, _thoidiemden, _thoidiemdi);
         }
 
         public static DataTable Timphongtheothoidiem(DateTime _thoidiemden, DateTime _thoidiemdi)
