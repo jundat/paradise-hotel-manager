@@ -71,7 +71,7 @@ namespace HotelManager.Data
             }
             catch (MySqlException e)
             {
-                MessageBox.Show(e.ToString(), "Error Connect to QLNHKS database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.ToString(), "Lỗi kết nỗi CSDL hãy liên hệ với nhà phát triển để được tạo và cài đặt CSDL trước khi sử dụng !", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
