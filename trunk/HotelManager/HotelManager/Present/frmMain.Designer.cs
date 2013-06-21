@@ -62,10 +62,9 @@
             this.itemBaoCaoMatDo = new System.Windows.Forms.ToolStripMenuItem();
             this.itemGiupDo = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.linkdatcho = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkYeuCauDichVu = new System.Windows.Forms.LinkLabel();
-            this.linkThemLoaiPhong = new System.Windows.Forms.LinkLabel();
-            this.linkTraCuuPhong = new System.Windows.Forms.LinkLabel();
             this.linkThemPhong = new System.Windows.Forms.LinkLabel();
             this.picPhong = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -111,6 +110,7 @@
             this.linkPhanQuyen = new System.Windows.Forms.LinkLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.linkDangXuat = new System.Windows.Forms.LinkLabel();
+            this.linklapphieuden = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPhong)).BeginInit();
@@ -410,10 +410,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox1.Controls.Add(this.linklapphieuden);
+            this.groupBox1.Controls.Add(this.linkdatcho);
             this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Controls.Add(this.linkYeuCauDichVu);
-            this.groupBox1.Controls.Add(this.linkThemLoaiPhong);
-            this.groupBox1.Controls.Add(this.linkTraCuuPhong);
             this.groupBox1.Controls.Add(this.linkThemPhong);
             this.groupBox1.Controls.Add(this.picPhong);
             this.groupBox1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -424,6 +424,21 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "QUẢN LÝ THUÊ PHÒNG";
+            // 
+            // linkdatcho
+            // 
+            this.linkdatcho.AutoSize = true;
+            this.linkdatcho.BackColor = System.Drawing.Color.Transparent;
+            this.linkdatcho.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.linkdatcho.ForeColor = System.Drawing.Color.Transparent;
+            this.linkdatcho.LinkColor = System.Drawing.Color.Blue;
+            this.linkdatcho.Location = new System.Drawing.Point(124, 51);
+            this.linkdatcho.Name = "linkdatcho";
+            this.linkdatcho.Size = new System.Drawing.Size(79, 23);
+            this.linkdatcho.TabIndex = 19;
+            this.linkdatcho.TabStop = true;
+            this.linkdatcho.Text = "Đặt chỗ";
+            this.linkdatcho.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkdatcho_LinkClicked);
             // 
             // linkLabel1
             // 
@@ -458,39 +473,6 @@
             this.linkYeuCauDichVu.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkYeuCauDichVu_LinkClicked);
             this.linkYeuCauDichVu.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkYeuCauDichVu.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            // 
-            // linkThemLoaiPhong
-            // 
-            this.linkThemLoaiPhong.AutoSize = true;
-            this.linkThemLoaiPhong.BackColor = System.Drawing.Color.Transparent;
-            this.linkThemLoaiPhong.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkThemLoaiPhong.ForeColor = System.Drawing.Color.Transparent;
-            this.linkThemLoaiPhong.LinkColor = System.Drawing.Color.Blue;
-            this.linkThemLoaiPhong.Location = new System.Drawing.Point(124, 83);
-            this.linkThemLoaiPhong.Name = "linkThemLoaiPhong";
-            this.linkThemLoaiPhong.Size = new System.Drawing.Size(139, 23);
-            this.linkThemLoaiPhong.TabIndex = 16;
-            this.linkThemLoaiPhong.TabStop = true;
-            this.linkThemLoaiPhong.Text = "Lập phiếu đến";
-            this.linkThemLoaiPhong.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
-            this.linkThemLoaiPhong.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            // 
-            // linkTraCuuPhong
-            // 
-            this.linkTraCuuPhong.AutoSize = true;
-            this.linkTraCuuPhong.BackColor = System.Drawing.Color.Transparent;
-            this.linkTraCuuPhong.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkTraCuuPhong.ForeColor = System.Drawing.Color.Transparent;
-            this.linkTraCuuPhong.LinkColor = System.Drawing.Color.Blue;
-            this.linkTraCuuPhong.Location = new System.Drawing.Point(124, 51);
-            this.linkTraCuuPhong.Name = "linkTraCuuPhong";
-            this.linkTraCuuPhong.Size = new System.Drawing.Size(79, 23);
-            this.linkTraCuuPhong.TabIndex = 15;
-            this.linkTraCuuPhong.TabStop = true;
-            this.linkTraCuuPhong.Text = "Đặt chỗ";
-            this.linkTraCuuPhong.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkTraCuuPhong_LinkClicked);
-            this.linkTraCuuPhong.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
-            this.linkTraCuuPhong.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // linkThemPhong
             // 
@@ -1146,6 +1128,21 @@
             this.linkDangXuat.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkDangXuat.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
+            // linklapphieuden
+            // 
+            this.linklapphieuden.AutoSize = true;
+            this.linklapphieuden.BackColor = System.Drawing.Color.Transparent;
+            this.linklapphieuden.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.linklapphieuden.ForeColor = System.Drawing.Color.Transparent;
+            this.linklapphieuden.LinkColor = System.Drawing.Color.Blue;
+            this.linklapphieuden.Location = new System.Drawing.Point(126, 83);
+            this.linklapphieuden.Name = "linklapphieuden";
+            this.linklapphieuden.Size = new System.Drawing.Size(139, 23);
+            this.linklapphieuden.TabIndex = 20;
+            this.linklapphieuden.TabStop = true;
+            this.linklapphieuden.Text = "Lập phiếu đến";
+            this.linklapphieuden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklapphieuden_LinkClicked);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1221,7 +1218,6 @@
         private System.Windows.Forms.LinkLabel linkPhanQuyen;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.LinkLabel linkDangXuat;
-        private System.Windows.Forms.LinkLabel linkTraCuuPhong;
         private System.Windows.Forms.LinkLabel linkThemPhong;
         private System.Windows.Forms.ToolStripMenuItem menuHeThong;
         private System.Windows.Forms.Label label3;
@@ -1247,7 +1243,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.LinkLabel linkYeuCauDichVu;
-        private System.Windows.Forms.LinkLabel linkThemLoaiPhong;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.LinkLabel linkThayDoiQuyDinh;
         private System.Windows.Forms.ToolStripMenuItem thêmLoạiPhòngToolStripMenuItem;
@@ -1288,6 +1283,8 @@
         private System.Windows.Forms.ToolStripMenuItem itemBaoCaoMatDo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox picThemPhong;
+        private System.Windows.Forms.LinkLabel linkdatcho;
+        private System.Windows.Forms.LinkLabel linklapphieuden;
 
     }
 }

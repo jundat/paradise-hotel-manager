@@ -109,19 +109,20 @@ namespace HotelManager.Data
         {
             // Chuẩn bị kết nối
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "INSERT INTO chi_tiet_phieu_dat_cho(MaPhieuDatCho, MaPhong, DonGia, Coc) values(?, ?, ?, ?)";
-            
+            cmd.CommandText = "INSERT INTO chi_tiet_pheu_dat_cho(MaPhieuDatCho, MaPhong, DonGia, Coc) VALUES(?MaPhieuDatCho, ?MaPhong, ?DonGia, ?Coc)";
+            cmd.Prepare();
+
             // Tryền tham số cho truy vấn
-            cmd.Parameters.Add("@MaPhieuDatCho", MySqlDbType.Int32).Value = _chiTietPhieuDatCho.MaPhieuDatCho;
-            cmd.Parameters.Add("@MaPhong", MySqlDbType.Int32).Value = _chiTietPhieuDatCho.MaPhong;
-            cmd.Parameters.Add("@DonGia", MySqlDbType.Float).Value = _chiTietPhieuDatCho.DonGia;
-            cmd.Parameters.Add("@Coc", MySqlDbType.Float).Value = _chiTietPhieuDatCho.Coc;
+            cmd.Parameters.Add("?MaPhieuDatCho", MySqlDbType.Int32).Value = _chiTietPhieuDatCho.MaPhieuDatCho;
+            cmd.Parameters.Add("?MaPhong", MySqlDbType.Int32).Value = _chiTietPhieuDatCho.MaPhong;
+            cmd.Parameters.Add("?DonGia", MySqlDbType.Float).Value = _chiTietPhieuDatCho.DonGia;
+            cmd.Parameters.Add("?Coc", MySqlDbType.Float).Value = _chiTietPhieuDatCho.Coc;
 
             // Thực hiện truy vấn
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = "Select @@IDENTITY";
-            _chiTietPhieuDatCho.MaChiTietPhieuDatCho = (int)cmd.ExecuteScalar();
+            _chiTietPhieuDatCho.MaChiTietPhieuDatCho = Convert.ToInt32(cmd.ExecuteScalar());
 
             // Đóng kết nối
             DataProvider.getInstance().CloseConnection();
@@ -140,6 +141,14 @@ namespace HotelManager.Data
             DataProvider.getInstance().CloseConnection();
         }
 
+        public static void DeleteCTPDC(int maphieudatcho)
+        {
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "DELETE FROM chi_tiet_pheu_dat_cho WHERE MaPhieuDatCho = " + maphieudatcho;
+            cmd.ExecuteNonQuery();
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
+        }
         /// <summary>
         /// Sửa 1 chi tiết phiếu thuê
         /// </summary>

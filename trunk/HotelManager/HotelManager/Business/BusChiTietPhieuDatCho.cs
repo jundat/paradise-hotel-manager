@@ -66,6 +66,11 @@ namespace HotelManager.Business
             DataChiTietPhieuDatCho.UpdateChiTietPhieuDatCho(_chiTietPhieuDatCho);
         }
 
+        public static void XoaCTPDC(int maphieudatcho)
+        {
+            DataChiTietPhieuDatCho.DeleteCTPDC(maphieudatcho);
+        }
+
 
     }
 }

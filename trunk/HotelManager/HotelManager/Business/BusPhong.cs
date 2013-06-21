@@ -150,6 +150,40 @@ namespace HotelManager.Business
         {
             return DataPhong.FindGhiChu(_moTa);
         }
-        
+
+        //Phan them vao
+
+        public static DataTable Timphongtheotenloaiphong(String tenloaiphong, DateTime _thoidiemden, DateTime _thoidiemdi)
+        {
+            return DataPhong.LayPhongTrongTheoTenloaiPhong(tenloaiphong, false, _thoidiemden, _thoidiemdi);
+        }
+
+        public static DataTable Timphongtheothoidiem(DateTime _thoidiemden, DateTime _thoidiemdi)
+        {
+            return DataPhong.Timphongtheothoidiem(_thoidiemden, _thoidiemdi, true);
+        }
+
+        public static PhieuDatCho FindSDT(String _SDT)
+        {
+            return DataPhieuDatCho.FindTheoSDT(_SDT);
+        }
+
+        //Phan them vao
+
+        public static DataTable layphongchothue(bool tt)
+        {
+            return DataPhong.GetPhongtrongchothue(tt);
+        }
+        public static DataTable LayDanhSachPhongDaDat(String tendat, String sdt)
+        {
+            return DataPhong.GetPhongDaDat(tendat, sdt);
+        }
+
+        public static DataTable layphongtrongtheoloaiphong(String loaiphong)
+        {
+            return DataPhong.layphongtrongtheoloaiphong(loaiphong);
+        }
+
+
     }
 }

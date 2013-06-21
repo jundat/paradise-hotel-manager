@@ -66,5 +66,12 @@ namespace HotelManager.Business
         {
             return DataPhieuDen.Find(tenKhachDaiDien);
         }
+
+        //Phan them vao
+
+        public static DataTable layphieuden(string phong)
+        {
+            return DataPhieuDen.Getphieuden(phong);
+        }
     }
 }

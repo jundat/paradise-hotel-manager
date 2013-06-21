@@ -58,6 +58,10 @@ namespace HotelManager.Business
             DataPhieuDatCho.Delete(_maPhieuDatCho);
         }
 
+        public static void DeleteSDT(String sdt)
+        {
+            DataPhieuDatCho.DeleteSDT(sdt);
+        }
          /// <summary>
         /// Sửa 1 phiếu đặt chỗ
         /// </summary>
@@ -77,6 +81,22 @@ namespace HotelManager.Business
             return DataPhieuDatCho.Find(_maPhieuDatCho);
         }
 
+        //Phan them vao
+        public static DataTable Findtinhtrang(Boolean _tinhtrang)
+        {
+            return DataPhong.FindTinhTrang(_tinhtrang);
+        }
+        public static PhieuDatCho FindSDT(String _SDT)
+        {
+            return DataPhieuDatCho.FindTheoSDT(_SDT);
+        }
+
+        //Phan them vao
+
+        public static PhieuDatCho Laythoidiem(String phong)
+        {
+            return DataPhieuDatCho.GetPhieudatcho(phong);
+        }
 
 
 

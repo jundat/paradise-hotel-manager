@@ -117,7 +117,7 @@ namespace HotelManager.Present
 
         private void linkTraCuuPhong_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+           
         }
 
         private void linkThemPhong_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -230,6 +230,21 @@ namespace HotelManager.Present
         private void picThemPhong_Click(object sender, EventArgs e)
         {
             (new frmThemPhong()).ShowDialog(this);
+        }
+
+        private void linkdatcho_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            (new frmDatCho()).ShowDialog();
+        }
+
+        private void linkThemLoaiPhong_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void linklapphieuden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            (new frmLapphieuden()).ShowDialog();
         }
 
     }

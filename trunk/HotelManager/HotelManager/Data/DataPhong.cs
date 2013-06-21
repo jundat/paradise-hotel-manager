@@ -146,13 +146,13 @@ namespace HotelManager.Data
         {
             // Lấy và chuẩn bị command cho truy vấn
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "UPDATE phong SET MaLoaiPhong = ?, TinhTrangHienTai = ?, MoTa = ?  WHERE MaPhong = ?";
+            cmd.CommandText = "UPDATE phong SET MaLoaiPhong = ?maloaiphong, TinhTrangHienTai = ?tinhtranghientai, MoTa = ?mota  WHERE MaPhong = ?_maphong";
 
             // Truyền tham số cho câu truy vấn
-            cmd.Parameters.Add("@MaLoaiPhong", MySqlDbType.Int32).Value = phong.MaLoaiPhong;
-            cmd.Parameters.Add("@TinhTrangHienTai", MySqlDbType.Byte).Value = phong.TinhTrangHienTai;
-            cmd.Parameters.Add("@MoTa", MySqlDbType.String).Value = phong.MoTa;
-            cmd.Parameters.Add("@MaPhong", MySqlDbType.Int32).Value = phong.MaPhong;
+            cmd.Parameters.Add("?maloaiphong", MySqlDbType.Int32).Value = phong.MaLoaiPhong;
+            cmd.Parameters.Add("?tinhtranghientai", MySqlDbType.Byte).Value = phong.TinhTrangHienTai;
+            cmd.Parameters.Add("?mota", MySqlDbType.String).Value = phong.MoTa;
+            cmd.Parameters.Add("?_maphong", MySqlDbType.Int32).Value = phong.MaPhong;
 
             // Thực thi truy vấn
             cmd.ExecuteNonQuery();
@@ -258,8 +258,8 @@ namespace HotelManager.Data
         {
             DataTable dataTable = new DataTable();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "SELECT * FROM phong WHERE TinhTrangHienTai = ?";
-            cmd.Parameters.Add("@TinhTrangHienTai", MySqlDbType.Byte).Value = _tinhTrang;
+            cmd.CommandText = "SELECT * FROM phong WHERE TinhTrangHienTai = ?TinhTrangHienTai";
+            cmd.Parameters.Add("?TinhTrangHienTai", MySqlDbType.Byte).Value = _tinhTrang;
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dataTable);
 
@@ -284,5 +284,98 @@ namespace HotelManager.Data
             return dataTable;
         }
 
+        //Phan them vao
+
+        public static DataTable LayPhongTrongTheoTenloaiPhong(String tenloaiphong, Boolean _tinhtrang, DateTime _thoidiemden, DateTime _thoidiemdi)
+        {
+            DataTable datatable = new DataTable();
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "select TenPhong,LOAI_PHONG.DonGia from PHONG,LOAI_PHONG" +
+                     " where TinhTrangHienTai = ?_tinhtrang and PHONG.MaLoaiPhong = LOAI_PHONG.MaLoaiPhong and LOAI_PHONG.TenLoaiPhong = ?tenloaiphong and TenPhong != ALL(select TenPhong from PHONG,CHI_TIET_PHEU_DAT_CHO,PHIEU_DAT_CHO" +
+                     " where PHONG.MaPhong = CHI_TIET_PHEU_DAT_CHO.MaPhong" +
+                    " and CHI_TIET_PHEU_DAT_CHO.MaPhieuDatCho = PHIEU_DAT_CHO.MaPhieuDatCho " +
+                   " and PHIEU_DAT_CHO.ThoiDiemDen between ?thoidiemden and ?thoidiemdi" +
+                    " and PHIEU_DAT_CHO.ThoiDiemDi between ?thoidiemden and ?thoidiemdi )";
+
+            cmd.Parameters.Add("?_tinhtrang", _tinhtrang);
+            cmd.Parameters.Add("?thoidiemden", _thoidiemden);
+            cmd.Parameters.Add("?thoidiemdi", _thoidiemdi);
+            cmd.Parameters.Add("?tenloaiphong", tenloaiphong);
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(datatable);
+            DataProvider.getInstance().CloseConnection();
+            return datatable;
+        }
+
+        public static DataTable Timphongtheothoidiem(DateTime _thoidiemden, DateTime _thoidiemdi, Boolean _tinhtrang)
+        {
+            DataTable datatable = new DataTable();
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "select TenPhong,LOAI_PHONG.DonGia from PHONG,LOAI_PHONG" +
+                     " where TinhTrangHienTai = ?_tinhtrang and PHONG.MaLoaiPhong = LOAI_PHONG.MaLoaiPhong and TenPhong != ALL(select TenPhong from PHONG,CHI_TIET_PHEU_DAT_CHO,PHIEU_DAT_CHO" +
+                     " where PHONG.MaPhong = CHI_TIET_PHEU_DAT_CHO.MaPhong" +
+                    " and CHI_TIET_PHEU_DAT_CHO.MaPhieuDatCho = PHIEU_DAT_CHO.MaPhieuDatCho " +
+                   " and PHIEU_DAT_CHO.ThoiDiemDen between ?thoidiemden and ?thoidiemdi" +
+                    " and PHIEU_DAT_CHO.ThoiDiemDi between ?thoidiemden and ?thoidiemdi )";
+
+            cmd.Parameters.Add("?_tinhtrang", _tinhtrang);
+            cmd.Parameters.Add("?thoidiemden", _thoidiemden);
+            cmd.Parameters.Add("?thoidiemdi", _thoidiemdi);
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(datatable);
+            DataProvider.getInstance().CloseConnection();
+            return datatable;
+
+
+        }
+
+        public static DataTable GetPhongtrongchothue(bool tinhtrang)
+        {
+            DataTable dataTable = new DataTable();
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "SELECT TenPhong,TenLoaiPhong,loai_phong.DonGia FROM phong,loai_phong WHERE phong.MaLoaiPhong = loai_phong.MaLoaiPhong and phong.TinhTrangHienTai = ?tt";
+            cmd.Parameters.Add("?tt", tinhtrang);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
+            return dataTable;
+        }
+
+        public static DataTable GetPhongDaDat(String _tennguoidat, String _SDT)
+        {
+            DataTable datatable = new DataTable();
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "select TenPhong,TenLoaiPhong,LOAI_PHONG.DonGia,Coc from PHONG,LOAI_PHONG,PHIEU_DAT_CHO,CHI_TIET_PHEU_DAT_CHO"
+                + " where PHIEU_DAT_CHO.TenNguoiDatCho = ?_tennguoidat and PHIEU_DAT_CHO.SDT = ?_SDT " +
+                "and PHIEU_DAT_CHO.MaPhieuDatCho = CHI_TIET_PHEU_DAT_CHO.MaPhieuDatCho and CHI_TIET_PHEU_DAT_CHO.MaPhong = PHONG.MaPhong "
+                + "and PHONG.MaLoaiPhong = LOAI_PHONG.MaLoaiPhong";
+
+            cmd.Parameters.Add("?_tennguoidat", _tennguoidat);
+            cmd.Parameters.Add("?_SDT", _SDT);
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(datatable);
+            DataProvider.getInstance().CloseConnection();
+            return datatable;
+        }
+
+        public static DataTable layphongtrongtheoloaiphong(String tenloaiphong)
+        {
+            DataTable datatable = new DataTable();
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "SELECT TenPhong,TenLoaiPhong,loai_phong.DonGia FROM phong,loai_phong WHERE phong.MaLoaiPhong = loai_phong.MaLoaiPhong and loai_phong.TenLoaiPhong = ?tt and phong.TinhTrangHienTai = ?ttht";
+            cmd.Parameters.Add("?tt", tenloaiphong);
+            cmd.Parameters.Add("?ttht", false);
+
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(datatable);
+            DataProvider.getInstance().CloseConnection();
+            return datatable;
+        }
     }
 }
