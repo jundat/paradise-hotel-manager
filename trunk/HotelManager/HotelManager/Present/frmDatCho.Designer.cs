@@ -46,8 +46,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TenPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -82,6 +80,9 @@
             this.clthoidiemdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cltongcoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLoaiPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -181,6 +182,7 @@
             // 
             // btdatcho
             // 
+            this.btdatcho.Enabled = false;
             this.btdatcho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btdatcho.Location = new System.Drawing.Point(260, 186);
             this.btdatcho.Name = "btdatcho";
@@ -288,6 +290,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenPhong,
+            this.colLoaiPhong,
             this.DonGia});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -295,20 +298,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(362, 300);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // TenPhong
-            // 
-            this.TenPhong.DataPropertyName = "TenPhong";
-            this.TenPhong.HeaderText = "Tên Phòng";
-            this.TenPhong.Name = "TenPhong";
-            this.TenPhong.Width = 150;
-            // 
-            // DonGia
-            // 
-            this.DonGia.DataPropertyName = "DonGia";
-            this.DonGia.HeaderText = "Đơn Giá";
-            this.DonGia.Name = "DonGia";
-            this.DonGia.Width = 170;
             // 
             // tableLayoutPanel3
             // 
@@ -658,6 +647,25 @@
             this.colGhiChu.HeaderText = "Ghi Chú";
             this.colGhiChu.Name = "colGhiChu";
             // 
+            // TenPhong
+            // 
+            this.TenPhong.DataPropertyName = "TenPhong";
+            this.TenPhong.HeaderText = "Tên Phòng";
+            this.TenPhong.Name = "TenPhong";
+            // 
+            // colLoaiPhong
+            // 
+            this.colLoaiPhong.DataPropertyName = "TenLoaiPhong";
+            this.colLoaiPhong.HeaderText = "Loại Phòng";
+            this.colLoaiPhong.Name = "colLoaiPhong";
+            // 
+            // DonGia
+            // 
+            this.DonGia.DataPropertyName = "DonGia";
+            this.DonGia.HeaderText = "Đơn Giá";
+            this.DonGia.Name = "DonGia";
+            this.DonGia.Width = 120;
+            // 
             // frmDatCho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -736,8 +744,6 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox txtcocchomotphong;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenPhong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
         private System.Windows.Forms.Button btluu;
         private System.Windows.Forms.DataGridViewTextBoxColumn clkhachhang;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSDT;
@@ -746,6 +752,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clthoidiemdi;
         private System.Windows.Forms.DataGridViewTextBoxColumn cltongcoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGhiChu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenPhong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLoaiPhong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
 
     }
 }

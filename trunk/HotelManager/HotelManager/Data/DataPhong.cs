@@ -312,7 +312,7 @@ namespace HotelManager.Data
         {
             DataTable datatable = new DataTable();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "select TenPhong,LOAI_PHONG.DonGia from PHONG,LOAI_PHONG" +
+            cmd.CommandText = "select TenPhong,LOAI_PHONG.DonGia,TenLoaiPhong from PHONG,LOAI_PHONG" +
                      " where TinhTrangHienTai = ?_tinhtrang and PHONG.MaLoaiPhong = LOAI_PHONG.MaLoaiPhong and TenPhong != ALL(select TenPhong from PHONG,CHI_TIET_PHEU_DAT_CHO,PHIEU_DAT_CHO" +
                      " where PHONG.MaPhong = CHI_TIET_PHEU_DAT_CHO.MaPhong" +
                     " and CHI_TIET_PHEU_DAT_CHO.MaPhieuDatCho = PHIEU_DAT_CHO.MaPhieuDatCho " +

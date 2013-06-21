@@ -327,7 +327,7 @@ namespace HotelManager.Data
         {
             DataTable dataTable = new DataTable();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "SELECT TenPhong,TenLoaiPhong,LOAI_PHONG.DonGia,ThoiDiemDen,ThoiDiemDi FROM phong,loai_phong,phieu_den,chi_tiet_phieu_den "
+            cmd.CommandText = "SELECT DISTINCT TenPhong,TenLoaiPhong,LOAI_PHONG.DonGia,ThoiDiemDen,ThoiDiemDi FROM phong,loai_phong,phieu_den,chi_tiet_phieu_den "
             + "WHERE phong.TenPhong = ?tenphong and phong.MaLoaiPhong = loai_phong.MaLoaiPhong and phong.MaPhong = chi_tiet_phieu_den.MaPhong and phieu_den.MaPhieuDen = chi_tiet_phieu_den.MaPhieuDen";
             cmd.Parameters.Add("?tenphong", phong);
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -337,6 +337,21 @@ namespace HotelManager.Data
             DataProvider.getInstance().CloseConnection();
             return dataTable;
 
+        }
+
+        public static DataTable LayDanhSachPhieuDen()
+        {
+            DataTable dataTable = new DataTable();
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "SELECT DISTINCT TenPhong,TenLoaiPhong,LOAI_PHONG.DonGia,ThoiDiemDen,ThoiDiemDi FROM phong,loai_phong,phieu_den,chi_tiet_phieu_den "
+            + "WHERE phong.MaLoaiPhong = loai_phong.MaLoaiPhong and phong.MaPhong = chi_tiet_phieu_den.MaPhong and phieu_den.MaPhieuDen = chi_tiet_phieu_den.MaPhieuDen";
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
+            return dataTable;
         }
 
     }

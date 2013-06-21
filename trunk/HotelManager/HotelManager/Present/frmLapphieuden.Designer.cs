@@ -180,7 +180,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.bttimphong);
             this.panel1.Controls.Add(this.txtsdtnguoidat);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtnguoidat);
@@ -195,7 +194,7 @@
             // bttimphong
             // 
             this.bttimphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttimphong.Location = new System.Drawing.Point(327, 34);
+            this.bttimphong.Location = new System.Drawing.Point(645, 77);
             this.bttimphong.Name = "bttimphong";
             this.bttimphong.Size = new System.Drawing.Size(106, 26);
             this.bttimphong.TabIndex = 11;
@@ -303,6 +302,7 @@
             this.radiodadatphong.TabStop = true;
             this.radiodadatphong.Text = "Đã đặt phòng";
             this.radiodadatphong.UseVisualStyleBackColor = true;
+            this.radiodadatphong.CheckedChanged += new System.EventHandler(this.radiodadatphong_CheckedChanged);
             // 
             // tableLayoutPanel5
             // 
@@ -461,9 +461,11 @@
             this.rdiochuadatphong.TabStop = true;
             this.rdiochuadatphong.Text = "Chưa Đặt Phòng";
             this.rdiochuadatphong.UseVisualStyleBackColor = true;
+            this.rdiochuadatphong.CheckedChanged += new System.EventHandler(this.rdiochuadatphong_CheckedChanged);
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.bttimphong);
             this.panel4.Controls.Add(this.txttonggia);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.dtthoidiemdi);

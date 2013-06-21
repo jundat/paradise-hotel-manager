@@ -14,6 +14,7 @@ namespace HotelManager.Present
 {
     public partial class frmDatCho : Form
     {
+        float tiencoc = 0;
         public frmDatCho()
         {
             InitializeComponent();
@@ -55,6 +56,7 @@ namespace HotelManager.Present
         private void bttimphong_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = BusPhong.Timphongtheothoidiem(dtthoidiemden.Value, dtthoidiemdi.Value);
+            btdatcho.Enabled = false;
         }
 
         private void grthongtindatcho_Enter(object sender, EventArgs e)
@@ -84,30 +86,33 @@ namespace HotelManager.Present
                 {
                     txttongcoc.Text = (Int32.Parse(txtcocchomotphong.Text) * Int32.Parse(txtsoluongphongdatcho.Text)).ToString();
                     PhieuDatCho phieudatcho = BusPhieuDatCho.FindSDT(txtsodienthoai.Text);
-                    Phong phong = BusPhong.FindTheoTenPhong(dataGridView1.Rows[0].Cells[0].Value.ToString());
-                    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                    tiencoc += (float.Parse(txtcocchomotphong.Text) * float.Parse(txtsoluongphongdatcho.Text));
+                    for (int i = 0; i < Int32.Parse(txtsoluongphongdatcho.Text); i++)
                     {
-
+                        Phong phong = BusPhong.FindTheoTenPhong(dataGridView1.Rows[i].Cells[0].Value.ToString());
                         ChiTietPhieuDatCho chitietphieudatcho = new ChiTietPhieuDatCho();
 
                         chitietphieudatcho.MaPhieuDatCho = phieudatcho.MaPhieuDatCho;
                         chitietphieudatcho.DonGia = float.Parse(dataGridView1.Rows[i].Cells[1].Value.ToString());
                         chitietphieudatcho.Coc = float.Parse(txtcocchomotphong.Text);
                         chitietphieudatcho.MaPhong = phong.MaPhong;
+                       
 
                         BusChiTietPhieuDatCho.Add(chitietphieudatcho);
 
-                        phieudatcho.TenNguoiDatCho = txtnguoidat.Text;
-                        phieudatcho.DiaChi = txtdiachi.Text;
-                        phieudatcho.SDT = txtsodienthoai.Text;
-                        phieudatcho.ThoiDiemDat = dtthoidiemdat.Value;
-                        phieudatcho.ThoiDiemDen = dtthoidiemden.Value;
-                        phieudatcho.ThoiDiemDi = dtthoidiemdi.Value;
-                        phieudatcho.TongCoc += float.Parse(txttongcoc.Text);
-                        BusPhieuDatCho.UpdatePhieuDatCho(phieudatcho);
-                        MessageBox.Show("Da dat thanh cong", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        
+                        
 
                     }
+                    phieudatcho.TenNguoiDatCho = txtnguoidat.Text;
+                    phieudatcho.DiaChi = txtdiachi.Text;
+                    phieudatcho.SDT = txtsodienthoai.Text;
+                    phieudatcho.ThoiDiemDat = dtthoidiemdat.Value;
+                    phieudatcho.ThoiDiemDen = dtthoidiemden.Value;
+                    phieudatcho.ThoiDiemDi = dtthoidiemdi.Value;
+                    phieudatcho.TongCoc = tiencoc;
+                    BusPhieuDatCho.UpdatePhieuDatCho(phieudatcho);
+                    MessageBox.Show("Da dat thanh cong", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 dataGridView2.DataSource = BusPhieuDatCho.GetTable();
@@ -118,6 +123,7 @@ namespace HotelManager.Present
 
         private void btluudatcho_Click(object sender, EventArgs e)
         {
+            tiencoc = 0;
             PhieuDatCho phieudatcho = new PhieuDatCho();
             phieudatcho.TenNguoiDatCho = txtnguoidat.Text;
             phieudatcho.DiaChi = txtdiachi.Text;
@@ -128,6 +134,7 @@ namespace HotelManager.Present
             phieudatcho.TongCoc = 0;
             BusPhieuDatCho.Add(phieudatcho);
             dataGridView2.DataSource = BusPhieuDatCho.GetTable();
+            btdatcho.Enabled = true;
 
         }
 

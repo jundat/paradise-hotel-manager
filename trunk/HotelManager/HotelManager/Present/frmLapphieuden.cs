@@ -29,12 +29,21 @@ namespace HotelManager.Present
         private void frmLapphieuden_Load(object sender, EventArgs e)
         {
             dtdanhsachphong.DataSource = BusPhong.layphongchothue(false);
+            dataGridView1.DataSource = BusPhieuDen.laydanhsachphieuden();
+           
+           
+
+ 
         }
 
         private void bttimphong_Click(object sender, EventArgs e)
         {
-
-            dtdanhsachphongdadat.DataSource = BusPhong.LayDanhSachPhongDaDat(txtnguoidat.Text, txtsdtnguoidat.Text);
+            if (radiodadatphong.Checked == true)
+                dtdanhsachphongdadat.DataSource = BusPhong.LayDanhSachPhongDaDat(txtnguoidat.Text, txtsdtnguoidat.Text);
+            else
+            {
+                dtdanhsachphong.DataSource = BusPhong.Timphongtheothoidiem(dtthoidiemden.Value, dtthoidiemdi.Value);
+            }
         }
 
         private void dtdanhsachphongdadat_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -111,7 +120,8 @@ namespace HotelManager.Present
             Phong phong = BusPhong.FindTheoTenPhong(txtphong.Text);
             phong.TinhTrangHienTai = false;
             BusPhong.UpdatePhong(phong);
-            dataGridView1.DataSource = BusPhieuDen.layphieuden(txtphong.Text);
+            dataGridView1.DataSource = BusPhieuDen.laydanhsachphieuden();
+            x = 0;
 
         }
 
@@ -132,6 +142,26 @@ namespace HotelManager.Present
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             dtdanhsachphong.DataSource = BusPhong.layphongtrongtheoloaiphong(comboBox1.Text);
+        }
+
+        private void radiodadatphong_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radiodadatphong.Checked == true)
+            {
+                rdiochuadatphong.Checked = false;
+                dtthoidiemden.Enabled = false;
+                dtthoidiemdi.Enabled = false;
+            }
+        }
+
+        private void rdiochuadatphong_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdiochuadatphong.Checked == true)
+            {
+                radiodadatphong.Checked = false;
+                dtthoidiemden.Enabled = true;
+                dtthoidiemdi.Enabled = true;
+            }
         }
     }
 }

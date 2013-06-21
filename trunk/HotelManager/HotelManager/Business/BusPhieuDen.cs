@@ -85,5 +85,10 @@ namespace HotelManager.Business
         {
             return DataPhieuDen.Getphieuden(phong);
         }
+
+        public static DataTable laydanhsachphieuden()
+        {
+            return DataPhieuDen.LayDanhSachPhieuDen();
+        }
     }
 }
