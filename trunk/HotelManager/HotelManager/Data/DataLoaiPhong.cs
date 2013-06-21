@@ -128,9 +128,8 @@ namespace HotelManager.Data
         public static void Delete(int _maLoaiPhong)
         {
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "DELETE FROM loai_phong WHERE MaLoaiPhong = ?";
+            cmd.CommandText = "DELETE FROM loai_phong WHERE MaLoaiPhong = " + _maLoaiPhong;
 
-            cmd.Parameters.Add("@MaLoaiPhong", MySqlDbType.Int32).Value = _maLoaiPhong;
             cmd.ExecuteNonQuery();
             // Đóng kết nối
             DataProvider.getInstance().CloseConnection();
@@ -163,10 +162,8 @@ namespace HotelManager.Data
         {
             LoaiPhong loaiPhong = new LoaiPhong();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "SELECT * FROM loai_phong WHERE MaLoaiPhong = ?";
-
-            cmd.Parameters.Add("@MaLoaiPhong", MySqlDbType.Int32).Value = _maLoaiPhong;
-
+            cmd.CommandText = "SELECT * FROM loai_phong WHERE MaLoaiPhong = " + _maLoaiPhong;
+            
             MySqlDataReader dataReader = null;
             try
             {

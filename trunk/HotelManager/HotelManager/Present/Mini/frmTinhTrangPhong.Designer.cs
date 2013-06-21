@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTinhTrangPhong));
             this.pnMain = new System.Windows.Forms.FlowLayoutPanel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.btThoat = new System.Windows.Forms.Button();
             this.btLamTuoi = new System.Windows.Forms.Button();
+            this.toolTipBtnPhong = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // pnMain
@@ -105,6 +107,7 @@
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Button btThoat;
         private System.Windows.Forms.Button btLamTuoi;
+        private System.Windows.Forms.ToolTip toolTipBtnPhong;
 
     }
 }
