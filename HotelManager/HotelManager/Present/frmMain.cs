@@ -187,6 +187,16 @@ namespace HotelManager.Present
             }
         }
 
+        private void llTraCuuPhieuDen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void llTraCuuPhieuDatCho_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            (new frmTraCuuPhieuDatCho()).ShowDialog();
+        }
+
         private void itemLapPhieuThu_Click(object sender, EventArgs e)
         {
             linkLapPhieuThuePhong_LinkClicked(null, null);

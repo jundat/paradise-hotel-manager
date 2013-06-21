@@ -9,6 +9,7 @@ namespace HotelManager.Data.Entity
     {
         public int MaPhieuDatCho;
         public String TenNguoiDatCho;
+        public String CMND;
         public String SDT;
         public String DiaChi;
         public float TongCoc;
@@ -20,6 +21,7 @@ namespace HotelManager.Data.Entity
         {
             MaPhieuDatCho = 0;
             TenNguoiDatCho = "";
+            CMND = "";
             SDT = "";
             DiaChi = "";
             TongCoc = 0;
@@ -28,10 +30,11 @@ namespace HotelManager.Data.Entity
             ThoiDiemDi = new DateTime();
         }
 
-        public PhieuDatCho(int _maPhieDatCho, String _tenNguoiDatCho, String _sdt, String _diaChi, float _tongCoc, DateTime _thoiDiemDat, DateTime _thoiDiemDen, DateTime _thoiDiemDi)
+        public PhieuDatCho(int _maPhieDatCho, String _tenNguoiDatCho, String _cMND, String _sdt, String _diaChi, float _tongCoc, DateTime _thoiDiemDat, DateTime _thoiDiemDen, DateTime _thoiDiemDi)
         {
             MaPhieuDatCho = _maPhieDatCho;
             TenNguoiDatCho = _tenNguoiDatCho;
+            CMND = _cMND;
             SDT = _sdt;
             DiaChi = _diaChi;
             TongCoc = _tongCoc;

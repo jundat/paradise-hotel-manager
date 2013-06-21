@@ -215,6 +215,12 @@
     <Compile Include="Present\frmThayDoiQuyDinh.Designer.cs">
       <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Present\frmTraCuuPhieuDatCho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Present\frmTraCuuPhieuDatCho.Designer.cs">
+      <DependentUpon>frmTraCuuPhieuDatCho.cs</DependentUpon>
+    </Compile>
     <Compile Include="Present\Mini\frmBangGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Present\frmThayDoiQuyDinh.resx">
       <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Present\frmTraCuuPhieuDatCho.resx">
+      <DependentUpon>frmTraCuuPhieuDatCho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Present\Mini\frmBangGia.resx">
       <DependentUpon>frmBangGia.cs</DependentUpon>

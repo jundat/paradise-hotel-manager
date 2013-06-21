@@ -73,8 +73,8 @@
             this.lkBaoCaoMatDo = new System.Windows.Forms.LinkLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.llTraCuuPhieuDatCho = new System.Windows.Forms.LinkLabel();
+            this.llTraCuuPhieuDen = new System.Windows.Forms.LinkLabel();
             this.linkLabel8 = new System.Windows.Forms.LinkLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.linkLapPhieuThuePhong = new System.Windows.Forms.LinkLabel();
@@ -580,8 +580,8 @@
             // 
             this.groupBox3.BackColor = System.Drawing.Color.LightGray;
             this.groupBox3.Controls.Add(this.linkLabel3);
-            this.groupBox3.Controls.Add(this.linkLabel4);
-            this.groupBox3.Controls.Add(this.linkLabel2);
+            this.groupBox3.Controls.Add(this.llTraCuuPhieuDatCho);
+            this.groupBox3.Controls.Add(this.llTraCuuPhieuDen);
             this.groupBox3.Controls.Add(this.linkLabel8);
             this.groupBox3.Controls.Add(this.pictureBox4);
             this.groupBox3.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -609,37 +609,39 @@
             this.linkLabel3.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkLabel3.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
-            // linkLabel4
+            // llTraCuuPhieuDatCho
             // 
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel4.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkLabel4.ForeColor = System.Drawing.Color.Transparent;
-            this.linkLabel4.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel4.Location = new System.Drawing.Point(125, 86);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(160, 23);
-            this.linkLabel4.TabIndex = 16;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "Tra cứu hóa đơn";
-            this.linkLabel4.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
-            this.linkLabel4.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.llTraCuuPhieuDatCho.AutoSize = true;
+            this.llTraCuuPhieuDatCho.BackColor = System.Drawing.Color.Transparent;
+            this.llTraCuuPhieuDatCho.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.llTraCuuPhieuDatCho.ForeColor = System.Drawing.Color.Transparent;
+            this.llTraCuuPhieuDatCho.LinkColor = System.Drawing.Color.Blue;
+            this.llTraCuuPhieuDatCho.Location = new System.Drawing.Point(125, 86);
+            this.llTraCuuPhieuDatCho.Name = "llTraCuuPhieuDatCho";
+            this.llTraCuuPhieuDatCho.Size = new System.Drawing.Size(207, 23);
+            this.llTraCuuPhieuDatCho.TabIndex = 16;
+            this.llTraCuuPhieuDatCho.TabStop = true;
+            this.llTraCuuPhieuDatCho.Text = "Tra cứu phiếu đặt chỗ";
+            this.llTraCuuPhieuDatCho.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llTraCuuPhieuDatCho_LinkClicked);
+            this.llTraCuuPhieuDatCho.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.llTraCuuPhieuDatCho.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
-            // linkLabel2
+            // llTraCuuPhieuDen
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel2.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkLabel2.ForeColor = System.Drawing.Color.Transparent;
-            this.linkLabel2.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel2.Location = new System.Drawing.Point(125, 53);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(175, 23);
-            this.linkLabel2.TabIndex = 15;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Tra cứu phiếu đến";
-            this.linkLabel2.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
-            this.linkLabel2.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.llTraCuuPhieuDen.AutoSize = true;
+            this.llTraCuuPhieuDen.BackColor = System.Drawing.Color.Transparent;
+            this.llTraCuuPhieuDen.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.llTraCuuPhieuDen.ForeColor = System.Drawing.Color.Transparent;
+            this.llTraCuuPhieuDen.LinkColor = System.Drawing.Color.Blue;
+            this.llTraCuuPhieuDen.Location = new System.Drawing.Point(125, 53);
+            this.llTraCuuPhieuDen.Name = "llTraCuuPhieuDen";
+            this.llTraCuuPhieuDen.Size = new System.Drawing.Size(175, 23);
+            this.llTraCuuPhieuDen.TabIndex = 15;
+            this.llTraCuuPhieuDen.TabStop = true;
+            this.llTraCuuPhieuDen.Text = "Tra cứu phiếu đến";
+            this.llTraCuuPhieuDen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llTraCuuPhieuDen_LinkClicked);
+            this.llTraCuuPhieuDen.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.llTraCuuPhieuDen.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // linkLabel8
             // 
@@ -1266,8 +1268,8 @@
         private System.Windows.Forms.LinkLabel linkLabel8;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel4;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel llTraCuuPhieuDatCho;
+        private System.Windows.Forms.LinkLabel llTraCuuPhieuDen;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.LinkLabel lkBaoCaoMatDo;
         private System.Windows.Forms.PictureBox pictureBox1;
