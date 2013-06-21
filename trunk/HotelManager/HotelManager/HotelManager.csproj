@@ -167,12 +167,6 @@
     <Compile Include="Present\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Present\frmLogIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Present\frmLogIn.Designer.cs">
-      <DependentUpon>frmLogIn.cs</DependentUpon>
-    </Compile>
     <Compile Include="Present\frmTimPhong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,9 +277,6 @@
     <EmbeddedResource Include="Present\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Present\frmLogIn.resx">
-      <DependentUpon>frmLogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Present\frmPhieu Yeu Cau Dich Vu.resx">
       <DependentUpon>frmPhieu Yeu Cau Dich Vu.cs</DependentUpon>

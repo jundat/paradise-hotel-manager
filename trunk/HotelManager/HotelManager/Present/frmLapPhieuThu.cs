@@ -102,6 +102,9 @@ namespace HotelManager.Present
             pt.TongTienThu = (float)Convert.ToDouble(txtTongChiPhi.Text);
             pt.MaNhanVien = frmMain.MaNhanVien;
             BusPhieuThu.Add(pt);
+
+            //save to table CHI_TIET_PHIEU_THU
+            //-----------------
         }
         
         private void btThanhToan_Click(object sender, EventArgs e)

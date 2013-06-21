@@ -40,7 +40,7 @@ namespace HotelManager.Data
                     BaoCaoMatDo baoCaoDoanhThu = new BaoCaoMatDo();
                     baoCaoDoanhThu.MaBaoCaoMatDo = (int)dataReader["MaBaoCaoDoanhThu"];
                     baoCaoDoanhThu.MaPhong = (int)dataReader["MaPhong"];
-                    baoCaoDoanhThu.SoNgayThue = (float)dataReader["DoanhThu"];
+                    baoCaoDoanhThu.SoGioThue = (float)dataReader["DoanhThu"];
                     baoCaoDoanhThu.TyLe = (int)dataReader["TyLeDoanhThu"];
                     baoCaoDoanhThu.ThoiDiemLapBaoCao = (DateTime)dataReader["ThoiDiemLapBaoCao"];
 
@@ -90,7 +90,7 @@ namespace HotelManager.Data
                     BaoCaoMatDo baoCaoDoanhThu = new BaoCaoMatDo();
                     baoCaoDoanhThu.MaBaoCaoMatDo = (int)dataReader["MaBaoCaoDoanhThu"];
                     baoCaoDoanhThu.MaPhong = (int)dataReader["MaPhong"];
-                    baoCaoDoanhThu.SoNgayThue = (float)dataReader["DoanhThu"];
+                    baoCaoDoanhThu.SoGioThue = (float)dataReader["DoanhThu"];
                     baoCaoDoanhThu.TyLe = (int)dataReader["TyLeDoanhThu"];
                     baoCaoDoanhThu.ThoiDiemLapBaoCao = (DateTime)dataReader["ThoiDiemLapBaoCao"];
 
@@ -138,7 +138,7 @@ namespace HotelManager.Data
                 {
                     baoCaoDoanhThu.MaBaoCaoMatDo = (int)dataReader["MaBaoCaoDoanhThu"];
                     baoCaoDoanhThu.MaPhong = (int)dataReader["MaPhong"];
-                    baoCaoDoanhThu.SoNgayThue = (float)dataReader["DoanhThu"];
+                    baoCaoDoanhThu.SoGioThue = (float)dataReader["DoanhThu"];
                     baoCaoDoanhThu.TyLe = (int)dataReader["TyLeDoanhThu"];
                     baoCaoDoanhThu.ThoiDiemLapBaoCao = (DateTime)dataReader["ThoiDiemLapBaoCao"];
                 }
@@ -172,7 +172,7 @@ namespace HotelManager.Data
             cmd.CommandText = "INSERT INTO bao_cao_doanh_thu(MaPhong, DoanhThu, TyLeDoanhThu, ThoiDiemLapBaoCao) values(?, ?, ?, ?)";
 
             cmd.Parameters.Add("@MaPhong", MySqlDbType.Int32).Value = baoCaoDoanhThu.MaPhong;
-            cmd.Parameters.Add("@DoanhThu", MySqlDbType.Float).Value = baoCaoDoanhThu.SoNgayThue;
+            cmd.Parameters.Add("@DoanhThu", MySqlDbType.Float).Value = baoCaoDoanhThu.SoGioThue;
             cmd.Parameters.Add("@TyLeDoanhThu", MySqlDbType.Float).Value = baoCaoDoanhThu.TyLe;
             cmd.Parameters.Add("@ThoiDiemLapBaoCao", MySqlDbType.Date).Value = baoCaoDoanhThu.ThoiDiemLapBaoCao;
 
@@ -227,7 +227,7 @@ namespace HotelManager.Data
 
             // Truyền tham số cho câu truy vấn
             cmd.Parameters.Add("@MaPhong", MySqlDbType.Int32).Value = baoCaoDoanhThu.MaPhong;
-            cmd.Parameters.Add("@DoanhThu", MySqlDbType.Float).Value = baoCaoDoanhThu.SoNgayThue;
+            cmd.Parameters.Add("@DoanhThu", MySqlDbType.Float).Value = baoCaoDoanhThu.SoGioThue;
             cmd.Parameters.Add("@TyLeDoanhThu", MySqlDbType.Float).Value = baoCaoDoanhThu.TyLe;
             cmd.Parameters.Add("@ThoiDiemLapBaoCao", MySqlDbType.Date).Value = baoCaoDoanhThu.ThoiDiemLapBaoCao;
             cmd.Parameters.Add("@MaBaoCaoDoanhThu", MySqlDbType.Int32).Value = baoCaoDoanhThu.MaBaoCaoMatDo;

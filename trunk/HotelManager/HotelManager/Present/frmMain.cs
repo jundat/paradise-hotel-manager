@@ -16,10 +16,9 @@ namespace HotelManager.Present
 {
     public partial class frmMain : Form
     {
-        public static string TenNhanVien = "Admin";
-        public static int MaNhanVien = 0;
-
-
+        public static string TenNhanVien = "";
+        public static int MaNhanVien = -1;
+        
         public frmMain()
         {
             InitializeComponent();
@@ -135,11 +134,6 @@ namespace HotelManager.Present
 
         }
 
-        private void traCứuLoạiPhòngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             (new frmDatTiec()).ShowDialog();
@@ -166,12 +160,12 @@ namespace HotelManager.Present
 
         private void frmMain_Shown(object sender, EventArgs e)
         {
-//             (new frmDangNhap()).ShowDialog(this);
-// 
-//             if (TenNhanVien == "" || MaNhanVien == -1)
-//             {
-//                 this.Close();
-//             }
+            (new frmDangNhap()).ShowDialog(this);
+
+            if (TenNhanVien == "" || MaNhanVien == -1)
+            {
+                this.Close();
+            }
         }
 
         private void linkDangXuat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -280,6 +274,56 @@ namespace HotelManager.Present
         private void linklapphieuden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             (new frmLapphieuden()).ShowDialog();
+        }
+
+        private void itemDangXuat_Click(object sender, EventArgs e)
+        {
+            linkDangXuat_LinkClicked(null, null);
+        }
+
+        private void itemDatCho_Click(object sender, EventArgs e)
+        {
+            linkdatcho_LinkClicked(null, null);
+        }
+
+        private void itemLapPhieuDen_Click(object sender, EventArgs e)
+        {
+            linklapphieuden_LinkClicked(null, null);
+        }
+
+        private void itemYeuCauDichVu_Click(object sender, EventArgs e)
+        {
+            linkYeuCauDichVu_LinkClicked(null, null);
+        }
+
+        private void itemDatTiec_Click(object sender, EventArgs e)
+        {
+            linkLabel1_LinkClicked(null, null);
+        }
+
+        private void itemTraCuuKhachHang_Click(object sender, EventArgs e)
+        {
+            linkLabel8_LinkClicked(null, null);
+        }
+
+        private void itemTraCuuPhieuDen_Click(object sender, EventArgs e)
+        {
+            llTraCuuPhieuDen_LinkClicked(null, null);
+        }
+
+        private void itemTraCuuPhieuDatCho_Click(object sender, EventArgs e)
+        {
+            llTraCuuPhieuDatCho_LinkClicked(null, null);
+        }
+
+        private void itemTraCuuBangKe_Click(object sender, EventArgs e)
+        {
+            llTraCuuBangKeDichVu_LinkClicked(null, null);
+        }
+
+        private void itemTraCuuPhieuDatTiec_Click(object sender, EventArgs e)
+        {
+            llTraCuuPhieuDatTiec_LinkClicked(null, null);
         }
 
     }
