@@ -43,6 +43,7 @@
             // 
             this.txtTenDangNhap.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenDangNhap.Location = new System.Drawing.Point(12, 242);
+            this.txtTenDangNhap.MaxLength = 45;
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(190, 27);
             this.txtTenDangNhap.TabIndex = 0;
@@ -76,7 +77,9 @@
             // 
             this.txtMatKhau.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMatKhau.Location = new System.Drawing.Point(12, 298);
+            this.txtMatKhau.MaxLength = 45;
             this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(190, 27);
             this.txtMatKhau.TabIndex = 2;
             this.txtMatKhau.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTenDangNhap_KeyUp);

@@ -8,27 +8,27 @@ namespace HotelManager.Data.Entity
     class BaoCaoMatDo
     {
         public int MaBaoCaoMatDo;
-        public int MaPhong;
-        public float SoNgayThue;
-        public float TyLe;
         public DateTime ThoiDiemLapBaoCao;
+        public int MaPhong;
+        public float SoGioThue;
+        public float TyLe;
 
         public BaoCaoMatDo()
         {
             MaBaoCaoMatDo = 0;
             MaPhong = 0;
-            SoNgayThue = 0;
+            SoGioThue = 0;
             TyLe = 0;
             ThoiDiemLapBaoCao = new DateTime();
         }
 
-        public BaoCaoMatDo(int _maBaoCaoDoanhThu, int _maPhong, float _doanhThu, float _tyLeDoanhThu, DateTime _thoiDiemLapBaoCao)
+        public BaoCaoMatDo(int _maBaoCaoMatDo, DateTime _thoiDiemLapBaoCao, int _maPhong, float _soGioThue, float _tyLe)
         {
-            MaBaoCaoMatDo = _maBaoCaoDoanhThu;
-            MaPhong = _maPhong;
-            SoNgayThue = _doanhThu;
-            TyLe = _tyLeDoanhThu;
+            MaBaoCaoMatDo = _maBaoCaoMatDo;
             ThoiDiemLapBaoCao = _thoiDiemLapBaoCao;
+            MaPhong = _maPhong;
+            SoGioThue = _soGioThue;
+            TyLe = _tyLe;
         }
     }
 }
