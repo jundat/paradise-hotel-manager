@@ -31,20 +31,21 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.ckdadatphong = new System.Windows.Forms.CheckBox();
             this.pndadatcho = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.bttimphong = new System.Windows.Forms.Button();
+            this.txtsdtnguoidat = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtnguoidat = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtdanhsachphongdadat = new System.Windows.Forms.DataGridView();
             this.clPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clloaiphong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cldonggia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cldongia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clcoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radiodadatphong = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.pnchuadatphong = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -59,7 +60,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.ckchuadatphong = new System.Windows.Forms.CheckBox();
+            this.rdiochuadatphong = new System.Windows.Forms.RadioButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txttonggia = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -141,8 +142,8 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.ckdadatphong, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.pndadatcho, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.radiodadatphong, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -151,18 +152,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.13693F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(459, 321);
             this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // ckdadatphong
-            // 
-            this.ckdadatphong.AutoSize = true;
-            this.ckdadatphong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ckdadatphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckdadatphong.Location = new System.Drawing.Point(3, 3);
-            this.ckdadatphong.Name = "ckdadatphong";
-            this.ckdadatphong.Size = new System.Drawing.Size(453, 35);
-            this.ckdadatphong.TabIndex = 0;
-            this.ckdadatphong.Text = "Đã đặt phòng";
-            this.ckdadatphong.UseVisualStyleBackColor = true;
             // 
             // pndadatcho
             // 
@@ -183,30 +172,42 @@
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.5122F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.48781F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.91241F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.08759F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(453, 274);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.bttimphong);
+            this.panel1.Controls.Add(this.txtsdtnguoidat);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtnguoidat);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(447, 47);
+            this.panel1.Size = new System.Drawing.Size(447, 65);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // textBox2
+            // bttimphong
             // 
-            this.textBox2.Location = new System.Drawing.Point(269, 8);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(153, 20);
-            this.textBox2.TabIndex = 3;
+            this.bttimphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttimphong.Location = new System.Drawing.Point(327, 34);
+            this.bttimphong.Name = "bttimphong";
+            this.bttimphong.Size = new System.Drawing.Size(106, 26);
+            this.bttimphong.TabIndex = 11;
+            this.bttimphong.Text = "Tìm Phòng";
+            this.bttimphong.UseVisualStyleBackColor = true;
+            this.bttimphong.Click += new System.EventHandler(this.bttimphong_Click);
+            // 
+            // txtsdtnguoidat
+            // 
+            this.txtsdtnguoidat.Location = new System.Drawing.Point(269, 8);
+            this.txtsdtnguoidat.Name = "txtsdtnguoidat";
+            this.txtsdtnguoidat.Size = new System.Drawing.Size(153, 20);
+            this.txtsdtnguoidat.TabIndex = 3;
             // 
             // label2
             // 
@@ -219,12 +220,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "SĐT";
             // 
-            // textBox1
+            // txtnguoidat
             // 
-            this.textBox1.Location = new System.Drawing.Point(72, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtnguoidat.Location = new System.Drawing.Point(72, 8);
+            this.txtnguoidat.Name = "txtnguoidat";
+            this.txtnguoidat.Size = new System.Drawing.Size(153, 20);
+            this.txtnguoidat.TabIndex = 1;
             // 
             // label1
             // 
@@ -242,9 +243,9 @@
             this.groupBox1.Controls.Add(this.dtdanhsachphongdadat);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 56);
+            this.groupBox1.Location = new System.Drawing.Point(3, 74);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(447, 215);
+            this.groupBox1.Size = new System.Drawing.Size(447, 197);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách phòng đã đặt";
@@ -255,33 +256,52 @@
             this.dtdanhsachphongdadat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clPhong,
             this.clloaiphong,
-            this.cldonggia,
+            this.cldongia,
             this.clcoc});
             this.dtdanhsachphongdadat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtdanhsachphongdadat.Location = new System.Drawing.Point(3, 16);
             this.dtdanhsachphongdadat.Name = "dtdanhsachphongdadat";
-            this.dtdanhsachphongdadat.Size = new System.Drawing.Size(441, 196);
+            this.dtdanhsachphongdadat.Size = new System.Drawing.Size(441, 178);
             this.dtdanhsachphongdadat.TabIndex = 0;
+            this.dtdanhsachphongdadat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtdanhsachphongdadat_CellContentClick);
+            this.dtdanhsachphongdadat.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtdanhsachphongdadat_RowEnter);
             // 
             // clPhong
             // 
+            this.clPhong.DataPropertyName = "TenPhong";
             this.clPhong.HeaderText = "Phòng";
             this.clPhong.Name = "clPhong";
             // 
             // clloaiphong
             // 
+            this.clloaiphong.DataPropertyName = "TenLoaiPhong";
             this.clloaiphong.HeaderText = "Loại phòng";
             this.clloaiphong.Name = "clloaiphong";
             // 
-            // cldonggia
+            // cldongia
             // 
-            this.cldonggia.HeaderText = "Đơn giá";
-            this.cldonggia.Name = "cldonggia";
+            this.cldongia.DataPropertyName = "DonGia";
+            this.cldongia.HeaderText = "Đơn giá";
+            this.cldongia.Name = "cldongia";
             // 
             // clcoc
             // 
+            this.clcoc.DataPropertyName = "Coc";
             this.clcoc.HeaderText = "Cọc";
             this.clcoc.Name = "clcoc";
+            // 
+            // radiodadatphong
+            // 
+            this.radiodadatphong.AutoSize = true;
+            this.radiodadatphong.Checked = true;
+            this.radiodadatphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radiodadatphong.Location = new System.Drawing.Point(3, 3);
+            this.radiodadatphong.Name = "radiodadatphong";
+            this.radiodadatphong.Size = new System.Drawing.Size(103, 17);
+            this.radiodadatphong.TabIndex = 2;
+            this.radiodadatphong.TabStop = true;
+            this.radiodadatphong.Text = "Đã đặt phòng";
+            this.radiodadatphong.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel5
             // 
@@ -293,8 +313,8 @@
             this.tableLayoutPanel5.Location = new System.Drawing.Point(468, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.77778F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.22222F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.70716F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.29283F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(459, 321);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
@@ -302,9 +322,9 @@
             // 
             this.pnchuadatphong.Controls.Add(this.tableLayoutPanel6);
             this.pnchuadatphong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnchuadatphong.Location = new System.Drawing.Point(3, 47);
+            this.pnchuadatphong.Location = new System.Drawing.Point(3, 46);
             this.pnchuadatphong.Name = "pnchuadatphong";
-            this.pnchuadatphong.Size = new System.Drawing.Size(453, 271);
+            this.pnchuadatphong.Size = new System.Drawing.Size(453, 272);
             this.pnchuadatphong.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -319,7 +339,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(453, 271);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(453, 272);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // groupBox2
@@ -329,7 +349,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(337, 265);
+            this.groupBox2.Size = new System.Drawing.Size(337, 266);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách phòng trống";
@@ -344,21 +364,25 @@
             this.dtdanhsachphong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtdanhsachphong.Location = new System.Drawing.Point(3, 16);
             this.dtdanhsachphong.Name = "dtdanhsachphong";
-            this.dtdanhsachphong.Size = new System.Drawing.Size(331, 246);
+            this.dtdanhsachphong.Size = new System.Drawing.Size(331, 247);
             this.dtdanhsachphong.TabIndex = 0;
+            this.dtdanhsachphong.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtdanhsachphong_RowEnter);
             // 
             // colphong
             // 
+            this.colphong.DataPropertyName = "TenPhong";
             this.colphong.HeaderText = "Phòng";
             this.colphong.Name = "colphong";
             // 
             // colLoaiphong
             // 
+            this.colLoaiphong.DataPropertyName = "TenLoaiPhong";
             this.colLoaiphong.HeaderText = "Loại Phòng";
             this.colLoaiphong.Name = "colLoaiphong";
             // 
             // coldongia
             // 
+            this.coldongia.DataPropertyName = "DonGia";
             this.coldongia.HeaderText = "Đơn giá";
             this.coldongia.Name = "coldongia";
             // 
@@ -371,7 +395,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(346, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(104, 265);
+            this.panel2.Size = new System.Drawing.Size(104, 266);
             this.panel2.TabIndex = 1;
             // 
             // textBox3
@@ -384,10 +408,15 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "VIP",
+            "MEDIUM",
+            "NORMAL"});
             this.comboBox1.Location = new System.Drawing.Point(19, 61);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(60, 21);
             this.comboBox1.TabIndex = 3;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -413,23 +442,24 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.ckchuadatphong);
+            this.panel3.Controls.Add(this.rdiochuadatphong);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(453, 38);
+            this.panel3.Size = new System.Drawing.Size(453, 37);
             this.panel3.TabIndex = 2;
             // 
-            // ckchuadatphong
+            // rdiochuadatphong
             // 
-            this.ckchuadatphong.AutoSize = true;
-            this.ckchuadatphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckchuadatphong.Location = new System.Drawing.Point(12, 4);
-            this.ckchuadatphong.Name = "ckchuadatphong";
-            this.ckchuadatphong.Size = new System.Drawing.Size(117, 17);
-            this.ckchuadatphong.TabIndex = 0;
-            this.ckchuadatphong.Text = "Chưa đặt phòng";
-            this.ckchuadatphong.UseVisualStyleBackColor = true;
+            this.rdiochuadatphong.AutoSize = true;
+            this.rdiochuadatphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdiochuadatphong.Location = new System.Drawing.Point(0, 3);
+            this.rdiochuadatphong.Name = "rdiochuadatphong";
+            this.rdiochuadatphong.Size = new System.Drawing.Size(118, 17);
+            this.rdiochuadatphong.TabIndex = 3;
+            this.rdiochuadatphong.TabStop = true;
+            this.rdiochuadatphong.Text = "Chưa Đặt Phòng";
+            this.rdiochuadatphong.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -457,6 +487,7 @@
             // 
             // txttonggia
             // 
+            this.txttonggia.Enabled = false;
             this.txttonggia.Location = new System.Drawing.Point(828, 18);
             this.txttonggia.Name = "txttonggia";
             this.txttonggia.Size = new System.Drawing.Size(90, 20);
@@ -475,6 +506,9 @@
             // 
             // dtthoidiemdi
             // 
+            this.dtthoidiemdi.CustomFormat = "hh:mm dd/mm/yyyy";
+            this.dtthoidiemdi.Enabled = false;
+            this.dtthoidiemdi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtthoidiemdi.Location = new System.Drawing.Point(578, 51);
             this.dtthoidiemdi.Name = "dtthoidiemdi";
             this.dtthoidiemdi.Size = new System.Drawing.Size(173, 20);
@@ -482,6 +516,9 @@
             // 
             // dtthoidiemden
             // 
+            this.dtthoidiemden.CustomFormat = "hh:mm dd/mm/yyyy";
+            this.dtthoidiemden.Enabled = false;
+            this.dtthoidiemden.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtthoidiemden.Location = new System.Drawing.Point(578, 15);
             this.dtthoidiemden.Name = "dtthoidiemden";
             this.dtthoidiemden.Size = new System.Drawing.Size(173, 20);
@@ -518,6 +555,7 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Lưu";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -528,6 +566,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Xong";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label8
             // 
@@ -632,28 +671,33 @@
             // 
             // cphong
             // 
+            this.cphong.DataPropertyName = "TenPhong";
             this.cphong.HeaderText = "Phòng";
             this.cphong.Name = "cphong";
             this.cphong.Width = 200;
             // 
             // cloaiphong
             // 
+            this.cloaiphong.DataPropertyName = "TenLoaiPhong";
             this.cloaiphong.HeaderText = "Loại phòng";
             this.cloaiphong.Name = "cloaiphong";
             // 
             // cdongia
             // 
+            this.cdongia.DataPropertyName = "DonGia";
             this.cdongia.HeaderText = "Đơn Giá";
             this.cdongia.Name = "cdongia";
             // 
             // cthoidiemden
             // 
+            this.cthoidiemden.DataPropertyName = "ThoiDiemDen";
             this.cthoidiemden.HeaderText = "Thơi Điểm Đến";
             this.cthoidiemden.Name = "cthoidiemden";
             this.cthoidiemden.Width = 200;
             // 
             // cthoidiemdi
             // 
+            this.cthoidiemdi.DataPropertyName = "ThoiDiemDi";
             this.cthoidiemdi.HeaderText = "Thời Điểm Đi";
             this.cthoidiemdi.Name = "cthoidiemdi";
             this.cthoidiemdi.Width = 200;
@@ -671,6 +715,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmLapphieuden";
             this.Text = "Lập Phiếu Đến";
+            this.Load += new System.EventHandler(this.frmLapphieuden_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -703,35 +748,26 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.CheckBox ckdadatphong;
         private System.Windows.Forms.Panel pndadatcho;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtsdtnguoidat;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtnguoidat;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dtdanhsachphongdadat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clPhong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clloaiphong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cldonggia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clcoc;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel pnchuadatphong;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dtdanhsachphong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colphong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLoaiphong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coldongia;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.CheckBox ckchuadatphong;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -751,6 +787,16 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.RadioButton radiodadatphong;
+        private System.Windows.Forms.RadioButton rdiochuadatphong;
+        private System.Windows.Forms.Button bttimphong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPhong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clloaiphong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cldongia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clcoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colphong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLoaiphong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coldongia;
         private System.Windows.Forms.DataGridViewTextBoxColumn cphong;
         private System.Windows.Forms.DataGridViewTextBoxColumn cloaiphong;
         private System.Windows.Forms.DataGridViewTextBoxColumn cdongia;

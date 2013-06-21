@@ -126,29 +126,22 @@ namespace HotelManager.Data
         {
             try
             {
-                MySqlConnection ObjCn = DataProvider.getInstance().getConnection();
+                MySqlCommand cmd = DataProvider.getInstance().getCommand();
+                cmd.CommandText = "INSERT INTO chi_tiet_phieu_den(MaPhieuDen, MaPhong, TenKhachHang, CMND, DonGia)"
+                    + " VALUES(?maphieuden, ?maphong, ?tenkhach, ?CMND, ?DonGia)";
 
-                string StrSQL = "INSERT INTO chi_tiet_phieu_den(MaPhieuDen, MaPhong, TenKhachHang, CMND, DonGia)"
-                    + " VALUES( " + ct_PhieuDen.MaPhieuDen
-                    + ", " + ct_PhieuDen.MaPhong 
-                    + ", " + ct_PhieuDen.TenKhachHang
-                    + ", " + ct_PhieuDen.CMND
-                    + ", " + ct_PhieuDen.DonGia 
-                    + ");";
+                cmd.Parameters.Add("?maphieuden", ct_PhieuDen.MaPhieuDen);
+                cmd.Parameters.Add("?CMND", ct_PhieuDen.CMND);
+                cmd.Parameters.Add("?maphong", ct_PhieuDen.MaPhong);
+                cmd.Parameters.Add("?tenkhach", ct_PhieuDen.TenKhachHang);
+                cmd.Parameters.Add("?DonGia", ct_PhieuDen.DonGia);
+                
 
-
-                MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
-
-
-
-
-                ObjCmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
                 //Theo bạn Hiệp nghĩ là để update MaPhong theo TenPhong, ~ tăng cái primary key
-                StrSQL = "Select @@IDENTITY";
-
-                ObjCmd = new MySqlCommand(StrSQL, ObjCn);
-                ct_PhieuDen.MaChiTietPhieuDen = (int)ObjCmd.ExecuteScalar();
+                cmd.CommandText = "Select @@IDENTITY"; ;
+                ct_PhieuDen.MaChiTietPhieuDen = (int)cmd.ExecuteScalar();
 
                 //close connection
                 DataProvider.getInstance().CloseConnection();
@@ -159,7 +152,7 @@ namespace HotelManager.Data
             {
                 if (ee.Message.Contains("duplicate"))
                 {
-                    MessageBox.Show("Dữ liệu trùng lặp: ChiTietPhieuDen với phiếu thu có mã: " + ct_PhieuDen.MaPhieuDen);
+                    MessageBox.Show("Dữ liệu trùng lặp: PhieuDen " + ct_PhieuDen.TenKhachHang);
                 }
 
                 //close connection

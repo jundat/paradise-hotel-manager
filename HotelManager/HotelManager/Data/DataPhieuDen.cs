@@ -141,30 +141,22 @@ namespace HotelManager.Data
         {
             try
             {
-                MySqlConnection ObjCn = DataProvider.getInstance().getConnection();
+                MySqlCommand cmd = DataProvider.getInstance().getCommand();
+                cmd.CommandText = "INSERT INTO phieu_den(TenKhachDaiDien, CMND, ThoiDiemDen, ThoiDiemDi, TongChiPhi, TinhTrangThanhToan)"
+                    + " VALUES(?TenKhachDaiDien, ?CMND, ?ThoiDiemDen, ?ThoiDiemDi, ?TongChiPhi, ?TinhTrangThanhToan)";
 
-                string StrSQL = "INSERT INTO phieu_den(TenKhachDaiDien, CMND, ThoiDiemDen, ThoiDiemDi, TongChiPhi, TinhTrangThanhToan)"
-                    + " VALUES( " + phieuDen.TenKhachDaiDien
-                    + ", " + phieuDen.CMND
-                    + ", " + phieuDen.ThoiDiemDen
-                    + ", " + phieuDen.ThoiDiemDi
-                    + ", " + phieuDen.TongChiPhi
-                    + ", " + phieuDen.TinhTrangThanhToan 
-                    + ");";
+                cmd.Parameters.Add("?TenKhachDaiDien", phieuDen.TenKhachDaiDien);
+                cmd.Parameters.Add("?CMND", phieuDen.CMND);
+                cmd.Parameters.Add("?TinhTrangThanhToan", phieuDen.TinhTrangThanhToan);
+                cmd.Parameters.Add("?ThoiDiemDen", phieuDen.ThoiDiemDen);
+                cmd.Parameters.Add("?ThoiDiemDi", phieuDen.ThoiDiemDi);
+                cmd.Parameters.Add("?TongChiPhi", phieuDen.TongChiPhi);
 
-
-                MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
-
-
-
-
-                ObjCmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
                 //Theo bạn Hiệp nghĩ là để update MaPhong theo TenPhong, ~ tăng cái primary key
-                StrSQL = "Select @@IDENTITY";
-
-                ObjCmd = new MySqlCommand(StrSQL, ObjCn);
-                phieuDen.MaPhieuDen = (int)ObjCmd.ExecuteScalar();
+                cmd.CommandText = "Select @@IDENTITY"; ;
+                phieuDen.MaPhieuDen = Convert.ToInt32(cmd.ExecuteScalar());
 
                 //close connection
                 DataProvider.getInstance().CloseConnection();
@@ -265,6 +257,24 @@ namespace HotelManager.Data
             DataProvider.getInstance().CloseConnection();
 
             return dt;
+        }
+
+        //Phan Them vao
+
+        public static DataTable Getphieuden(String phong)
+        {
+            DataTable dataTable = new DataTable();
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "SELECT TenPhong,TenLoaiPhong,LOAI_PHONG.DonGia,ThoiDiemDen,ThoiDiemDi FROM phong,loai_phong,phieu_den,chi_tiet_phieu_den "
+            + "WHERE phong.TenPhong = ?tenphong and phong.MaLoaiPhong = loai_phong.MaLoaiPhong and phong.MaPhong = chi_tiet_phieu_den.MaPhong and phieu_den.MaPhieuDen = chi_tiet_phieu_den.MaPhieuDen";
+            cmd.Parameters.Add("?tenphong", phong);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(dataTable);
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
+            return dataTable;
+
         }
 
     }
