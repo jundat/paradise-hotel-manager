@@ -40,6 +40,16 @@ namespace HotelManager.Business
         }
 
         /// <summary>
+        /// Tìm danh sách phiếu đặt chỗ của phiếu đặt chỗ có mã đưa vô
+        /// </summary>
+        /// <param name="maPhieuDatCho"> Mã phiếu đặt chỗ cần tìm chi tiết </param>
+        /// <returns></returns>
+        public static ArrayList FindĐanhSachChiTiet(int maPhieuDatCho)
+        {
+            return DataChiTietPhieuDatCho.FindĐanhSachChiTiet(maPhieuDatCho);
+        }
+
+        /// <summary>
         /// Thêm chi tiết phiếu đặt tiệc vào bảng CHI_TIET_PHIEU_DAT_CHO
         /// </summary>
         /// <param name="_chiTietPhieuDatCho"></param>

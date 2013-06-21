@@ -17,6 +17,16 @@ namespace HotelManager.Business
             return DataChiTietPhieuDatTiec.GetList();
         }
 
+        /// <summary>
+        /// Tìm danh sách Chi tiết của Mã phiếu đặt tiệc
+        /// </summary>
+        /// <param name="maPhieuDatTiec"></param>
+        /// <returns></returns>
+        public static ArrayList FindDanhSachChiTietPhieuDatTiec(int maPhieuDatTiec)
+        {
+            return DataChiTietPhieuDatTiec.FindDanhSachChiTietPhieuDatTiec(maPhieuDatTiec);
+        }
+
         public static DataTable GetTable()
         {
             return DataChiTietPhieuDatTiec.GetTable();

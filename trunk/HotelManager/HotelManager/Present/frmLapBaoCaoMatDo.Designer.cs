@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLapBaoCaoMatDo));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtThang = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataMain = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btLapBaoCao = new System.Windows.Forms.Button();
             this.btInBaoCao = new System.Windows.Forms.Button();
-            this.txtThang = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataMain)).BeginInit();
@@ -70,6 +71,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(732, 67);
             this.panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(526, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 24);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "THÁNG";
+            // 
+            // txtThang
+            // 
+            this.txtThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtThang.Location = new System.Drawing.Point(614, 23);
+            this.txtThang.Name = "txtThang";
+            this.txtThang.ReadOnly = true;
+            this.txtThang.Size = new System.Drawing.Size(109, 29);
+            this.txtThang.TabIndex = 1;
             // 
             // label1
             // 
@@ -124,32 +145,13 @@
             this.btInBaoCao.UseVisualStyleBackColor = true;
             this.btInBaoCao.Click += new System.EventHandler(this.btInBaoCao_Click);
             // 
-            // txtThang
-            // 
-            this.txtThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThang.Location = new System.Drawing.Point(614, 23);
-            this.txtThang.Name = "txtThang";
-            this.txtThang.ReadOnly = true;
-            this.txtThang.Size = new System.Drawing.Size(109, 29);
-            this.txtThang.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(526, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "THÁNG";
-            // 
             // frmLapBaoCaoMatDo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 418);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmLapBaoCaoMatDo";
             this.Text = "Lập Báo Cáo Mật Độ Sử Dụng";

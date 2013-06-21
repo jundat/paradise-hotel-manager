@@ -102,6 +102,60 @@ namespace HotelManager.Data
         }
 
         /// <summary>
+        /// Tìm danh sách phiếu đặt chỗ của phiếu đặt chỗ có mã đưa vô
+        /// </summary>
+        /// <param name="maPhieuDatCho"> Mã phiếu đặt chỗ cần tìm chi tiết </param>
+        /// <returns></returns>
+        public static ArrayList FindĐanhSachChiTiet(int maPhieuDatCho)
+        {
+            ArrayList _arrayList = new ArrayList();
+
+            // Lấy và chuẩn bị command cho truy vấn
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            
+            cmd.CommandText = "SELECT * FROM chi_tiet_phieu_dat_cho WHERE MaPhieuDatCho = ?MaPhieuDatCho";
+            cmd.Parameters.Add("?MaPhieuDatCho", maPhieuDatCho);
+
+
+            MySqlDataReader dataReader = null;
+
+            try
+            {
+                // Thực thi truy vấn
+                dataReader = cmd.ExecuteReader();
+
+                // Lấy dữ liệu trả ra từ truy vấn rồi gán cho baoCaoDoanhThu
+                while (dataReader.Read())
+                {
+                    ChiTietPhieuDatCho _chiTietPhieuDatCho = new ChiTietPhieuDatCho();
+
+                    _chiTietPhieuDatCho.MaChiTietPhieuDatCho = (int)dataReader["MaChiTietPhieuDatCho"];
+                    _chiTietPhieuDatCho.MaPhieuDatCho = (int)dataReader["MaPhieuDatCho"];
+                    _chiTietPhieuDatCho.MaPhong = (int)dataReader["MaPhong"];
+                    _chiTietPhieuDatCho.DonGia = (float)dataReader["DonGia"];
+                    _chiTietPhieuDatCho.Coc = (float)dataReader["Coc"];
+
+                    _arrayList.Add(_chiTietPhieuDatCho);
+                }
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString(), "Error Execute query: GetList CHI_TIET_PHIEU_DAT_CHO table !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null)
+                {
+                    dataReader.Close();
+                }
+            }
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
+            return _arrayList;
+        }
+
+        /// <summary>
         /// Thêm chi tiết phiếu đặt tiệc vào bảng CHI_TIET_PHIEU_DAT_CHO
         /// </summary>
         /// <param name="_chiTietPhieuDatCho"></param>

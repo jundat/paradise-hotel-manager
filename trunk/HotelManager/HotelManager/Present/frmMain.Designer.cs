@@ -62,10 +62,10 @@
             this.itemBaoCaoMatDo = new System.Windows.Forms.ToolStripMenuItem();
             this.itemGiupDo = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.linklapphieuden = new System.Windows.Forms.LinkLabel();
             this.linkdatcho = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkYeuCauDichVu = new System.Windows.Forms.LinkLabel();
-            this.linkThemPhong = new System.Windows.Forms.LinkLabel();
             this.picPhong = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -74,16 +74,14 @@
             this.picTinhTrangPhong = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lkBaoCaoMatDo = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.llTraCuuPhieuDatTiec = new System.Windows.Forms.LinkLabel();
+            this.llTraCuuBangKeDichVu = new System.Windows.Forms.LinkLabel();
             this.llTraCuuPhieuDatCho = new System.Windows.Forms.LinkLabel();
             this.llTraCuuPhieuDen = new System.Windows.Forms.LinkLabel();
             this.linkLabel8 = new System.Windows.Forms.LinkLabel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.linkLapPhieuThuePhong = new System.Windows.Forms.LinkLabel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.picHome = new System.Windows.Forms.PictureBox();
@@ -110,7 +108,9 @@
             this.linkPhanQuyen = new System.Windows.Forms.LinkLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.linkDangXuat = new System.Windows.Forms.LinkLabel();
-            this.linklapphieuden = new System.Windows.Forms.LinkLabel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPhong)).BeginInit();
@@ -118,11 +118,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picThemPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTinhTrangPhong)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLienHe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBangGia)).BeginInit();
@@ -136,6 +133,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -414,7 +414,6 @@
             this.groupBox1.Controls.Add(this.linkdatcho);
             this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Controls.Add(this.linkYeuCauDichVu);
-            this.groupBox1.Controls.Add(this.linkThemPhong);
             this.groupBox1.Controls.Add(this.picPhong);
             this.groupBox1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
@@ -425,6 +424,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "QUẢN LÝ THUÊ PHÒNG";
             // 
+            // linklapphieuden
+            // 
+            this.linklapphieuden.AutoSize = true;
+            this.linklapphieuden.BackColor = System.Drawing.Color.Transparent;
+            this.linklapphieuden.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.linklapphieuden.ForeColor = System.Drawing.Color.Transparent;
+            this.linklapphieuden.LinkColor = System.Drawing.Color.Blue;
+            this.linklapphieuden.Location = new System.Drawing.Point(126, 56);
+            this.linklapphieuden.Name = "linklapphieuden";
+            this.linklapphieuden.Size = new System.Drawing.Size(139, 23);
+            this.linklapphieuden.TabIndex = 20;
+            this.linklapphieuden.TabStop = true;
+            this.linklapphieuden.Text = "Lập phiếu đến";
+            this.linklapphieuden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklapphieuden_LinkClicked);
+            // 
             // linkdatcho
             // 
             this.linkdatcho.AutoSize = true;
@@ -432,7 +446,7 @@
             this.linkdatcho.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.linkdatcho.ForeColor = System.Drawing.Color.Transparent;
             this.linkdatcho.LinkColor = System.Drawing.Color.Blue;
-            this.linkdatcho.Location = new System.Drawing.Point(124, 51);
+            this.linkdatcho.Location = new System.Drawing.Point(124, 24);
             this.linkdatcho.Name = "linkdatcho";
             this.linkdatcho.Size = new System.Drawing.Size(79, 23);
             this.linkdatcho.TabIndex = 19;
@@ -447,7 +461,7 @@
             this.linkLabel1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.linkLabel1.ForeColor = System.Drawing.Color.Transparent;
             this.linkLabel1.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel1.Location = new System.Drawing.Point(124, 144);
+            this.linkLabel1.Location = new System.Drawing.Point(124, 117);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(79, 23);
             this.linkLabel1.TabIndex = 18;
@@ -464,7 +478,7 @@
             this.linkYeuCauDichVu.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.linkYeuCauDichVu.ForeColor = System.Drawing.Color.Transparent;
             this.linkYeuCauDichVu.LinkColor = System.Drawing.Color.Blue;
-            this.linkYeuCauDichVu.Location = new System.Drawing.Point(124, 114);
+            this.linkYeuCauDichVu.Location = new System.Drawing.Point(124, 87);
             this.linkYeuCauDichVu.Name = "linkYeuCauDichVu";
             this.linkYeuCauDichVu.Size = new System.Drawing.Size(149, 23);
             this.linkYeuCauDichVu.TabIndex = 17;
@@ -474,27 +488,10 @@
             this.linkYeuCauDichVu.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkYeuCauDichVu.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
-            // linkThemPhong
-            // 
-            this.linkThemPhong.AutoSize = true;
-            this.linkThemPhong.BackColor = System.Drawing.Color.Transparent;
-            this.linkThemPhong.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkThemPhong.ForeColor = System.Drawing.Color.Transparent;
-            this.linkThemPhong.LinkColor = System.Drawing.Color.Blue;
-            this.linkThemPhong.Location = new System.Drawing.Point(124, 20);
-            this.linkThemPhong.Name = "linkThemPhong";
-            this.linkThemPhong.Size = new System.Drawing.Size(108, 23);
-            this.linkThemPhong.TabIndex = 14;
-            this.linkThemPhong.TabStop = true;
-            this.linkThemPhong.Text = "Tìm phòng";
-            this.linkThemPhong.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkThemPhong_LinkClicked);
-            this.linkThemPhong.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
-            this.linkThemPhong.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            // 
             // picPhong
             // 
             this.picPhong.Image = ((System.Drawing.Image)(resources.GetObject("picPhong.Image")));
-            this.picPhong.Location = new System.Drawing.Point(7, 23);
+            this.picPhong.Location = new System.Drawing.Point(8, 26);
             this.picPhong.Name = "picPhong";
             this.picPhong.Size = new System.Drawing.Size(112, 111);
             this.picPhong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -523,15 +520,16 @@
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(303, 26);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(872, 543);
+            this.panel2.Size = new System.Drawing.Size(872, 595);
             this.panel2.TabIndex = 3;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(189, 522);
+            this.label6.Location = new System.Drawing.Point(189, 571);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 18);
             this.label6.TabIndex = 28;
@@ -541,7 +539,7 @@
             // 
             this.picThemPhong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picThemPhong.Image = global::HotelManager.Properties.Resources.view_text;
-            this.picThemPhong.Location = new System.Drawing.Point(203, 456);
+            this.picThemPhong.Location = new System.Drawing.Point(203, 506);
             this.picThemPhong.Name = "picThemPhong";
             this.picThemPhong.Size = new System.Drawing.Size(64, 64);
             this.picThemPhong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -556,7 +554,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(308, 522);
+            this.label5.Location = new System.Drawing.Point(308, 571);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(124, 18);
             this.label5.TabIndex = 26;
@@ -566,7 +564,7 @@
             // 
             this.picTinhTrangPhong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picTinhTrangPhong.Image = ((System.Drawing.Image)(resources.GetObject("picTinhTrangPhong.Image")));
-            this.picTinhTrangPhong.Location = new System.Drawing.Point(337, 456);
+            this.picTinhTrangPhong.Location = new System.Drawing.Point(338, 504);
             this.picTinhTrangPhong.Name = "picTinhTrangPhong";
             this.picTinhTrangPhong.Size = new System.Drawing.Size(64, 64);
             this.picTinhTrangPhong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -579,13 +577,13 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox4.Controls.Add(this.lkBaoCaoMatDo);
             this.groupBox4.Controls.Add(this.pictureBox1);
+            this.groupBox4.Controls.Add(this.lkBaoCaoMatDo);
             this.groupBox4.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
             this.groupBox4.Location = new System.Drawing.Point(447, 284);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(405, 159);
+            this.groupBox4.Size = new System.Drawing.Size(405, 202);
             this.groupBox4.TabIndex = 24;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "BÁO CÁO THỐNG KÊ";
@@ -607,48 +605,55 @@
             this.lkBaoCaoMatDo.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.lkBaoCaoMatDo.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(7, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 111);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox3.Controls.Add(this.linkLabel3);
+            this.groupBox3.Controls.Add(this.pictureBox4);
+            this.groupBox3.Controls.Add(this.llTraCuuPhieuDatTiec);
+            this.groupBox3.Controls.Add(this.llTraCuuBangKeDichVu);
             this.groupBox3.Controls.Add(this.llTraCuuPhieuDatCho);
             this.groupBox3.Controls.Add(this.llTraCuuPhieuDen);
             this.groupBox3.Controls.Add(this.linkLabel8);
-            this.groupBox3.Controls.Add(this.pictureBox4);
             this.groupBox3.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
             this.groupBox3.Location = new System.Drawing.Point(18, 284);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(405, 159);
+            this.groupBox3.Size = new System.Drawing.Size(405, 202);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TRA CỨU";
             // 
-            // linkLabel3
+            // llTraCuuPhieuDatTiec
             // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel3.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkLabel3.ForeColor = System.Drawing.Color.Transparent;
-            this.linkLabel3.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel3.Location = new System.Drawing.Point(126, 119);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(152, 23);
-            this.linkLabel3.TabIndex = 17;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Tra cứu báo cáo";
-            this.linkLabel3.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
-            this.linkLabel3.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.llTraCuuPhieuDatTiec.AutoSize = true;
+            this.llTraCuuPhieuDatTiec.BackColor = System.Drawing.Color.Transparent;
+            this.llTraCuuPhieuDatTiec.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.llTraCuuPhieuDatTiec.ForeColor = System.Drawing.Color.Transparent;
+            this.llTraCuuPhieuDatTiec.LinkColor = System.Drawing.Color.Blue;
+            this.llTraCuuPhieuDatTiec.Location = new System.Drawing.Point(126, 152);
+            this.llTraCuuPhieuDatTiec.Name = "llTraCuuPhieuDatTiec";
+            this.llTraCuuPhieuDatTiec.Size = new System.Drawing.Size(207, 23);
+            this.llTraCuuPhieuDatTiec.TabIndex = 18;
+            this.llTraCuuPhieuDatTiec.TabStop = true;
+            this.llTraCuuPhieuDatTiec.Text = "Tra cứu Phiếu đặt tiệc";
+            this.llTraCuuPhieuDatTiec.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llTraCuuPhieuDatTiec_LinkClicked);
+            // 
+            // llTraCuuBangKeDichVu
+            // 
+            this.llTraCuuBangKeDichVu.AutoSize = true;
+            this.llTraCuuBangKeDichVu.BackColor = System.Drawing.Color.Transparent;
+            this.llTraCuuBangKeDichVu.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.llTraCuuBangKeDichVu.ForeColor = System.Drawing.Color.Transparent;
+            this.llTraCuuBangKeDichVu.LinkColor = System.Drawing.Color.Blue;
+            this.llTraCuuBangKeDichVu.Location = new System.Drawing.Point(126, 119);
+            this.llTraCuuBangKeDichVu.Name = "llTraCuuBangKeDichVu";
+            this.llTraCuuBangKeDichVu.Size = new System.Drawing.Size(226, 23);
+            this.llTraCuuBangKeDichVu.TabIndex = 17;
+            this.llTraCuuBangKeDichVu.TabStop = true;
+            this.llTraCuuBangKeDichVu.Text = "Tra cứu Bảng kê dịch vụ";
+            this.llTraCuuBangKeDichVu.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llTraCuuBangKeDichVu_LinkClicked);
+            this.llTraCuuBangKeDichVu.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.llTraCuuBangKeDichVu.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
             // llTraCuuPhieuDatCho
             // 
@@ -662,7 +667,7 @@
             this.llTraCuuPhieuDatCho.Size = new System.Drawing.Size(207, 23);
             this.llTraCuuPhieuDatCho.TabIndex = 16;
             this.llTraCuuPhieuDatCho.TabStop = true;
-            this.llTraCuuPhieuDatCho.Text = "Tra cứu phiếu đặt chỗ";
+            this.llTraCuuPhieuDatCho.Text = "Tra cứu Phiếu đặt chỗ";
             this.llTraCuuPhieuDatCho.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llTraCuuPhieuDatCho_LinkClicked);
             this.llTraCuuPhieuDatCho.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.llTraCuuPhieuDatCho.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
@@ -679,7 +684,7 @@
             this.llTraCuuPhieuDen.Size = new System.Drawing.Size(175, 23);
             this.llTraCuuPhieuDen.TabIndex = 15;
             this.llTraCuuPhieuDen.TabStop = true;
-            this.llTraCuuPhieuDen.Text = "Tra cứu phiếu đến";
+            this.llTraCuuPhieuDen.Text = "Tra cứu Phiếu đến";
             this.llTraCuuPhieuDen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llTraCuuPhieuDen_LinkClicked);
             this.llTraCuuPhieuDen.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.llTraCuuPhieuDen.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
@@ -693,29 +698,19 @@
             this.linkLabel8.LinkColor = System.Drawing.Color.Blue;
             this.linkLabel8.Location = new System.Drawing.Point(124, 20);
             this.linkLabel8.Name = "linkLabel8";
-            this.linkLabel8.Size = new System.Drawing.Size(188, 23);
+            this.linkLabel8.Size = new System.Drawing.Size(190, 23);
             this.linkLabel8.TabIndex = 14;
             this.linkLabel8.TabStop = true;
-            this.linkLabel8.Text = "Tra cứu khách hàng";
+            this.linkLabel8.Text = "Tra cứu Khách hàng";
             this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
             this.linkLabel8.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkLabel8.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(7, 23);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(112, 111);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox2.Controls.Add(this.linkLapPhieuThuePhong);
             this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Controls.Add(this.linkLapPhieuThuePhong);
             this.groupBox2.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(447, 66);
@@ -742,22 +737,12 @@
             this.linkLapPhieuThuePhong.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkLapPhieuThuePhong.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 23);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(112, 111);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(473, 522);
+            this.label3.Location = new System.Drawing.Point(473, 571);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 18);
             this.label3.TabIndex = 22;
@@ -768,7 +753,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(792, 522);
+            this.label2.Location = new System.Drawing.Point(792, 571);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 18);
             this.label2.TabIndex = 21;
@@ -788,7 +773,7 @@
             // 
             this.picLienHe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picLienHe.Image = ((System.Drawing.Image)(resources.GetObject("picLienHe.Image")));
-            this.picLienHe.Location = new System.Drawing.Point(788, 456);
+            this.picLienHe.Location = new System.Drawing.Point(788, 506);
             this.picLienHe.Name = "picLienHe";
             this.picLienHe.Size = new System.Drawing.Size(64, 64);
             this.picLienHe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -813,7 +798,7 @@
             // 
             this.picBangGia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBangGia.Image = ((System.Drawing.Image)(resources.GetObject("picBangGia.Image")));
-            this.picBangGia.Location = new System.Drawing.Point(472, 456);
+            this.picBangGia.Location = new System.Drawing.Point(473, 504);
             this.picBangGia.Name = "picBangGia";
             this.picBangGia.Size = new System.Drawing.Size(64, 64);
             this.picBangGia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -849,7 +834,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(299, 543);
+            this.panel1.Size = new System.Drawing.Size(299, 595);
             this.panel1.TabIndex = 4;
             // 
             // label4
@@ -950,6 +935,7 @@
             this.linkCauHinhThietBi.TabIndex = 14;
             this.linkCauHinhThietBi.TabStop = true;
             this.linkCauHinhThietBi.Text = "Cấu hình thiết bị";
+            this.linkCauHinhThietBi.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCauHinhThietBi_LinkClicked);
             this.linkCauHinhThietBi.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkCauHinhThietBi.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
@@ -979,6 +965,7 @@
             this.linkCauHinhPhanMem.TabIndex = 12;
             this.linkCauHinhPhanMem.TabStop = true;
             this.linkCauHinhPhanMem.Text = "Cấu hình phần mềm";
+            this.linkCauHinhPhanMem.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCauHinhPhanMem_LinkClicked);
             this.linkCauHinhPhanMem.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkCauHinhPhanMem.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
@@ -1008,6 +995,7 @@
             this.linkSaoLuuDuLieu.TabIndex = 10;
             this.linkSaoLuuDuLieu.TabStop = true;
             this.linkSaoLuuDuLieu.Text = "Sao lưu dữ liệu";
+            this.linkSaoLuuDuLieu.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSaoLuuDuLieu_LinkClicked);
             this.linkSaoLuuDuLieu.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkSaoLuuDuLieu.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
@@ -1037,6 +1025,7 @@
             this.linkPhucHoiDuLieu.TabIndex = 8;
             this.linkPhucHoiDuLieu.TabStop = true;
             this.linkPhucHoiDuLieu.Text = "Phục hồi dữ liệu";
+            this.linkPhucHoiDuLieu.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPhucHoiDuLieu_LinkClicked);
             this.linkPhucHoiDuLieu.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkPhucHoiDuLieu.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
@@ -1066,6 +1055,7 @@
             this.linkThungRac.TabIndex = 6;
             this.linkThungRac.TabStop = true;
             this.linkThungRac.Text = "Thùng rác";
+            this.linkThungRac.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkThungRac_LinkClicked);
             this.linkThungRac.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkThungRac.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
@@ -1128,27 +1118,42 @@
             this.linkDangXuat.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
             this.linkDangXuat.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             // 
-            // linklapphieuden
+            // pictureBox2
             // 
-            this.linklapphieuden.AutoSize = true;
-            this.linklapphieuden.BackColor = System.Drawing.Color.Transparent;
-            this.linklapphieuden.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linklapphieuden.ForeColor = System.Drawing.Color.Transparent;
-            this.linklapphieuden.LinkColor = System.Drawing.Color.Blue;
-            this.linklapphieuden.Location = new System.Drawing.Point(126, 83);
-            this.linklapphieuden.Name = "linklapphieuden";
-            this.linklapphieuden.Size = new System.Drawing.Size(139, 23);
-            this.linklapphieuden.TabIndex = 20;
-            this.linklapphieuden.TabStop = true;
-            this.linklapphieuden.Text = "Lập phiếu đến";
-            this.linklapphieuden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklapphieuden_LinkClicked);
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(7, 26);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(112, 111);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(112, 111);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(7, 23);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(112, 111);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 19;
+            this.pictureBox4.TabStop = false;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1175, 569);
+            this.ClientSize = new System.Drawing.Size(1175, 621);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
@@ -1175,13 +1180,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picTinhTrangPhong)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLienHe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBangGia)).EndInit();
@@ -1196,6 +1198,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1218,7 +1223,6 @@
         private System.Windows.Forms.LinkLabel linkPhanQuyen;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.LinkLabel linkDangXuat;
-        private System.Windows.Forms.LinkLabel linkThemPhong;
         private System.Windows.Forms.ToolStripMenuItem menuHeThong;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -1261,16 +1265,13 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.LinkLabel linkLabel8;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel llTraCuuBangKeDichVu;
         private System.Windows.Forms.LinkLabel llTraCuuPhieuDatCho;
         private System.Windows.Forms.LinkLabel llTraCuuPhieuDen;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.LinkLabel lkBaoCaoMatDo;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.LinkLabel linkLapPhieuThuePhong;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox picTinhTrangPhong;
         private System.Windows.Forms.ToolStripMenuItem itemThayDoiQuyDinh;
@@ -1283,9 +1284,12 @@
         private System.Windows.Forms.ToolStripMenuItem itemBaoCaoMatDo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox picThemPhong;
+        private System.Windows.Forms.LinkLabel llTraCuuPhieuDatTiec;
         private System.Windows.Forms.LinkLabel linkdatcho;
         private System.Windows.Forms.LinkLabel linklapphieuden;
-
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

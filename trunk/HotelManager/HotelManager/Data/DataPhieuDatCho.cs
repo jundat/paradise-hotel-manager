@@ -42,6 +42,7 @@ namespace HotelManager.Data
 
                     _phieuDatCho.MaPhieuDatCho = (int)dataReader["MaPhieuDatCho"];
                     _phieuDatCho.TenNguoiDatCho = (String)dataReader["TenNguoiDatCho"];
+                    _phieuDatCho.CMND = (String)dataReader["CMND"];
                     _phieuDatCho.SDT = (String)dataReader["SDT"];
                     _phieuDatCho.DiaChi = (String)dataReader["DiaChi"];
                     _phieuDatCho.TongCoc = (float)dataReader["TongCoc"];
@@ -69,6 +70,65 @@ namespace HotelManager.Data
             return _arrayList;
         }
 
+        /// <summary>
+        /// Lấy danh sách PHIEU_DAT_CHO
+        /// </summary>
+        /// <returns></returns>
+        public static ArrayList Find(String tenNguoiDatCho, String CMND, String SDT, String diaChi)
+        {
+            ArrayList _arrayList = new ArrayList();
+
+            // Lấy và chuẩn bị command cho truy vấn
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            
+            cmd.CommandText = "SELECT * FROM phieu_dat_cho WHERE TenNguoiDatCho = ?TenNguoiDatCho OR CMND = ?CMND OR SDT = ?SDT OR DiaChi = ?DiaChi";
+
+            cmd.Parameters.Add("?TenNguoiDatCho", tenNguoiDatCho);
+            cmd.Parameters.Add("?CMND", CMND);
+            cmd.Parameters.Add("?SDT", SDT);
+            cmd.Parameters.Add("?DiaChi", diaChi);
+
+            MySqlDataReader dataReader = null;
+
+            try
+            {
+                // Thực thi truy vấn
+                dataReader = cmd.ExecuteReader();
+
+                // Lấy dữ liệu trả ra từ truy vấn rồi gán cho baoCaoDoanhThu
+                while (dataReader.Read())
+                {
+                    PhieuDatCho _phieuDatCho = new PhieuDatCho();
+
+                    _phieuDatCho.MaPhieuDatCho = (int)dataReader["MaPhieuDatCho"];
+                    _phieuDatCho.TenNguoiDatCho = (String)dataReader["TenNguoiDatCho"];
+                    _phieuDatCho.CMND = (String)dataReader["CMND"];
+                    _phieuDatCho.SDT = (String)dataReader["SDT"];
+                    _phieuDatCho.DiaChi = (String)dataReader["DiaChi"];
+                    _phieuDatCho.TongCoc = (float)dataReader["TongCoc"];
+                    _phieuDatCho.ThoiDiemDat = (DateTime)dataReader["ThoiDiemDat"];
+                    _phieuDatCho.ThoiDiemDen = (DateTime)dataReader["ThoiDiemDen"];
+                    _phieuDatCho.ThoiDiemDi = (DateTime)dataReader["ThoiDiemDi"];
+
+                    _arrayList.Add(_phieuDatCho);
+                }
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString(), "Error Execute query: GetList PHONG table !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null)
+                {
+                    dataReader.Close();
+                }
+            }
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
+            return _arrayList;
+        }
         /// <summary>
         /// Lấy hết bảng PHIEU_DAT_CHO
         /// </summary>

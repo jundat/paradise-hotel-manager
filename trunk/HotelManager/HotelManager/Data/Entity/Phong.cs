@@ -10,7 +10,7 @@ namespace HotelManager.Data.Entity
         public int MaPhong;
         public int MaLoaiPhong;
         public String TenPhong;
-        public Boolean TinhTrangHienTai;
+        public Boolean TinhTrangHienTai; 
         public String MoTa;
 
         public Phong()
@@ -18,7 +18,7 @@ namespace HotelManager.Data.Entity
             MaPhong = 0;
             MaLoaiPhong = 0;
             TenPhong = "";
-            TinhTrangHienTai = true;
+            TinhTrangHienTai = true; // true là đang trống
             MoTa = "";
         }
 
