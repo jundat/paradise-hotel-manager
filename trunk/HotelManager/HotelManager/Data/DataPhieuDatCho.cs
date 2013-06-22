@@ -173,11 +173,12 @@ namespace HotelManager.Data
         {
             // Lấy và chuẩn bị command cho truy vấn
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "INSERT INTO phieu_dat_cho(TenNguoiDatCho, SDT, DiaChi, TongCoc, ThoiDiemDat, ThoiDiemDen, ThoiDiemDi) VALUES(?TenNguoiDatCho, ?SDT, ?DiaChi, ?TongCoc, ?ThoiDiemDat, ?ThoiDiemDen, ?ThoiDiemDi)";
+            cmd.CommandText = "INSERT INTO phieu_dat_cho(TenNguoiDatCho, SDT, DiaChi, CMND, TongCoc, ThoiDiemDat, ThoiDiemDen, ThoiDiemDi) VALUES(?TenNguoiDatCho, ?SDT, ?DiaChi, ?CMND, ?TongCoc, ?ThoiDiemDat, ?ThoiDiemDen, ?ThoiDiemDi)";
 
             cmd.Parameters.Add("?TenNguoiDatCho", MySqlDbType.String).Value = _phieuDatCho.TenNguoiDatCho;
             cmd.Parameters.Add("?SDT", MySqlDbType.String).Value = _phieuDatCho.SDT;
             cmd.Parameters.Add("?DiaChi", MySqlDbType.String).Value = _phieuDatCho.DiaChi;
+            cmd.Parameters.Add("?CMND", MySqlDbType.String).Value = _phieuDatCho.CMND;
             cmd.Parameters.Add("?TongCoc", MySqlDbType.Float).Value = _phieuDatCho.TongCoc;
             cmd.Parameters.Add("?ThoiDiemDat", MySqlDbType.Date).Value = _phieuDatCho.ThoiDiemDat;
             cmd.Parameters.Add("?ThoiDiemDen", MySqlDbType.Date).Value = _phieuDatCho.ThoiDiemDen;
@@ -343,8 +344,8 @@ namespace HotelManager.Data
             PhieuDatCho phieudatcho = new PhieuDatCho();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "select * from PHIEU_DAT_CHO where PHIEU_DAT_CHO.MaPhieuDatCho = " +
-                              "(select PHIEU_DAT_CHO.MaPhieuDatCho from PHIEU_DAT_CHO,CHI_TIET_PHEU_DAT_CHO,PHONG where PHIEU_DAT_CHO.MaPhieuDatCho = CHI_TIET_PHEU_DAT_CHO.MaPhieuDatCho " +
-                              "and CHI_TIET_PHEU_DAT_CHO.MaPhong = PHONG.MaPhong and PHONG.TenPhong = ?_tenphong)";
+                              "(select PHIEU_DAT_CHO.MaPhieuDatCho from PHIEU_DAT_CHO,CHI_TIET_PHIEU_DAT_CHO,PHONG where PHIEU_DAT_CHO.MaPhieuDatCho = CHI_TIET_PHIEU_DAT_CHO.MaPhieuDatCho " +
+                              "and CHI_TIET_PHIEU_DAT_CHO.MaPhong = PHONG.MaPhong and PHONG.TenPhong = ?_tenphong)";
 
             cmd.Parameters.Add("?_tenphong", _tenphong);
 

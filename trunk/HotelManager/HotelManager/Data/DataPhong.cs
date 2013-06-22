@@ -291,9 +291,9 @@ namespace HotelManager.Data
             DataTable datatable = new DataTable();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "select TenPhong,LOAI_PHONG.DonGia from PHONG,LOAI_PHONG" +
-                     " where TinhTrangHienTai = ?_tinhtrang and PHONG.MaLoaiPhong = LOAI_PHONG.MaLoaiPhong and LOAI_PHONG.TenLoaiPhong = ?tenloaiphong and TenPhong != ALL(select TenPhong from PHONG,CHI_TIET_PHEU_DAT_CHO,PHIEU_DAT_CHO" +
-                     " where PHONG.MaPhong = CHI_TIET_PHEU_DAT_CHO.MaPhong" +
-                    " and CHI_TIET_PHEU_DAT_CHO.MaPhieuDatCho = PHIEU_DAT_CHO.MaPhieuDatCho " +
+                     " where TinhTrangHienTai = ?_tinhtrang and PHONG.MaLoaiPhong = LOAI_PHONG.MaLoaiPhong and LOAI_PHONG.TenLoaiPhong = ?tenloaiphong and TenPhong != ALL(select TenPhong from PHONG,CHI_TIET_PHIEU_DAT_CHO,PHIEU_DAT_CHO" +
+                     " where PHONG.MaPhong = CHI_TIET_PHIEU_DAT_CHO.MaPhong" +
+                    " and CHI_TIET_PHIEU_DAT_CHO.MaPhieuDatCho = PHIEU_DAT_CHO.MaPhieuDatCho " +
                    " and PHIEU_DAT_CHO.ThoiDiemDen between ?thoidiemden and ?thoidiemdi" +
                     " and PHIEU_DAT_CHO.ThoiDiemDi between ?thoidiemden and ?thoidiemdi )";
 
@@ -313,9 +313,9 @@ namespace HotelManager.Data
             DataTable datatable = new DataTable();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "select TenPhong,LOAI_PHONG.DonGia,TenLoaiPhong from PHONG,LOAI_PHONG" +
-                     " where TinhTrangHienTai = ?_tinhtrang and PHONG.MaLoaiPhong = LOAI_PHONG.MaLoaiPhong and TenPhong != ALL(select TenPhong from PHONG,CHI_TIET_PHEU_DAT_CHO,PHIEU_DAT_CHO" +
-                     " where PHONG.MaPhong = CHI_TIET_PHEU_DAT_CHO.MaPhong" +
-                    " and CHI_TIET_PHEU_DAT_CHO.MaPhieuDatCho = PHIEU_DAT_CHO.MaPhieuDatCho " +
+                     " where TinhTrangHienTai = ?_tinhtrang and PHONG.MaLoaiPhong = LOAI_PHONG.MaLoaiPhong and TenPhong != ALL(select TenPhong from PHONG,CHI_TIET_PHIEU_DAT_CHO,PHIEU_DAT_CHO" +
+                     " where PHONG.MaPhong = CHI_TIET_PHIEU_DAT_CHO.MaPhong" +
+                    " and CHI_TIET_PHIEU_DAT_CHO.MaPhieuDatCho = PHIEU_DAT_CHO.MaPhieuDatCho " +
                    " and PHIEU_DAT_CHO.ThoiDiemDen between ?thoidiemden and ?thoidiemdi" +
                     " and PHIEU_DAT_CHO.ThoiDiemDi between ?thoidiemden and ?thoidiemdi )";
 
@@ -349,9 +349,9 @@ namespace HotelManager.Data
         {
             DataTable datatable = new DataTable();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "select TenPhong,TenLoaiPhong,LOAI_PHONG.DonGia,Coc from PHONG,LOAI_PHONG,PHIEU_DAT_CHO,CHI_TIET_PHEU_DAT_CHO"
+            cmd.CommandText = "select TenPhong,TenLoaiPhong,LOAI_PHONG.DonGia,Coc from PHONG,LOAI_PHONG,PHIEU_DAT_CHO,CHI_TIET_PHIEU_DAT_CHO"
                 + " where PHIEU_DAT_CHO.TenNguoiDatCho = ?_tennguoidat and PHIEU_DAT_CHO.SDT = ?_SDT " +
-                "and PHIEU_DAT_CHO.MaPhieuDatCho = CHI_TIET_PHEU_DAT_CHO.MaPhieuDatCho and CHI_TIET_PHEU_DAT_CHO.MaPhong = PHONG.MaPhong "
+                "and PHIEU_DAT_CHO.MaPhieuDatCho = CHI_TIET_PHIEU_DAT_CHO.MaPhieuDatCho and CHI_TIET_PHIEU_DAT_CHO.MaPhong = PHONG.MaPhong "
                 + "and PHONG.MaLoaiPhong = LOAI_PHONG.MaLoaiPhong";
 
             cmd.Parameters.Add("?_tennguoidat", _tennguoidat);

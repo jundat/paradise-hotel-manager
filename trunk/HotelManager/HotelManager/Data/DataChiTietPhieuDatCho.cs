@@ -163,7 +163,7 @@ namespace HotelManager.Data
         {
             // Chuẩn bị kết nối
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "INSERT INTO chi_tiet_pheu_dat_cho(MaPhieuDatCho, MaPhong, DonGia, Coc) VALUES(?MaPhieuDatCho, ?MaPhong, ?DonGia, ?Coc)";
+            cmd.CommandText = "INSERT INTO chi_tiet_phieu_dat_cho(MaPhieuDatCho, MaPhong, DonGia, Coc) VALUES(?MaPhieuDatCho, ?MaPhong, ?DonGia, ?Coc)";
             cmd.Prepare();
 
             // Tryền tham số cho truy vấn
@@ -198,7 +198,7 @@ namespace HotelManager.Data
         public static void DeleteCTPDC(int maphieudatcho)
         {
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "DELETE FROM chi_tiet_pheu_dat_cho WHERE MaPhieuDatCho = " + maphieudatcho;
+            cmd.CommandText = "DELETE FROM chi_tiet_phieu_dat_cho WHERE MaPhieuDatCho = " + maphieudatcho;
             cmd.ExecuteNonQuery();
             // Đóng kết nối
             DataProvider.getInstance().CloseConnection();
