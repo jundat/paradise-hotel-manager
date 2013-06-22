@@ -197,7 +197,8 @@
             // 
             // dtpThoiDiemDat
             // 
-            this.dtpThoiDiemDat.CustomFormat = "hh:mm dd/mm/yyyy";
+            this.dtpThoiDiemDat.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpThoiDiemDat.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtpThoiDiemDat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpThoiDiemDat.Location = new System.Drawing.Point(22, 274);
             this.dtpThoiDiemDat.Name = "dtpThoiDiemDat";

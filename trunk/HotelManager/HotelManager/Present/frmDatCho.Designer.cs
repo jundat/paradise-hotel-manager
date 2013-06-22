@@ -483,7 +483,7 @@
             // 
             // dtthoidiemdi
             // 
-            this.dtthoidiemdi.CustomFormat = "hh:mm dd/mm/yyyy";
+            this.dtthoidiemdi.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtthoidiemdi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtthoidiemdi.Location = new System.Drawing.Point(128, 146);
             this.dtthoidiemdi.Name = "dtthoidiemdi";
@@ -503,7 +503,7 @@
             // 
             // dtthoidiemden
             // 
-            this.dtthoidiemden.CustomFormat = "hh:mm dd/mm/yyyy";
+            this.dtthoidiemden.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtthoidiemden.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtthoidiemden.Location = new System.Drawing.Point(128, 93);
             this.dtthoidiemden.Name = "dtthoidiemden";
@@ -514,7 +514,7 @@
             // 
             // dtthoidiemdat
             // 
-            this.dtthoidiemdat.CustomFormat = "hh:mm dd/mm/yyyy";
+            this.dtthoidiemdat.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtthoidiemdat.Enabled = false;
             this.dtthoidiemdat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtthoidiemdat.Location = new System.Drawing.Point(128, 40);

@@ -401,7 +401,7 @@
             // 
             // dtpTuThoiDiem
             // 
-            this.dtpTuThoiDiem.CustomFormat = "hh:mm dd/mm/yyyy";
+            this.dtpTuThoiDiem.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtpTuThoiDiem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTuThoiDiem.Location = new System.Drawing.Point(32, 47);
             this.dtpTuThoiDiem.Name = "dtpTuThoiDiem";
@@ -421,7 +421,7 @@
             // 
             // dtpDenThoiDiem
             // 
-            this.dtpDenThoiDiem.CustomFormat = "hh:mm dd/mm/yyyy";
+            this.dtpDenThoiDiem.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtpDenThoiDiem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDenThoiDiem.Location = new System.Drawing.Point(32, 98);
             this.dtpDenThoiDiem.Name = "dtpDenThoiDiem";
