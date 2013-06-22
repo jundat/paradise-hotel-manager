@@ -46,6 +46,9 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TenPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLoaiPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -80,9 +83,6 @@
             this.clthoidiemdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cltongcoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLoaiPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -299,6 +299,25 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // TenPhong
+            // 
+            this.TenPhong.DataPropertyName = "TenPhong";
+            this.TenPhong.HeaderText = "Tên Phòng";
+            this.TenPhong.Name = "TenPhong";
+            // 
+            // colLoaiPhong
+            // 
+            this.colLoaiPhong.DataPropertyName = "TenLoaiPhong";
+            this.colLoaiPhong.HeaderText = "Loại Phòng";
+            this.colLoaiPhong.Name = "colLoaiPhong";
+            // 
+            // DonGia
+            // 
+            this.DonGia.DataPropertyName = "DonGia";
+            this.DonGia.HeaderText = "Đơn Giá";
+            this.DonGia.Name = "DonGia";
+            this.DonGia.Width = 120;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
@@ -464,7 +483,7 @@
             // 
             // dtthoidiemdi
             // 
-            this.dtthoidiemdi.CustomFormat = "dd/mm/yyyy hh:mm";
+            this.dtthoidiemdi.CustomFormat = "hh:mm dd/mm/yyyy";
             this.dtthoidiemdi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtthoidiemdi.Location = new System.Drawing.Point(128, 146);
             this.dtthoidiemdi.Name = "dtthoidiemdi";
@@ -484,7 +503,7 @@
             // 
             // dtthoidiemden
             // 
-            this.dtthoidiemden.CustomFormat = "dd/mm/yyyy hh:mm";
+            this.dtthoidiemden.CustomFormat = "hh:mm dd/mm/yyyy";
             this.dtthoidiemden.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtthoidiemden.Location = new System.Drawing.Point(128, 93);
             this.dtthoidiemden.Name = "dtthoidiemden";
@@ -646,25 +665,6 @@
             // 
             this.colGhiChu.HeaderText = "Ghi Chú";
             this.colGhiChu.Name = "colGhiChu";
-            // 
-            // TenPhong
-            // 
-            this.TenPhong.DataPropertyName = "TenPhong";
-            this.TenPhong.HeaderText = "Tên Phòng";
-            this.TenPhong.Name = "TenPhong";
-            // 
-            // colLoaiPhong
-            // 
-            this.colLoaiPhong.DataPropertyName = "TenLoaiPhong";
-            this.colLoaiPhong.HeaderText = "Loại Phòng";
-            this.colLoaiPhong.Name = "colLoaiPhong";
-            // 
-            // DonGia
-            // 
-            this.DonGia.DataPropertyName = "DonGia";
-            this.DonGia.HeaderText = "Đơn Giá";
-            this.DonGia.Name = "DonGia";
-            this.DonGia.Width = 120;
             // 
             // frmDatCho
             // 

@@ -81,24 +81,47 @@ namespace HotelManager.Data
                 // set query
                 if ("Không quan tâm".Equals(tinhTrangThanhToan))
                 {
-                    cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = ?MaPhong";
-
-                    cmd.Parameters.Add("?MaPhong", maPhong);
+                    if (maPhong == 0)
+                    {
+                        cmd.CommandText = "SELECT * FROM bang_ke";
+                    }
+                    else
+                    {
+                        cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = ?MaPhong";
+                        cmd.Parameters.Add("?MaPhong", maPhong);
+                    }
+                    
                 }
                 else
                     if ("Đã thanh toán".Equals(tinhTrangThanhToan))
                     {
-                        cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = ?MaPhong AND TinhTrangThanhToan = ?TinhTrangThanhToan";
+                        if (maPhong == 0)
+                        {
+                            cmd.CommandText = "SELECT * FROM bang_ke WHERE TinhTrangThanhToan = ?TinhTrangThanhToan";
+                            cmd.Parameters.Add("?TinhTrangThanhToan", true);
+                        }
+                        else
+                        {
+                            cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = ?MaPhong AND TinhTrangThanhToan = ?TinhTrangThanhToan";
 
-                        cmd.Parameters.Add("?MaPhong", maPhong);
-                        cmd.Parameters.Add("?TinhTrangThanhToan", true);
+                            cmd.Parameters.Add("?MaPhong", maPhong);
+                            cmd.Parameters.Add("?TinhTrangThanhToan", true);
+                        }
                     }
                     else // Chưa thanh toán
                     {
-                        cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = ?MaPhong AND TinhTrangThanhToan = ?TinhTrangThanhToan";
+                        if (maPhong == 0)
+                        {
+                            cmd.CommandText = "SELECT * FROM bang_ke WHERE TinhTrangThanhToan = ?TinhTrangThanhToan";
+                            cmd.Parameters.Add("?TinhTrangThanhToan", false);
+                        }
+                        else
+                        {
+                            cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = ?MaPhong AND TinhTrangThanhToan = ?TinhTrangThanhToan";
 
-                        cmd.Parameters.Add("?MaPhong", maPhong);
-                        cmd.Parameters.Add("?TinhTrangThanhToan", false);
+                            cmd.Parameters.Add("?MaPhong", maPhong);
+                            cmd.Parameters.Add("?TinhTrangThanhToan", false);
+                        }
                     }
 
                 dataReader = cmd.ExecuteReader();

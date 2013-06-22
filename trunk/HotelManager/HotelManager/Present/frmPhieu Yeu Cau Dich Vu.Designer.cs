@@ -193,6 +193,8 @@
             // dtpThoiDiemDat
             // 
             this.dtpThoiDiemDat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpThoiDiemDat.CustomFormat = "hh:mm dd/mm/yyyy";
+            this.dtpThoiDiemDat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpThoiDiemDat.Location = new System.Drawing.Point(417, 23);
             this.dtpThoiDiemDat.Name = "dtpThoiDiemDat";
             this.dtpThoiDiemDat.Size = new System.Drawing.Size(217, 20);
