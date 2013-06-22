@@ -51,6 +51,8 @@ namespace HotelManager.Present
         {
             dataGridView1.DataSource = BusPhieuDatCho.Findtinhtrang(false);
             dataGridView2.DataSource = BusPhieuDatCho.GetTable();
+            dtthoidiemdat.Value = DateTime.Now.AddDays(0).Date;
+            dtthoidiemden.Value = DateTime.Now.AddDays(1).Date;
         }
 
         private void bttimphong_Click(object sender, EventArgs e)
