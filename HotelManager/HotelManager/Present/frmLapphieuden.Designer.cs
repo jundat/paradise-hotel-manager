@@ -35,7 +35,6 @@
             this.pndadatcho = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bttimphong = new System.Windows.Forms.Button();
             this.txtsdtnguoidat = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtnguoidat = new System.Windows.Forms.TextBox();
@@ -63,6 +62,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.rdiochuadatphong = new System.Windows.Forms.RadioButton();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.bttimphong = new System.Windows.Forms.Button();
             this.txttonggia = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dtthoidiemdi = new System.Windows.Forms.DateTimePicker();
@@ -190,17 +190,6 @@
             this.panel1.Size = new System.Drawing.Size(447, 65);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // bttimphong
-            // 
-            this.bttimphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttimphong.Location = new System.Drawing.Point(645, 77);
-            this.bttimphong.Name = "bttimphong";
-            this.bttimphong.Size = new System.Drawing.Size(106, 26);
-            this.bttimphong.TabIndex = 11;
-            this.bttimphong.Text = "Tìm Phòng";
-            this.bttimphong.UseVisualStyleBackColor = true;
-            this.bttimphong.Click += new System.EventHandler(this.bttimphong_Click);
             // 
             // txtsdtnguoidat
             // 
@@ -488,6 +477,17 @@
             this.panel4.Size = new System.Drawing.Size(930, 106);
             this.panel4.TabIndex = 1;
             // 
+            // bttimphong
+            // 
+            this.bttimphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttimphong.Location = new System.Drawing.Point(645, 77);
+            this.bttimphong.Name = "bttimphong";
+            this.bttimphong.Size = new System.Drawing.Size(106, 26);
+            this.bttimphong.TabIndex = 11;
+            this.bttimphong.Text = "Tìm Phòng";
+            this.bttimphong.UseVisualStyleBackColor = true;
+            this.bttimphong.Click += new System.EventHandler(this.bttimphong_Click);
+            // 
             // txttonggia
             // 
             this.txttonggia.Enabled = false;
@@ -509,7 +509,7 @@
             // 
             // dtthoidiemdi
             // 
-            this.dtthoidiemdi.CustomFormat = "hh:mm dd/mm/yyyy";
+            this.dtthoidiemdi.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtthoidiemdi.Enabled = false;
             this.dtthoidiemdi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtthoidiemdi.Location = new System.Drawing.Point(578, 51);
@@ -519,7 +519,7 @@
             // 
             // dtthoidiemden
             // 
-            this.dtthoidiemden.CustomFormat = "hh:mm dd/mm/yyyy";
+            this.dtthoidiemden.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtthoidiemden.Enabled = false;
             this.dtthoidiemden.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtthoidiemden.Location = new System.Drawing.Point(578, 15);
