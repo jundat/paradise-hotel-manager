@@ -57,8 +57,30 @@ namespace HotelManager.Present
 
         private void bttimphong_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BusPhong.Timphongtheothoidiem(dtthoidiemden.Value, dtthoidiemdi.Value);
-            btdatcho.Enabled = false;
+            if (dtthoidiemden.Value.Year < dtthoidiemdat.Value.Year)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (dtthoidiemden.Value.Year == dtthoidiemdat.Value.Year && dtthoidiemden.Value.Month < dtthoidiemdat.Value.Month)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if(dtthoidiemden.Value.Year == dtthoidiemdat.Value.Year && dtthoidiemden.Value.Month == dtthoidiemdat.Value.Month && dtthoidiemden.Value.Date < dtthoidiemdat.Value.Date)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if  (dtthoidiemden.Value.Year == dtthoidiemdat.Value.Year && dtthoidiemden.Value.Month == dtthoidiemdat.Value.Month && dtthoidiemden.Value.Date == dtthoidiemdat.Value.Date && dtthoidiemden.Value.TimeOfDay < dtthoidiemdat.Value.TimeOfDay)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (dtthoidiemdi.Value.Year < dtthoidiemden.Value.Year)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if   (dtthoidiemdi.Value.Year == dtthoidiemden.Value.Year && dtthoidiemdi.Value.Month < dtthoidiemden.Value.Month)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (dtthoidiemdi.Value.Year == dtthoidiemden.Value.Year && dtthoidiemdi.Value.Month == dtthoidiemden.Value.Month && dtthoidiemdi.Value.Date < dtthoidiemden.Value.Date)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (dtthoidiemdi.Value.Year == dtthoidiemden.Value.Year && dtthoidiemdi.Value.Month == dtthoidiemden.Value.Month && dtthoidiemdi.Value.Date == dtthoidiemden.Value.Date && dtthoidiemdi.Value.TimeOfDay < dtthoidiemden.Value.TimeOfDay)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+          
+            else
+            {
+                dataGridView1.DataSource = BusPhong.Timphongtheothoidiem(dtthoidiemden.Value, dtthoidiemdi.Value);
+                btdatcho.Enabled = false;
+                txtloaiphong.Enabled = true;
+            }
+
         }
 
         private void grthongtindatcho_Enter(object sender, EventArgs e)
