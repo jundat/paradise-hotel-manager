@@ -341,6 +341,9 @@ namespace HotelManager.Data
         //Phan them vao
         public static PhieuDatCho GetPhieudatcho(String _tenphong)
         {
+
+             
+
             PhieuDatCho phieudatcho = new PhieuDatCho();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
             cmd.CommandText = "select * from PHIEU_DAT_CHO where PHIEU_DAT_CHO.MaPhieuDatCho = " +
@@ -365,6 +368,8 @@ namespace HotelManager.Data
             DataProvider.getInstance().CloseConnection();
             return phieudatcho;
         }
+
+        
 
     }
 }

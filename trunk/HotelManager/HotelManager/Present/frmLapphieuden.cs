@@ -53,11 +53,11 @@ namespace HotelManager.Present
 
         private void dtdanhsachphongdadat_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            PhieuDatCho phieudatcho = BusPhieuDatCho.Laythoidiem(txtphong.Text);
             try
             {
                 txtphong.Text = dtdanhsachphongdadat.Rows[e.RowIndex].Cells["clPhong"].Value.ToString();
                 txttonggia.Text = dtdanhsachphongdadat.Rows[e.RowIndex].Cells["cldongia"].Value.ToString();
+                PhieuDatCho phieudatcho = BusPhieuDatCho.Laythoidiem(txtphong.Text);
                 dtthoidiemden.Value = phieudatcho.ThoiDiemDen;
                 dtthoidiemdi.Value = phieudatcho.ThoiDiemDi;
                
@@ -122,6 +122,7 @@ namespace HotelManager.Present
             BusPhong.UpdatePhong(phong);
             dataGridView1.DataSource = BusPhieuDen.laydanhsachphieuden();
             x = 0;
+
 
         }
 

@@ -244,6 +244,7 @@
             // txtloaiphong
             // 
             this.txtloaiphong.DisplayMember = "VIP";
+            this.txtloaiphong.Enabled = false;
             this.txtloaiphong.FormattingEnabled = true;
             this.txtloaiphong.Items.AddRange(new object[] {
             "VIP",
