@@ -210,6 +210,7 @@
             this.txtsoluongphongdatcho.Size = new System.Drawing.Size(121, 22);
             this.txtsoluongphongdatcho.TabIndex = 8;
             this.txtsoluongphongdatcho.TextChanged += new System.EventHandler(this.txtsoluongphongdatcho_TextChanged);
+            this.txtsoluongphongdatcho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsoluongphongdatcho_KeyPress);
             // 
             // txtsoluongphongtrong
             // 
@@ -385,6 +386,7 @@
             this.txtsodienthoai.Name = "txtsodienthoai";
             this.txtsodienthoai.Size = new System.Drawing.Size(211, 22);
             this.txtsodienthoai.TabIndex = 7;
+            this.txtsodienthoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsodienthoai_KeyPress);
             // 
             // txtdiachi
             // 
@@ -399,6 +401,7 @@
             this.txtcmnd.Name = "txtcmnd";
             this.txtcmnd.Size = new System.Drawing.Size(188, 22);
             this.txtcmnd.TabIndex = 5;
+            this.txtcmnd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcmnd_KeyPress);
             // 
             // lbsdt
             // 

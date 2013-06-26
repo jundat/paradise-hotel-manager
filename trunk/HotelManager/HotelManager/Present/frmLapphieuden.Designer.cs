@@ -197,6 +197,8 @@
             this.txtsdtnguoidat.Name = "txtsdtnguoidat";
             this.txtsdtnguoidat.Size = new System.Drawing.Size(153, 20);
             this.txtsdtnguoidat.TabIndex = 3;
+            this.txtsdtnguoidat.TextChanged += new System.EventHandler(this.txtsdtnguoidat_TextChanged);
+            this.txtsdtnguoidat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsdtnguoidat_KeyPress);
             // 
             // label2
             // 
