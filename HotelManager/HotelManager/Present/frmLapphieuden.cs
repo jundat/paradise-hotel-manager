@@ -38,6 +38,16 @@ namespace HotelManager.Present
 
         private void bttimphong_Click(object sender, EventArgs e)
         {
+            
+            if (dtthoidiemdi.Value.Year < dtthoidiemden.Value.Year)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (dtthoidiemdi.Value.Year == dtthoidiemden.Value.Year && dtthoidiemdi.Value.Month < dtthoidiemden.Value.Month)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (dtthoidiemdi.Value.Year == dtthoidiemden.Value.Year && dtthoidiemdi.Value.Month == dtthoidiemden.Value.Month && dtthoidiemdi.Value.Date < dtthoidiemden.Value.Date)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (dtthoidiemdi.Value.Year == dtthoidiemden.Value.Year && dtthoidiemdi.Value.Month == dtthoidiemden.Value.Month && dtthoidiemdi.Value.Date == dtthoidiemden.Value.Date && dtthoidiemdi.Value.TimeOfDay < dtthoidiemden.Value.TimeOfDay)
+                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+          
             if (radiodadatphong.Checked == true)
                 dtdanhsachphongdadat.DataSource = BusPhong.LayDanhSachPhongDaDat(txtnguoidat.Text, txtsdtnguoidat.Text);
             else
@@ -163,6 +173,17 @@ namespace HotelManager.Present
                 dtthoidiemden.Enabled = true;
                 dtthoidiemdi.Enabled = true;
             }
+        }
+
+        private void txtsdtnguoidat_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtsdtnguoidat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }
