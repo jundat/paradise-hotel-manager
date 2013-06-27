@@ -70,7 +70,7 @@ namespace HotelManager.Business
 
                 phong.TenPhong = "" + row.Cells[0].Value;
                 phong.MaLoaiPhong = Int16.Parse(row.Cells[1].Value.ToString());
-                phong.TinhTrangHienTai = false;
+                phong.TinhTrangHienTai = true;
                 phong.MoTa = "" + row.Cells[2].Value;
 
                 DataPhong.AddPhong(phong);
