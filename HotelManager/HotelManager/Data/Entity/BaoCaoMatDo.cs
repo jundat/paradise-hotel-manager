@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HotelManager.Data.Entity
 {
-    class BaoCaoMatDo
+    public class BaoCaoMatDo
     {
         public int MaBaoCaoMatDo;
         public DateTime ThoiDiemLapBaoCao;

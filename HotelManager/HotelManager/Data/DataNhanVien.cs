@@ -72,22 +72,17 @@ namespace HotelManager.Data
 
         public static void UpdateNhanVien(NhanVien nhanvien)
         {
-            string StrSQL = "UPDATE nhan_vien SET TenNhanVien = " + nhanvien.TenNhanVien
-                + ", DiaChi = " + nhanvien.DiaChi
-                + ", SDT = " + nhanvien.SDT
-                + ", ChucVu = " + nhanvien.ChucVu
-                + ", UserName = " + nhanvien.UserName
-                + ", Password = " + nhanvien.Password
-                + "  WHERE MaNhanVien = " + nhanvien.MaNhanVien;
-
-
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
-            ObjCmd.CommandText = StrSQL;
-
-            
+            ObjCmd.CommandText = "UPDATE nhan_vien SET TenNhanVien = ?TenNhanVien, DiaChi = ?DiaChi, SDT = ?SDT, ChucVu = ?ChucVu, UserName = ?UserName, Password = ?Password WHERE MaNhanVien = ?MaNhanVien";
 
 
-            ObjCmd.Parameters.Add("@MaNhanVien", MySqlDbType.Int32).Value = nhanvien.MaNhanVien;
+            ObjCmd.Parameters.Add("?MaNhanVien", nhanvien.MaNhanVien);
+            ObjCmd.Parameters.Add("?TenNhanVien", nhanvien.TenNhanVien);
+            ObjCmd.Parameters.Add("?DiaChi", nhanvien.DiaChi);
+            ObjCmd.Parameters.Add("?SDT", nhanvien.SDT);
+            ObjCmd.Parameters.Add("?ChucVu", nhanvien.ChucVu);
+            ObjCmd.Parameters.Add("?UserName", nhanvien.UserName);
+            ObjCmd.Parameters.Add("?Password", nhanvien.Password);
 
             ObjCmd.ExecuteNonQuery();
 
@@ -199,9 +194,12 @@ namespace HotelManager.Data
 
         public static NhanVien FindUserPass(string user, string pass)
         {
-            string StrSQL = "SELECT * FROM nhan_vien WHERE UserName = \'" + user + "\' AND Password = \'" + pass + "\'";
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
-            ObjCmd.CommandText = StrSQL;
+            ObjCmd.CommandText = "SELECT * FROM nhan_vien WHERE UserName = ?UserName AND Password = ?Password";
+
+            ObjCmd.Parameters.Add("?UserName", user);
+            ObjCmd.Parameters.Add("?Password", pass);
+
             MySqlDataReader ObjReader;
             ObjReader = ObjCmd.ExecuteReader();
 
