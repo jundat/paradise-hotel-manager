@@ -328,16 +328,17 @@ INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHi
 -- -----------------------------------------------------
 -- Insert sample data for QUY_DINH table
 -- -----------------------------------------------------
-INSERT INTO `qlnhks`.`quy_dinh` (`ID`, `SoKhachToiDaTrongMotPhong`, `TyLeCoc`, `SoGioThueVoiGiaGoc`, `TyLeGiaPhongNeuThueTheoNgay`) VALUES ('1', '3', '0.2', '0.7');
+INSERT INTO `qlnhks`.`quy_dinh` (`ID`, `SoKhachToiDaTrongMotPhong`, `TyLeCoc`, `SoGioThueVoiGiaGoc`, `TyLeGiaPhongNeuThueTheoNgay`) VALUES ('1', '3', '0.2', '1', '0.7');
+
 
 -- -----------------------------------------------------
 -- Insert sample data for NHAN_VIEN table
 -- -----------------------------------------------------
 INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('1', 'Admin', 'Paradies', '01238059792', 'Admin', 'admin', 'a');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('2', 'Reception1', 'Đồng Nai', '02453522424', 'Reception', 'reception1', 'r1');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('3', 'Reception2', 'Vũng Tàu', '09234242452', 'Reception', 'reception2', 'r2');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('4', 'Reception3', 'Bình Định', '09235325362', 'Reception', 'reception3', 'r3');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('5', 'Reception4', 'Phú Yên', '01693453453', 'Reception', 'reception4', 'r4');
+INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('2', 'Lê Ngọc Anh', 'Đồng Nai', '12435522424', 'Reception', 'r1', 'r1');
+INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('3', 'Phạm Tấn Long', 'Vũng Tàu', '09234242452', 'Reception', 'r2', 'r2');
+INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('4', 'Hà Phi Phú', 'Bình Định', '09235325362', 'Reception', 'r3', 'r3');
+INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('5', 'Trần Duy Nam', 'Phú Yên', '01693453453', 'Reception', 'r4', 'r4');
 
 
 -- -----------------------------------------------------
@@ -378,10 +379,10 @@ INSERT INTO `qlnhks`.`quy_dinh` (`ID`, `SoKhachToiDaTrongMotPhong`, `TyLeCoc`, `
 -- Insert sample data for NHAN_VIEN table
 -- -----------------------------------------------------
 INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('1', 'Admin', 'Paradies', '01238059792', 'Admin', 'admin', 'a');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('2', 'Reception1', 'Đồng Nai', '02453522424', 'Reception', 'reception1', 'r1');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('3', 'Reception2', 'Vũng Tàu', '09234242452', 'Reception', 'reception2', 'r2');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('4', 'Reception3', 'Bình Định', '09235325362', 'Reception', 'reception3', 'r3');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('5', 'Reception4', 'Phú Yên', '01693453453', 'Reception', 'reception4', 'r4');
+INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('2', 'Phạm Tấn Long', 'Đồng Nai', '01696242422', 'Reception', 'r1', 'r1');
+INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('3', 'Hà Phi Phú', 'Vũng Tàu', '09234242874', 'Reception', 'r2', 'r2');
+INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('4', 'Lê Ngọc Anh', 'Bình Định', '01235325362', 'Reception', 'r3', 'r3');
+INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('5', 'Trần Duy Nam', 'Phú Yên', '01693453453', 'Reception', 'r4', 'r4');
 
 
 -- -----------------------------------------------------
