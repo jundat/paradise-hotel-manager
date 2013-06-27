@@ -26,7 +26,7 @@ namespace HotelManager.Present
         
         private void FirstLoad()
         {
-            this.txtNhanVien.Text = frmMain.TenNhanVien;
+            this.txtNhanVien.Text = frmMain.nv.TenNhanVien;
 
             //init data gridview
             //Loại phí
@@ -100,7 +100,7 @@ namespace HotelManager.Present
             pt.TenKhach = txtKhachHang.Text;
             pt.ThoiDiemThu = dtThoiDiemThu.Value;
             pt.TongTienThu = (float)Convert.ToDouble(txtTongChiPhi.Text);
-            pt.MaNhanVien = frmMain.MaNhanVien;
+            pt.MaNhanVien = frmMain.nv.MaNhanVien;
             BusPhieuThu.Add(pt);
 
             //save to table CHI_TIET_PHIEU_THU

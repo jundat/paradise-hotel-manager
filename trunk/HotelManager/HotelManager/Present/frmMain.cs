@@ -14,14 +14,17 @@ using HotelManager.Present.Mini;
 
 namespace HotelManager.Present
 {
-    public partial class frmMain : Form
+    public partial class frmMain : Form, IDangNhapObserver
     {
-        public static string TenNhanVien = "";
-        public static int MaNhanVien = -1;
+        public static NhanVien nv = new NhanVien();
+
+        private frmDangNhap _frmDangNhap;
         
         public frmMain()
         {
             InitializeComponent();
+            _frmDangNhap = new frmDangNhap();
+            _frmDangNhap.RegisterObserver(this);
         }
 
         #region Hỗ trợ Giao diện
@@ -160,9 +163,9 @@ namespace HotelManager.Present
 
         private void frmMain_Shown(object sender, EventArgs e)
         {
-            (new frmDangNhap()).ShowDialog(this);
+            _frmDangNhap.ShowDialog(this);
 
-            if (TenNhanVien == "" || MaNhanVien == -1)
+            if (frmMain.nv == null)
             {
                 this.Close();
             }
@@ -170,12 +173,12 @@ namespace HotelManager.Present
 
         private void linkDangXuat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            TenNhanVien = "";
-            MaNhanVien = -1;
-
-            (new frmDangNhap()).ShowDialog(this);
-
-            if (TenNhanVien == "" || MaNhanVien == -1)
+            _frmDangNhap = new frmDangNhap();
+            _frmDangNhap.RegisterObserver(this);
+            frmMain.nv = null;
+            llNhanVien.Text = "Quyền: Tên nhân viên";
+            _frmDangNhap.ShowDialog(this);
+            if (frmMain.nv == null)
             {
                 this.Close();
             }
@@ -326,5 +329,119 @@ namespace HotelManager.Present
             llTraCuuPhieuDatTiec_LinkClicked(null, null);
         }
 
+        // Implement function for interface IDangNhapObserver
+        public void RecieveUser(NhanVien nv)
+        {
+            // thực hiện phân quyền tùy theo giá trị NhanVien và lệnh mà form Đăng nhập truyền cho
+            frmMain.nv = nv;
+            if (nv != null)
+            {
+                MessageBox.Show("Tên: " + nv.TenNhanVien + "\nQuyền: " + nv.ChucVu, "Đăng Nhập thành công !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                llNhanVien.Text = nv.ChucVu + ": " + nv.TenNhanVien;
+
+                // Hiệu lực|Vô hiệu hóa các chức năng cho phù hợp với quyên hạn của người đăng nhập
+                PhanQuyen();
+            }
+        }
+
+        private void llNhanVien_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Hiển thị form thay đổi thông tin cá nhân cho nhân viên
+            (new frmNhanVien()).ShowDialog(this);
+        }
+
+        /// <summary>
+        /// Hiệu lực|Vô hiệu hóa các chức năng cho phù hợp với quyên hạn của người đăng nhập
+        /// </summary>
+        private void PhanQuyen()
+        {
+            if (frmMain.nv != null)
+            {
+                if ("Admin".Equals(nv.ChucVu))
+                {
+                    groupBoxQuanLyChoThuePhong.Enabled = false;
+                    groupBoxQuanLyTraPhong.Enabled = false;
+
+                    menuQLThuePhong.Enabled = false;
+                    menuQLTraPhong.Enabled = false;
+
+                    pictureBox13.Enabled = true;
+                    linkCauHinhThietBi.Enabled = true;
+
+                    pictureBox14.Enabled = true;
+                    linkCauHinhThietBi.Enabled = true;
+
+                    pictureBox12.Enabled = true;
+                    linkCauHinhPhanMem.Enabled = true;
+
+                    pictureBox11.Enabled = true;
+                    linkSaoLuuDuLieu.Enabled = true;
+
+                    pictureBox10.Enabled = true;
+                    linkPhucHoiDuLieu.Enabled = true;
+
+                    pictureBox9.Enabled = true;
+                    linkThungRac.Enabled = true;
+
+                    pictureBox15.Enabled = true;
+                    linkPhanQuyen.Enabled = true;
+
+                    pictureBox8.Enabled = true;
+                    linkThayDoiQuyDinh.Enabled = true;
+                }
+                else // Đăng nhập với quyền tiếp tân - Reception
+                {
+                    groupBoxQuanLyChoThuePhong.Enabled = true;
+                    groupBoxQuanLyTraPhong.Enabled = true;
+                    menuQLThuePhong.Enabled = true;
+                    menuQLTraPhong.Enabled = true;
+
+                    pictureBox13.Enabled = false;
+                    linkCauHinhThietBi.Enabled = false;
+
+                    pictureBox14.Enabled = false;
+                    linkCauHinhThietBi.Enabled = false;
+
+                    pictureBox12.Enabled = false;
+                    linkCauHinhPhanMem.Enabled = false;
+
+                    pictureBox11.Enabled = false;
+                    linkSaoLuuDuLieu.Enabled = false;
+
+                    pictureBox10.Enabled = false;
+                    linkPhucHoiDuLieu.Enabled = false;
+
+                    pictureBox9.Enabled = false;
+                    linkThungRac.Enabled = false;
+
+                    pictureBox15.Enabled = false;
+                    linkPhanQuyen.Enabled = false;
+
+                    pictureBox8.Enabled = false;
+                    linkThayDoiQuyDinh.Enabled = false;
+
+                }
+            }
+        }
+
+        private void liênHệToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            picLienHe_Click(sender, e);
+        }
+
+        private void nhàPhátTriểnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new frmNhomPhatTrien()).ShowDialog(this);
+        }
+
+        private void linkPhanQuyen_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            (new frmPhanQuyen()).ShowDialog(this);
+        }
+
+        private void hướngDẫnSửDụngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Do giao diện phẫn mềm rất thân thiện nên chỉ cần Demo một chút là bạn có thể làm được ^_^", "Hướng dẫn sử dụng !", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 }

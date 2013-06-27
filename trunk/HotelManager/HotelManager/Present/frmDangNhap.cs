@@ -12,11 +12,15 @@ using System.Threading;
 
 namespace HotelManager.Present
 {
-    public partial class frmDangNhap : Form
+    public partial class frmDangNhap : Form, IDangNhapSubject
     {
+        private List<IDangNhapObserver> _DangNhapObservers;
+        NhanVien nhanvien;
+
         public frmDangNhap()
         {
             InitializeComponent();
+            _DangNhapObservers = new List<IDangNhapObserver>();
         }
 
         private void btDangNhap_Click(object sender, EventArgs e)
@@ -42,7 +46,7 @@ namespace HotelManager.Present
             }
 
             //2- Dang Nhap
-            NhanVien nhanvien = BusNhanVien.FindUserPass(user, pass);
+            nhanvien = BusNhanVien.FindUserPass(user, pass);
             if (nhanvien == null)
             {
                 this.txtTenDangNhap.Focus();
@@ -52,9 +56,6 @@ namespace HotelManager.Present
             }
             else
             {
-                frmMain.TenNhanVien = nhanvien.TenNhanVien;
-                frmMain.MaNhanVien = nhanvien.MaNhanVien;
-                
                 ProcessClosing();
             }
 
@@ -87,7 +88,26 @@ namespace HotelManager.Present
 
         private void frmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+            NotifyDangNhap(nhanvien);
         }
+
+        public void RegisterObserver(IDangNhapObserver o)
+        {
+            _DangNhapObservers.Add(o);
+        }
+
+        public void RemoveObserver(IDangNhapObserver o)
+        {
+            _DangNhapObservers.Remove(o);
+        }
+
+        public void NotifyDangNhap(NhanVien nv)
+        {
+            foreach (IDangNhapObserver o in _DangNhapObservers)
+            {
+                o.RecieveUser(nv);
+            }
+        }
+
     }
 }

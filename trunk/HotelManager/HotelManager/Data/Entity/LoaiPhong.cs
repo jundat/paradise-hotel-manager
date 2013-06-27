@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HotelManager.Data.Entity
 {
-    class LoaiPhong
+    public class LoaiPhong
     {
         public int MaLoaiPhong;
         public String TenLoaiPhong;
