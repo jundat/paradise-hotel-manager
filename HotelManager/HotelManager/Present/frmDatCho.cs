@@ -38,11 +38,14 @@ namespace HotelManager.Present
         private void txtloaiphong_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataGridView1.DataSource = BusPhong.Timphongtheotenloaiphong(txtloaiphong.Text, dtthoidiemden.Value, dtthoidiemdi.Value);
-            txtsoluongphongtrong.Text = (dataGridView1.RowCount - 1 ).ToString();
-            txtcocchomotphong.Text = dataGridView1.Rows[0].Cells[1].Value.ToString();
-            int x = Int32.Parse(txtcocchomotphong.Text);
-            x = x * 20 / 100;
-            txtcocchomotphong.Text = x.ToString();
+            txtsoluongphongtrong.Text = (dataGridView1.RowCount - 1).ToString();
+            if ((dataGridView1.RowCount - 1) > 0)
+            {
+                txtcocchomotphong.Text = dataGridView1.Rows[0].Cells[1].Value.ToString();
+                int x = Int32.Parse(txtcocchomotphong.Text);
+                x = x * 20 / 100;
+                txtcocchomotphong.Text = x.ToString();
+            }
 
 
         }
@@ -51,8 +54,13 @@ namespace HotelManager.Present
         {
             dataGridView1.DataSource = BusPhieuDatCho.Findtinhtrang(false);
             dataGridView2.DataSource = BusPhieuDatCho.GetTable();
-            dtthoidiemdat.Value = DateTime.Now.AddDays(0).Date;
-            dtthoidiemden.Value = DateTime.Now.AddDays(1).Date;
+            /*dtthoidiemdat.Value = DateTime.Now.AddDays(0).Date;
+            dtthoidiemden.Value = DateTime.Now.AddDays(1).Date;*/
+
+            dtthoidiemdat.Value = DateTime.Parse(DateTime.Now.ToString());
+            /*dtthoidiemden.Value = DateTime.Parse(DateTime.Now.ToString());
+            dtthoidiemdi.Value = DateTime.Parse(DateTime.Now.ToString());*/
+            
         }
 
         private void bttimphong_Click(object sender, EventArgs e)
@@ -212,6 +220,11 @@ namespace HotelManager.Present
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void txtcocchomotphong_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

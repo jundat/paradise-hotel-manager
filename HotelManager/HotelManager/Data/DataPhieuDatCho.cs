@@ -346,9 +346,9 @@ namespace HotelManager.Data
 
             PhieuDatCho phieudatcho = new PhieuDatCho();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "select * from PHIEU_DAT_CHO where PHIEU_DAT_CHO.MaPhieuDatCho = " +
+            cmd.CommandText = "select * from PHIEU_DAT_CHO where PHIEU_DAT_CHO.MaPhieuDatCho = '" +
                               "(select PHIEU_DAT_CHO.MaPhieuDatCho from PHIEU_DAT_CHO,CHI_TIET_PHIEU_DAT_CHO,PHONG where PHIEU_DAT_CHO.MaPhieuDatCho = CHI_TIET_PHIEU_DAT_CHO.MaPhieuDatCho " +
-                              "and CHI_TIET_PHIEU_DAT_CHO.MaPhong = PHONG.MaPhong and PHONG.TenPhong = ?_tenphong)";
+                              "and CHI_TIET_PHIEU_DAT_CHO.MaPhong = PHONG.MaPhong and PHONG.TenPhong = ?_tenphong)" +"'";
 
             cmd.Parameters.Add("?_tenphong", _tenphong);
 

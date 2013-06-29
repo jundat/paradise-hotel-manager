@@ -39,21 +39,26 @@ namespace HotelManager.Present
         private void bttimphong_Click(object sender, EventArgs e)
         {
             
-            if (dtthoidiemdi.Value.Year < dtthoidiemden.Value.Year)
-                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (dtthoidiemdi.Value.Year == dtthoidiemden.Value.Year && dtthoidiemdi.Value.Month < dtthoidiemden.Value.Month)
-                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            /*else if (dtthoidiemdi.Value.Year == dtthoidiemden.Value.Year && dtthoidiemdi.Value.Month < dtthoidiemden.Value.Month)
+                MessageBox.Show("Loi nhap thoi gian2", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (dtthoidiemdi.Value.Year == dtthoidiemden.Value.Year && dtthoidiemdi.Value.Month == dtthoidiemden.Value.Month && dtthoidiemdi.Value.Date < dtthoidiemden.Value.Date)
-                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Loi nhap thoi gian3", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (dtthoidiemdi.Value.Year == dtthoidiemden.Value.Year && dtthoidiemdi.Value.Month == dtthoidiemden.Value.Month && dtthoidiemdi.Value.Date == dtthoidiemden.Value.Date && dtthoidiemdi.Value.TimeOfDay < dtthoidiemden.Value.TimeOfDay)
-                MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
-          
-            if (radiodadatphong.Checked == true)
-                dtdanhsachphongdadat.DataSource = BusPhong.LayDanhSachPhongDaDat(txtnguoidat.Text, txtsdtnguoidat.Text);
-            else
-            {
-                dtdanhsachphong.DataSource = BusPhong.Timphongtheothoidiem(dtthoidiemden.Value, dtthoidiemdi.Value);
-            }
+                MessageBox.Show("Loi nhap thoi gian4", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);*/
+            
+
+                if (radiodadatphong.Checked == true)
+                    dtdanhsachphongdadat.DataSource = BusPhong.LayDanhSachPhongDaDat(txtnguoidat.Text, txtsdtnguoidat.Text);
+                else
+                {
+                    if (dtthoidiemden.Value < DateTime.Now)
+                        MessageBox.Show("Loi nhap thoi gian", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else if (dtthoidiemdi.Value < dtthoidiemden.Value)
+                        MessageBox.Show("Loi nhap thoi gian1", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    dtdanhsachphong.DataSource = BusPhong.Timphongtheothoidiem(dtthoidiemden.Value, dtthoidiemdi.Value);
+                }
+            
         }
 
         private void dtdanhsachphongdadat_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -67,7 +72,7 @@ namespace HotelManager.Present
             {
                 txtphong.Text = dtdanhsachphongdadat.Rows[e.RowIndex].Cells["clPhong"].Value.ToString();
                 txttonggia.Text = dtdanhsachphongdadat.Rows[e.RowIndex].Cells["cldongia"].Value.ToString();
-                PhieuDatCho phieudatcho = BusPhieuDatCho.Laythoidiem(txtphong.Text);
+                PhieuDatCho phieudatcho = BusPhieuDatCho.FindSDT(txtsdtnguoidat.Text);
                 dtthoidiemden.Value = phieudatcho.ThoiDiemDen;
                 dtthoidiemdi.Value = phieudatcho.ThoiDiemDi;
                
@@ -132,6 +137,9 @@ namespace HotelManager.Present
             BusPhong.UpdatePhong(phong);
             dataGridView1.DataSource = BusPhieuDen.laydanhsachphieuden();
             x = 0;
+            PhieuDatCho phieudatcho = BusPhieuDatCho.FindSDT(txtsdtnguoidat.Text);
+            BusChiTietPhieuDatCho.XoaCTPDC(phieudatcho.MaPhieuDatCho);
+            BusPhieuDatCho.Delete(phieudatcho.MaPhieuDatCho);
 
 
         }
@@ -184,6 +192,11 @@ namespace HotelManager.Present
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void dtthoidiemden_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

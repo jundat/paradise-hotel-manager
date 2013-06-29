@@ -528,6 +528,7 @@
             this.dtthoidiemden.Name = "dtthoidiemden";
             this.dtthoidiemden.Size = new System.Drawing.Size(173, 20);
             this.dtthoidiemden.TabIndex = 14;
+            this.dtthoidiemden.ValueChanged += new System.EventHandler(this.dtthoidiemden_ValueChanged);
             // 
             // label10
             // 
