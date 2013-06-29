@@ -168,6 +168,7 @@
             this.txtcocchomotphong.Name = "txtcocchomotphong";
             this.txtcocchomotphong.Size = new System.Drawing.Size(121, 22);
             this.txtcocchomotphong.TabIndex = 14;
+            this.txtcocchomotphong.TextChanged += new System.EventHandler(this.txtcocchomotphong_TextChanged);
             // 
             // label4
             // 
@@ -525,6 +526,7 @@
             this.dtthoidiemdat.Name = "dtthoidiemdat";
             this.dtthoidiemdat.Size = new System.Drawing.Size(177, 22);
             this.dtthoidiemdat.TabIndex = 8;
+            this.dtthoidiemdat.Value = new System.DateTime(2013, 6, 28, 16, 49, 20, 0);
             // 
             // txttongcoc
             // 
