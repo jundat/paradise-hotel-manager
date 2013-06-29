@@ -91,34 +91,26 @@ namespace HotelManager.Data
 
         }
 
-        public static bool Add(NhanVien nhanvien)
+        public static bool Add(NhanVien nv)
         {
             try
             {
-                MySqlConnection ObjCn = DataProvider.getInstance().getConnection();
-
-                string StrSQL = "INSERT INTO nhan_vien(TenNhanVien, DiaChi, SDT, ChucVu, UserName, Password)"
-                    + "VALUES(" 
-                    + nhanvien.TenNhanVien + "," 
-                    + nhanvien.DiaChi + ","
-                    + nhanvien.SDT + ","
-                    + nhanvien.ChucVu + ","
-                    + nhanvien.UserName + ","
-                    + nhanvien.Password + ");";
-
-
-                MySqlCommand ObjCmd = new MySqlCommand(StrSQL, ObjCn);
-
+                MySqlCommand cmd = DataProvider.getInstance().getCommand();
+                cmd.CommandText = "INSERT INTO nhan_vien(TenNhanVien, DiaChi, SDT, ChucVu, UserName, Password) "
+                                  + "VALUES (?TenNhanVien, ?DiaChi, ?SDT, ?ChucVu, ?UserName, ?Password)";
                 
+                // Truyền tham số cho câu truy vấn
+                cmd.Parameters.Add("?TenNhanVien", nv.TenNhanVien);
+                cmd.Parameters.Add("?DiaChi", nv.DiaChi);
+                cmd.Parameters.Add("?SDT", nv.SDT);
+                cmd.Parameters.Add("?ChucVu", nv.ChucVu);
+                cmd.Parameters.Add("?UserName", nv.UserName);
+                cmd.Parameters.Add("?Password", nv.Password);
 
+                cmd.ExecuteNonQuery();
 
-                ObjCmd.ExecuteNonQuery();
-
-                //Theo bạn Hiệp nghĩ là để update MaPhong theo TenPhong, ~ tăng cái primary key
-                StrSQL = "Select @@IDENTITY";
-
-                ObjCmd = new MySqlCommand(StrSQL, ObjCn);
-                nhanvien.MaNhanVien = (int)ObjCmd.ExecuteScalar();
+                cmd.CommandText = "Select @@IDENTITY";
+                nv.MaNhanVien = Convert.ToInt32(cmd.ExecuteScalar());
 
                 //close connection
                 DataProvider.getInstance().CloseConnection();
@@ -129,7 +121,7 @@ namespace HotelManager.Data
             {
                 if (ee.Message.Contains("duplicate"))
                 {
-                    MessageBox.Show("Dữ liệu trùng lặp: NhanVien " + nhanvien.TenNhanVien);
+                    MessageBox.Show("Dữ liệu trùng lặp: NhanVien " + nv.TenNhanVien);
                 }
 
                 //close connection
@@ -141,11 +133,12 @@ namespace HotelManager.Data
 
         public static void Delete(int maNhanVien)
         {
-            string StrSQL = "DELETE FROM nhan_vien WHERE MaNhanVien = " + maNhanVien;
+            string StrSQL = "DELETE FROM nhan_vien WHERE MaNhanVien = ?MaNhanVien";
 
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
-            ObjCmd.CommandText = StrSQL;
+            ObjCmd.CommandText = "DELETE FROM nhan_vien WHERE MaNhanVien = ?MaNhanVien";
 
+            ObjCmd.Parameters.Add("?MaNhanVien", maNhanVien);
 
             ObjCmd.ExecuteNonQuery();
 
