@@ -373,7 +373,7 @@
             // btluu
             // 
             this.btluu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btluu.Location = new System.Drawing.Point(554, 114);
+            this.btluu.Location = new System.Drawing.Point(614, 111);
             this.btluu.Name = "btluu";
             this.btluu.Size = new System.Drawing.Size(67, 23);
             this.btluu.TabIndex = 8;
@@ -498,7 +498,7 @@
             // bttimphong
             // 
             this.bttimphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttimphong.Location = new System.Drawing.Point(349, 145);
+            this.bttimphong.Location = new System.Drawing.Point(343, 145);
             this.bttimphong.Name = "bttimphong";
             this.bttimphong.Size = new System.Drawing.Size(115, 23);
             this.bttimphong.TabIndex = 0;
@@ -592,7 +592,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(604, 12);
+            this.button1.Location = new System.Drawing.Point(614, 11);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 23);
             this.button1.TabIndex = 1;

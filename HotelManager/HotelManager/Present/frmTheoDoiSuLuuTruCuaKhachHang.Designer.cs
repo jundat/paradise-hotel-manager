@@ -232,7 +232,7 @@
             this.groupBox4.Size = new System.Drawing.Size(317, 69);
             this.groupBox4.TabIndex = 21;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Tra cứu khác đang lưu trú tại Phòng";
+            this.groupBox4.Text = "Tra cứu khách đang lưu trú tại Phòng";
             // 
             // label4
             // 

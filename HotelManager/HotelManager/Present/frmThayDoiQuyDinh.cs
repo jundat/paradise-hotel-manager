@@ -119,7 +119,12 @@ namespace HotelManager.Present
 
         private void btluu_Click(object sender, EventArgs e)
         {
-            this.Update();
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn lưu các thay đổi không ?", "Vui lòng xác nhận lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
+            {
+                this.Update();
+            }
+            
         }
 
         private void btcancel_Click(object sender, EventArgs e)

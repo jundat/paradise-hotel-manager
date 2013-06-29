@@ -82,9 +82,11 @@
             // 
             // bttimphong
             // 
+            this.bttimphong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.bttimphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bttimphong.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bttimphong.Location = new System.Drawing.Point(534, 152);
+            this.bttimphong.Location = new System.Drawing.Point(597, 152);
             this.bttimphong.Name = "bttimphong";
             this.bttimphong.Size = new System.Drawing.Size(75, 23);
             this.bttimphong.TabIndex = 13;

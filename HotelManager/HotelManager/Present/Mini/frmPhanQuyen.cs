@@ -84,32 +84,39 @@ namespace HotelManager.Present.Mini
                 return;
             }
 
-            // Hết lỗi rồi thì làm tiếp
-            NhanVien nv = new NhanVien();
-            nv.TenNhanVien = tbHoTen.Text;
-            nv.DiaChi = tbDiaChi.Text;
-            nv.SDT = tbSDT.Text;
-            nv.ChucVu = cbbChucVu.Text;
-            nv.UserName = tbTenDangNhap.Text;
-            nv.Password = tbMatKhau.Text;
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn THÊM nhân viên mới này không ?", "Vui lòng xác nhận lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
+            {
+                // Hết lỗi rồi thì làm tiếp
+                NhanVien nv = new NhanVien();
+                nv.TenNhanVien = tbHoTen.Text;
+                nv.DiaChi = tbDiaChi.Text;
+                nv.SDT = tbSDT.Text;
+                nv.ChucVu = cbbChucVu.Text;
+                nv.UserName = tbTenDangNhap.Text;
+                nv.Password = tbMatKhau.Text;
 
-            BusNhanVien.Add(nv);
+                BusNhanVien.Add(nv);
 
-            MessageBox.Show("Bạn vừa thêm thành công " + nv.ChucVu + " : " + nv.TenNhanVien, "THÊM tài khoản thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn vừa thêm thành công " + nv.ChucVu + " : " + nv.TenNhanVien, "THÊM tài khoản thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Nạp lại danh sách các nhân viên vô DataGridView
-            LoadUserToDataGridView();
+                // Nạp lại danh sách các nhân viên vô DataGridView
+                LoadUserToDataGridView();
+            }           
 
         }
 
         private void btnXoaTaiKhoan_Click(object sender, EventArgs e)
         {
-            BusNhanVien.Delete(Convert.ToInt32(dgvNhanVien.SelectedRows[0].Cells[0].Value.ToString()));
-
             String TenNhanVien = dgvNhanVien.SelectedRows[0].Cells[1].Value.ToString();
             String ChucVu = dgvNhanVien.SelectedRows[0].Cells[4].Value.ToString();
 
-            MessageBox.Show("Bạn vừa XÓA thành công cho " + ChucVu + " : " + TenNhanVien, "XÓA tài khoản thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn XÓA " + ChucVu + " : " + TenNhanVien + " không ?", "Vui lòng xác nhận lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
+            {
+                BusNhanVien.Delete(Convert.ToInt32(dgvNhanVien.SelectedRows[0].Cells[0].Value.ToString()));
+                MessageBox.Show("Bạn vừa XÓA thành công cho " + ChucVu + " : " + TenNhanVien, "XÓA tài khoản thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }            
         }
 
         private void btnCapNhatTaiKhoan_Click(object sender, EventArgs e)
@@ -122,22 +129,28 @@ namespace HotelManager.Present.Mini
                 return;
             }
 
-            // Hết lỗi rồi thì làm tiếp
-            NhanVien nv = new NhanVien();
-            nv.MaNhanVien = Convert.ToInt32(dgvNhanVien.SelectedRows[0].Cells[0].Value.ToString());
-            nv.TenNhanVien = tbHoTen.Text;
-            nv.DiaChi = tbDiaChi.Text;
-            nv.SDT = tbSDT.Text;
-            nv.ChucVu = cbbChucVu.Text;
-            nv.UserName = tbTenDangNhap.Text;
-            nv.Password = tbMatKhau.Text;
+            int MaNhanVien = Convert.ToInt32(dgvNhanVien.SelectedRows[0].Cells[0].Value.ToString());
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn CẬP NHẬT cho nhân viên có Mã: " + MaNhanVien + " không ?", "Vui lòng xác nhận lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
+            {
+                // Hết lỗi rồi thì làm tiếp
+                NhanVien nv = new NhanVien();
+                nv.MaNhanVien = MaNhanVien;
+                nv.TenNhanVien = tbHoTen.Text;
+                nv.DiaChi = tbDiaChi.Text;
+                nv.SDT = tbSDT.Text;
+                nv.ChucVu = cbbChucVu.Text;
+                nv.UserName = tbTenDangNhap.Text;
+                nv.Password = tbMatKhau.Text;
 
-            BusNhanVien.UpdateNhanVien(nv);
+                BusNhanVien.UpdateNhanVien(nv);
 
-            MessageBox.Show("Bạn vừa Cập nhật thành công nhân viên mã: " + nv.MaNhanVien, "Cập nhật tài khoản thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn vừa Cập nhật thành công nhân viên mã: " + nv.MaNhanVien, "Cập nhật tài khoản thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Nạp lại danh sách các nhân viên vô DataGridView
-            LoadUserToDataGridView();
+                // Nạp lại danh sách các nhân viên vô DataGridView
+                LoadUserToDataGridView();
+            }
+            
         }
     }
 }
