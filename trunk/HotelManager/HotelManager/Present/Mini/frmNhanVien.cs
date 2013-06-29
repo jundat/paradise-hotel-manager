@@ -51,12 +51,15 @@ namespace HotelManager.Present.Mini
         {
             if (tbMatKhau.Text.Equals(frmMain.nv.Password))
             {
-                frmMain.nv.DiaChi = tbDiaChi.Text;
-                frmMain.nv.SDT = tbSDT.Text;
-
-                BusNhanVien.UpdateNhanVien(frmMain.nv);
-                frmNhanVien_Load(sender, e);
-                MessageBox.Show("Bạn đã cập nhật thành công thông tin cá nhân !", "Cập nhật thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn cập nhật thông tin cá nhân không ?", "Vui lòng xác nhận lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    frmMain.nv.DiaChi = tbDiaChi.Text;
+                    frmMain.nv.SDT = tbSDT.Text;
+                    BusNhanVien.UpdateNhanVien(frmMain.nv);
+                    frmNhanVien_Load(sender, e);
+                    MessageBox.Show("Bạn đã cập nhật thành công thông tin cá nhân !", "Cập nhật thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
@@ -72,18 +75,21 @@ namespace HotelManager.Present.Mini
                 {
                     if (tbMatKhauMoiTD.Text.Equals(tbXacNhanLai.Text))
                     {
-                        frmMain.nv.Password = tbMatKhauMoiTD.Text;
-                        frmMain.nv.UserName = tbTenDangNhapTD.Text;
-                        BusNhanVien.UpdateNhanVien(frmMain.nv);
-                        MessageBox.Show("Bạn đã cập nhật thành công tên đăng nhập mật khẩu !", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult rs = MessageBox.Show("Bạn có chắc chắn thay đổi Mật khẩu/Tên đăng nhập không ?", "Vui lòng xác nhận lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (rs == DialogResult.Yes)
+                        {
+                            frmMain.nv.Password = tbMatKhauMoiTD.Text;
+                            frmMain.nv.UserName = tbTenDangNhapTD.Text;
+                            BusNhanVien.UpdateNhanVien(frmMain.nv);
+                            MessageBox.Show("Bạn đã cập nhật thành công tên đăng nhập mật khẩu !", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        tbMatKhauCuTD.Text = "";
-                        tbTenDangNhapTD.Text = "";
-                        tbMatKhauMoiTD.Text = "";
-                        tbXacNhanLai.Text = "";
+                            tbMatKhauCuTD.Text = "";
+                            tbTenDangNhapTD.Text = "";
+                            tbMatKhauMoiTD.Text = "";
+                            tbXacNhanLai.Text = "";
 
-                        frmNhanVien_Load(sender, e);
-                        
+                            frmNhanVien_Load(sender, e);
+                        }
                     }
                     else // Lỗi nhập sai mật khẩu xác nhận
                     {
