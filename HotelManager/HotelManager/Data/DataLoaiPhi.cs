@@ -179,5 +179,39 @@ namespace HotelManager.Data
 
             return dt;
         }
+
+        /// <summary>
+        /// Tìm Tên Loại Phí (chính là tên bảng cần nhảy tới để cập nhật tình trang thanh toán)
+        /// </summary>
+        /// <param name="MaLoaiPhi"></param>
+        /// <returns></returns>
+        public static String FindTenBang(int MaLoaiPhi)
+        {
+            String TenBang = "";
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "SELECT TenLoaiPhi FROM loai_phi WHERE MaLoaiPhi = ?MaLoaiPhi";
+            cmd.Parameters.Add("?MaLoaiPhi", MaLoaiPhi);
+            MySqlDataReader dataReader = null;
+
+            try
+            {
+                TenBang = Convert.ToString(cmd.ExecuteScalar());
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString(), "Error Execute query: FindTenBang LOAI_PHI table !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null)
+                {
+                    dataReader.Close();
+                }
+            }
+
+            // Đóng kết nối
+            DataProvider.getInstance().CloseConnection();
+            return TenBang;
+        }
     }
 }

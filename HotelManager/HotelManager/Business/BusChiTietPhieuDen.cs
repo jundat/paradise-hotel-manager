@@ -106,5 +106,15 @@ namespace HotelManager.Business
         {
             return DataChiTietPhieuDen.FindDanhSachChiTietPhieuDenTrongKhoangThoiGian(tu, den);
         }
+
+        /// <summary>
+        /// Tìm danh sách Mã phòng theo Mã phiếu đến trong bảng CHI_TIET_PHIEU_DEN
+        /// </summary>
+        /// <param name="MaPhieuDen"></param>
+        /// <returns></returns>
+        public static ArrayList FindMaPhongCuaMaPhieuDen(int MaPhieuDen)
+        {
+            return DataChiTietPhieuDen.FindMaPhongCuaMaPhieuDen(MaPhieuDen);
+        }
     }
 }

@@ -46,6 +46,7 @@
             this.btnThemTaiKhoanMoi = new System.Windows.Forms.Button();
             this.btnXoaTaiKhoan = new System.Windows.Forms.Button();
             this.btnCapNhatTaiKhoan = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.colMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +57,7 @@
             this.colPasswd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.SuspendLayout();
             // 
@@ -255,6 +257,18 @@
             this.btnCapNhatTaiKhoan.UseVisualStyleBackColor = true;
             this.btnCapNhatTaiKhoan.Click += new System.EventHandler(this.btnCapNhatTaiKhoan_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgvNhanVien);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(0, 132);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(757, 166);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Danh sách nhân viên";
+            // 
             // dgvNhanVien
             // 
             this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -268,11 +282,11 @@
             this.colUserName,
             this.colPasswd});
             this.dgvNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvNhanVien.Location = new System.Drawing.Point(0, 132);
+            this.dgvNhanVien.Location = new System.Drawing.Point(3, 18);
             this.dgvNhanVien.Name = "dgvNhanVien";
             this.dgvNhanVien.ReadOnly = true;
-            this.dgvNhanVien.Size = new System.Drawing.Size(757, 166);
-            this.dgvNhanVien.TabIndex = 3;
+            this.dgvNhanVien.Size = new System.Drawing.Size(751, 145);
+            this.dgvNhanVien.TabIndex = 4;
             this.dgvNhanVien.SelectionChanged += new System.EventHandler(this.dgvNhanVien_SelectionChanged);
             // 
             // colMa
@@ -322,9 +336,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 351);
-            this.Controls.Add(this.dgvNhanVien);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPhanQuyen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -333,6 +348,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.ResumeLayout(false);
 
@@ -342,14 +358,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colChucVu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPasswd;
         private System.Windows.Forms.ComboBox cbbChucVu;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbMatKhau;
@@ -365,5 +373,14 @@
         private System.Windows.Forms.Button btnThemTaiKhoanMoi;
         private System.Windows.Forms.Button btnXoaTaiKhoan;
         private System.Windows.Forms.Button btnCapNhatTaiKhoan;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgvNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDiaChi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colChucVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPasswd;
     }
 }

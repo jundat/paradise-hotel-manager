@@ -427,7 +427,43 @@ namespace HotelManager.Data
 
             return listCTPhieuDen;
         }
+
+        /// <summary>
+        /// Tìm danh sách Mã phòng theo Mã phiếu đến trong bảng CHI_TIET_PHIEU_DEN
+        /// </summary>
+        /// <param name="MaPhieuDen"></param>
+        /// <returns></returns>
+        public static ArrayList FindMaPhongCuaMaPhieuDen(int MaPhieuDen)
+        {
+            ArrayList listMaPhong = new ArrayList();
+
+            MySqlCommand cmd = DataProvider.getInstance().getCommand();
+            cmd.CommandText = "SELECT MaPhong FROM chi_tiet_phieu_den WHERE MaPhieuDen = ?MaPhieuDen";
+            cmd.Parameters.Add("?MaPhieuDen", MaPhieuDen);
+
+            MySqlDataReader dataReader = null;
+
+            try
+            {
+                dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    listMaPhong.Add(Convert.ToInt32(dataReader["MaPhong"]));
+                }
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString(), "Error Execute query: FindMaPhongCuaMaPhieuDen CHI_TIET_PHIEU_DEN table !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dataReader != null)
+                {
+                    dataReader.Close();
+                }
+            }
+
+            return listMaPhong;
+        }
     }
-
-
 }

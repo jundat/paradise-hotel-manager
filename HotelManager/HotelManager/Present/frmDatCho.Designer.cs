@@ -152,7 +152,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtloaiphong);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
@@ -164,7 +164,8 @@
             // 
             // txtcocchomotphong
             // 
-            this.txtcocchomotphong.Location = new System.Drawing.Point(203, 140);
+            this.txtcocchomotphong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtcocchomotphong.Location = new System.Drawing.Point(226, 140);
             this.txtcocchomotphong.Name = "txtcocchomotphong";
             this.txtcocchomotphong.Size = new System.Drawing.Size(121, 22);
             this.txtcocchomotphong.TabIndex = 14;
@@ -175,7 +176,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(6, 146);
+            this.label4.Location = new System.Drawing.Point(20, 146);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 16);
             this.label4.TabIndex = 13;
@@ -183,11 +184,12 @@
             // 
             // btdatcho
             // 
+            this.btdatcho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btdatcho.Enabled = false;
             this.btdatcho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btdatcho.Location = new System.Drawing.Point(260, 186);
+            this.btdatcho.Location = new System.Drawing.Point(272, 179);
             this.btdatcho.Name = "btdatcho";
-            this.btdatcho.Size = new System.Drawing.Size(75, 23);
+            this.btdatcho.Size = new System.Drawing.Size(75, 28);
             this.btdatcho.TabIndex = 12;
             this.btdatcho.Text = "Đặt chỗ";
             this.btdatcho.UseVisualStyleBackColor = true;
@@ -198,7 +200,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(6, 104);
+            this.label3.Location = new System.Drawing.Point(20, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(171, 16);
             this.label3.TabIndex = 9;
@@ -206,7 +208,8 @@
             // 
             // txtsoluongphongdatcho
             // 
-            this.txtsoluongphongdatcho.Location = new System.Drawing.Point(203, 101);
+            this.txtsoluongphongdatcho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtsoluongphongdatcho.Location = new System.Drawing.Point(226, 101);
             this.txtsoluongphongdatcho.Name = "txtsoluongphongdatcho";
             this.txtsoluongphongdatcho.Size = new System.Drawing.Size(121, 22);
             this.txtsoluongphongdatcho.TabIndex = 8;
@@ -215,8 +218,9 @@
             // 
             // txtsoluongphongtrong
             // 
+            this.txtsoluongphongtrong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtsoluongphongtrong.Enabled = false;
-            this.txtsoluongphongtrong.Location = new System.Drawing.Point(203, 61);
+            this.txtsoluongphongtrong.Location = new System.Drawing.Point(226, 61);
             this.txtsoluongphongtrong.Name = "txtsoluongphongtrong";
             this.txtsoluongphongtrong.Size = new System.Drawing.Size(121, 22);
             this.txtsoluongphongtrong.TabIndex = 7;
@@ -226,7 +230,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(6, 24);
+            this.label2.Location = new System.Drawing.Point(20, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 16);
             this.label2.TabIndex = 1;
@@ -237,7 +241,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(6, 64);
+            this.label1.Location = new System.Drawing.Point(20, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 16);
             this.label1.TabIndex = 0;
@@ -245,6 +249,7 @@
             // 
             // txtloaiphong
             // 
+            this.txtloaiphong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtloaiphong.DisplayMember = "VIP";
             this.txtloaiphong.Enabled = false;
             this.txtloaiphong.FormattingEnabled = true;
@@ -252,7 +257,7 @@
             "VIP",
             "MEDIUM",
             "NORMAL"});
-            this.txtloaiphong.Location = new System.Drawing.Point(203, 21);
+            this.txtloaiphong.Location = new System.Drawing.Point(226, 21);
             this.txtloaiphong.Name = "txtloaiphong";
             this.txtloaiphong.Size = new System.Drawing.Size(121, 24);
             this.txtloaiphong.TabIndex = 2;
@@ -290,6 +295,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenPhong,
@@ -360,7 +366,7 @@
             this.groupBox1.Controls.Add(this.lbnguoidat);
             this.groupBox1.Controls.Add(this.txtnguoidat);
             this.groupBox1.Controls.Add(this.lbcmnd);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -372,10 +378,11 @@
             // 
             // btluu
             // 
+            this.btluu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btluu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btluu.Location = new System.Drawing.Point(614, 111);
+            this.btluu.Location = new System.Drawing.Point(660, 102);
             this.btluu.Name = "btluu";
-            this.btluu.Size = new System.Drawing.Size(67, 23);
+            this.btluu.Size = new System.Drawing.Size(67, 28);
             this.btluu.TabIndex = 8;
             this.btluu.Text = "Lưu";
             this.btluu.UseVisualStyleBackColor = true;
@@ -383,7 +390,8 @@
             // 
             // txtsodienthoai
             // 
-            this.txtsodienthoai.Location = new System.Drawing.Point(470, 71);
+            this.txtsodienthoai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtsodienthoai.Location = new System.Drawing.Point(516, 74);
             this.txtsodienthoai.Name = "txtsodienthoai";
             this.txtsodienthoai.Size = new System.Drawing.Size(211, 22);
             this.txtsodienthoai.TabIndex = 7;
@@ -391,7 +399,8 @@
             // 
             // txtdiachi
             // 
-            this.txtdiachi.Location = new System.Drawing.Point(470, 27);
+            this.txtdiachi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtdiachi.Location = new System.Drawing.Point(516, 30);
             this.txtdiachi.Name = "txtdiachi";
             this.txtdiachi.Size = new System.Drawing.Size(211, 22);
             this.txtdiachi.TabIndex = 6;
@@ -406,10 +415,11 @@
             // 
             // lbsdt
             // 
+            this.lbsdt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbsdt.AutoSize = true;
             this.lbsdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbsdt.ForeColor = System.Drawing.Color.Blue;
-            this.lbsdt.Location = new System.Drawing.Point(358, 77);
+            this.lbsdt.Location = new System.Drawing.Point(404, 80);
             this.lbsdt.Name = "lbsdt";
             this.lbsdt.Size = new System.Drawing.Size(106, 16);
             this.lbsdt.TabIndex = 4;
@@ -417,10 +427,11 @@
             // 
             // lbdiachi
             // 
+            this.lbdiachi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbdiachi.AutoSize = true;
             this.lbdiachi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbdiachi.ForeColor = System.Drawing.Color.Blue;
-            this.lbdiachi.Location = new System.Drawing.Point(358, 33);
+            this.lbdiachi.Location = new System.Drawing.Point(404, 36);
             this.lbdiachi.Name = "lbdiachi";
             this.lbdiachi.Size = new System.Drawing.Size(55, 16);
             this.lbdiachi.TabIndex = 3;
@@ -476,7 +487,7 @@
             this.grthongtindatcho.Controls.Add(this.lbthoidiemdi);
             this.grthongtindatcho.Controls.Add(this.lbthoidiemdat);
             this.grthongtindatcho.Controls.Add(this.lbthoidiemden);
-            this.grthongtindatcho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grthongtindatcho.Dock = System.Windows.Forms.DockStyle.Top;
             this.grthongtindatcho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grthongtindatcho.Location = new System.Drawing.Point(0, 0);
             this.grthongtindatcho.Name = "grthongtindatcho";
@@ -490,17 +501,18 @@
             // 
             this.dtthoidiemdi.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtthoidiemdi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtthoidiemdi.Location = new System.Drawing.Point(128, 146);
+            this.dtthoidiemdi.Location = new System.Drawing.Point(128, 139);
             this.dtthoidiemdi.Name = "dtthoidiemdi";
             this.dtthoidiemdi.Size = new System.Drawing.Size(177, 22);
             this.dtthoidiemdi.TabIndex = 10;
             // 
             // bttimphong
             // 
+            this.bttimphong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bttimphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttimphong.Location = new System.Drawing.Point(343, 145);
+            this.bttimphong.Location = new System.Drawing.Point(612, 132);
             this.bttimphong.Name = "bttimphong";
-            this.bttimphong.Size = new System.Drawing.Size(115, 23);
+            this.bttimphong.Size = new System.Drawing.Size(115, 28);
             this.bttimphong.TabIndex = 0;
             this.bttimphong.Text = "Tìm phòng";
             this.bttimphong.UseVisualStyleBackColor = true;
@@ -510,7 +522,7 @@
             // 
             this.dtthoidiemden.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtthoidiemden.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtthoidiemden.Location = new System.Drawing.Point(128, 93);
+            this.dtthoidiemden.Location = new System.Drawing.Point(128, 88);
             this.dtthoidiemden.Name = "dtthoidiemden";
             this.dtthoidiemden.Size = new System.Drawing.Size(177, 22);
             this.dtthoidiemden.TabIndex = 9;
@@ -530,18 +542,20 @@
             // 
             // txttongcoc
             // 
+            this.txttongcoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txttongcoc.Enabled = false;
-            this.txttongcoc.Location = new System.Drawing.Point(452, 43);
+            this.txttongcoc.Location = new System.Drawing.Point(516, 43);
             this.txttongcoc.Name = "txttongcoc";
             this.txttongcoc.Size = new System.Drawing.Size(211, 22);
             this.txttongcoc.TabIndex = 7;
             // 
             // lbtongcoc
             // 
+            this.lbtongcoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbtongcoc.AutoSize = true;
             this.lbtongcoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbtongcoc.ForeColor = System.Drawing.Color.Blue;
-            this.lbtongcoc.Location = new System.Drawing.Point(340, 46);
+            this.lbtongcoc.Location = new System.Drawing.Point(404, 46);
             this.lbtongcoc.Name = "lbtongcoc";
             this.lbtongcoc.Size = new System.Drawing.Size(73, 16);
             this.lbtongcoc.TabIndex = 4;
@@ -552,7 +566,7 @@
             this.lbthoidiemdi.AutoSize = true;
             this.lbthoidiemdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbthoidiemdi.ForeColor = System.Drawing.Color.Blue;
-            this.lbthoidiemdi.Location = new System.Drawing.Point(19, 151);
+            this.lbthoidiemdi.Location = new System.Drawing.Point(19, 144);
             this.lbthoidiemdi.Name = "lbthoidiemdi";
             this.lbthoidiemdi.Size = new System.Drawing.Size(94, 16);
             this.lbthoidiemdi.TabIndex = 3;
@@ -574,7 +588,7 @@
             this.lbthoidiemden.AutoSize = true;
             this.lbthoidiemden.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbthoidiemden.ForeColor = System.Drawing.Color.Blue;
-            this.lbthoidiemden.Location = new System.Drawing.Point(19, 98);
+            this.lbthoidiemden.Location = new System.Drawing.Point(19, 93);
             this.lbthoidiemden.Name = "lbthoidiemden";
             this.lbthoidiemden.Size = new System.Drawing.Size(107, 16);
             this.lbthoidiemden.TabIndex = 2;
@@ -583,7 +597,7 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.button1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(3, 501);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(743, 44);
@@ -592,9 +606,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(614, 11);
+            this.button1.Location = new System.Drawing.Point(3, 8);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 23);
+            this.button1.Size = new System.Drawing.Size(113, 28);
             this.button1.TabIndex = 1;
             this.button1.Text = "Hủy Đặt Chỗ";
             this.button1.UseVisualStyleBackColor = true;
@@ -614,6 +628,7 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clkhachhang,
@@ -680,6 +695,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDatCho";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đặt Chỗ";
             this.Load += new System.EventHandler(this.frmDatCho_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

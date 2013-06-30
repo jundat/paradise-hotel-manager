@@ -90,5 +90,14 @@ namespace HotelManager.Business
         {
             return DataPhieuDen.LayDanhSachPhieuDen();
         }
+
+        /// <summary>
+        /// Xác nhận thuộc tính Tình trạng thanh toán cho Phiếu Đến là đã thanh toán
+        /// </summary>
+        /// <param name="MaBang"></param>
+        public static void ThanhToan(int MaBang)
+        {
+            DataPhieuDen.ThanhToan(MaBang);
+        }
     }
 }

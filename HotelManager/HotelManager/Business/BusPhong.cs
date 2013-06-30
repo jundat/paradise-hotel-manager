@@ -184,6 +184,13 @@ namespace HotelManager.Business
             return DataPhong.layphongtrongtheoloaiphong(loaiphong);
         }
 
-
+        /// <summary>
+        /// Xác nhận thuộc tính Tình trạng phòng là còn trống (do trả phòng)
+        /// </summary>
+        /// <param name="MaPhong"></param>
+        public static void TraPhong(int MaPhong)
+        {
+            DataPhong.TraPhong(MaPhong);
+        }
     }
 }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -162,25 +162,64 @@ namespace HotelManager.Present
         {
             dtdanhsachphong.DataSource = BusPhong.layphongtrongtheoloaiphong(comboBox1.Text);
         }
-
+        
         private void radiodadatphong_CheckedChanged(object sender, EventArgs e)
         {
+            this.rdiochuadatphong.CheckedChanged -= new System.EventHandler(this.rdiochuadatphong_CheckedChanged);
+            // Thay đổi do radiodadatphong
             if (radiodadatphong.Checked == true)
             {
                 rdiochuadatphong.Checked = false;
+                panel2.Enabled = false;
+                dtdanhsachphong.Enabled = false;
                 dtthoidiemden.Enabled = false;
                 dtthoidiemdi.Enabled = false;
+
+                dtdanhsachphongdadat.Enabled = true;
+                panel1.Enabled = true;
             }
+            else
+            {
+                rdiochuadatphong.Checked = true;
+                panel2.Enabled = true;
+                dtdanhsachphong.Enabled = true;
+                dtthoidiemden.Enabled = true;
+                dtthoidiemdi.Enabled = true;
+
+                dtdanhsachphongdadat.Enabled = false;
+                panel1.Enabled = false;
+            }
+
+            this.rdiochuadatphong.CheckedChanged += new System.EventHandler(this.rdiochuadatphong_CheckedChanged);
         }
 
         private void rdiochuadatphong_CheckedChanged(object sender, EventArgs e)
         {
+            this.radiodadatphong.CheckedChanged -= new System.EventHandler(this.radiodadatphong_CheckedChanged);
+            // Thay đổi do rdiochuadatphong
             if (rdiochuadatphong.Checked == true)
             {
                 radiodadatphong.Checked = false;
+                panel1.Enabled = false;
+                dtdanhsachphongdadat.Enabled = false;
                 dtthoidiemden.Enabled = true;
                 dtthoidiemdi.Enabled = true;
+
+                dtdanhsachphong.Enabled = true;
+                panel2.Enabled = true;
             }
+            else
+            {
+                radiodadatphong.Checked = true;
+                panel1.Enabled = true;
+                dtdanhsachphongdadat.Enabled = true;
+                dtthoidiemden.Enabled = false;
+                dtthoidiemdi.Enabled = false;
+
+                dtdanhsachphong.Enabled = false;
+                panel2.Enabled = false;
+            }
+            this.radiodadatphong.CheckedChanged += new System.EventHandler(this.radiodadatphong_CheckedChanged);
         }
 
         private void txtsdtnguoidat_TextChanged(object sender, EventArgs e)
