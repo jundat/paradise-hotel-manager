@@ -304,9 +304,11 @@ USE `QLNHKS` ;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
--- -----------------------------------------------------
--- INSERT SAMPLE DATA INTO TABLES
--- -----------------------------------------------------
+
+
+-- =============================================================================
+--                    INSERT SAMPLE DATA INTO TABLES
+-- =============================================================================
 
 -- -----------------------------------------------------
 -- Insert sample data for LOAI_PHONG table
@@ -318,12 +320,12 @@ INSERT INTO `qlnhks`.`loai_phong` (`MaLoaiPhong`, `TenLoaiPhong`, `DonGia`) VALU
 -- -----------------------------------------------------
 -- Insert sample data for PHONG table
 -- -----------------------------------------------------
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('1', '1', 'P101', '1', 'VIP');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('2', '1', 'P202', '0', 'VIP');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('3', '2', 'P301', '1', 'MEDIUM');
+INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('1', '1', 'P101', '0', 'VIP');
+INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('2', '1', 'P201', '0', 'VIP');
+INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('3', '2', 'P301', '0', 'MEDIUM');
 INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('4', '2', 'P402', '0', 'MEDIUM');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('5', '3', 'P501', '1', 'NORMAL');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('6', '3', 'P602', '0', 'NORMAL');
+INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('5', '3', 'P501', '0', 'NORMAL');
+INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('6', '3', 'P601', '0', 'NORMAL');
 
 -- -----------------------------------------------------
 -- Insert sample data for QUY_DINH table
@@ -344,50 +346,6 @@ INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, 
 -- -----------------------------------------------------
 -- Insert sample data for LOAI_PHI table
 -- -----------------------------------------------------
-INSERT INTO `qlnhks`.`loai_phi` (`MaLoaiPhi`, `TenLoaiPhi`, `GhiChu`) VALUES ('1', 'Thuê Phòng', 'Đây là tiền thuê phòng');
-INSERT INTO `qlnhks`.`loai_phi` (`MaLoaiPhi`, `TenLoaiPhi`, `GhiChu`) VALUES ('2', 'Đặt tiệc', 'Đây là tiền đặt tiệc');
-INSERT INTO `qlnhks`.`loai_phi` (`MaLoaiPhi`, `TenLoaiPhi`, `GhiChu`) VALUES ('3', 'Dịch vụ', 'Đây là tiền do khách gọi thêm các dịch vụ');
-
-
--- -----------------------------------------------------
--- INSERT SAMPLE DATA INTO TABLES
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Insert sample data for LOAI_PHONG table
--- -----------------------------------------------------
-INSERT INTO `qlnhks`.`loai_phong` (`MaLoaiPhong`, `TenLoaiPhong`, `DonGia`) VALUES ('1', 'VIP', '200000');
-INSERT INTO `qlnhks`.`loai_phong` (`MaLoaiPhong`, `TenLoaiPhong`, `DonGia`) VALUES ('2', 'MEDIUM', '150000');
-INSERT INTO `qlnhks`.`loai_phong` (`MaLoaiPhong`, `TenLoaiPhong`, `DonGia`) VALUES ('3', 'NORMAL', '100000');
-
--- -----------------------------------------------------
--- Insert sample data for PHONG table
--- -----------------------------------------------------
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('1', '1', 'P101', '1', 'VIP');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('2', '1', 'P202', '0', 'VIP');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('3', '2', 'P301', '1', 'MEDIUM');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('4', '2', 'P402', '0', 'MEDIUM');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('5', '3', 'P501', '1', 'NORMAL');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('6', '3', 'P602', '0', 'NORMAL');
-
--- -----------------------------------------------------
--- Insert sample data for QUY_DINH table
--- -----------------------------------------------------
-INSERT INTO `qlnhks`.`quy_dinh` (`ID`, `SoKhachToiDaTrongMotPhong`, `TyLeCoc`, `SoGioThueVoiGiaGoc`, `TyLeGiaPhongNeuThueTheoNgay`) VALUES ('1', '3', '0.2', '1', '0.7');
-
--- -----------------------------------------------------
--- Insert sample data for NHAN_VIEN table
--- -----------------------------------------------------
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('1', 'Admin', 'Paradies', '01238059792', 'Admin', 'admin', 'a');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('2', 'Phạm Tấn Long', 'Đồng Nai', '01696242422', 'Reception', 'r1', 'r1');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('3', 'Hà Phi Phú', 'Vũng Tàu', '09234242874', 'Reception', 'r2', 'r2');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('4', 'Lê Ngọc Anh', 'Bình Định', '01235325362', 'Reception', 'r3', 'r3');
-INSERT INTO `qlnhks`.`nhan_vien` (`MaNhanVien`, `TenNhanVien`, `DiaChi`, `SDT`, `ChucVu`, `UserName`, `Password`) VALUES ('5', 'Trần Duy Nam', 'Phú Yên', '01693453453', 'Reception', 'r4', 'r4');
-
-
--- -----------------------------------------------------
--- Insert sample data for LOAI_PHI table
--- -----------------------------------------------------
-INSERT INTO `qlnhks`.`loai_phi` (`MaLoaiPhi`, `TenLoaiPhi`, `GhiChu`) VALUES ('1', 'Thuê Phòng', 'Đây là tiền thuê phòng');
-INSERT INTO `qlnhks`.`loai_phi` (`MaLoaiPhi`, `TenLoaiPhi`, `GhiChu`) VALUES ('2', 'Đặt tiệc', 'Đây là tiền đặt tiệc');
-INSERT INTO `qlnhks`.`loai_phi` (`MaLoaiPhi`, `TenLoaiPhi`, `GhiChu`) VALUES ('3', 'Dịch vụ', 'Đây là tiền do khách gọi thêm các dịch vụ');
+INSERT INTO `qlnhks`.`loai_phi` (`MaLoaiPhi`, `TenLoaiPhi`, `GhiChu`) VALUES ('1', 'PhieuDen', 'Đây là tiền thuê phòng');
+INSERT INTO `qlnhks`.`loai_phi` (`MaLoaiPhi`, `TenLoaiPhi`, `GhiChu`) VALUES ('2', 'PhieuDatTiec', 'Đây là tiền đặt tiệc');
+INSERT INTO `qlnhks`.`loai_phi` (`MaLoaiPhi`, `TenLoaiPhi`, `GhiChu`) VALUES ('3', 'BangKe', 'Đây là tiền do khách gọi thêm các dịch vụ');

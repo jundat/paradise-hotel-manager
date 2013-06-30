@@ -216,6 +216,7 @@
             // 
             this.llThuNhoMoRong.AutoSize = true;
             this.llThuNhoMoRong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llThuNhoMoRong.LinkColor = System.Drawing.Color.Magenta;
             this.llThuNhoMoRong.Location = new System.Drawing.Point(12, 15);
             this.llThuNhoMoRong.Name = "llThuNhoMoRong";
             this.llThuNhoMoRong.Size = new System.Drawing.Size(64, 16);
@@ -361,7 +362,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

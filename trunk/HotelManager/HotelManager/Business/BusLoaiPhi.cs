@@ -51,5 +51,10 @@ namespace HotelManager.Business
         {
             return DataLoaiPhi.Find(tenLoaiPhi);
         }
+
+        public static String FindTenBang(int MaLoaiPhi)
+        {
+            return DataLoaiPhi.FindTenBang(MaLoaiPhi);
+        }
     }
 }

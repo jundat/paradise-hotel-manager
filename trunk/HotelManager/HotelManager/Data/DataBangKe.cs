@@ -311,6 +311,22 @@ namespace HotelManager.Data
             }
         }
 
+        /// <summary>
+        /// Xác nhận thuộc tính Tình trạng thanh toán cho Bảng Kê dịch vụ là đã thanh toán
+        /// </summary>
+        /// <param name="MaBang"></param>
+        public static void ThanhToan(int MaBang)
+        {
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = "UPDATE bang_ke SET TinhTrangThanhToan = ?TinhTrangThanhToan WHERE MaBangKe = ?MaBangKe";
 
+            ObjCmd.Parameters.Add("?MaBangKe", MaBang);
+            ObjCmd.Parameters.Add("?TinhTrangThanhToan", true);
+
+            ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+        }
     }
 }

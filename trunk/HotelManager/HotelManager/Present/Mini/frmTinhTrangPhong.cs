@@ -38,7 +38,7 @@ namespace HotelManager.Present.Mini
                 btn.Size = new System.Drawing.Size(50, 50);
                 btn.FlatStyle = FlatStyle.Flat;
                 
-                if (p.TinhTrangHienTai == false)
+                if (p.TinhTrangHienTai == true)
                 {
                     btn.BackColor = colorPhongDay;
                     btn.ForeColor = forecolorPhongDay;

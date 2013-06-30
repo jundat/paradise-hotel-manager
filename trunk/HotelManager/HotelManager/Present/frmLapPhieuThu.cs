@@ -65,7 +65,7 @@ namespace HotelManager.Present
         /// <summary>
         /// Lay thong tin khach hang tu Ten Khach Hang va CMND
         /// </summary>
-        private void TinhToanChiPhi()
+        private bool TinhToanChiPhi()
         {
             string cmnd = this.txtCMND.Text;
             string tenkhach = "";
@@ -76,6 +76,7 @@ namespace HotelManager.Present
             if (result < 0)
             {
                 MessageBox.Show("Không tìm thấy!");
+                return false;
             }
 
             int phiThietHai = 0;
@@ -89,6 +90,7 @@ namespace HotelManager.Present
             catch (System.Exception ex)
             {
                 MessageBox.Show("Phí thiệt hại điền giá trị sai!");
+                return false;
             }
 
             this.txtKhachHang.Text = tenkhach;
@@ -102,21 +104,69 @@ namespace HotelManager.Present
             pt.TongTienThu = (float)Convert.ToDouble(txtTongChiPhi.Text);
             pt.MaNhanVien = frmMain.nv.MaNhanVien;
             BusPhieuThu.Add(pt);
-
-            //save to table CHI_TIET_PHIEU_THU
-            //-----------------
+            
+            return true;
         }
         
         private void btThanhToan_Click(object sender, EventArgs e)
         {
             ((DataTable)dataMain.DataSource).Clear();
-            TinhToanChiPhi();
+
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn rằng khách hàng đã nộp đủ các khoản phí kể trên !", "Vui lòng xác nhận lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
+            {
+                Checkout();
+            }
+
             this.btThanhToan.Enabled = false;
+        }
+
+        /// <summary>
+        /// Cập nhật lại tình trạng phòng và tình trạng thanh toán cho Bảng phòng, Phiếu đến
+        /// Bảng kê dịch vụ, Hóa đơn đặt tiệc
+        /// </summary>
+        private void Checkout()
+        {
+            for (int i = 0; i < dataMain.Rows.Count - 1; i++)
+            {
+                // Lấy thông itn Mã loại phí và Mã bảng trên DataGridView
+                int MaLoaiPhi = Convert.ToInt32(dataMain.Rows[i].Cells[0].Value.ToString());
+                int MaBang = Convert.ToInt32(dataMain.Rows[i].Cells[1].Value.ToString());
+
+                String TenBang = BusLoaiPhi.FindTenBang(MaLoaiPhi);
+
+                if ("PhieuDen".Equals(TenBang))
+                {
+                    // Xác nhận trả phòng cho tất cả các phòng của phiếu đến
+                    foreach (int maPhong in BusChiTietPhieuDen.FindMaPhongCuaMaPhieuDen(MaBang))
+                    {
+                        BusPhong.TraPhong(maPhong);
+                    }
+
+                    // Xác nhận lại là đã thanh toán
+                    BusPhieuDen.ThanhToan(MaBang);
+                }
+
+                if ("PhieuDatTiec".Equals(TenBang))
+                {
+                    // Xác nhận lại là đã thanh toán
+                    BusPhieuDatTiec.ThanhToan(MaBang);
+                }
+
+                if ("BangKe".Equals(TenBang))
+                {
+                    // Xác nhận lại là đã thanh toán
+                    BusBangKe.ThanhToan(MaBang);
+                }
+            }
         }
 
         private void txtCMND_TextChanged(object sender, EventArgs e)
         {
-            this.btThanhToan.Enabled = true;
+            if (TinhToanChiPhi() == true)
+            {
+                this.btThanhToan.Enabled = true;
+            }
         }
 
         private void btInPhieuThu_Click(object sender, EventArgs e)

@@ -175,9 +175,6 @@ namespace HotelManager.Data
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
             ObjCmd.CommandText = StrSQL;
 
-
-
-
             ObjCmd.ExecuteNonQuery();
 
             //close connection
@@ -352,6 +349,24 @@ namespace HotelManager.Data
             // Đóng kết nối
             DataProvider.getInstance().CloseConnection();
             return dataTable;
+        }
+
+        /// <summary>
+        /// Xác nhận thuộc tính Tình trạng thanh toán cho Phiếu Đến là đã thanh toán
+        /// </summary>
+        /// <param name="MaBang"></param>
+        public static void ThanhToan(int MaBang)
+        {
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = "UPDATE phieu_den SET TinhTrangThanhToan = ?TinhTrangThanhToan WHERE MaPhieuDen = ?MaPhieuDen";
+
+            ObjCmd.Parameters.Add("?MaPhieuDen", MaBang);
+            ObjCmd.Parameters.Add("?TinhTrangThanhToan", true);
+
+            ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
         }
 
     }

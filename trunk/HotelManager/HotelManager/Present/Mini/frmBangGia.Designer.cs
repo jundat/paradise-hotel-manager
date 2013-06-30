@@ -42,12 +42,15 @@
             this.label1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(8, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(291, 23);
+            this.label1.Size = new System.Drawing.Size(394, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "BẢNG GIÁ THEO LOẠI PHÒNG";
+            this.label1.Text = "BẢNG GIÁ THEO LOẠI PHÒNG (VNĐ/Giờ)";
             // 
             // dataMain
             // 
+            this.dataMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataMain.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataMain.Location = new System.Drawing.Point(12, 35);
@@ -57,6 +60,7 @@
             // 
             // btThoat
             // 
+            this.btThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btThoat.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThoat.Location = new System.Drawing.Point(379, 277);
             this.btThoat.Name = "btThoat";
@@ -68,6 +72,7 @@
             // 
             // btLuu
             // 
+            this.btLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btLuu.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLuu.Location = new System.Drawing.Point(268, 277);
             this.btLuu.Name = "btLuu";

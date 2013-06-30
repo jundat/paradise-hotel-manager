@@ -39,9 +39,9 @@
             // 
             // pnMain
             // 
-            this.pnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnMain.BackColor = System.Drawing.Color.Silver;
             this.pnMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnMain.Location = new System.Drawing.Point(12, 45);
@@ -53,7 +53,7 @@
             // 
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.Location = new System.Drawing.Point(12, 9);
+            this.lbTitle.Location = new System.Drawing.Point(8, 9);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(200, 23);
             this.lbTitle.TabIndex = 1;
@@ -95,6 +95,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(270, 384);
             this.Name = "frmTinhTrangPhong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tình Trạng Phòng";
             this.ResumeLayout(false);
             this.PerformLayout();

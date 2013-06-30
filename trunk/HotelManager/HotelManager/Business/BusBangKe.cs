@@ -105,5 +105,13 @@ namespace HotelManager.Business
             return DataBangKe.Find(_maPhong, _tinhTrangThanhToan);
         }
 
+        /// <summary>
+        /// Xác nhận thuộc tính Tình trạng thanh toán cho Bảng Kê dịch vụ là đã thanh toán
+        /// </summary>
+        /// <param name="MaBang"></param>
+        public static void ThanhToan(int MaBang)
+        {
+            DataBangKe.ThanhToan(MaBang);
+        }
     }
 }

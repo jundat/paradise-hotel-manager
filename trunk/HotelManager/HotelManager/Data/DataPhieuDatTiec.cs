@@ -327,5 +327,23 @@ namespace HotelManager.Data
 
             return listPhieuDatTiec;
         }
+
+        /// <summary>
+        /// Xác nhận thuộc tính Tình trạng thanh toán cho Phiếu đặt tiệc là đã thanh toán
+        /// </summary>
+        /// <param name="MaBang"></param>
+        public static void ThanhToan(int MaBang)
+        {
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = "UPDATE phieu_dat_tiec SET TinhTrangThanhToan = ?TinhTrangThanhToan WHERE MaPhieuDatTiec = ?MaPhieuDatTiec";
+
+            ObjCmd.Parameters.Add("?MaPhieuDatTiec", MaBang);
+            ObjCmd.Parameters.Add("?TinhTrangThanhToan", true);
+
+            ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+        }
     }
 }

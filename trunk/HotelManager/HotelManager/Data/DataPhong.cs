@@ -377,5 +377,23 @@ namespace HotelManager.Data
             DataProvider.getInstance().CloseConnection();
             return datatable;
         }
+
+        /// <summary>
+        /// Xác nhận thuộc tính Tình trạng phòng là còn trống (do trả phòng)
+        /// </summary>
+        /// <param name="MaPhong"></param>
+        public static void TraPhong(int MaPhong)
+        {
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = "UPDATE phong SET TinhTrangHienTai = ?TinhTrangHienTai WHERE MaPhong = ?MaPhong";
+
+            ObjCmd.Parameters.Add("?MaPhong", MaPhong);
+            ObjCmd.Parameters.Add("?TinhTrangHienTai", true); // true là đang trống
+
+            ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+        }
     }
 }

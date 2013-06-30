@@ -66,7 +66,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtThang);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(732, 67);
@@ -74,9 +74,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(526, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 24);
@@ -85,6 +86,7 @@
             // 
             // txtThang
             // 
+            this.txtThang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThang.Location = new System.Drawing.Point(614, 23);
             this.txtThang.Name = "txtThang";
@@ -96,7 +98,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(9, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(366, 24);
@@ -117,7 +119,7 @@
             // 
             this.panel2.Controls.Add(this.btLapBaoCao);
             this.panel2.Controls.Add(this.btInBaoCao);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(3, 364);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(732, 51);
@@ -125,10 +127,11 @@
             // 
             // btLapBaoCao
             // 
+            this.btLapBaoCao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btLapBaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLapBaoCao.Location = new System.Drawing.Point(614, 17);
+            this.btLapBaoCao.Location = new System.Drawing.Point(614, 12);
             this.btLapBaoCao.Name = "btLapBaoCao";
-            this.btLapBaoCao.Size = new System.Drawing.Size(109, 23);
+            this.btLapBaoCao.Size = new System.Drawing.Size(109, 28);
             this.btLapBaoCao.TabIndex = 1;
             this.btLapBaoCao.Text = "Lập báo cáo";
             this.btLapBaoCao.UseVisualStyleBackColor = true;
@@ -137,9 +140,9 @@
             // btInBaoCao
             // 
             this.btInBaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btInBaoCao.Location = new System.Drawing.Point(12, 17);
+            this.btInBaoCao.Location = new System.Drawing.Point(13, 12);
             this.btInBaoCao.Name = "btInBaoCao";
-            this.btInBaoCao.Size = new System.Drawing.Size(98, 23);
+            this.btInBaoCao.Size = new System.Drawing.Size(98, 28);
             this.btInBaoCao.TabIndex = 0;
             this.btInBaoCao.Text = "In báo cáo";
             this.btInBaoCao.UseVisualStyleBackColor = true;
@@ -154,6 +157,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmLapBaoCaoMatDo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lập Báo Cáo Mật Độ Sử Dụng";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
