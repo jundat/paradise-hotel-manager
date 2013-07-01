@@ -52,7 +52,7 @@ namespace HotelManager.Present
 
         private void frmDatCho_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BusPhieuDatCho.Findtinhtrang(false);
+            dataGridView1.DataSource = BusPhieuDatCho.Findtinhtrang(true);
             dataGridView2.DataSource = BusPhieuDatCho.GetTable();
             /*dtthoidiemdat.Value = DateTime.Now.AddDays(0).Date;
             dtthoidiemden.Value = DateTime.Now.AddDays(1).Date;*/
