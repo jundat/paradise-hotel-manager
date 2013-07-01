@@ -192,5 +192,14 @@ namespace HotelManager.Business
         {
             DataPhong.TraPhong(MaPhong);
         }
+
+        /// <summary>
+        /// Xác nhận là phòng đã được thuê (ko còn trống --> Tình trạng phòng == false)
+        /// </summary>
+        /// <param name="MaPhong"></param>
+        public static void ChoKhachNhanPhong(int MaPhong)
+        {
+            DataPhong.ChoKhachNhanPhong(MaPhong);
+        }
     }
 }

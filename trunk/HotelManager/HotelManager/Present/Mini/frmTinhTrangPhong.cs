@@ -38,7 +38,8 @@ namespace HotelManager.Present.Mini
                 btn.Size = new System.Drawing.Size(50, 50);
                 btn.FlatStyle = FlatStyle.Flat;
                 
-                if (p.TinhTrangHienTai == true)
+                // Nếu phòng đang có người thuê (ko trống)
+                if (p.TinhTrangHienTai == false)
                 {
                     btn.BackColor = colorPhongDay;
                     btn.ForeColor = forecolorPhongDay;

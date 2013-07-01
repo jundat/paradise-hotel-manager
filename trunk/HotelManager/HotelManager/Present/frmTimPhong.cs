@@ -18,5 +18,10 @@ namespace HotelManager.Present
         {
             InitializeComponent();
         }
+
+        private void bttimphong_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

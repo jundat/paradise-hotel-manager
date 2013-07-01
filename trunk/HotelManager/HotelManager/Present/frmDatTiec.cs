@@ -186,20 +186,15 @@ namespace HotelManager.Present
             
             Phong phong = BusPhong.FindTheoTenPhong(tbTenPhong.Text);
             phieuDatTiec.MaPhong = phong.MaPhong;
-            if (phong.MaPhong == 0)
+            if (phong.MaPhong == 0 || phong.TinhTrangHienTai == true)
             {
-                MessageBox.Show("Tên phòng không tồn tại !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Phòng của khách không tồn tại hoặc đang trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            phieuDatTiec.ThoiDiem = dtpThoiDiemDat.Value.Date;
-            //DateTime now = new DateTime();
-            //phieuDatTiec.ThoiDiem.AddHours(now.Hour);
-            //phieuDatTiec.ThoiDiem.AddMinutes(now.Minute);
-            //phieuDatTiec.ThoiDiem.AddSeconds(now.Second);
-            
+            phieuDatTiec.ThoiDiem = dtpThoiDiemDat.Value.Date;            
             phieuDatTiec.TongTien = float.Parse(tbTongTien.Text);
-            phieuDatTiec.TinhTrangThanhToan = false;
+            phieuDatTiec.TinhTrangThanhToan = false; // Mặc định là chưa thanh toán
             BusPhieuDatTiec.Add(phieuDatTiec);
 
             // Tạo và thêm các chi tiết cho phiếu

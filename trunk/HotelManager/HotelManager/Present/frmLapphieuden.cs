@@ -20,19 +20,11 @@ namespace HotelManager.Present
         {
             InitializeComponent();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
         private void frmLapphieuden_Load(object sender, EventArgs e)
         {
-            dtdanhsachphong.DataSource = BusPhong.layphongchothue(false);
+            dtdanhsachphong.DataSource = BusPhong.layphongchothue(true);
             dataGridView1.DataSource = BusPhieuDen.laydanhsachphieuden();
-           
-           
-
  
         }
 
@@ -94,6 +86,13 @@ namespace HotelManager.Present
         private void button1_Click(object sender, EventArgs e)
         {
             Phong phong = BusPhong.FindTheoTenPhong(txtphong.Text);
+            
+            if (phong.MaPhong != 0)
+            {
+                // Xác nhận tình trạng phòng là đã đc thuê 
+                BusPhong.ChoKhachNhanPhong(phong.MaPhong);
+            }
+
             x += 1;
             if (x <= BusQuyDinh.GetSoKhachToiDaTrongMotPhong())
             {
@@ -110,6 +109,7 @@ namespace HotelManager.Present
                     pden.MaPhieuDen = phieuden.MaPhieuDen;
                 }
 
+                // Tính Tổng giá trị phiếu đến tự động
                 ChiTietPhieuDen chitietphieuden = new ChiTietPhieuDen();
                 chitietphieuden.MaPhieuDen = pden.MaPhieuDen;
                 chitietphieuden.MaPhong = phong.MaPhong;
@@ -126,8 +126,7 @@ namespace HotelManager.Present
             txtkhachhang.Clear();
             txtcmnd.Clear();
             txtdienthoai.Clear();
-            txtkhachhang.Focus();
-            
+            txtkhachhang.Focus();            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -141,7 +140,6 @@ namespace HotelManager.Present
             BusChiTietPhieuDatCho.XoaCTPDC(phieudatcho.MaPhieuDatCho);
             BusPhieuDatCho.Delete(phieudatcho.MaPhieuDatCho);
 
-
         }
 
         private void dtdanhsachphong_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -150,7 +148,6 @@ namespace HotelManager.Present
             {
                 txtphong.Text = dtdanhsachphong.Rows[e.RowIndex].Cells["colPhong"].Value.ToString();
                 txttonggia.Text = dtdanhsachphong.Rows[e.RowIndex].Cells["colDonGia"].Value.ToString();
-
             }
             catch (Exception)
             {

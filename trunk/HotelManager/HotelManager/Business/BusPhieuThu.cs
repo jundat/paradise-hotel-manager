@@ -23,11 +23,15 @@ namespace HotelManager.Business
                 listPhieuDen = BusPhieuDen.FindCMND(cmnd, false);
             }
 
-            if (listPhieuDen.Rows.Count == 0)
+            if (listPhieuDen == null)
             {
                 return 0;
             }
 
+            if (listPhieuDen.Rows.Count <= 0)
+            {
+                return 0;
+            }
             //1- phieu den
             int maPhieuDen = (int)(listPhieuDen.Rows[0]["MaPhieuDen"]);
             float tienPhieuDen = (float)(listPhieuDen.Rows[0]["TongChiPhi"]);
@@ -38,7 +42,7 @@ namespace HotelManager.Business
 
             ///////////////////////////////////////////////////////////////////////////////////////
             //add to data
-            data.Rows.Add("Phieu Den", maPhieuDen, tienPhieuDen, "Chi phí thuê phòng");
+            data.Rows.Add(1, maPhieuDen, tienPhieuDen, "Chi phí thuê phòng");
             tongchiphi += tienPhieuDen;
 
             //2- bang ke
@@ -54,7 +58,7 @@ namespace HotelManager.Business
                 if (bangke == null) break;
 
                 //add to data
-                data.Rows.Add("Bang Ke", bangke.MaBangKe, bangke.TongChiPhi, "Mã Phòng " + bangke.MaPhong);
+                data.Rows.Add(3, bangke.MaBangKe, bangke.TongChiPhi, "Mã Phòng " + bangke.MaPhong);
                 tongchiphi += bangke.TongChiPhi;
 
                 //ghi lại trạng thái trong bảng kê
@@ -71,7 +75,7 @@ namespace HotelManager.Business
                 foreach (PhieuDatTiec pdt in listPhieuDatTiec)
                 {
                     //add to data
-                    data.Rows.Add("Hoa Don", pdt.MaPhieuDatTiec, pdt.TongTien, "Mã Phòng " + pdt.MaPhong);
+                    data.Rows.Add(2, pdt.MaPhieuDatTiec, pdt.TongTien, "Mã Phòng " + pdt.MaPhong);
                     tongchiphi += pdt.TongTien;
 
                     //ghi lại trạng thái trong hóa đơn

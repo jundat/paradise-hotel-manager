@@ -17,7 +17,7 @@ namespace HotelManager.Data.Entity
             MaBangKe = 0;
             MaPhong = 0;
             TongChiPhi = 0;
-            TinhTrangThanhToan = false;
+            TinhTrangThanhToan = false; // Mặc định là chưa thanh toán (false)
         }
 
         public BangKe(int _maBangKe, int _maPhong, float _tongChiPhi, Boolean _tinhTrangThanhToan)

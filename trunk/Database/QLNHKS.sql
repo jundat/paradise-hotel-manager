@@ -170,8 +170,8 @@ CREATE  TABLE IF NOT EXISTS `QLNHKS`.`BAO_CAO_MAT_DO` (
   `SoGioThue` FLOAT NOT NULL ,
   `TyLe` FLOAT NOT NULL ,
   PRIMARY KEY (`MaBaoCao`) ,
-  INDEX `fk_BAO_CAO_MAT_DO_PHONG1_idx` (`MaPhong` ASC) ,
-  CONSTRAINT `fk_BAO_CAO_MAT_DO_PHONG1`
+  INDEX `fk_BAO_CAO_DOANH_THU_PHONG1_idx` (`MaPhong` ASC) ,
+  CONSTRAINT `fk_BAO_CAO_DOANH_THU_PHONG1`
     FOREIGN KEY (`MaPhong` )
     REFERENCES `QLNHKS`.`PHONG` (`MaPhong` )
     ON DELETE NO ACTION
@@ -184,7 +184,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `QLNHKS`.`PHIEU_DAT_TIEC` (
   `MaPhieuDatTiec` INT NOT NULL AUTO_INCREMENT ,
-  `TenKhach` VARCHAR(45) NOT NULL ,
+  `TenKhach` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL ,
   `MaPhong` INT NOT NULL ,
   `ThoiDiem` DATETIME NOT NULL ,
   `TongTien` FLOAT NOT NULL ,
@@ -320,12 +320,12 @@ INSERT INTO `qlnhks`.`loai_phong` (`MaLoaiPhong`, `TenLoaiPhong`, `DonGia`) VALU
 -- -----------------------------------------------------
 -- Insert sample data for PHONG table
 -- -----------------------------------------------------
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('1', '1', 'P101', '0', 'VIP');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('2', '1', 'P201', '0', 'VIP');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('3', '2', 'P301', '0', 'MEDIUM');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('4', '2', 'P402', '0', 'MEDIUM');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('5', '3', 'P501', '0', 'NORMAL');
-INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('6', '3', 'P601', '0', 'NORMAL');
+INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('1', '1', 'P101', '1', 'VIP');
+INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('2', '1', 'P201', '1', 'VIP');
+INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('3', '2', 'P301', '1', 'MEDIUM');
+INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('4', '2', 'P401', '1', 'MEDIUM');
+INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('5', '3', 'P501', '1', 'NORMAL');
+INSERT INTO `qlnhks`.`phong` (`MaPhong`, `MaLoaiPhong`, `TenPhong`, `TinhTrangHienTai`, `MoTa`) VALUES ('6', '3', 'P601', '1', 'NORMAL');
 
 -- -----------------------------------------------------
 -- Insert sample data for QUY_DINH table

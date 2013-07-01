@@ -14,8 +14,6 @@ namespace HotelManager.Present
 {
     public partial class Phieu_Yeu_Cau_Dich_Vu : Form
     {
-        private bool _tinhTrangPhong; // false nếu trống | true nếu đang được thuê
-
         public Phieu_Yeu_Cau_Dich_Vu()
         {
             InitializeComponent();
@@ -170,7 +168,7 @@ namespace HotelManager.Present
             }
 
             // Nếu phòng không trống (đang đc thuê)
-            if (phong.TinhTrangHienTai == true)
+            if (phong.TinhTrangHienTai == false)
             {
                 lblTinhTrangPhong.ForeColor = Color.Blue;
                 lblTinhTrangPhong.Text = "Tình trạng: Phòng đang được thuê.";
@@ -188,8 +186,7 @@ namespace HotelManager.Present
 
             // Tìm bảng kê có mã phòng là mã của phòng vừa tìm đc và tình trạng thanh toán là false: chưa thanh toán
             BangKe bangKe = BusBangKe.Find(phong.MaPhong, false);
-            tbTongChiPhiDenHienTai.Text = bangKe.TongChiPhi.ToString();
-
+            
             // Nếu không thấy thì tạo một Bảng Kê mới cho phòng
             if (bangKe.MaBangKe == 0)
             {
@@ -198,6 +195,8 @@ namespace HotelManager.Present
                 bangKe.TinhTrangThanhToan = false;
                 BusBangKe.Add(bangKe);
             }
+
+            tbTongChiPhiDenHienTai.Text = bangKe.TongChiPhi.ToString();
 
             // Nạp tất cả các dòng Chi tiết của bảng kê lên dgvDanhSachDichVuDaYeuCau
             NapChiTietBangKe(bangKe);
@@ -229,7 +228,7 @@ namespace HotelManager.Present
                 return;
             }
 
-            // Tìm bảng kê của phòng
+            // Tìm bảng kê của phòng chưa thanh toán (Tình trạng thanh toán = false)
             Phong phong = BusPhong.FindTheoTenPhong(tbTenPhong.Text);
             BangKe bangKe = BusBangKe.Find(phong.MaPhong, false);
 
