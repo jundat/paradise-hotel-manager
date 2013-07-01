@@ -214,8 +214,9 @@ namespace HotelManager.Data
             Phong phong = new Phong();
 
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "SELECT * FROM phong WHERE TenPhong = '" + _tenPhong + "'";
-            
+            cmd.CommandText = "SELECT * FROM phong WHERE TenPhong = ?TenPhong";
+            cmd.Parameters.Add("?TenPhong", _tenPhong);
+
             MySqlDataReader dataReader;
             dataReader = cmd.ExecuteReader();
 
@@ -389,6 +390,24 @@ namespace HotelManager.Data
 
             ObjCmd.Parameters.Add("?MaPhong", MaPhong);
             ObjCmd.Parameters.Add("?TinhTrangHienTai", true); // true là đang trống
+
+            ObjCmd.ExecuteNonQuery();
+
+            //close connection
+            DataProvider.getInstance().CloseConnection();
+        }
+
+        /// <summary>
+        /// Xác nhận là phòng đã được thuê (ko còn trống --> Tình trạng phòng == false)
+        /// </summary>
+        /// <param name="MaPhong"></param>
+        public static void ChoKhachNhanPhong(int MaPhong)
+        {
+            MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
+            ObjCmd.CommandText = "UPDATE phong SET TinhTrangHienTai = ?TinhTrangHienTai WHERE MaPhong = ?MaPhong";
+
+            ObjCmd.Parameters.Add("?MaPhong", MaPhong);
+            ObjCmd.Parameters.Add("?TinhTrangHienTai", false); // false là ko còn trống nữa
 
             ObjCmd.ExecuteNonQuery();
 

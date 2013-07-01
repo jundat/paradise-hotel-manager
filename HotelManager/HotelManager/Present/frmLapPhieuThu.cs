@@ -73,9 +73,8 @@ namespace HotelManager.Present
             DataTable datatable = (DataTable)dataMain.DataSource;
 
             float result = BusPhieuThu.getInformation(cmnd, ref tenkhach, ref datatable);
-            if (result < 0)
+            if (result <= 0)
             {
-                MessageBox.Show("Không tìm thấy!");
                 return false;
             }
 
@@ -89,7 +88,6 @@ namespace HotelManager.Present
             }
             catch (System.Exception ex)
             {
-                MessageBox.Show("Phí thiệt hại điền giá trị sai!");
                 return false;
             }
 
@@ -110,8 +108,6 @@ namespace HotelManager.Present
         
         private void btThanhToan_Click(object sender, EventArgs e)
         {
-            ((DataTable)dataMain.DataSource).Clear();
-
             DialogResult rs = MessageBox.Show("Bạn có chắc chắn rằng khách hàng đã nộp đủ các khoản phí kể trên !", "Vui lòng xác nhận lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (rs == DialogResult.Yes)
             {
@@ -119,6 +115,7 @@ namespace HotelManager.Present
             }
 
             this.btThanhToan.Enabled = false;
+            ((DataTable)dataMain.DataSource).Clear();
         }
 
         /// <summary>

@@ -286,10 +286,11 @@ namespace HotelManager.Data
         {
             DataTable dt = new DataTable();
 
-            string StrSQL = "SELECT * FROM phieu_den WHERE CMND = " + cmnd + " AND TinhTrangThanhToan = " + Convert.ToByte(tinhtrang);
             MySqlCommand ObjCmd = DataProvider.getInstance().getCommand();
-            ObjCmd.CommandText = StrSQL;
-
+            ObjCmd.CommandText = "SELECT * FROM phieu_den WHERE CMND = ?CMND AND TinhTrangThanhToan = ?TinhTrangThanhToan";
+            
+            ObjCmd.Parameters.Add("?CMND", cmnd);
+            ObjCmd.Parameters.Add("?TinhTrangThanhToan", tinhtrang);
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(ObjCmd);
             adapter.Fill(dt);

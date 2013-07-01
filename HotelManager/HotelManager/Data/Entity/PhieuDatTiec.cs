@@ -21,7 +21,7 @@ namespace HotelManager.Data.Entity
             MaPhong = 0;
             ThoiDiem = new DateTime();
             TongTien = 0;
-            TinhTrangThanhToan = false;
+            TinhTrangThanhToan = false; // Mặc định là chưa thanh toán (false)
         }
 
         public PhieuDatTiec(int maphieudattiec, string tenkhach, int maphong, DateTime thoidiem, float tongtien, bool tinhtrang)

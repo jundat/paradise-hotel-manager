@@ -92,6 +92,7 @@
             this.bttimphong.TabIndex = 13;
             this.bttimphong.Text = "Tìm Kiếm";
             this.bttimphong.UseVisualStyleBackColor = true;
+            this.bttimphong.Click += new System.EventHandler(this.bttimphong_Click);
             // 
             // groupBox2
             // 

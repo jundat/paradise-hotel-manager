@@ -282,11 +282,14 @@ namespace HotelManager.Data
         /// </summary>
         /// <param name="_maLoaiPhong"></param>
         /// <returns></returns>
-        public static BangKe Find(int _maPhong, bool _tinhTrangThanhToan)
+        public static BangKe Find(int _maPhong, bool TinhTrangThanhToan)
         {
             BangKe bangKe = new BangKe();
             MySqlCommand cmd = DataProvider.getInstance().getCommand();
-            cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = '" + _maPhong + "' AND TinhTrangThanhToan = " + Convert.ToByte(_tinhTrangThanhToan);
+            cmd.CommandText = "SELECT * FROM bang_ke WHERE MaPhong = ?MaPhong AND TinhTrangThanhToan = ?TinhTrangThanhToan";
+
+            cmd.Parameters.Add("?MaPhong", _maPhong);
+            cmd.Parameters.Add("?TinhTrangThanhToan", TinhTrangThanhToan);
 
             MySqlDataReader dataReader;
             dataReader = cmd.ExecuteReader();
@@ -300,15 +303,11 @@ namespace HotelManager.Data
                     bangKe.TongChiPhi = (float)dataReader["TongChiPhi"];
                     bangKe.TinhTrangThanhToan = Convert.ToBoolean(dataReader["TinhTrangThanhToan"]);
                 }
+   
+            }
 
-                DataProvider.getInstance().CloseConnection();
-                return bangKe;
-            }
-            else
-            {
-                DataProvider.getInstance().CloseConnection();
-                return null;
-            }
+            DataProvider.getInstance().CloseConnection();
+            return bangKe;
         }
 
         /// <summary>

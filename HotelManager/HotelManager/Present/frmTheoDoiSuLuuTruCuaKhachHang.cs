@@ -189,7 +189,7 @@ namespace HotelManager.Present
                 return;
             }
 
-            if (phong.TinhTrangHienTai == false)
+            if (phong.TinhTrangHienTai == true)
             {
                 MessageBox.Show("Chỉ tìm kiếm phòng đang có khách thuê !", "Lỗi tình trạng phòng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
